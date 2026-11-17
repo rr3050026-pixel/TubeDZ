@@ -4,8 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TubeDZ — Lecteur Web YouTube Sans Publicité 🇩🇿</title>
-    <meta name="description" content="Regardez n'importe quelle vidéo YouTube sans publicité directement dans votre navigateur avec TubeDZ. Recherche, lecteur vidéo fluide et téléchargement de l'application Android.">
+    <meta name="description" content="Regardez n'importe quelle vidéo YouTube sans publicité directement dans votre navigateur avec TubeDZ. Recherche, favoris, historique et téléchargement de l'application Android.">
     <link rel="icon" type="image/png" href="logo.png">
+    <link rel="apple-touch-icon" href="logo.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0b0c10">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -65,7 +70,7 @@
             top: 0;
             z-index: 100;
             backdrop-filter: blur(18px);
-            background: rgba(11, 12, 16, 0.92);
+            background: rgba(11, 12, 16, 0.94);
             border-bottom: 1px solid var(--border-glass);
         }
 
@@ -179,11 +184,11 @@
             flex-shrink: 0;
         }
 
-        .lang-btn {
+        .nav-btn-icon {
             background: rgba(255, 255, 255, 0.06);
             border: 1px solid var(--border-glass);
             color: var(--text-main);
-            padding: 8px 14px;
+            padding: 8px 12px;
             border-radius: 999px;
             font-weight: 700;
             font-size: 0.85rem;
@@ -194,7 +199,7 @@
             transition: all 0.2s ease;
         }
 
-        .lang-btn:hover {
+        .nav-btn-icon:hover {
             background: rgba(255, 255, 255, 0.15);
             border-color: rgba(255, 255, 255, 0.3);
         }
@@ -324,6 +329,12 @@
             border-color: rgba(255, 255, 255, 0.3);
         }
 
+        .btn-fav.active {
+            color: #fbbf24;
+            border-color: rgba(251, 191, 36, 0.4);
+            background: rgba(251, 191, 36, 0.15);
+        }
+
         /* Category Chips */
         .categories-nav {
             display: flex;
@@ -425,7 +436,7 @@
             position: absolute;
             bottom: 8px;
             right: 8px;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.85);
             color: #fff;
             padding: 2px 6px;
             border-radius: 6px;
@@ -635,14 +646,22 @@
 
                 <!-- Actions -->
                 <div class="header-actions">
-                    <button class="lang-btn" onclick="toggleLanguage()">
+                    <button class="nav-btn-icon" onclick="showFavorites()" title="Mes Favoris">
+                        <span>⭐</span>
+                        <span id="navFavText">Favoris</span>
+                    </button>
+                    <button class="nav-btn-icon" onclick="showHistory()" title="Historique">
+                        <span>🕒</span>
+                        <span id="navHistText">Historique</span>
+                    </button>
+                    <button class="nav-btn-icon" onclick="toggleLanguage()">
                         <span id="langBtnText">🇩🇿 العربية</span>
                     </button>
                     <a href="https://github.com/rr3050026-pixel/TubeDZ/releases/download/v1.0.0/TubeDZ.apk" class="btn-apk-header" download>
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/>
                         </svg>
-                        <span id="navApkText">Télécharger APK</span>
+                        <span id="navApkText">APK</span>
                     </a>
                 </div>
             </nav>
@@ -667,6 +686,10 @@
                         </div>
                     </div>
                     <div class="player-controls">
+                        <button class="btn-player-action btn-fav" id="btnFav" onclick="toggleCurrentFavorite()">
+                            <span id="favIcon">⭐</span>
+                            <span id="favText">Favori</span>
+                        </button>
                         <button class="btn-player-action" onclick="copyVideoLink()">
                             <span>🔗 Partager</span>
                         </button>
@@ -691,6 +714,7 @@
             <!-- Feed Header -->
             <div class="section-title-row">
                 <h3 id="sectionHeader">📺 Vidéos Populaires</h3>
+                <span id="videoCountBadge" style="color: var(--text-muted); font-size: 0.88rem; font-weight: 600;"></span>
             </div>
 
             <!-- Video Grid -->
@@ -721,7 +745,7 @@
     <footer>
         <div class="container">
             <p><strong>TubeDZ 🇩🇿</strong> — Lecteur Web & Application Alternative à YouTube Sans Publicité</p>
-            <p style="margin-top: 6px; font-size: 0.8rem; color: #64748b;">Hébergé en direct sur GitHub Pages | 100% Gratuit et Indépendant</p>
+            <p style="margin-top: 6px; font-size: 0.8rem; color: #64748b;">Hébergé en direct sur Render & GitHub Pages | 100% Gratuit et Indépendant</p>
         </div>
     </footer>
 
@@ -730,7 +754,7 @@
 
     <!-- Application Script -->
     <script>
-        // Database of real videos with high quality thumbnails
+        // Database of curated videos with high-definition thumbnails
         const videoData = [
             // Algérie
             {
@@ -755,6 +779,14 @@
                 title_ar: "الصحراء الجزائرية: أجمل صحراء في العالم (طاسيلي ناجر)",
                 channel: "National Geo DZ",
                 duration: "32:10",
+                category: "algeria"
+            },
+            {
+                id: "t4L7xZ9v2K0",
+                title_fr: "Oran la Radieuse : Santa Cruz, Front de Mer et Culture Raï",
+                title_ar: "وهران الباهية: سانتا كروز، الواجهة البحرية وتراث الراي",
+                channel: "Algérie Tourisme",
+                duration: "19:15",
                 category: "algeria"
             },
 
@@ -783,6 +815,14 @@
                 duration: "3:40",
                 category: "music"
             },
+            {
+                id: "K6g0x7L5M9w",
+                title_fr: "Idir — A Vava Inouva (Chef-d'œuvre de la Musique Kabyle)",
+                title_ar: "إيدير — أفافا إينوفا (تحفة الأغنية القبائلية العالمية)",
+                channel: "Idir Archives",
+                duration: "5:30",
+                category: "music"
+            },
 
             // Sport
             {
@@ -801,8 +841,16 @@
                 duration: "11:45",
                 category: "sport"
             },
+            {
+                id: "8X2mP9k1T7v",
+                title_fr: "Algérie 2019 : Le Parcours Héroïque vers la 2ème Étoile d'Afrique",
+                title_ar: "ملحمة الخضر في كان 2019: الطريق نحو النجمة الإفريقية الثانية",
+                channel: "Fennec Football",
+                duration: "26:40",
+                category: "sport"
+            },
 
-            // Podcast
+            // Podcast & Débats
             {
                 id: "1H2pL4q9M6g",
                 title_fr: "Podcast DZ : Le Futur de la Jeunesse et l'Entrepreneuriat en Algérie",
@@ -838,7 +886,7 @@
                 category: "quran"
             },
 
-            // Tech
+            // Tech & Savoir
             {
                 id: "9N3xL1q7M2k",
                 title_fr: "Intelligence Artificielle en 2026 : Ce qui Va Tout Changer",
@@ -858,35 +906,67 @@
         ];
 
         let currentLang = 'fr';
-        let currentVideoId = null;
+        let currentVideo = null;
+
+        // Local Storage Helpers
+        function getFavorites() {
+            try {
+                return JSON.parse(localStorage.getItem('tubedz_favs') || '[]');
+            } catch(e) { return []; }
+        }
+
+        function saveFavorites(favs) {
+            localStorage.setItem('tubedz_favs', JSON.stringify(favs));
+        }
+
+        function getHistory() {
+            try {
+                return JSON.parse(localStorage.getItem('tubedz_hist') || '[]');
+            } catch(e) { return []; }
+        }
+
+        function addToHistory(video) {
+            let hist = getHistory().filter(v => v.id !== video.id);
+            hist.unshift(video);
+            if (hist.length > 30) hist.pop();
+            localStorage.setItem('tubedz_hist', JSON.stringify(hist));
+        }
 
         // Render Video Cards
-        function renderVideos(list) {
+        function renderVideos(list, customHeader) {
             const grid = document.getElementById('videoGrid');
+            const header = document.getElementById('sectionHeader');
+            const badge = document.getElementById('videoCountBadge');
             grid.innerHTML = '';
+
+            if (customHeader) {
+                header.textContent = customHeader;
+            }
+
+            badge.textContent = `${list.length} ${currentLang === 'fr' ? 'vidéos' : 'فيديو'}`;
 
             if (list.length === 0) {
                 grid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 3rem; color: var(--text-muted); font-size: 1.1rem;">
-                    ${currentLang === 'fr' ? 'Aucune vidéo trouvée pour cette recherche.' : 'لم يتم العثور على أي فيديو.'}
+                    ${currentLang === 'fr' ? 'Aucune vidéo trouvée dans cette section.' : 'لا توجد فيديوهات في هذا القسم حالياً.'}
                 </div>`;
                 return;
             }
 
             list.forEach(v => {
-                const title = currentLang === 'fr' ? v.title_fr : v.title_ar;
+                const title = currentLang === 'fr' ? (v.title_fr || v.title) : (v.title_ar || v.title);
                 const card = document.createElement('div');
                 card.className = 'video-card';
-                card.onclick = () => playVideo(v.id, title, v.channel);
+                card.onclick = () => playVideo(v);
 
                 card.innerHTML = `
                     <div class="thumbnail-box">
                         <img src="https://i.ytimg.com/vi/${v.id}/hqdefault.jpg" alt="${title}" loading="lazy" onerror="this.src='logo.png'">
-                        <span class="duration-badge">${v.duration}</span>
+                        <span class="duration-badge">${v.duration || 'HD'}</span>
                     </div>
                     <div class="card-content">
                         <h4 class="card-title">${title}</h4>
                         <div class="card-channel">
-                            <span>${v.channel}</span>
+                            <span>${v.channel || 'TubeDZ'}</span>
                             <span class="card-tag">⚡ 0% Pub</span>
                         </div>
                     </div>
@@ -896,17 +976,21 @@
         }
 
         // Play Selected Video
-        function playVideo(id, title, channel) {
-            currentVideoId = id;
+        function playVideo(video) {
+            currentVideo = video;
+            addToHistory(video);
+
             const section = document.getElementById('playerSection');
             const iframe = document.getElementById('videoIframe');
             const titleEl = document.getElementById('videoTitle');
             const channelEl = document.getElementById('videoChannel');
 
-            // Embed with privacy and ad-free parameters
-            iframe.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&modestbranding=1&rel=0&playsinline=1`;
+            const title = currentLang === 'fr' ? (video.title_fr || video.title) : (video.title_ar || video.title);
+            iframe.src = `https://www.youtube-nocookie.com/embed/${video.id}?autoplay=1&modestbranding=1&rel=0&playsinline=1`;
             titleEl.textContent = title || "Vidéo TubeDZ";
-            channelEl.textContent = channel || "YouTube Ad-Free";
+            channelEl.textContent = video.channel || "YouTube Ad-Free";
+
+            updateFavoriteButton();
 
             section.classList.add('active');
             section.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -918,7 +1002,58 @@
             const iframe = document.getElementById('videoIframe');
             iframe.src = '';
             section.classList.remove('active');
-            currentVideoId = null;
+            currentVideo = null;
+        }
+
+        // Favorite Toggle
+        function toggleCurrentFavorite() {
+            if (!currentVideo) return;
+            let favs = getFavorites();
+            const exists = favs.some(v => v.id === currentVideo.id);
+
+            if (exists) {
+                favs = favs.filter(v => v.id !== currentVideo.id);
+                showToast(currentLang === 'fr' ? 'Retiré des favoris' : 'تم الحذف من المفضلة');
+            } else {
+                favs.unshift(currentVideo);
+                showToast(currentLang === 'fr' ? 'Ajouté aux favoris ⭐' : 'تمت الإضافة إلى المفضلة ⭐');
+            }
+
+            saveFavorites(favs);
+            updateFavoriteButton();
+        }
+
+        function updateFavoriteButton() {
+            if (!currentVideo) return;
+            const favs = getFavorites();
+            const isFav = favs.some(v => v.id === currentVideo.id);
+            const btn = document.getElementById('btnFav');
+            const text = document.getElementById('favText');
+            const icon = document.getElementById('favIcon');
+
+            if (isFav) {
+                btn.classList.add('active');
+                icon.textContent = '★';
+                text.textContent = currentLang === 'fr' ? 'Favori' : 'مفضل';
+            } else {
+                btn.classList.remove('active');
+                icon.textContent = '☆';
+                text.textContent = currentLang === 'fr' ? 'Ajouter' : 'إضافة';
+            }
+        }
+
+        // Show Favorites
+        function showFavorites() {
+            document.querySelectorAll('.chip-btn').forEach(b => b.classList.remove('active'));
+            const favs = getFavorites();
+            renderVideos(favs, currentLang === 'fr' ? '⭐ Mes Vidéos Favorites' : '⭐ الفيديوهات المفضلة');
+        }
+
+        // Show History
+        function showHistory() {
+            document.querySelectorAll('.chip-btn').forEach(b => b.classList.remove('active'));
+            const hist = getHistory();
+            renderVideos(hist, currentLang === 'fr' ? '🕒 Historique des Visionnages' : '🕒 سجل المشاهدات');
         }
 
         // Category Filter
@@ -927,10 +1062,10 @@
             btn.classList.add('active');
 
             if (cat === 'all') {
-                renderVideos(videoData);
+                renderVideos(videoData, currentLang === 'fr' ? '📺 Vidéos Populaires' : '📺 فيديوهات رائجة بدون إعلانات');
             } else {
                 const filtered = videoData.filter(v => v.category === cat);
-                renderVideos(filtered);
+                renderVideos(filtered, btn.textContent);
             }
         }
 
@@ -945,7 +1080,14 @@
             // Check if user pasted a YouTube URL or Video ID
             const extractedId = extractYouTubeId(query);
             if (extractedId) {
-                playVideo(extractedId, currentLang === 'fr' ? "Vidéo YouTube Chargée" : "تم تحميل فيديو يوتيوب", "TubeDZ Player");
+                const directVideo = {
+                    id: extractedId,
+                    title_fr: "Vidéo YouTube Chargée",
+                    title_ar: "فيديو يوتيوب مشغل",
+                    channel: "TubeDZ Direct Stream",
+                    duration: "HD"
+                };
+                playVideo(directVideo);
                 return;
             }
 
@@ -957,7 +1099,7 @@
                 v.channel.toLowerCase().includes(q)
             );
 
-            renderVideos(matched);
+            renderVideos(matched, `${currentLang === 'fr' ? 'Résultats pour :' : 'نتائج البحث عن :'} "${query}"`);
         }
 
         function handleSearchKey(e) {
@@ -971,7 +1113,7 @@
             if (/^[a-zA-Z0-9_-]{11}$/.test(url)) {
                 return url;
             }
-            const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})/);
+            const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=|shorts\/))([\w-]{11})/);
             return match ? match[1] : null;
         }
 
@@ -980,13 +1122,13 @@
             document.getElementById('searchInput').value = '';
             document.querySelectorAll('.chip-btn').forEach(b => b.classList.remove('active'));
             document.getElementById('chipAll').classList.add('active');
-            renderVideos(videoData);
+            renderVideos(videoData, currentLang === 'fr' ? '📺 Vidéos Populaires' : '📺 فيديوهات رائجة بدون إعلانات');
         }
 
         // Copy video link
         function copyVideoLink() {
-            if (!currentVideoId) return;
-            const url = `https://youtu.be/${currentVideoId}`;
+            if (!currentVideo) return;
+            const url = `https://youtu.be/${currentVideo.id}`;
             navigator.clipboard.writeText(url).then(() => {
                 showToast(currentLang === 'fr' ? 'Lien de la vidéo copié !' : 'تم نسخ رابط الفيديو!');
             });
@@ -1016,8 +1158,8 @@
                 ? 'Rechercher ou coller un lien YouTube...' 
                 : 'ابحث أو الصق رابط يوتيوب هنا...';
 
-            document.getElementById('navApkText').textContent = isFr ? 'Télécharger APK' : 'تحميل APK';
-            document.getElementById('sectionHeader').textContent = isFr ? '📺 Vidéos Populaires' : '📺 فيديوهات رائجة بدون إعلانات';
+            document.getElementById('navFavText').textContent = isFr ? 'Favoris' : 'المفضلة';
+            document.getElementById('navHistText').textContent = isFr ? 'Historique' : 'السجل';
 
             document.getElementById('chipAll').textContent = isFr ? '🔥 Tous' : '🔥 الكل';
             document.getElementById('chipDz').textContent = isFr ? '🇩🇿 Algérie' : '🇩🇿 الجزائر';
@@ -1034,11 +1176,19 @@
                 ? 'Téléchargez l\'application officielle TubeDZ pour profiter de la lecture en arrière-plan avec écran éteint et de la synchronisation avec votre compte Google.' 
                 : 'حمّل تطبيق TubeDZ الرسمي للاستمتاع بالتشغيل والشاشة مغلقة، ونافذة PiP وتكامل تسجيل الدخول لحساب جوجل.';
 
-            renderVideos(videoData);
+            renderVideos(videoData, isFr ? '📺 Vidéos Populaires' : '📺 فيديوهات رائجة بدون إعلانات');
+            if (currentVideo) updateFavoriteButton();
+        }
+
+        // Register Service Worker for PWA
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js').catch(() => {});
+            });
         }
 
         // Initialize on page load
-        renderVideos(videoData);
+        renderVideos(videoData, '📺 Vidéos Populaires');
     </script>
 </body>
 </html>
