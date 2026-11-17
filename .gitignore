@@ -1,0 +1,25 @@
+# PocketDev and environment files
+.pocketdev/
+attachments/
+apk_decoded/
+
+# Build and bytecode artifacts
+classes*.dex
+resources.arsc
+stamp-cert-sha256
+car-app-api.level
+META-INF/
+okhttp3/
+com/
+lib/
+res/
+assets/
+
+# Large binaries (managed in GitHub Releases)
+*.apk
+*.apk.zip
+*.idsig
+
+# Python cache
+__pycache__/
+*.pyc
