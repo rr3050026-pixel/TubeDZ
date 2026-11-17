@@ -630,36 +630,18 @@
             box-shadow: 0 4px 15px rgba(168, 85, 247, 0.35);
         }
 
-        /* Direct Video Download Button */
-        .btn-dl-video {
-            background: linear-gradient(135deg, rgba(230, 33, 41, 0.22), rgba(230, 33, 41, 0.08));
-            border-color: rgba(230, 33, 41, 0.5);
-            color: #fca5a5;
-            text-decoration: none;
-        }
-
-        .btn-dl-video:hover {
-            background: linear-gradient(135deg, rgba(230, 33, 41, 0.38), rgba(230, 33, 41, 0.18));
-            border-color: #ef4444;
-            color: #fff;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(230, 33, 41, 0.35);
-        }
-
-        /* Direct Audio Download Button */
-        .btn-dl-audio {
-            background: linear-gradient(135deg, rgba(0, 133, 63, 0.22), rgba(0, 133, 63, 0.08));
+        /* Download Button in Player */
+        .btn-download {
+            background: linear-gradient(135deg, rgba(0, 133, 63, 0.25), rgba(0, 133, 63, 0.1));
             border-color: rgba(0, 133, 63, 0.5);
-            color: #86efac;
-            text-decoration: none;
+            color: #4ade80;
         }
 
-        .btn-dl-audio:hover {
-            background: linear-gradient(135deg, rgba(0, 133, 63, 0.38), rgba(0, 133, 63, 0.18));
+        .btn-download:hover {
+            background: rgba(0, 133, 63, 0.35);
             border-color: #22c55e;
             color: #fff;
             transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0, 133, 63, 0.35);
         }
 
         .card-dl-btn {
@@ -1034,24 +1016,14 @@
                         </div>
                     </div>
                     <div class="player-controls">
-                        <!-- Direct Video Download Button (Separate) -->
-                        <a href="#" id="btnDlVideo" target="_blank" rel="noopener noreferrer" class="btn-player-action btn-dl-video">
-                            <span>🎬</span>
-                            <span id="txtDlVideo">Télécharger Vidéo (MP4)</span>
-                        </a>
-
-                        <!-- Direct Audio Download Button (Separate) -->
-                        <a href="#" id="btnDlAudio" target="_blank" rel="noopener noreferrer" class="btn-player-action btn-dl-audio">
-                            <span>🎵</span>
-                            <span id="txtDlAudio">Télécharger Audio (MP3)</span>
-                        </a>
-
-                        <!-- Gemini AI Button (Separate) -->
                         <button class="btn-player-action btn-gemini" id="btnGemini" onclick="openGeminiModal()">
                             <span>✨</span>
                             <span id="geminiBtnText">Gemini AI</span>
                         </button>
-
+                        <button class="btn-player-action btn-download" id="btnDlAction" onclick="openDownloadModal()">
+                            <span>📥</span>
+                            <span id="playerDlText">Télécharger (Vidéo / MP3)</span>
+                        </button>
                         <button class="btn-player-action btn-fav" id="btnFav" onclick="toggleCurrentFavorite()">
                             <span id="favIcon">⭐</span>
                             <span id="favText">Favori</span>
@@ -1130,34 +1102,56 @@
                 </div>
             </div>
 
-            <!-- APK In-App Download Feature Guide -->
-            <div class="help-banner" style="border-color: rgba(59, 130, 246, 0.3); background: rgba(15, 23, 42, 0.65);">
-                <div class="help-title-box">
-                    <span style="font-size: 1.5rem;">📥</span>
-                    <h4 id="apkDlTitle">Comment télécharger des vidéos & MP3 directement dans l'application TubeDZ APK :</h4>
-                </div>
-                <div class="help-steps">
-                    <div class="help-step-item">
-                        <div class="step-num" style="background: linear-gradient(135deg, #3b82f6, #1d4ed8);">1</div>
-                        <div class="step-text" id="apkDlStep1">Installez l'application compagnon <strong><a href="https://github.com/JunkFood02/Seal/releases" target="_blank" style="color: #60a5fa; text-decoration: underline;">Seal APK</a></strong> ou <strong>NewPipe</strong> sur votre téléphone.</div>
-                    </div>
-                    <div class="help-step-item">
-                        <div class="step-num" style="background: linear-gradient(135deg, #3b82f6, #1d4ed8);">2</div>
-                        <div class="step-text" id="apkDlStep2">Dans TubeDZ, allez dans <strong>Paramètres</strong> &gt; <strong>ReVanced Extended</strong> &gt; <strong>Boutons du lecteur (Overlay)</strong>.</div>
-                    </div>
-                    <div class="help-step-item">
-                        <div class="step-num" style="background: linear-gradient(135deg, #3b82f6, #1d4ed8);">3</div>
-                        <div class="step-text" id="apkDlStep3">Activez <strong>Bouton de téléchargement externe (Hook download)</strong> et sélectionnez <strong>Seal</strong>.</div>
-                    </div>
-                    <div class="help-step-item">
-                        <div class="step-num" style="background: linear-gradient(135deg, #3b82f6, #1d4ed8);">4</div>
-                        <div class="step-text" id="apkDlStep4">Touchez l'icône <strong>Télécharger</strong> sous n'importe quelle vidéo pour choisir MP4 ou MP3 en 1 clic !</div>
-                    </div>
-                </div>
-            </div>
+
 
         </div>
     </main>
+
+    <!-- Download Modal Overlay -->
+    <div class="modal-overlay" id="downloadModal" onclick="closeDownloadModal(event)">
+        <div class="download-modal-box">
+            <div class="download-modal-header">
+                <div class="download-modal-title">
+                    <span>📥</span>
+                    <h3 id="dlModalHeading">Options de téléchargement</h3>
+                </div>
+                <button class="modal-close-btn" onclick="closeDownloadModalDirect()">✕</button>
+            </div>
+            
+            <div class="video-preview-mini">
+                <img id="dlPreviewImg" src="logo.png" alt="Miniature">
+                <div class="video-preview-title" id="dlPreviewTitle">Titre de la vidéo</div>
+            </div>
+
+            <p class="download-modal-sub" id="dlModalSub">Choisissez le format souhaité pour cette vidéo :</p>
+            
+            <div class="download-options-grid">
+                <!-- Video MP4 Option -->
+                <a href="#" id="dlOptionVideo" target="_blank" rel="noopener noreferrer" class="dl-card dl-video">
+                    <div class="dl-card-icon">🎬</div>
+                    <div class="dl-card-content">
+                        <div class="dl-card-title" id="dlVideoTitle">Vidéo MP4 (HD)</div>
+                        <div class="dl-card-desc" id="dlVideoDesc">Format vidéo complet haute définition</div>
+                    </div>
+                    <div class="dl-card-badge">MP4</div>
+                </a>
+
+                <!-- Audio MP3 Option -->
+                <a href="#" id="dlOptionAudio" target="_blank" rel="noopener noreferrer" class="dl-card dl-audio">
+                    <div class="dl-card-icon">🎵</div>
+                    <div class="dl-card-content">
+                        <div class="dl-card-title" id="dlAudioTitle">Audio MP3</div>
+                        <div class="dl-card-desc" id="dlAudioDesc">Fichier son seul (Musique, Coran, Podcast)</div>
+                    </div>
+                    <div class="dl-card-badge">MP3</div>
+                </a>
+            </div>
+
+            <div class="download-modal-footer">
+                <span id="dlModalHint">💡 Astuce : Le téléchargement s'ouvre dans un nouvel onglet sécurisé.</span>
+            </div>
+        </div>
+    </div>
 
     <!-- Gemini AI Assistant Modal -->
     <div class="modal-overlay" id="geminiModal" onclick="closeGeminiModal(event)">
@@ -1443,14 +1437,11 @@
                         <h4 class="card-title">${title}</h4>
                         <div class="card-channel">
                             <span>${v.channel || 'TubeDZ'}</span>
-                            <div style="display: flex; align-items: center; gap: 6px;">
+                            <div style="display: flex; align-items: center; gap: 8px;">
                                 <span class="card-tag">⚡ 0% Pub</span>
-                                <a href="https://ssyoutube.com/watch?v=${v.id}" target="_blank" rel="noopener noreferrer" class="card-dl-btn" title="${currentLang === 'fr' ? 'Télécharger Vidéo (MP4)' : 'تحميل فيديو (MP4)'}" onclick="event.stopPropagation()">
-                                    🎬 MP4
-                                </a>
-                                <a href="https://en.onlymp3.to/?url=https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener noreferrer" class="card-dl-btn" title="${currentLang === 'fr' ? 'Télécharger Audio (MP3)' : 'تحميل صوت (MP3)'}" onclick="event.stopPropagation()">
-                                    🎵 MP3
-                                </a>
+                                <button class="card-dl-btn" title="${currentLang === 'fr' ? 'Télécharger Vidéo / MP3' : 'تحميل فيديو / MP3'}" onclick="event.stopPropagation(); triggerDownloadForVideo('${v.id}')">
+                                    📥
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -1473,10 +1464,6 @@
             iframe.src = `https://www.youtube-nocookie.com/embed/${video.id}?autoplay=1&modestbranding=1&rel=0&playsinline=1`;
             titleEl.textContent = title || "Vidéo TubeDZ";
             channelEl.textContent = video.channel || "YouTube Ad-Free";
-
-            // Update separate direct download links
-            document.getElementById('btnDlVideo').href = `https://ssyoutube.com/watch?v=${video.id}`;
-            document.getElementById('btnDlAudio').href = `https://en.onlymp3.to/?url=https://www.youtube.com/watch?v=${video.id}`;
 
             updateFavoriteButton();
 
@@ -1757,6 +1744,48 @@ User inquiry: ${userPrompt}`;
             }
         }
 
+        // Download Modal Functions (Video MP4 & Audio MP3)
+        let currentModalVideo = null;
+
+        function openDownloadModal(video) {
+            const target = video || currentVideo;
+            if (!target || !target.id) {
+                showToast(currentLang === 'fr' ? 'Veuillez sélectionner ou lancer une vidéo d\'abord.' : 'يرجى اختيار أو تشغيل فيديو أولاً.');
+                return;
+            }
+            currentModalVideo = target;
+
+            const title = currentLang === 'fr' ? (target.title_fr || target.title) : (target.title_ar || target.title);
+            document.getElementById('dlPreviewImg').src = `https://i.ytimg.com/vi/${target.id}/hqdefault.jpg`;
+            document.getElementById('dlPreviewTitle').textContent = title || 'TubeDZ Video';
+
+            // High quality Video download (MP4)
+            document.getElementById('dlOptionVideo').href = `https://ssyoutube.com/watch?v=${target.id}`;
+
+            // High quality Audio download (MP3)
+            document.getElementById('dlOptionAudio').href = `https://en.onlymp3.to/?url=https://www.youtube.com/watch?v=${target.id}`;
+
+            document.getElementById('downloadModal').classList.add('active');
+        }
+
+        function triggerDownloadForVideo(videoId) {
+            let found = videoData.find(v => v.id === videoId);
+            if (!found) {
+                found = { id: videoId, title: 'TubeDZ Video' };
+            }
+            openDownloadModal(found);
+        }
+
+        function closeDownloadModal(e) {
+            if (e.target.id === 'downloadModal') {
+                closeDownloadModalDirect();
+            }
+        }
+
+        function closeDownloadModalDirect() {
+            document.getElementById('downloadModal').classList.remove('active');
+        }
+
         // Language Switcher
         function toggleLanguage() {
             currentLang = currentLang === 'fr' ? 'ar' : 'fr';
@@ -1809,26 +1838,31 @@ User inquiry: ${userPrompt}`;
                 ? "Activez <strong>Simuler la version (Spoof App Version)</strong> puis relancez l'app."
                 : "فعّل خيار <strong>محاكاة إصدار التطبيق (Spoof App Version)</strong> ثم أعد تشغيل التطبيق.";
 
-            // Separate Direct Download Buttons
-            document.getElementById('txtDlVideo').textContent = isFr ? 'Télécharger Vidéo (MP4)' : 'تحميل فيديو (MP4)';
-            document.getElementById('txtDlAudio').textContent = isFr ? 'Télécharger Audio (MP3)' : 'تحميل صوت (MP3)';
-
-            // APK In-App Download Feature Guide
-            document.getElementById('apkDlTitle').textContent = isFr
-                ? "Comment télécharger des vidéos & MP3 directement dans l'application TubeDZ APK :"
-                : "📥 كيفية تفعيل ميزة تنزيل الفيديو و MP3 داخل تطبيق TubeDZ للأندرويد:";
-            document.getElementById('apkDlStep1').innerHTML = isFr
-                ? "Installez l'application compagnon <strong><a href=\"https://github.com/JunkFood02/Seal/releases\" target=\"_blank\" style=\"color: #60a5fa; text-decoration: underline;\">Seal APK</a></strong> ou <strong>NewPipe</strong> sur votre téléphone."
-                : "ثبّت تطبيق التنزيل المساعد <strong><a href=\"https://github.com/JunkFood02/Seal/releases\" target=\"_blank\" style=\"color: #60a5fa; text-decoration: underline;\">Seal APK</a></strong> أو <strong>NewPipe</strong> على هاتفك.";
-            document.getElementById('apkDlStep2').innerHTML = isFr
-                ? "Dans TubeDZ, allez dans <strong>Paramètres</strong> &gt; <strong>ReVanced Extended</strong> &gt; <strong>Boutons du lecteur (Overlay)</strong>."
-                : "في TubeDZ، افتح <strong>الإعدادات</strong> &gt; <strong>ReVanced Extended</strong> &gt; <strong>أزرار المشغل (Overlay)</strong>.";
-            document.getElementById('apkDlStep3').innerHTML = isFr
-                ? "Activez <strong>Bouton de téléchargement externe (Hook download)</strong> et sélectionnez <strong>Seal</strong>."
-                : "فعّل خيار <strong>زر التنزيل الخارجي (Hook download button)</strong> واختر <strong>Seal</strong>.";
-            document.getElementById('apkDlStep4').innerHTML = isFr
-                ? "Touchez l'icône <strong>Télécharger</strong> sous n'importe quelle vidéo pour choisir MP4 ou MP3 en 1 clic !"
-                : "اضغط على أيقونة <strong>تنزيل</strong> تحت أي فيديو لاختيار MP4 أو MP3 مباشرة إلى هاتفك!";
+            // Player Download Button & Modal Translations
+            document.getElementById('playerDlText').textContent = isFr 
+                ? 'Télécharger (Vidéo / MP3)' 
+                : 'تحميل (فيديو / MP3)';
+            document.getElementById('dlModalHeading').textContent = isFr 
+                ? 'Options de téléchargement' 
+                : 'خيارات التحميل';
+            document.getElementById('dlModalSub').textContent = isFr 
+                ? 'Choisissez le format souhaité pour cette vidéo :' 
+                : 'اختر الصيغة المطلوبة لهذا المقطع:';
+            document.getElementById('dlVideoTitle').textContent = isFr 
+                ? 'Vidéo MP4 (HD)' 
+                : 'فيديو MP4 (عالي الدقة)';
+            document.getElementById('dlVideoDesc').textContent = isFr 
+                ? 'Format vidéo complet haute définition (Image + Son)' 
+                : 'صيغة فيديو كاملة بالصوت والصورة بدقة عالية';
+            document.getElementById('dlAudioTitle').textContent = isFr 
+                ? 'Audio MP3' 
+                : 'ملف صوتي MP3';
+            document.getElementById('dlAudioDesc').textContent = isFr 
+                ? 'Fichier son seul (Musique, Coran, Podcast)' 
+                : 'استخراج الصوت فقط بدون صورة (أناشيد، قرآن، بودكاست)';
+            document.getElementById('dlModalHint').textContent = isFr 
+                ? '💡 Astuce : Le téléchargement s\'ouvre dans un nouvel onglet sécurisé.' 
+                : '💡 تنبيه: سيتم فتح خدمة التحميل المباشر في نافذة خارجية آمنة.';
 
             // Gemini AI Translations
             document.getElementById('geminiBtnText').textContent = isFr ? 'Gemini AI' : 'مساعد Gemini';
