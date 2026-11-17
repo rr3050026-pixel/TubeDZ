@@ -550,6 +550,71 @@
             border-color: #22c55e;
         }
 
+        /* Help / Troubleshooting Card */
+        .help-banner {
+            margin-top: 1.5rem;
+            margin-bottom: 2.5rem;
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 1.8rem 2rem;
+            backdrop-filter: blur(16px);
+        }
+
+        .help-title-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 1.2rem;
+        }
+
+        .help-title-box h4 {
+            font-size: 1.18rem;
+            font-weight: 750;
+            color: #f8fafc;
+        }
+
+        .help-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 14px;
+        }
+
+        .help-step-item {
+            background: rgba(15, 23, 42, 0.75);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 14px;
+            padding: 16px;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .step-num {
+            background: linear-gradient(135deg, #e62129, #00853f);
+            color: #fff;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .step-text {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+            line-height: 1.5;
+        }
+
+        .step-text strong {
+            color: #fff;
+        }
+
         /* Footer */
         footer {
             border-top: 1px solid var(--border-glass);
@@ -735,6 +800,32 @@
                     <a href="https://github.com/rr3050026-pixel/TubeDZ/releases/download/v1.1.0/microg.apk" class="btn-microg-sub" download>
                         <span>Télécharger MicroG (101 Mo)</span>
                     </a>
+                </div>
+            </div>
+
+            <!-- Help / Troubleshooting Banner for APK -->
+            <div class="help-banner">
+                <div class="help-title-box">
+                    <span style="font-size: 1.5rem;">💡</span>
+                    <h4 id="helpTitle">Message « Mettre à jour l'application » sur TubeDZ Android ? Solution rapide :</h4>
+                </div>
+                <div class="help-steps">
+                    <div class="help-step-item">
+                        <div class="step-num">1</div>
+                        <div class="step-text" id="stepText1">Ouvrez TubeDZ puis touchez l'icône de profil ou <strong>Paramètres (⚙️)</strong>.</div>
+                    </div>
+                    <div class="help-step-item">
+                        <div class="step-num">2</div>
+                        <div class="step-text" id="stepText2">Allez dans <strong>ReVanced Extended</strong> &gt; <strong>Divers (Miscellaneous)</strong>.</div>
+                    </div>
+                    <div class="help-step-item">
+                        <div class="step-num">3</div>
+                        <div class="step-text" id="stepText3">Activez <strong>Simuler le client (Spoof Client)</strong> (ex: iOS ou Android VR).</div>
+                    </div>
+                    <div class="help-step-item">
+                        <div class="step-num">4</div>
+                        <div class="step-text" id="stepText4">Activez <strong>Simuler la version (Spoof App Version)</strong> puis relancez l'app.</div>
+                    </div>
                 </div>
             </div>
 
@@ -1175,6 +1266,23 @@
             document.getElementById('bannerDesc').textContent = isFr 
                 ? 'Téléchargez l\'application officielle TubeDZ pour profiter de la lecture en arrière-plan avec écran éteint et de la synchronisation avec votre compte Google.' 
                 : 'حمّل تطبيق TubeDZ الرسمي للاستمتاع بالتشغيل والشاشة مغلقة، ونافذة PiP وتكامل تسجيل الدخول لحساب جوجل.';
+
+            // Help Troubleshooting Banner
+            document.getElementById('helpTitle').textContent = isFr
+                ? "Message « Mettre à jour l'application » sur TubeDZ Android ? Solution rapide :"
+                : "💡 تظهر لك رسالة «حدث التطبيق» أو «المحتوى غير متوفر» في هاتف الأندرويد؟ الحل السريع:";
+            document.getElementById('stepText1').innerHTML = isFr
+                ? "Ouvrez TubeDZ puis touchez l'icône de profil ou <strong>Paramètres (⚙️)</strong>."
+                : "افتح تطبيق TubeDZ واضغط على صورة حسابك أو <strong>الإعدادات (⚙️)</strong>.";
+            document.getElementById('stepText2').innerHTML = isFr
+                ? "Allez dans <strong>ReVanced Extended</strong> &gt; <strong>Divers (Miscellaneous)</strong>."
+                : "انتقل إلى قسم <strong>ReVanced Extended</strong> ثم <strong>متفرقات (Miscellaneous)</strong>.";
+            document.getElementById('stepText3').innerHTML = isFr
+                ? "Activez <strong>Simuler le client (Spoof Client)</strong> (ex: iOS ou Android VR)."
+                : "فعّل خيار <strong>محاكاة العميل (Spoof Client)</strong> (واختر iOS أو Android VR).";
+            document.getElementById('stepText4').innerHTML = isFr
+                ? "Activez <strong>Simuler la version (Spoof App Version)</strong> puis relancez l'app."
+                : "فعّل خيار <strong>محاكاة إصدار التطبيق (Spoof App Version)</strong> ثم أعد تشغيل التطبيق.";
 
             renderVideos(videoData, isFr ? '📺 Vidéos Populaires' : '📺 فيديوهات رائجة بدون إعلانات');
             if (currentVideo) updateFavoriteButton();
