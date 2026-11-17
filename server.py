@@ -12,6 +12,7 @@ class Handler(SimpleHTTPRequestHandler):
 
 def run_port(port):
     try:
+        HTTPServer.allow_reuse_address = True
         server = HTTPServer(("0.0.0.0", port), Handler)
         print(f"TubeDZ server active on port {port}")
         sys.stdout.flush()

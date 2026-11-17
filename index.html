@@ -671,36 +671,44 @@
             transform: translateY(-2px);
         }
 
-        /* YouTube Music (YT Music) Mode Styles */
+        /* YouTube Music (YT Music) Deluxe Mode Styles */
         .ytm-mode-switch {
             display: inline-flex;
             align-items: center;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.14);
+            background: rgba(18, 20, 29, 0.75);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
             border-radius: 999px;
-            padding: 3px;
+            padding: 4px;
             gap: 4px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
         }
 
         .ytm-mode-btn {
             background: transparent;
             border: none;
             color: #94a3b8;
-            padding: 6px 14px;
+            padding: 7px 18px;
             border-radius: 999px;
-            font-size: 0.85rem;
+            font-size: 0.88rem;
             font-weight: 700;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
         }
 
         .ytm-mode-btn.active {
-            background: linear-gradient(135deg, #e62129, #b91c1c);
+            background: linear-gradient(135deg, #e62129 0%, #b91c1c 100%);
             color: #fff;
-            box-shadow: 0 2px 10px rgba(230, 33, 41, 0.4);
+            box-shadow: 0 3px 14px rgba(230, 33, 41, 0.45);
+            transform: scale(1.02);
+        }
+
+        .ytm-mode-btn:not(.active):hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.08);
         }
 
         .btn-ytm {
@@ -724,22 +732,22 @@
             box-shadow: 0 0 16px rgba(230, 33, 41, 0.5) !important;
         }
 
-        /* YT Music Container inside player */
+        /* Deluxe YT Music Studio Container */
         .ytm-audio-container {
             display: none;
             width: 100%;
-            min-height: 380px;
-            background: radial-gradient(circle at center, #260d13 0%, #101118 75%, #050608 100%);
-            border-radius: 20px;
-            padding: 2.5rem 1.5rem;
+            min-height: 480px;
+            background: linear-gradient(180deg, #18090d 0%, #0c0d13 50%, #06070a 100%);
+            border-radius: 24px;
+            padding: 3rem 2rem 2.5rem;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
             position: relative;
             overflow: hidden;
-            box-shadow: inset 0 0 60px rgba(0,0,0,0.8);
             border: 1px solid rgba(230, 33, 41, 0.25);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.1);
         }
 
         .player-wrapper.ytm-active {
@@ -754,7 +762,7 @@
             position: absolute;
             width: 1px;
             height: 1px;
-            opacity: 0.01;
+            opacity: 0.001;
             pointer-events: none;
             left: -9999px;
         }
@@ -763,30 +771,119 @@
             display: flex;
         }
 
-        /* Vinyl Record Album Art */
-        .vinyl-disc-box {
-            position: relative;
-            width: 210px;
-            height: 210px;
-            margin: 0 auto 1.25rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        /* Ambient Pulsing Aura Behind Album Art */
+        .ytm-ambient-backdrop {
+            position: absolute;
+            top: 25%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 320px;
+            height: 320px;
+            background: radial-gradient(circle, rgba(230, 33, 41, 0.35) 0%, rgba(230, 33, 41, 0.1) 50%, transparent 75%);
+            filter: blur(50px);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1;
+            animation: pulseAura 4s ease-in-out infinite alternate;
         }
 
+        @keyframes pulseAura {
+            0% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.6; }
+            100% { transform: translate(-50%, -50%) scale(1.15); opacity: 0.95; }
+        }
+
+        /* Showcase: Sleeve + Vinyl */
+        .ytm-art-showcase {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.75rem;
+            perspective: 1000px;
+        }
+
+        .album-sleeve-card {
+            width: 190px;
+            height: 190px;
+            border-radius: 18px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.9), 0 0 30px rgba(230, 33, 41, 0.25);
+            border: 2px solid rgba(255, 255, 255, 0.14);
+            transform: rotateY(-8deg) rotateZ(-2deg);
+            transition: transform 0.4s ease;
+            z-index: 3;
+            background: #111;
+        }
+
+        .album-sleeve-card:hover {
+            transform: rotateY(0deg) rotateZ(0deg) scale(1.03);
+        }
+
+        .sleeve-cover-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .sleeve-shine {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 45%, rgba(0, 0, 0, 0.3) 100%);
+            pointer-events: none;
+        }
+
+        .sleeve-badge {
+            position: absolute;
+            bottom: 8px;
+            left: 8px;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            color: #fca5a5;
+            font-size: 0.65rem;
+            font-weight: 800;
+            padding: 3px 8px;
+            border-radius: 6px;
+            letter-spacing: 0.5px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        html[dir="rtl"] .sleeve-badge {
+            left: auto;
+            right: 8px;
+        }
+
+        /* Vinyl Disc sliding out */
         .vinyl-disc {
-            width: 210px;
-            height: 210px;
+            width: 185px;
+            height: 185px;
             border-radius: 50%;
-            background: radial-gradient(circle, #2a2a2a 18%, #141414 45%, #0a0a0a 70%, #1c1c1c 85%, #050505 100%);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.9), 0 0 35px rgba(230, 33, 41, 0.35);
-            border: 3px solid rgba(255, 255, 255, 0.12);
+            background: radial-gradient(circle, #222 15%, #111 40%, #050505 70%, #1a1a1a 85%, #080808 100%);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.95), 0 0 25px rgba(230, 33, 41, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
+            margin-left: -70px;
+            z-index: 2;
             animation: rotateVinyl 12s linear infinite;
-            transition: transform 0.3s ease;
+            transition: margin 0.4s ease, transform 0.3s ease;
+        }
+
+        html[dir="rtl"] .vinyl-disc {
+            margin-left: 0;
+            margin-right: -70px;
+        }
+
+        .album-sleeve-card:hover + .vinyl-disc {
+            margin-left: -40px;
+        }
+
+        html[dir="rtl"] .album-sleeve-card:hover + .vinyl-disc {
+            margin-right: -40px;
         }
 
         .vinyl-disc.paused {
@@ -800,7 +897,7 @@
 
         .vinyl-grooves {
             position: absolute;
-            inset: 12px;
+            inset: 10px;
             border-radius: 50%;
             border: 1px dashed rgba(255, 255, 255, 0.08);
             pointer-events: none;
@@ -809,82 +906,215 @@
         .vinyl-grooves::after {
             content: '';
             position: absolute;
-            inset: 22px;
+            inset: 18px;
             border-radius: 50%;
             border: 1px dashed rgba(255, 255, 255, 0.06);
         }
 
         .vinyl-cover-img {
-            width: 100px;
-            height: 100px;
+            width: 82px;
+            height: 82px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid #e62129;
-            box-shadow: 0 0 15px rgba(230, 33, 41, 0.5);
+            border: 2.5px solid #e62129;
+            box-shadow: 0 0 12px rgba(230, 33, 41, 0.6);
             position: relative;
-            z-index: 2;
+            z-index: 3;
         }
 
         .vinyl-hole {
             position: absolute;
-            width: 20px;
-            height: 20px;
+            width: 18px;
+            height: 18px;
             border-radius: 50%;
             background: #0b0c10;
-            border: 2px solid rgba(255, 255, 255, 0.6);
-            z-index: 3;
+            border: 2px solid rgba(255, 255, 255, 0.7);
+            z-index: 4;
         }
 
-        /* Sound Wave / Equalizer Bars */
-        .ytm-wave-box {
+        /* Track Meta */
+        .ytm-track-meta {
+            position: relative;
+            z-index: 2;
+            max-width: 650px;
+            width: 100%;
+            margin-bottom: 1.25rem;
+        }
+
+        .ytm-hi-fi-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(230, 33, 41, 0.12);
+            border: 1px solid rgba(230, 33, 41, 0.35);
+            padding: 5px 14px;
+            border-radius: 999px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: #fca5a5;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 10px rgba(230, 33, 41, 0.2);
+        }
+
+        .pulse-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #22c55e;
+            box-shadow: 0 0 8px #22c55e;
+            animation: pulseGreen 1.8s infinite;
+        }
+
+        @keyframes pulseGreen {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.8); }
+        }
+
+        .ytm-track-title {
+            color: #fff;
+            font-size: 1.45rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+            line-height: 1.35;
+            background: linear-gradient(135deg, #ffffff 30%, #fca5a5 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .ytm-track-artist {
+            color: #94a3b8;
+            font-size: 0.98rem;
+            font-weight: 600;
+        }
+
+        /* 24-Bar High-Fidelity Waveform Visualizer */
+        .ytm-waveform-container {
+            position: relative;
+            z-index: 2;
             display: flex;
             align-items: flex-end;
             justify-content: center;
             gap: 4px;
-            height: 30px;
-            margin-bottom: 1rem;
+            height: 38px;
+            margin-bottom: 1.5rem;
+            filter: drop-shadow(0 0 6px rgba(230, 33, 41, 0.4));
         }
 
-        .wave-bar {
-            width: 4px;
-            background: linear-gradient(to top, #e62129, #f87171);
+        .ytm-waveform-container .wave-bar {
+            width: 3.5px;
             border-radius: 999px;
-            animation: waveBounce 1.2s ease-in-out infinite alternate;
+            background: linear-gradient(to top, #e62129, #f87171);
+            animation: waveDance 1.3s ease-in-out infinite alternate;
         }
 
-        .wave-bar:nth-child(1) { height: 8px; animation-delay: 0.1s; }
-        .wave-bar:nth-child(2) { height: 16px; animation-delay: 0.35s; }
-        .wave-bar:nth-child(3) { height: 26px; animation-delay: 0.2s; }
-        .wave-bar:nth-child(4) { height: 18px; animation-delay: 0.45s; }
-        .wave-bar:nth-child(5) { height: 24px; animation-delay: 0.15s; }
-        .wave-bar:nth-child(6) { height: 14px; animation-delay: 0.4s; }
-        .wave-bar:nth-child(7) { height: 28px; animation-delay: 0.25s; }
-        .wave-bar:nth-child(8) { height: 10px; animation-delay: 0.5s; }
+        .ytm-waveform-container .wave-bar:nth-child(4n+1) { background: linear-gradient(to top, #e62129, #fb7185); }
+        .ytm-waveform-container .wave-bar:nth-child(4n+2) { background: linear-gradient(to top, #dc2626, #fca5a5); }
+        .ytm-waveform-container .wave-bar:nth-child(4n+3) { background: linear-gradient(to top, #b91c1c, #f43f5e); }
+        .ytm-waveform-container .wave-bar:nth-child(4n)   { background: linear-gradient(to top, #00853f, #34d399); }
 
-        @keyframes waveBounce {
-            0% { height: 6px; }
-            50% { height: 26px; }
-            100% { height: 8px; }
-        }
-
-        .ytm-audio-container.paused .wave-bar {
+        .ytm-waveform-container.paused .wave-bar {
             animation-play-state: paused;
-            height: 6px;
+            height: 4px !important;
         }
 
-        /* YT Music Controls */
+        @keyframes waveDance {
+            0% { height: 4px; }
+            50% { height: 32px; }
+            100% { height: 12px; }
+        }
+
+        /* Timeline & Scrubber */
+        .ytm-timeline-box {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 540px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 1.25rem;
+        }
+
+        .time-text {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #94a3b8;
+            font-variant-numeric: tabular-nums;
+            min-width: 36px;
+        }
+
+        .timeline-bar-track {
+            flex: 1;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.12);
+            border-radius: 999px;
+            position: relative;
+            cursor: pointer;
+            transition: height 0.2s ease;
+        }
+
+        .timeline-bar-track:hover {
+            height: 8px;
+        }
+
+        .timeline-bar-fill {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #00853f, #e62129);
+            border-radius: 999px;
+            box-shadow: 0 0 10px rgba(230, 33, 41, 0.6);
+            transition: width 0.3s ease;
+        }
+
+        html[dir="rtl"] .timeline-bar-fill {
+            left: auto;
+            right: 0;
+            background: linear-gradient(-90deg, #00853f, #e62129);
+        }
+
+        .timeline-scrubber {
+            position: absolute;
+            top: 50%;
+            left: 0%;
+            transform: translate(-50%, -50%);
+            width: 14px;
+            height: 14px;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(230, 33, 41, 0.8);
+            border: 2px solid #e62129;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        html[dir="rtl"] .timeline-scrubber {
+            left: auto;
+            right: 0%;
+            transform: translate(50%, -50%);
+        }
+
+        .timeline-bar-track:hover .timeline-scrubber {
+            opacity: 1;
+        }
+
+        /* Luxury Controls Row */
         .ytm-music-controls {
+            position: relative;
+            z-index: 2;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 16px;
-            margin-top: 1rem;
+            gap: 14px;
+            flex-wrap: wrap;
         }
 
         .ytm-ctrl-btn {
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.07);
             border: 1px solid rgba(255, 255, 255, 0.12);
-            color: #fff;
+            color: #f1f5f9;
             width: 44px;
             height: 44px;
             border-radius: 50%;
@@ -893,70 +1123,154 @@
             justify-content: center;
             font-size: 1.15rem;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            backdrop-filter: blur(10px);
         }
 
         .ytm-ctrl-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.18);
+            border-color: rgba(255, 255, 255, 0.25);
             transform: scale(1.1);
+            color: #fff;
+        }
+
+        .ytm-ctrl-btn:active {
+            transform: scale(0.95);
         }
 
         .ytm-play-main {
-            width: 58px;
-            height: 58px;
-            font-size: 1.5rem;
-            background: linear-gradient(135deg, #e62129, #b91c1c);
+            width: 62px;
+            height: 62px;
+            font-size: 1.6rem;
+            background: linear-gradient(135deg, #e62129 0%, #a91218 100%);
             border-color: #ef4444;
-            box-shadow: 0 4px 18px rgba(230, 33, 41, 0.5);
+            box-shadow: 0 6px 25px rgba(230, 33, 41, 0.6);
         }
 
         .ytm-play-main:hover {
-            background: linear-gradient(135deg, #ff2b34, #dc2626);
+            background: linear-gradient(135deg, #ff2b34 0%, #c4181f 100%);
             transform: scale(1.12);
-            box-shadow: 0 6px 24px rgba(230, 33, 41, 0.7);
+            box-shadow: 0 8px 30px rgba(230, 33, 41, 0.8);
         }
 
-        /* Sticky Bottom Mini-Player */
+        /* Responsive Mobile adjustments */
+        @media (max-width: 640px) {
+            .album-sleeve-card {
+                width: 140px;
+                height: 140px;
+            }
+            .vinyl-disc {
+                width: 135px;
+                height: 135px;
+                margin-left: -50px;
+            }
+            html[dir="rtl"] .vinyl-disc {
+                margin-left: 0;
+                margin-right: -50px;
+            }
+            .vinyl-cover-img {
+                width: 60px;
+                height: 60px;
+            }
+            .ytm-track-title {
+                font-size: 1.15rem;
+            }
+            .ytm-play-main {
+                width: 52px;
+                height: 52px;
+                font-size: 1.35rem;
+            }
+            .ytm-audio-container {
+                padding: 2rem 1rem 1.75rem;
+                min-height: 420px;
+            }
+            .ytm-waveform-container {
+                height: 28px;
+                gap: 2.5px;
+            }
+            .ytm-waveform-container .wave-bar {
+                width: 2.5px;
+            }
+        }
+
+        /* Luxury Floating Mini-Player */
         .ytm-mini-player {
             position: fixed;
-            bottom: -100px;
+            bottom: -110px;
             left: 50%;
             transform: translateX(-50%);
             width: calc(100% - 2rem);
             max-width: 820px;
-            background: rgba(17, 24, 39, 0.95);
-            backdrop-filter: blur(16px);
+            background: rgba(14, 16, 23, 0.92);
+            backdrop-filter: blur(28px) saturate(180%);
             border: 1px solid rgba(230, 33, 41, 0.35);
-            border-radius: 18px;
-            padding: 10px 16px;
+            border-radius: 20px;
+            padding: 10px 18px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), 0 0 25px rgba(230, 33, 41, 0.25);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.85), 0 0 30px rgba(230, 33, 41, 0.3);
             z-index: 1500;
-            transition: bottom 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: bottom 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             cursor: pointer;
+            overflow: hidden;
         }
 
         .ytm-mini-player.show {
-            bottom: 20px;
+            bottom: 24px;
+        }
+
+        .ytm-mini-progress {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 3px;
+            width: 0%;
+            background: linear-gradient(90deg, #00853f, #e62129);
+            box-shadow: 0 0 8px rgba(230, 33, 41, 0.7);
+            transition: width 0.3s ease;
+        }
+
+        html[dir="rtl"] .ytm-mini-progress {
+            left: auto;
+            right: 0;
+            background: linear-gradient(-90deg, #00853f, #e62129);
         }
 
         .ytm-mini-info {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
             flex: 1;
             min-width: 0;
         }
 
+        .ytm-mini-thumb-wrap {
+            position: relative;
+            width: 46px;
+            height: 46px;
+            flex-shrink: 0;
+        }
+
         .ytm-mini-thumb {
-            width: 44px;
-            height: 44px;
-            border-radius: 10px;
+            width: 46px;
+            height: 46px;
+            border-radius: 12px;
             object-fit: cover;
             border: 1px solid rgba(255, 255, 255, 0.15);
-            flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        .mini-playing-indicator {
+            position: absolute;
+            bottom: -2px;
+            right: -2px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #22c55e;
+            border: 2px solid #0f1117;
+            box-shadow: 0 0 8px #22c55e;
         }
 
         .ytm-mini-text {
@@ -965,20 +1279,34 @@
         }
 
         .ytm-mini-title {
-            font-size: 0.9rem;
-            font-weight: 700;
+            font-size: 0.92rem;
+            font-weight: 800;
             color: #fff;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+            margin-bottom: 2px;
         }
 
-        .ytm-mini-artist {
+        .ytm-mini-artist-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
             font-size: 0.78rem;
             color: #94a3b8;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+        }
+
+        .ytm-mini-badge {
+            background: rgba(230, 33, 41, 0.18);
+            border: 1px solid rgba(230, 33, 41, 0.4);
+            color: #fca5a5;
+            font-size: 0.65rem;
+            font-weight: 800;
+            padding: 1px 6px;
+            border-radius: 6px;
         }
 
         .ytm-mini-controls {
@@ -991,8 +1319,8 @@
             background: rgba(255, 255, 255, 0.08);
             border: 1px solid rgba(255, 255, 255, 0.12);
             color: #fff;
-            width: 36px;
-            height: 36px;
+            width: 38px;
+            height: 38px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -1005,6 +1333,26 @@
         .ytm-mini-btn:hover {
             background: rgba(255, 255, 255, 0.2);
             transform: scale(1.1);
+        }
+
+        .ytm-mini-play {
+            background: linear-gradient(135deg, #e62129, #b91c1c);
+            border-color: #ef4444;
+            box-shadow: 0 2px 10px rgba(230, 33, 41, 0.5);
+        }
+
+        .ytm-mini-play:hover {
+            background: linear-gradient(135deg, #ff2b34, #dc2626);
+        }
+
+        .ytm-mini-close {
+            color: #94a3b8;
+        }
+
+        .ytm-mini-close:hover {
+            background: rgba(230, 33, 41, 0.2);
+            border-color: rgba(230, 33, 41, 0.4);
+            color: #ef4444;
         }
 
         .card-dl-btn {
@@ -1390,35 +1738,80 @@
                 <div class="player-wrapper" id="playerWrapper">
                     <iframe id="videoIframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     
-                    <!-- YT Music Audio Experience View -->
+                    <!-- YT Music Deluxe Audio Experience View -->
                     <div class="ytm-audio-container" id="ytmAudioContainer">
-                        <div class="vinyl-disc-box">
+                        <div class="ytm-ambient-backdrop" id="ytmAmbientGlow"></div>
+
+                        <!-- Deluxe Artwork: Album Sleeve + Vinyl Record -->
+                        <div class="ytm-art-showcase">
+                            <div class="album-sleeve-card">
+                                <img src="logo.png" alt="Cover" class="sleeve-cover-img" id="ytmSleeveImg">
+                                <div class="sleeve-shine"></div>
+                                <div class="sleeve-badge">HQ AUDIO</div>
+                            </div>
                             <div class="vinyl-disc" id="vinylDisc">
                                 <div class="vinyl-grooves"></div>
-                                <img src="logo.png" alt="Vinyl Album Art" class="vinyl-cover-img" id="ytmVinylImg">
+                                <img src="logo.png" alt="Vinyl Label" class="vinyl-cover-img" id="ytmVinylImg">
                                 <div class="vinyl-hole"></div>
                             </div>
                         </div>
 
-                        <div class="ytm-wave-box" id="ytmWaveBox">
-                            <span class="wave-bar"></span>
-                            <span class="wave-bar"></span>
-                            <span class="wave-bar"></span>
-                            <span class="wave-bar"></span>
-                            <span class="wave-bar"></span>
-                            <span class="wave-bar"></span>
-                            <span class="wave-bar"></span>
-                            <span class="wave-bar"></span>
+                        <!-- Track Metadata -->
+                        <div class="ytm-track-meta">
+                            <span class="ytm-hi-fi-pill" id="ytmHiFiBadge">
+                                <span class="pulse-dot"></span>
+                                <span id="txtHiFiBadge">✨ Son Pure Hi-Fi 320kbps • Mode Sans Pub</span>
+                            </span>
+                            <h3 id="ytmTrackTitle" class="ytm-track-title">Titre de la chanson</h3>
+                            <p id="ytmTrackArtist" class="ytm-track-artist">Artiste • TubeDZ YT Music</p>
                         </div>
 
-                        <h3 id="ytmTrackTitle" style="color: #fff; font-size: 1.3rem; font-weight: 800; margin-bottom: 6px; padding: 0 10px;">Titre de la chanson</h3>
-                        <p id="ytmTrackArtist" style="color: #94a3b8; font-size: 0.95rem; margin-bottom: 12px;">Artiste • TubeDZ YT Music</p>
+                        <!-- 24-Bar High-Fidelity Waveform Visualizer -->
+                        <div class="ytm-waveform-container" id="ytmWaveBox">
+                            <span class="wave-bar" style="animation-delay: 0.1s;"></span>
+                            <span class="wave-bar" style="animation-delay: 0.35s;"></span>
+                            <span class="wave-bar" style="animation-delay: 0.2s;"></span>
+                            <span class="wave-bar" style="animation-delay: 0.45s;"></span>
+                            <span class="wave-bar" style="animation-delay: 0.15s;"></span>
+                            <span class="wave-bar" style="animation-delay: 0.4s;"></span>
+                            <span class="wave-bar" style="animation-delay: 0.25s;"></span>
+                            <span class="wave-bar" style="animation-delay: 0.5s;"></span>
+                            <span class="wave-bar" style="animation-delay: 0.12s;"></span>
+                            <span class="wave-bar" style="animation-delay: 0.38s;"></span>
+                            <span class="wave-bar" style="animation-delay: 0.22s;"></span>
+                            <span class="wave-bar" style="animation-delay: 0.48s;"></span>
+                            <span class="wave-bar" style="animation-delay: 0.18s;"></span>
+                            <span class="wave-bar" style="animation-delay: 0.42s;"></span>
+                            <span class="wave-bar" style="animation-delay: 0.28s;"></span>
+                            <span class="wave-bar" style="animation-delay: 0.52s;"></span>
+                            <span class="wave-bar" style="animation-delay: 0.14s;"></span>
+                            <span class="wave-bar" style="animation-delay: 0.32s;"></span>
+                            <span class="wave-bar" style="animation-delay: 0.24s;"></span>
+                            <span class="wave-bar" style="animation-delay: 0.44s;"></span>
+                            <span class="wave-bar" style="animation-delay: 0.16s;"></span>
+                            <span class="wave-bar" style="animation-delay: 0.36s;"></span>
+                            <span class="wave-bar" style="animation-delay: 0.26s;"></span>
+                            <span class="wave-bar" style="animation-delay: 0.46s;"></span>
+                        </div>
 
-                        <!-- Dedicated Music Controls -->
+                        <!-- Interactive Timeline Scrubber -->
+                        <div class="ytm-timeline-box">
+                            <span class="time-text" id="ytmCurrentTime">0:00</span>
+                            <div class="timeline-bar-track" id="ytmTimelineTrack" onclick="seekYtmTimeline(event)">
+                                <div class="timeline-bar-fill" id="ytmTimelineFill"></div>
+                                <div class="timeline-scrubber" id="ytmScrubber"></div>
+                            </div>
+                            <span class="time-text" id="ytmTotalDuration">HD</span>
+                        </div>
+
+                        <!-- Dedicated Luxury Music Controls -->
                         <div class="ytm-music-controls">
+                            <button class="ytm-ctrl-btn" onclick="shufflePlaylist()" title="Aléatoire" id="ytmShuffleBtn">🔀</button>
+                            <button class="ytm-ctrl-btn" onclick="seekRelative(-10)" title="-10s">⏪</button>
                             <button class="ytm-ctrl-btn" onclick="playPrevTrack()" title="Précédent" id="ytmPrevBtn">⏮️</button>
                             <button class="ytm-ctrl-btn ytm-play-main" onclick="togglePlayPauseYtm()" title="Play / Pause" id="ytmPlayBtn">⏸️</button>
                             <button class="ytm-ctrl-btn" onclick="playNextTrack()" title="Suivant" id="ytmNextBtn">⏭️</button>
+                            <button class="ytm-ctrl-btn" onclick="seekRelative(10)" title="+10s">⏩</button>
                             <button class="ytm-ctrl-btn" onclick="toggleLoopTrack()" title="Répéter la chanson" id="ytmLoopBtn">🔁</button>
                         </div>
                     </div>
@@ -1649,18 +2042,25 @@
 
     <!-- YouTube Music Sticky Floating Mini-Player -->
     <div class="ytm-mini-player" id="ytmMiniPlayer" onclick="expandToPlayer()">
+        <div class="ytm-mini-progress" id="ytmMiniProgressBar"></div>
         <div class="ytm-mini-info">
-            <img id="ytmMiniImg" src="logo.png" alt="Mini Cover" class="ytm-mini-thumb">
+            <div class="ytm-mini-thumb-wrap">
+                <img id="ytmMiniImg" src="logo.png" alt="Mini Cover" class="ytm-mini-thumb">
+                <span class="mini-playing-indicator"></span>
+            </div>
             <div class="ytm-mini-text">
                 <div class="ytm-mini-title" id="ytmMiniTitle">Titre du morceau</div>
-                <div class="ytm-mini-artist" id="ytmMiniArtist">Artiste • YT Music</div>
+                <div class="ytm-mini-artist-row">
+                    <span id="ytmMiniArtist">Artiste</span>
+                    <span class="ytm-mini-badge">YT Music</span>
+                </div>
             </div>
         </div>
         <div class="ytm-mini-controls" onclick="event.stopPropagation()">
             <button class="ytm-mini-btn" onclick="playPrevTrack()" title="Précédent">⏮️</button>
-            <button class="ytm-mini-btn" onclick="togglePlayPauseYtm()" id="ytmMiniPlayBtn" title="Play / Pause">⏸️</button>
+            <button class="ytm-mini-btn ytm-mini-play" onclick="togglePlayPauseYtm()" id="ytmMiniPlayBtn" title="Play / Pause">⏸️</button>
             <button class="ytm-mini-btn" onclick="playNextTrack()" title="Suivant">⏭️</button>
-            <button class="ytm-mini-btn" onclick="closePlayer()" title="Fermer">✕</button>
+            <button class="ytm-mini-btn ytm-mini-close" onclick="closePlayer()" title="Fermer">✕</button>
         </div>
     </div>
 
@@ -1970,19 +2370,122 @@
             const channel = currentVideo.channel || 'TubeDZ Music';
             const thumbUrl = `https://i.ytimg.com/vi/${currentVideo.id}/hqdefault.jpg`;
 
+            const sleeveImg = document.getElementById('ytmSleeveImg');
+            if (sleeveImg) sleeveImg.src = thumbUrl;
             const vinylImg = document.getElementById('ytmVinylImg');
             if (vinylImg) vinylImg.src = thumbUrl;
             const trackTitle = document.getElementById('ytmTrackTitle');
             if (trackTitle) trackTitle.textContent = title || 'TubeDZ Song';
             const trackArtist = document.getElementById('ytmTrackArtist');
             if (trackArtist) trackArtist.textContent = `${channel} • TubeDZ YT Music`;
+            const totalDur = document.getElementById('ytmTotalDuration');
+            if (totalDur) totalDur.textContent = currentVideo.duration || 'HD';
 
             const miniImg = document.getElementById('ytmMiniImg');
             if (miniImg) miniImg.src = thumbUrl;
             const miniTitle = document.getElementById('ytmMiniTitle');
             if (miniTitle) miniTitle.textContent = title || 'TubeDZ Song';
             const miniArtist = document.getElementById('ytmMiniArtist');
-            if (miniArtist) miniArtist.textContent = `${channel} • YT Music`;
+            if (miniArtist) miniArtist.textContent = `${channel}`;
+        }
+
+        let playbackSeconds = 0;
+        let playbackDurationSec = 240;
+        let playbackTimer = null;
+
+        function parseDurationToSec(durStr) {
+            if (!durStr || durStr === 'HD') return 240;
+            const parts = durStr.split(':').map(Number);
+            if (parts.length === 2 && !isNaN(parts[0]) && !isNaN(parts[1])) {
+                return parts[0] * 60 + parts[1];
+            }
+            if (parts.length === 3 && !isNaN(parts[0]) && !isNaN(parts[1]) && !isNaN(parts[2])) {
+                return parts[0] * 3600 + parts[1] * 60 + parts[2];
+            }
+            return 240;
+        }
+
+        function formatSecToTime(sec) {
+            const m = Math.floor(sec / 60);
+            const s = Math.floor(sec % 60);
+            return `${m}:${s < 10 ? '0' : ''}${s}`;
+        }
+
+        function startProgressTracker() {
+            if (playbackTimer) clearInterval(playbackTimer);
+            playbackTimer = setInterval(() => {
+                if (!isPlaying || !currentVideo) return;
+                playbackSeconds++;
+                if (playbackSeconds > playbackDurationSec) {
+                    if (isLooping) {
+                        playbackSeconds = 0;
+                        seekRelative(-playbackDurationSec);
+                    } else {
+                        playNextTrack();
+                        return;
+                    }
+                }
+                const pct = Math.min(100, (playbackSeconds / playbackDurationSec) * 100);
+                const curTimeEl = document.getElementById('ytmCurrentTime');
+                if (curTimeEl) curTimeEl.textContent = formatSecToTime(playbackSeconds);
+
+                const fill = document.getElementById('ytmTimelineFill');
+                if (fill) fill.style.width = `${pct}%`;
+                const scrubber = document.getElementById('ytmScrubber');
+                if (scrubber) {
+                    if (document.getElementById('htmlRoot').getAttribute('dir') === 'rtl') {
+                        scrubber.style.right = `${pct}%`;
+                    } else {
+                        scrubber.style.left = `${pct}%`;
+                    }
+                }
+
+                const miniFill = document.getElementById('ytmMiniProgressBar');
+                if (miniFill) miniFill.style.width = `${pct}%`;
+            }, 1000);
+        }
+
+        function seekYtmTimeline(e) {
+            const track = document.getElementById('ytmTimelineTrack');
+            if (!track) return;
+            const rect = track.getBoundingClientRect();
+            const isRtl = document.getElementById('htmlRoot').getAttribute('dir') === 'rtl';
+            let clickX = isRtl ? (rect.right - e.clientX) : (e.clientX - rect.left);
+            let pct = Math.max(0, Math.min(1, clickX / rect.width));
+            playbackSeconds = Math.floor(pct * playbackDurationSec);
+
+            const iframe = document.getElementById('videoIframe');
+            if (iframe && iframe.contentWindow) {
+                iframe.contentWindow.postMessage(JSON.stringify({
+                    event: 'command',
+                    func: 'seekTo',
+                    args: [playbackSeconds, true]
+                }), '*');
+            }
+        }
+
+        function seekRelative(offset) {
+            playbackSeconds = Math.max(0, Math.min(playbackDurationSec, playbackSeconds + offset));
+            const iframe = document.getElementById('videoIframe');
+            if (iframe && iframe.contentWindow) {
+                iframe.contentWindow.postMessage(JSON.stringify({
+                    event: 'command',
+                    func: 'seekTo',
+                    args: [playbackSeconds, true]
+                }), '*');
+            }
+        }
+
+        function shufflePlaylist() {
+            const list = getActivePlaylist();
+            if (!list || list.length <= 1) return;
+            let randIdx = Math.floor(Math.random() * list.length);
+            if (list[randIdx].id === currentVideo?.id) {
+                randIdx = (randIdx + 1) % list.length;
+            }
+            playVideo(list[randIdx]);
+            if (currentPlayerMode === 'ytmusic') setPlayerMode('ytmusic');
+            showToast(currentLang === 'fr' ? 'Lecture aléatoire 🔀' : 'تشغيل عشوائي 🔀');
         }
 
         function getActivePlaylist() {
@@ -2088,6 +2591,10 @@
             updateFavoriteButton();
             updateYtmTrackDisplay();
 
+            playbackSeconds = 0;
+            playbackDurationSec = parseDurationToSec(video.duration);
+            startProgressTracker();
+
             const badge = document.getElementById('ytmModeBadge');
             if (badge) {
                 if (video.category === 'music' || video.category === 'ytmusic') {
@@ -2112,6 +2619,8 @@
             section.classList.remove('active');
             const miniPlayer = document.getElementById('ytmMiniPlayer');
             if (miniPlayer) miniPlayer.classList.remove('show');
+            if (playbackTimer) clearInterval(playbackTimer);
+            playbackSeconds = 0;
             currentVideo = null;
         }
 
@@ -2543,6 +3052,12 @@ User inquiry: ${userPrompt}`;
             }
             const modeBadge = document.getElementById('ytmModeBadge');
             if (modeBadge) modeBadge.textContent = isFr ? '🎵 TubeDZ YT Music' : '🎵 موسيقى TubeDZ';
+            const hifiBadge = document.getElementById('txtHiFiBadge');
+            if (hifiBadge) {
+                hifiBadge.textContent = isFr 
+                    ? '✨ Son Pure Hi-Fi 320kbps • Mode Sans Pub' 
+                    : '✨ صوت عالي النقاء 320kbps • استماع بدون إعلانات';
+            }
 
             renderVideos(videoData, isFr ? '📺 Vidéos Populaires' : '📺 فيديوهات رائجة بدون إعلانات');
             if (currentVideo) updateFavoriteButton();
