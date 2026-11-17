@@ -217,6 +217,154 @@
             box-shadow: 0 0 12px rgba(230, 33, 41, 0.4);
         }
 
+        /* Featured YT Music Studio Banner on Homepage */
+        .ytm-featured-banner {
+            background: linear-gradient(135deg, rgba(230, 33, 41, 0.16) 0%, rgba(17, 24, 39, 0.85) 60%, rgba(0, 133, 63, 0.12) 100%);
+            border: 1px solid rgba(230, 33, 41, 0.35);
+            border-radius: 24px;
+            padding: 1.75rem 2rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(230, 33, 41, 0.15);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ytm-featured-banner:hover {
+            transform: translateY(-4px);
+            border-color: #ef4444;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 35px rgba(230, 33, 41, 0.35);
+        }
+
+        .ytm-featured-left {
+            flex: 1;
+            min-width: 0;
+            z-index: 2;
+        }
+
+        .ytm-featured-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(230, 33, 41, 0.2);
+            border: 1px solid rgba(230, 33, 41, 0.4);
+            padding: 4px 12px;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: #fca5a5;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        .ytm-featured-left h3 {
+            font-size: 1.55rem;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .ytm-featured-left p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.25rem;
+            max-width: 650px;
+        }
+
+        .ytm-featured-action {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn-ytm-play-hero {
+            background: linear-gradient(135deg, #e62129 0%, #b91c1c 100%);
+            border: 1px solid #ef4444;
+            color: #fff;
+            padding: 10px 22px;
+            border-radius: 999px;
+            font-size: 0.95rem;
+            font-weight: 800;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 18px rgba(230, 33, 41, 0.5);
+            transition: all 0.2s ease;
+        }
+
+        .btn-ytm-play-hero:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 24px rgba(230, 33, 41, 0.7);
+            background: linear-gradient(135deg, #ff2b34 0%, #dc2626 100%);
+        }
+
+        .ytm-featured-art {
+            position: relative;
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+            z-index: 2;
+        }
+
+        .featured-mini-sleeve {
+            width: 110px;
+            height: 110px;
+            border-radius: 14px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            z-index: 2;
+        }
+
+        .featured-mini-sleeve img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .featured-mini-vinyl {
+            width: 105px;
+            height: 105px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #222 15%, #111 40%, #050505 70%, #1a1a1a 85%, #080808 100%);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.9);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            margin-left: -40px;
+            z-index: 1;
+            animation: rotateVinyl 12s linear infinite;
+        }
+
+        html[dir="rtl"] .featured-mini-vinyl {
+            margin-left: 0;
+            margin-right: -40px;
+        }
+
+        @media (max-width: 768px) {
+            .ytm-featured-banner {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 1.5rem;
+            }
+            .ytm-featured-art {
+                align-self: center;
+                margin-top: 1rem;
+            }
+            .ytm-featured-left h3 {
+                font-size: 1.25rem;
+            }
+        }
+
         .btn-apk-header {
             background: linear-gradient(135deg, #e62129, #a91218);
             color: white;
@@ -1867,6 +2015,35 @@
                 <button class="chip-btn" onclick="filterCategory('tech', this)" id="chipTech">💡 Tech & Savoir</button>
             </div>
 
+            <!-- YouTube Music Deluxe Showcase Banner -->
+            <div class="ytm-featured-banner" id="ytmFeaturedBanner" onclick="launchFeaturedYtm()">
+                <div class="ytm-featured-left">
+                    <div class="ytm-featured-badge">
+                        <span class="pulse-dot"></span>
+                        <span id="txtYtmNewBadge">NOUVEAUTÉ EXCLUSIVE • TUBE DZ MUSIC</span>
+                    </div>
+                    <h3 id="txtYtmBannerHeading">🎧 Découvrez le Lecteur YouTube Music Intégré</h3>
+                    <p id="txtYtmBannerSub">Profitez de vos musiques et chansons préférées avec l'expérience studio : vinyle 3D rotatif, visualiseur d'ondes sonores et lecture en arrière-plan sans pub.</p>
+                    <div class="ytm-featured-action">
+                        <button class="btn-ytm-play-hero" onclick="event.stopPropagation(); launchFeaturedYtm()">
+                            <span>▶️</span>
+                            <span id="txtHeroPlayBtn">Lancer TubeDZ Music</span>
+                        </button>
+                        <span style="font-size: 0.85rem; color: #94a3b8;" id="txtHeroTrackDesc">Hit en vedette : Babylone — Zina (Hi-Fi)</span>
+                    </div>
+                </div>
+                <div class="ytm-featured-art">
+                    <div class="featured-mini-sleeve">
+                        <img src="https://i.ytimg.com/vi/q_46S404m5I/hqdefault.jpg" alt="Cover Art" id="featuredCoverImg">
+                        <div class="sleeve-shine"></div>
+                    </div>
+                    <div class="featured-mini-vinyl">
+                        <div class="vinyl-grooves"></div>
+                        <div class="vinyl-hole"></div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Feed Header -->
             <div class="section-title-row">
                 <h3 id="sectionHeader">📺 Vidéos Populaires</h3>
@@ -2565,11 +2742,24 @@
             if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
+        function launchFeaturedYtm() {
+            let featuredTrack = videoData.find(v => v.id === 'x2P12-x2Qsw') || 
+                                videoData.find(v => v.category === 'music' || v.category === 'ytmusic');
+            if (featuredTrack) {
+                playVideo(featuredTrack);
+                setPlayerMode('ytmusic');
+            }
+        }
+
         function activateYtMusicTab() {
             const chip = document.getElementById('chipYtMusic');
             filterCategory('ytmusic', chip);
-            const grid = document.getElementById('videoGrid');
-            if (grid) grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            let featuredTrack = videoData.find(v => v.id === 'x2P12-x2Qsw') || 
+                                videoData.find(v => v.category === 'music' || v.category === 'ytmusic');
+            if (featuredTrack) {
+                playVideo(featuredTrack);
+                setPlayerMode('ytmusic');
+            }
         }
 
         // Play Selected Video
@@ -2596,14 +2786,13 @@
             startProgressTracker();
 
             const badge = document.getElementById('ytmModeBadge');
-            if (badge) {
-                if (video.category === 'music' || video.category === 'ytmusic') {
-                    badge.style.display = 'inline-block';
-                } else {
-                    badge.style.display = 'none';
-                    if (currentPlayerMode === 'ytmusic') {
-                        setPlayerMode('video');
-                    }
+            if (video.category === 'music' || video.category === 'ytmusic') {
+                if (badge) badge.style.display = 'inline-block';
+                setPlayerMode('ytmusic');
+            } else {
+                if (badge) badge.style.display = 'none';
+                if (currentPlayerMode === 'ytmusic') {
+                    setPlayerMode('video');
                 }
             }
 
@@ -3058,6 +3247,20 @@ User inquiry: ${userPrompt}`;
                     ? '✨ Son Pure Hi-Fi 320kbps • Mode Sans Pub' 
                     : '✨ صوت عالي النقاء 320kbps • استماع بدون إعلانات';
             }
+            const bannerHeading = document.getElementById('txtYtmBannerHeading');
+            if (bannerHeading) bannerHeading.textContent = isFr 
+                ? '🎧 Découvrez le Lecteur YouTube Music Intégré' 
+                : '🎧 اكتشف استوديو YouTube Music المدمج';
+            const bannerSub = document.getElementById('txtYtmBannerSub');
+            if (bannerSub) bannerSub.textContent = isFr 
+                ? 'Profitez de vos musiques et chansons préférées avec l\'expérience studio : vinyle 3D rotatif, visualiseur d\'ondes sonores et lecture en arrière-plan sans pub.' 
+                : 'استمتع بأغانيك وموسيقاك المفضلة بتجربة الاستوديو: أسطوانة فينيل ثلاثية الأبعاد، موجات صوتية حية، وتشغيل صوتي في الخلفية بدون إعلانات.';
+            const heroPlay = document.getElementById('txtHeroPlayBtn');
+            if (heroPlay) heroPlay.textContent = isFr ? 'Lancer TubeDZ Music' : 'تشغيل استوديو الموسيقى';
+            const heroDesc = document.getElementById('txtHeroTrackDesc');
+            if (heroDesc) heroDesc.textContent = isFr ? 'Hit en vedette : Babylone — Zina (Hi-Fi)' : 'أغنية مميزة: بابيلون — زينة (Hi-Fi)';
+            const newBadge = document.getElementById('txtYtmNewBadge');
+            if (newBadge) newBadge.textContent = isFr ? 'NOUVEAUTÉ EXCLUSIVE • TUBE DZ MUSIC' : 'ميزة حصرية جديدة • TUBE DZ MUSIC';
 
             renderVideos(videoData, isFr ? '📺 Vidéos Populaires' : '📺 فيديوهات رائجة بدون إعلانات');
             if (currentVideo) updateFavoriteButton();
