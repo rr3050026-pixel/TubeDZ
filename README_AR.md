@@ -39,5 +39,5 @@
 
 ## 📦 التنزيل والتثبيت
 ملفات التطبيق الرسمية متاحة في قسم **Releases**:
-- **[تحميل تطبيق TubeDZ APK](https://github.com/rr3050026-pixel/TubeDZ/releases/download/v1.0.0/TubeDZ.apk)** *(145 MB)*
-- **[تحميل حزمة MicroG APK](https://github.com/rr3050026-pixel/TubeDZ/releases/download/v1.0.0/microg.apk)** *(101 MB)*
+- **[تحميل تطبيق TubeDZ APK](https://github.com/rr3050026-pixel/TubeDZ/releases/download/v1.1.0/TubeDZ.apk)** *(145 MB)*
+- **[تحميل حزمة MicroG APK](https://github.com/rr3050026-pixel/TubeDZ/releases/download/v1.1.0/microg.apk)** *(101 MB)*

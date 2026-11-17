@@ -42,8 +42,8 @@ Les fichiers officiels sont disponibles directement dans la section **Releases**
 
 | Fichier | Description | Taille | SHA-256 |
 |---|---|---|---|
-| **[TubeDZ.apk](https://github.com/rr3050026-pixel/TubeDZ/releases/download/v1.0.0/TubeDZ.apk)** | Application officielle signée | `145 Mo` | `a8fbb24f777527c69d4f42cc9aace7993c6bb2e36ad54a32274b2f23e1eba680` |
-| **[microg.apk](https://github.com/rr3050026-pixel/TubeDZ/releases/download/v1.0.0/microg.apk)** | Module de connexion Google | `101 Mo` | `62119f040d629a9cd3225f280649a464936730c6466cafb5b9dd5ded14269a65` |
+| **[TubeDZ.apk](https://github.com/rr3050026-pixel/TubeDZ/releases/download/v1.1.0/TubeDZ.apk)** | Application officielle signée | `145 Mo` | `a8fbb24f777527c69d4f42cc9aace7993c6bb2e36ad54a32274b2f23e1eba680` |
+| **[microg.apk](https://github.com/rr3050026-pixel/TubeDZ/releases/download/v1.1.0/microg.apk)** | Module de connexion Google | `101 Mo` | `62119f040d629a9cd3225f280649a464936730c6466cafb5b9dd5ded14269a65` |
 
 ---
 
