@@ -204,6 +204,19 @@
             border-color: rgba(255, 255, 255, 0.3);
         }
 
+        .btn-nav-ytm {
+            background: linear-gradient(135deg, rgba(230, 33, 41, 0.15), rgba(185, 28, 28, 0.08));
+            border-color: rgba(230, 33, 41, 0.4);
+            color: #fca5a5;
+        }
+
+        .btn-nav-ytm:hover {
+            background: linear-gradient(135deg, rgba(230, 33, 41, 0.35), rgba(185, 28, 28, 0.2));
+            border-color: #ef4444;
+            color: #fff;
+            box-shadow: 0 0 12px rgba(230, 33, 41, 0.4);
+        }
+
         .btn-apk-header {
             background: linear-gradient(135deg, #e62129, #a91218);
             color: white;
@@ -368,6 +381,20 @@
             color: #fff;
             border-color: transparent;
             box-shadow: 0 4px 14px rgba(230, 33, 41, 0.3);
+        }
+
+        .chip-btn.chip-ytm {
+            background: linear-gradient(135deg, rgba(230, 33, 41, 0.15), rgba(185, 28, 28, 0.08));
+            border-color: rgba(230, 33, 41, 0.4);
+            color: #fca5a5;
+        }
+
+        .chip-btn.chip-ytm:hover,
+        .chip-btn.chip-ytm.active {
+            background: linear-gradient(135deg, #e62129, #991b1b) !important;
+            border-color: #ef4444 !important;
+            color: #fff !important;
+            box-shadow: 0 4px 16px rgba(230, 33, 41, 0.4) !important;
         }
 
         /* Section Heading */
@@ -642,6 +669,342 @@
             border-color: #22c55e;
             color: #fff;
             transform: translateY(-2px);
+        }
+
+        /* YouTube Music (YT Music) Mode Styles */
+        .ytm-mode-switch {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 999px;
+            padding: 3px;
+            gap: 4px;
+        }
+
+        .ytm-mode-btn {
+            background: transparent;
+            border: none;
+            color: #94a3b8;
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .ytm-mode-btn.active {
+            background: linear-gradient(135deg, #e62129, #b91c1c);
+            color: #fff;
+            box-shadow: 0 2px 10px rgba(230, 33, 41, 0.4);
+        }
+
+        .btn-ytm {
+            background: linear-gradient(135deg, rgba(230, 33, 41, 0.18), rgba(185, 28, 28, 0.1));
+            border-color: rgba(230, 33, 41, 0.4);
+            color: #fca5a5;
+        }
+
+        .btn-ytm:hover {
+            background: linear-gradient(135deg, rgba(230, 33, 41, 0.35), rgba(185, 28, 28, 0.2));
+            border-color: #ef4444;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(230, 33, 41, 0.35);
+        }
+
+        .btn-ytm.active-mode {
+            background: linear-gradient(135deg, #e62129, #991b1b) !important;
+            border-color: #ef4444 !important;
+            color: #fff !important;
+            box-shadow: 0 0 16px rgba(230, 33, 41, 0.5) !important;
+        }
+
+        /* YT Music Container inside player */
+        .ytm-audio-container {
+            display: none;
+            width: 100%;
+            min-height: 380px;
+            background: radial-gradient(circle at center, #260d13 0%, #101118 75%, #050608 100%);
+            border-radius: 20px;
+            padding: 2.5rem 1.5rem;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: inset 0 0 60px rgba(0,0,0,0.8);
+            border: 1px solid rgba(230, 33, 41, 0.25);
+        }
+
+        .player-wrapper.ytm-active {
+            padding-top: 0 !important;
+            height: auto !important;
+            background: transparent;
+            border: none;
+            box-shadow: none;
+        }
+
+        .player-wrapper.ytm-active iframe {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            opacity: 0.01;
+            pointer-events: none;
+            left: -9999px;
+        }
+
+        .player-wrapper.ytm-active .ytm-audio-container {
+            display: flex;
+        }
+
+        /* Vinyl Record Album Art */
+        .vinyl-disc-box {
+            position: relative;
+            width: 210px;
+            height: 210px;
+            margin: 0 auto 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .vinyl-disc {
+            width: 210px;
+            height: 210px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #2a2a2a 18%, #141414 45%, #0a0a0a 70%, #1c1c1c 85%, #050505 100%);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.9), 0 0 35px rgba(230, 33, 41, 0.35);
+            border: 3px solid rgba(255, 255, 255, 0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            animation: rotateVinyl 12s linear infinite;
+            transition: transform 0.3s ease;
+        }
+
+        .vinyl-disc.paused {
+            animation-play-state: paused;
+        }
+
+        @keyframes rotateVinyl {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .vinyl-grooves {
+            position: absolute;
+            inset: 12px;
+            border-radius: 50%;
+            border: 1px dashed rgba(255, 255, 255, 0.08);
+            pointer-events: none;
+        }
+
+        .vinyl-grooves::after {
+            content: '';
+            position: absolute;
+            inset: 22px;
+            border-radius: 50%;
+            border: 1px dashed rgba(255, 255, 255, 0.06);
+        }
+
+        .vinyl-cover-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #e62129;
+            box-shadow: 0 0 15px rgba(230, 33, 41, 0.5);
+            position: relative;
+            z-index: 2;
+        }
+
+        .vinyl-hole {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #0b0c10;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            z-index: 3;
+        }
+
+        /* Sound Wave / Equalizer Bars */
+        .ytm-wave-box {
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 4px;
+            height: 30px;
+            margin-bottom: 1rem;
+        }
+
+        .wave-bar {
+            width: 4px;
+            background: linear-gradient(to top, #e62129, #f87171);
+            border-radius: 999px;
+            animation: waveBounce 1.2s ease-in-out infinite alternate;
+        }
+
+        .wave-bar:nth-child(1) { height: 8px; animation-delay: 0.1s; }
+        .wave-bar:nth-child(2) { height: 16px; animation-delay: 0.35s; }
+        .wave-bar:nth-child(3) { height: 26px; animation-delay: 0.2s; }
+        .wave-bar:nth-child(4) { height: 18px; animation-delay: 0.45s; }
+        .wave-bar:nth-child(5) { height: 24px; animation-delay: 0.15s; }
+        .wave-bar:nth-child(6) { height: 14px; animation-delay: 0.4s; }
+        .wave-bar:nth-child(7) { height: 28px; animation-delay: 0.25s; }
+        .wave-bar:nth-child(8) { height: 10px; animation-delay: 0.5s; }
+
+        @keyframes waveBounce {
+            0% { height: 6px; }
+            50% { height: 26px; }
+            100% { height: 8px; }
+        }
+
+        .ytm-audio-container.paused .wave-bar {
+            animation-play-state: paused;
+            height: 6px;
+        }
+
+        /* YT Music Controls */
+        .ytm-music-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 1rem;
+        }
+
+        .ytm-ctrl-btn {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: #fff;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.15rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .ytm-ctrl-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+
+        .ytm-play-main {
+            width: 58px;
+            height: 58px;
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, #e62129, #b91c1c);
+            border-color: #ef4444;
+            box-shadow: 0 4px 18px rgba(230, 33, 41, 0.5);
+        }
+
+        .ytm-play-main:hover {
+            background: linear-gradient(135deg, #ff2b34, #dc2626);
+            transform: scale(1.12);
+            box-shadow: 0 6px 24px rgba(230, 33, 41, 0.7);
+        }
+
+        /* Sticky Bottom Mini-Player */
+        .ytm-mini-player {
+            position: fixed;
+            bottom: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 2rem);
+            max-width: 820px;
+            background: rgba(17, 24, 39, 0.95);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(230, 33, 41, 0.35);
+            border-radius: 18px;
+            padding: 10px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), 0 0 25px rgba(230, 33, 41, 0.25);
+            z-index: 1500;
+            transition: bottom 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+        }
+
+        .ytm-mini-player.show {
+            bottom: 20px;
+        }
+
+        .ytm-mini-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex: 1;
+            min-width: 0;
+        }
+
+        .ytm-mini-thumb {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            object-fit: cover;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            flex-shrink: 0;
+        }
+
+        .ytm-mini-text {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .ytm-mini-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #fff;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .ytm-mini-artist {
+            font-size: 0.78rem;
+            color: #94a3b8;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .ytm-mini-controls {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .ytm-mini-btn {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: #fff;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .ytm-mini-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
         }
 
         .card-dl-btn {
@@ -976,6 +1339,10 @@
 
                 <!-- Actions -->
                 <div class="header-actions">
+                    <button class="nav-btn-icon btn-nav-ytm" onclick="activateYtMusicTab()" id="navYtMusicBtn" title="Mode YouTube Music">
+                        <span style="color: #ef4444;">🎧</span>
+                        <span id="navYtMusicText">YT Music</span>
+                    </button>
                     <button class="nav-btn-icon" onclick="showFavorites()" title="Mes Favoris">
                         <span>⭐</span>
                         <span id="navFavText">Favoris</span>
@@ -1002,11 +1369,61 @@
     <main>
         <div class="container">
 
-            <!-- Active Video Player Section -->
+            <!-- Active Video / YT Music Player Section -->
             <section class="player-section" id="playerSection">
-                <div class="player-wrapper">
-                    <iframe id="videoIframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 8px;">
+                    <div class="ytm-mode-switch">
+                        <button class="ytm-mode-btn active" id="btnModeVideo" onclick="setPlayerMode('video')">
+                            <span>🎬</span>
+                            <span id="txtModeVideo">Vidéo</span>
+                        </button>
+                        <button class="ytm-mode-btn" id="btnModeYtm" onclick="setPlayerMode('ytmusic')">
+                            <span>🎧</span>
+                            <span id="txtModeYtm">YT Music</span>
+                        </button>
+                    </div>
+                    <span id="ytmModeBadge" style="font-size: 0.8rem; font-weight: 700; color: #f87171; background: rgba(230, 33, 41, 0.12); border: 1px solid rgba(230, 33, 41, 0.3); padding: 4px 12px; border-radius: 999px;">
+                        🎵 TubeDZ YT Music
+                    </span>
                 </div>
+
+                <div class="player-wrapper" id="playerWrapper">
+                    <iframe id="videoIframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    
+                    <!-- YT Music Audio Experience View -->
+                    <div class="ytm-audio-container" id="ytmAudioContainer">
+                        <div class="vinyl-disc-box">
+                            <div class="vinyl-disc" id="vinylDisc">
+                                <div class="vinyl-grooves"></div>
+                                <img src="logo.png" alt="Vinyl Album Art" class="vinyl-cover-img" id="ytmVinylImg">
+                                <div class="vinyl-hole"></div>
+                            </div>
+                        </div>
+
+                        <div class="ytm-wave-box" id="ytmWaveBox">
+                            <span class="wave-bar"></span>
+                            <span class="wave-bar"></span>
+                            <span class="wave-bar"></span>
+                            <span class="wave-bar"></span>
+                            <span class="wave-bar"></span>
+                            <span class="wave-bar"></span>
+                            <span class="wave-bar"></span>
+                            <span class="wave-bar"></span>
+                        </div>
+
+                        <h3 id="ytmTrackTitle" style="color: #fff; font-size: 1.3rem; font-weight: 800; margin-bottom: 6px; padding: 0 10px;">Titre de la chanson</h3>
+                        <p id="ytmTrackArtist" style="color: #94a3b8; font-size: 0.95rem; margin-bottom: 12px;">Artiste • TubeDZ YT Music</p>
+
+                        <!-- Dedicated Music Controls -->
+                        <div class="ytm-music-controls">
+                            <button class="ytm-ctrl-btn" onclick="playPrevTrack()" title="Précédent" id="ytmPrevBtn">⏮️</button>
+                            <button class="ytm-ctrl-btn ytm-play-main" onclick="togglePlayPauseYtm()" title="Play / Pause" id="ytmPlayBtn">⏸️</button>
+                            <button class="ytm-ctrl-btn" onclick="playNextTrack()" title="Suivant" id="ytmNextBtn">⏭️</button>
+                            <button class="ytm-ctrl-btn" onclick="toggleLoopTrack()" title="Répéter la chanson" id="ytmLoopBtn">🔁</button>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="player-info">
                     <div class="video-meta">
                         <h2 id="videoTitle">Titre de la vidéo</h2>
@@ -1016,6 +1433,10 @@
                         </div>
                     </div>
                     <div class="player-controls">
+                        <button class="btn-player-action btn-ytm" id="btnToggleYtm" onclick="toggleYtMusicView()">
+                            <span id="ytmActionIcon">🎧</span>
+                            <span id="ytmActionText">Mode YT Music</span>
+                        </button>
                         <button class="btn-player-action btn-gemini" id="btnGemini" onclick="openGeminiModal()">
                             <span>✨</span>
                             <span id="geminiBtnText">Gemini AI</span>
@@ -1041,6 +1462,10 @@
             <!-- Category Chips -->
             <div class="categories-nav">
                 <button class="chip-btn active" onclick="filterCategory('all', this)" id="chipAll">🔥 Tous</button>
+                <button class="chip-btn chip-ytm" onclick="filterCategory('ytmusic', this)" id="chipYtMusic">
+                    <span>🎧</span>
+                    <span id="chipYtMusicText">YT Music</span>
+                </button>
                 <button class="chip-btn" onclick="filterCategory('algeria', this)" id="chipDz">🇩🇿 Algérie</button>
                 <button class="chip-btn" onclick="filterCategory('music', this)" id="chipMusic">🎵 Musique</button>
                 <button class="chip-btn" onclick="filterCategory('sport', this)" id="chipSport">⚽ Football & Sport</button>
@@ -1222,6 +1647,23 @@
     <!-- Toast Element -->
     <div class="toast" id="toastBox">Lien copié avec succès !</div>
 
+    <!-- YouTube Music Sticky Floating Mini-Player -->
+    <div class="ytm-mini-player" id="ytmMiniPlayer" onclick="expandToPlayer()">
+        <div class="ytm-mini-info">
+            <img id="ytmMiniImg" src="logo.png" alt="Mini Cover" class="ytm-mini-thumb">
+            <div class="ytm-mini-text">
+                <div class="ytm-mini-title" id="ytmMiniTitle">Titre du morceau</div>
+                <div class="ytm-mini-artist" id="ytmMiniArtist">Artiste • YT Music</div>
+            </div>
+        </div>
+        <div class="ytm-mini-controls" onclick="event.stopPropagation()">
+            <button class="ytm-mini-btn" onclick="playPrevTrack()" title="Précédent">⏮️</button>
+            <button class="ytm-mini-btn" onclick="togglePlayPauseYtm()" id="ytmMiniPlayBtn" title="Play / Pause">⏸️</button>
+            <button class="ytm-mini-btn" onclick="playNextTrack()" title="Suivant">⏭️</button>
+            <button class="ytm-mini-btn" onclick="closePlayer()" title="Fermer">✕</button>
+        </div>
+    </div>
+
     <!-- Application Script -->
     <script>
         // Database of curated videos with high-definition thumbnails
@@ -1260,7 +1702,7 @@
                 category: "algeria"
             },
 
-            // Musique
+            // Musique & YouTube Music
             {
                 id: "q_46S404m5I",
                 title_fr: "Cheb Khaled — C'est La Vie (Live Concert Performance)",
@@ -1291,6 +1733,38 @@
                 title_ar: "إيدير — أفافا إينوفا (تحفة الأغنية القبائلية العالمية)",
                 channel: "Idir Archives",
                 duration: "5:30",
+                category: "music"
+            },
+            {
+                id: "x2P12-x2Qsw",
+                title_fr: "Babylone — Zina (Chef-d'œuvre Pop Algérienne)",
+                title_ar: "بابيلون — زينة (رائعة البوب الجزائري الخالدة)",
+                channel: "Babylone Official",
+                duration: "4:05",
+                category: "music"
+            },
+            {
+                id: "7f5T8x3N0pL",
+                title_fr: "Mouh Milano — Machafouhach (Hit Algérien N°1)",
+                title_ar: "موح ميلانو — ما شافوهاش (الأغنية الأكثر استماعاً)",
+                channel: "Mouh Milano",
+                duration: "4:15",
+                category: "music"
+            },
+            {
+                id: "C3lWwBslWwg",
+                title_fr: "Cheb Mami & Sting — Desert Rose (Classique International)",
+                title_ar: "الشاب مامي وستينغ — وردة الصحراء (دويتو عالمي أسطوري)",
+                channel: "Sting & Mami",
+                duration: "4:48",
+                category: "music"
+            },
+            {
+                id: "1L3rX8V_wU8",
+                title_fr: "L'Algérino — Les Menottes (Tching Tchang Tchong)",
+                title_ar: "لالجيرينو — لي مينوت (أغنية صيفية حماسية)",
+                channel: "L'Algérino Official",
+                duration: "3:30",
                 category: "music"
             },
 
@@ -1450,9 +1924,155 @@
             });
         }
 
+        // YouTube Music (YT Music) Player Mode State & Functions
+        let currentPlayerMode = 'video'; // 'video' or 'ytmusic'
+        let isPlaying = true;
+        let isLooping = false;
+
+        function setPlayerMode(mode) {
+            currentPlayerMode = mode;
+            const wrapper = document.getElementById('playerWrapper');
+            const btnVideo = document.getElementById('btnModeVideo');
+            const btnYtm = document.getElementById('btnModeYtm');
+            const actionBtn = document.getElementById('btnToggleYtm');
+            const actionText = document.getElementById('ytmActionText');
+            const actionIcon = document.getElementById('ytmActionIcon');
+
+            if (mode === 'ytmusic') {
+                if (wrapper) wrapper.classList.add('ytm-active');
+                if (btnVideo) btnVideo.classList.remove('active');
+                if (btnYtm) btnYtm.classList.add('active');
+                if (actionBtn) {
+                    actionBtn.classList.add('active-mode');
+                    if (actionText) actionText.textContent = currentLang === 'fr' ? 'Mode Vidéo' : 'وضع الفيديو';
+                    if (actionIcon) actionIcon.textContent = '🎬';
+                }
+                updateYtmTrackDisplay();
+            } else {
+                if (wrapper) wrapper.classList.remove('ytm-active');
+                if (btnVideo) btnVideo.classList.add('active');
+                if (btnYtm) btnYtm.classList.remove('active');
+                if (actionBtn) {
+                    actionBtn.classList.remove('active-mode');
+                    if (actionText) actionText.textContent = currentLang === 'fr' ? 'Mode YT Music' : 'وضع YT Music';
+                    if (actionIcon) actionIcon.textContent = '🎧';
+                }
+            }
+        }
+
+        function toggleYtMusicView() {
+            setPlayerMode(currentPlayerMode === 'video' ? 'ytmusic' : 'video');
+        }
+
+        function updateYtmTrackDisplay() {
+            if (!currentVideo) return;
+            const title = currentLang === 'fr' ? (currentVideo.title_fr || currentVideo.title) : (currentVideo.title_ar || currentVideo.title);
+            const channel = currentVideo.channel || 'TubeDZ Music';
+            const thumbUrl = `https://i.ytimg.com/vi/${currentVideo.id}/hqdefault.jpg`;
+
+            const vinylImg = document.getElementById('ytmVinylImg');
+            if (vinylImg) vinylImg.src = thumbUrl;
+            const trackTitle = document.getElementById('ytmTrackTitle');
+            if (trackTitle) trackTitle.textContent = title || 'TubeDZ Song';
+            const trackArtist = document.getElementById('ytmTrackArtist');
+            if (trackArtist) trackArtist.textContent = `${channel} • TubeDZ YT Music`;
+
+            const miniImg = document.getElementById('ytmMiniImg');
+            if (miniImg) miniImg.src = thumbUrl;
+            const miniTitle = document.getElementById('ytmMiniTitle');
+            if (miniTitle) miniTitle.textContent = title || 'TubeDZ Song';
+            const miniArtist = document.getElementById('ytmMiniArtist');
+            if (miniArtist) miniArtist.textContent = `${channel} • YT Music`;
+        }
+
+        function getActivePlaylist() {
+            const musicTracks = videoData.filter(v => v.category === 'music' || v.category === 'ytmusic');
+            if (musicTracks.some(v => v.id === currentVideo?.id)) {
+                return musicTracks;
+            }
+            return videoData;
+        }
+
+        function playNextTrack() {
+            if (!currentVideo) return;
+            const currentList = getActivePlaylist();
+            const idx = currentList.findIndex(v => v.id === currentVideo.id);
+            const nextIdx = (idx + 1) % currentList.length;
+            playVideo(currentList[nextIdx]);
+            if (currentPlayerMode === 'ytmusic') {
+                setPlayerMode('ytmusic');
+            }
+        }
+
+        function playPrevTrack() {
+            if (!currentVideo) return;
+            const currentList = getActivePlaylist();
+            const idx = currentList.findIndex(v => v.id === currentVideo.id);
+            const prevIdx = (idx - 1 + currentList.length) % currentList.length;
+            playVideo(currentList[prevIdx]);
+            if (currentPlayerMode === 'ytmusic') {
+                setPlayerMode('ytmusic');
+            }
+        }
+
+        function togglePlayPauseYtm() {
+            const iframe = document.getElementById('videoIframe');
+            const vinyl = document.getElementById('vinylDisc');
+            const wave = document.getElementById('ytmWaveBox');
+            const playBtn = document.getElementById('ytmPlayBtn');
+            const miniPlayBtn = document.getElementById('ytmMiniPlayBtn');
+
+            isPlaying = !isPlaying;
+            const cmd = isPlaying ? '{"event":"command","func":"playVideo","args":""}' : '{"event":"command","func":"pauseVideo","args":""}';
+            if (iframe && iframe.contentWindow) {
+                iframe.contentWindow.postMessage(cmd, '*');
+            }
+
+            if (isPlaying) {
+                if (vinyl) vinyl.classList.remove('paused');
+                if (wave) wave.classList.remove('paused');
+                if (playBtn) playBtn.textContent = '⏸️';
+                if (miniPlayBtn) miniPlayBtn.textContent = '⏸️';
+            } else {
+                if (vinyl) vinyl.classList.add('paused');
+                if (wave) wave.classList.add('paused');
+                if (playBtn) playBtn.textContent = '▶️';
+                if (miniPlayBtn) miniPlayBtn.textContent = '▶️';
+            }
+        }
+
+        function toggleLoopTrack() {
+            isLooping = !isLooping;
+            const btn = document.getElementById('ytmLoopBtn');
+            if (btn) {
+                if (isLooping) {
+                    btn.style.color = '#ef4444';
+                    btn.style.borderColor = '#ef4444';
+                    showToast(currentLang === 'fr' ? 'Répétition activée 🔁' : 'تم تفعيل تكرار الأغنية 🔁');
+                } else {
+                    btn.style.color = '#fff';
+                    btn.style.borderColor = 'rgba(255, 255, 255, 0.12)';
+                    showToast(currentLang === 'fr' ? 'Répétition désactivée' : 'تم إلغاء التكرار');
+                }
+            }
+        }
+
+        function expandToPlayer() {
+            const section = document.getElementById('playerSection');
+            if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function activateYtMusicTab() {
+            const chip = document.getElementById('chipYtMusic');
+            filterCategory('ytmusic', chip);
+            const grid = document.getElementById('videoGrid');
+            if (grid) grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
         // Play Selected Video
         function playVideo(video) {
             currentVideo = video;
+            isPlaying = true;
             addToHistory(video);
 
             const section = document.getElementById('playerSection');
@@ -1461,11 +2081,24 @@
             const channelEl = document.getElementById('videoChannel');
 
             const title = currentLang === 'fr' ? (video.title_fr || video.title) : (video.title_ar || video.title);
-            iframe.src = `https://www.youtube-nocookie.com/embed/${video.id}?autoplay=1&modestbranding=1&rel=0&playsinline=1`;
+            iframe.src = `https://www.youtube-nocookie.com/embed/${video.id}?autoplay=1&enablejsapi=1&modestbranding=1&rel=0&playsinline=1`;
             titleEl.textContent = title || "Vidéo TubeDZ";
             channelEl.textContent = video.channel || "YouTube Ad-Free";
 
             updateFavoriteButton();
+            updateYtmTrackDisplay();
+
+            const badge = document.getElementById('ytmModeBadge');
+            if (badge) {
+                if (video.category === 'music' || video.category === 'ytmusic') {
+                    badge.style.display = 'inline-block';
+                } else {
+                    badge.style.display = 'none';
+                    if (currentPlayerMode === 'ytmusic') {
+                        setPlayerMode('video');
+                    }
+                }
+            }
 
             section.classList.add('active');
             section.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -1477,6 +2110,8 @@
             const iframe = document.getElementById('videoIframe');
             iframe.src = '';
             section.classList.remove('active');
+            const miniPlayer = document.getElementById('ytmMiniPlayer');
+            if (miniPlayer) miniPlayer.classList.remove('show');
             currentVideo = null;
         }
 
@@ -1534,13 +2169,16 @@
         // Category Filter
         function filterCategory(cat, btn) {
             document.querySelectorAll('.chip-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
+            if (btn) btn.classList.add('active');
 
             if (cat === 'all') {
                 renderVideos(videoData, currentLang === 'fr' ? '📺 Vidéos Populaires' : '📺 فيديوهات رائجة بدون إعلانات');
+            } else if (cat === 'ytmusic' || cat === 'music') {
+                const filtered = videoData.filter(v => v.category === 'music' || v.category === 'ytmusic');
+                renderVideos(filtered, currentLang === 'fr' ? '🎧 YouTube Music — Bibliothèque Musicale' : '🎧 YouTube Music — باقة الأغاني والموسيقى');
             } else {
                 const filtered = videoData.filter(v => v.category === cat);
-                renderVideos(filtered, btn.textContent);
+                renderVideos(filtered, btn ? btn.textContent : '');
             }
         }
 
@@ -1888,9 +2526,43 @@ User inquiry: ${userPrompt}`;
                 ? '✨ Propulsé par Google Gemini 1.5 Flash (Supporte les clés API AQ. et AIzaSy).' 
                 : '✨ مدعوم بواسطة Google Gemini 1.5 Flash (يقبل جميع مفاتيح API بصيغتي AQ. و AIzaSy).';
 
+            // YouTube Music (YT Music) Translations
+            const navYtm = document.getElementById('navYtMusicText');
+            if (navYtm) navYtm.textContent = isFr ? 'YT Music' : 'YT موسيقى';
+            const chipYtm = document.getElementById('chipYtMusicText');
+            if (chipYtm) chipYtm.textContent = isFr ? 'YT Music' : 'موسيقى YT';
+            const txtVideo = document.getElementById('txtModeVideo');
+            if (txtVideo) txtVideo.textContent = isFr ? 'Vidéo' : 'فيديو';
+            const txtYtm = document.getElementById('txtModeYtm');
+            if (txtYtm) txtYtm.textContent = isFr ? 'YT Music' : 'YT موسيقى';
+            const actionText = document.getElementById('ytmActionText');
+            if (actionText) {
+                actionText.textContent = (currentPlayerMode === 'ytmusic')
+                    ? (isFr ? 'Mode Vidéo' : 'وضع الفيديو')
+                    : (isFr ? 'Mode YT Music' : 'وضع YT Music');
+            }
+            const modeBadge = document.getElementById('ytmModeBadge');
+            if (modeBadge) modeBadge.textContent = isFr ? '🎵 TubeDZ YT Music' : '🎵 موسيقى TubeDZ';
+
             renderVideos(videoData, isFr ? '📺 Vidéos Populaires' : '📺 فيديوهات رائجة بدون إعلانات');
             if (currentVideo) updateFavoriteButton();
         }
+
+        // Floating Mini-Player for YT Music
+        window.addEventListener('scroll', () => {
+            const playerSection = document.getElementById('playerSection');
+            const miniPlayer = document.getElementById('ytmMiniPlayer');
+            if (!currentVideo || !playerSection || !playerSection.classList.contains('active')) {
+                if (miniPlayer) miniPlayer.classList.remove('show');
+                return;
+            }
+            const rect = playerSection.getBoundingClientRect();
+            if (rect.bottom < 80) {
+                if (miniPlayer) miniPlayer.classList.add('show');
+            } else {
+                if (miniPlayer) miniPlayer.classList.remove('show');
+            }
+        });
 
         // Register Service Worker for PWA
         if ('serviceWorker' in navigator) {

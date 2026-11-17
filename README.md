@@ -34,6 +34,7 @@ Vous pouvez y rechercher et regarder n'importe quelle vidéo YouTube sans public
 - ⏩ **SponsorBlock Automatique :** Saut intelligent des intros, segments sponsorisés intégrés par les créateurs et appels aux dons.
 - 🌙 **Thème Sombre Pur (AMOLED Black) :** Interface noire absolue (#000000) conçue pour soulager les yeux et économiser la batterie sur écrans OLED.
 - 🇩🇿 **Identité Visuelle Algérienne :** Icône et logo officiels inspirés des couleurs nationales et de Maqam Echahid.
+- 🎧 **Mode YouTube Music (YT Music Mode) :** Un lecteur audio dédié inspiré de YouTube Music, avec disque vinyle rotatif, visualiseur d'ondes sonores (Audio Visualizer), bibliothèque musicale algérienne et internationale, et mini-lecteur flottant pour écouter en arrière-plan pendant la navigation.
 
 ---
 
