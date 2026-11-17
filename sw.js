@@ -1,4 +1,4 @@
-const CACHE_NAME = 'tubedz-cache-v2.0';
+const CACHE_NAME = 'tubedz-cache-v2.1';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -59,7 +59,7 @@ self.addEventListener('fetch', (event) => {
 
   // Cache-first for static icons and assets
   event.respondWith(
-    caches.match(event.request).then((cachedResponse) => {
+    caches.match(event.request, { ignoreSearch: true }).then((cachedResponse) => {
       return cachedResponse || fetch(event.request);
     })
   );

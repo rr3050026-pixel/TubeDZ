@@ -6,8 +6,8 @@ import subprocess
 from PIL import Image
 
 WORKSPACE = '/workspace/calm-ramanujan'
-BASE_APK = os.path.join(WORKSPACE, 'rvx_base.apk')
-ICON_SRC = os.path.join(WORKSPACE, 'attachments/f7fa7a71-5dde-455f-9ac7-fcca4f48cbb0/file_00000000798882129f02fd6bf345ba60.png')
+BASE_APK = os.path.join(WORKSPACE, 'rvx_base.apk') if os.path.exists(os.path.join(WORKSPACE, 'rvx_base.apk')) else os.path.join(WORKSPACE, 'TubeDZ.apk')
+ICON_SRC = os.path.join(WORKSPACE, 'logo.png')
 WORK_DIR = os.path.join(WORKSPACE, 'build_work')
 OUTPUT_APK = os.path.join(WORKSPACE, 'TubeDZ.apk')
 KEYSTORE = os.path.join(WORKSPACE, 'tubedz.keystore')

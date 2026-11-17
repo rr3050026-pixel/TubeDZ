@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TubeDZ — Lecteur Web YouTube Sans Publicité 🇩🇿</title>
     <meta name="description" content="Regardez n'importe quelle vidéo YouTube sans publicité directement dans votre navigateur avec TubeDZ. Recherche, favoris, historique et téléchargement de l'application Android.">
-    <link rel="icon" type="image/png" href="logo.png">
-    <link rel="apple-touch-icon" href="logo.png">
+    <link rel="icon" type="image/png" href="logo.png?v=2">
+    <link rel="apple-touch-icon" href="logo.png?v=2">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#0b0c10">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -1817,7 +1817,7 @@
         <div class="container">
             <nav>
                 <a href="#" class="logo" onclick="resetFeed()">
-                    <img src="logo.png" alt="TubeDZ Logo">
+                    <img src="logo.png?v=2" alt="TubeDZ Logo">
                     <div class="logo-text">Tube<span>DZ</span> 🇩🇿</div>
                 </a>
 
@@ -1893,13 +1893,13 @@
                         <!-- Deluxe Artwork: Album Sleeve + Vinyl Record -->
                         <div class="ytm-art-showcase">
                             <div class="album-sleeve-card">
-                                <img src="logo.png" alt="Cover" class="sleeve-cover-img" id="ytmSleeveImg">
+                                <img src="logo.png?v=2" alt="Cover" class="sleeve-cover-img" id="ytmSleeveImg">
                                 <div class="sleeve-shine"></div>
                                 <div class="sleeve-badge">HQ AUDIO</div>
                             </div>
                             <div class="vinyl-disc" id="vinylDisc">
                                 <div class="vinyl-grooves"></div>
-                                <img src="logo.png" alt="Vinyl Label" class="vinyl-cover-img" id="ytmVinylImg">
+                                <img src="logo.png?v=2" alt="Vinyl Label" class="vinyl-cover-img" id="ytmVinylImg">
                                 <div class="vinyl-hole"></div>
                             </div>
                         </div>
@@ -2114,7 +2114,7 @@
             </div>
             
             <div class="video-preview-mini">
-                <img id="dlPreviewImg" src="logo.png" alt="Miniature">
+                <img id="dlPreviewImg" src="logo.png?v=2" alt="Miniature">
                 <div class="video-preview-title" id="dlPreviewTitle">Titre de la vidéo</div>
             </div>
 
@@ -2222,7 +2222,7 @@
         <div class="ytm-mini-progress" id="ytmMiniProgressBar"></div>
         <div class="ytm-mini-info">
             <div class="ytm-mini-thumb-wrap">
-                <img id="ytmMiniImg" src="logo.png" alt="Mini Cover" class="ytm-mini-thumb">
+                <img id="ytmMiniImg" src="logo.png?v=2" alt="Mini Cover" class="ytm-mini-thumb">
                 <span class="mini-playing-indicator"></span>
             </div>
             <div class="ytm-mini-text">
@@ -2481,7 +2481,7 @@
 
                 card.innerHTML = `
                     <div class="thumbnail-box">
-                        <img src="https://i.ytimg.com/vi/${v.id}/hqdefault.jpg" alt="${title}" loading="lazy" onerror="this.src='logo.png'">
+                        <img src="https://i.ytimg.com/vi/${v.id}/hqdefault.jpg" alt="${title}" loading="lazy" onerror="this.src='logo.png?v=2'">
                         <span class="duration-badge">${v.duration || 'HD'}</span>
                     </div>
                     <div class="card-content">
