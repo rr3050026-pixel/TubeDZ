@@ -615,6 +615,21 @@
             color: #fff;
         }
 
+        /* Gemini AI Button in Player */
+        .btn-gemini {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.22), rgba(147, 51, 234, 0.22));
+            border-color: rgba(147, 51, 234, 0.5);
+            color: #d8b4fe;
+        }
+
+        .btn-gemini:hover {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.38), rgba(147, 51, 234, 0.38));
+            border-color: #a855f7;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(168, 85, 247, 0.35);
+        }
+
         /* Download Button in Player */
         .btn-download {
             background: linear-gradient(135deg, rgba(0, 133, 63, 0.25), rgba(0, 133, 63, 0.1));
@@ -1115,6 +1130,10 @@
                         </div>
                     </div>
                     <div class="player-controls">
+                        <button class="btn-player-action btn-gemini" id="btnGemini" onclick="openGeminiModal()">
+                            <span>✨</span>
+                            <span id="geminiBtnText">Gemini AI</span>
+                        </button>
                         <button class="btn-player-action btn-download" id="btnDlAction" onclick="openDownloadModal()">
                             <span>📥</span>
                             <span id="playerDlText">Télécharger (Vidéo / MP3)</span>
@@ -1344,6 +1363,64 @@
 
             <div class="download-modal-footer">
                 <span id="dlModalHint">💡 Astuce : Les téléchargements s'ouvrent dans un nouvel onglet sécurisé.</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gemini AI Assistant Modal -->
+    <div class="modal-overlay" id="geminiModal" onclick="closeGeminiModal(event)">
+        <div class="download-modal-box" style="max-width: 580px; border-color: rgba(168, 85, 247, 0.4); box-shadow: 0 25px 60px rgba(0,0,0,0.8), 0 0 35px rgba(168, 85, 247, 0.2);">
+            <div class="download-modal-header">
+                <div class="download-modal-title">
+                    <span>✨</span>
+                    <h3 id="geminiHeading" style="background: linear-gradient(135deg, #60a5fa, #c084fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Gemini AI Assistant</h3>
+                </div>
+                <button class="modal-close-btn" onclick="closeGeminiModalDirect()">✕</button>
+            </div>
+
+            <p class="download-modal-sub" id="geminiSub">Analyse intelligente, résumé et réponses instantanées sur la vidéo avec Google Gemini.</p>
+
+            <!-- API Key Configuration Section -->
+            <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px; padding: 14px; margin-bottom: 14px;">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+                    <label style="font-size: 0.82rem; font-weight: 700; color: #94a3b8;" id="geminiKeyLabel">Clé API Google Gemini (Supporte AQ. et AIzaSy) :</label>
+                    <span id="geminiKeyStatus" style="font-size: 0.75rem; font-weight: 700; color: #f59e0b;">Non configurée</span>
+                </div>
+                <div style="display: flex; gap: 8px;">
+                    <input type="password" id="geminiApiKeyInput" placeholder="AQ.AbCd... ou AIzaSy..." style="flex-grow: 1; background: rgba(0, 0, 0, 0.4); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 10px; padding: 9px 12px; color: #fff; font-size: 0.88rem; outline: none;">
+                    <button onclick="saveGeminiApiKey()" style="background: linear-gradient(135deg, #3b82f6, #8b5cf6); border: none; color: #fff; padding: 9px 16px; border-radius: 10px; font-weight: 700; cursor: pointer;" id="geminiSaveKeyBtn">Enregistrer</button>
+                </div>
+            </div>
+
+            <!-- Quick Action Prompts -->
+            <div style="display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap;">
+                <button class="btn-quick-dl" style="background: rgba(147, 51, 247, 0.18); border: 1px solid rgba(147, 51, 247, 0.4); color: #d8b4fe;" onclick="askGeminiAction('summary')">
+                    <span>📝</span>
+                    <span id="promptBtnSummary">Résumer la vidéo</span>
+                </button>
+                <button class="btn-quick-dl" style="background: rgba(59, 130, 246, 0.18); border: 1px solid rgba(59, 130, 246, 0.4); color: #93c5fd;" onclick="askGeminiAction('keypoints')">
+                    <span>💡</span>
+                    <span id="promptBtnPoints">Points clés</span>
+                </button>
+                <button class="btn-quick-dl" style="background: rgba(16, 185, 129, 0.18); border: 1px solid rgba(16, 185, 129, 0.4); color: #6ee7b7;" onclick="askGeminiAction('topics')">
+                    <span>🔍</span>
+                    <span id="promptBtnTopics">Sujets abordés</span>
+                </button>
+            </div>
+
+            <!-- Custom Question Input -->
+            <div style="display: flex; gap: 8px; margin-bottom: 14px;">
+                <input type="text" id="geminiCustomPrompt" placeholder="Posez une question sur cette vidéo..." style="flex-grow: 1; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 10px; padding: 10px 14px; color: #fff; font-size: 0.9rem; outline: none;" onkeydown="if(event.key==='Enter')askGeminiCustom()">
+                <button onclick="askGeminiCustom()" style="background: linear-gradient(135deg, #8b5cf6, #6366f1); border: none; color: #fff; padding: 10px 18px; border-radius: 10px; font-weight: 700; cursor: pointer;" id="geminiSendBtn">Envoyer</button>
+            </div>
+
+            <!-- Response Output Box -->
+            <div id="geminiResponseBox" style="min-height: 120px; max-height: 240px; overflow-y: auto; background: rgba(0, 0, 0, 0.4); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; padding: 14px; font-size: 0.9rem; line-height: 1.6; color: #e2e8f0; white-space: pre-wrap;">
+                <span style="color: #64748b;" id="geminiPlaceholder">Les réponses et résumés de Gemini apparaîtront ici...</span>
+            </div>
+
+            <div class="download-modal-footer">
+                <span id="geminiFooterHint">✨ Propulsé par Google Gemini 1.5 Flash (Accepte les clés AQ. et AIzaSy).</span>
             </div>
         </div>
     </div>
@@ -1830,6 +1907,134 @@
             document.getElementById('downloadModal').classList.remove('active');
         }
 
+        // Gemini AI Assistant Functions (Accepts AQ. and AIzaSy keys)
+        function openGeminiModal() {
+            updateGeminiKeyStatus();
+            document.getElementById('geminiModal').classList.add('active');
+        }
+
+        function closeGeminiModal(e) {
+            if (e.target.id === 'geminiModal') {
+                closeGeminiModalDirect();
+            }
+        }
+
+        function closeGeminiModalDirect() {
+            document.getElementById('geminiModal').classList.remove('active');
+        }
+
+        function updateGeminiKeyStatus() {
+            const savedKey = localStorage.getItem('tubedz_gemini_key') || '';
+            const statusEl = document.getElementById('geminiKeyStatus');
+            const inputEl = document.getElementById('geminiApiKeyInput');
+            if (savedKey) {
+                inputEl.value = savedKey;
+                const prefix = savedKey.startsWith('AQ') ? 'AQ.' : (savedKey.startsWith('AIzaSy') ? 'AIzaSy' : 'Clé');
+                statusEl.textContent = `Active (${prefix}) ✅`;
+                statusEl.style.color = '#4ade80';
+            } else {
+                statusEl.textContent = currentLang === 'fr' ? 'Non configurée' : 'غير مفعل';
+                statusEl.style.color = '#f59e0b';
+            }
+        }
+
+        function saveGeminiApiKey() {
+            const input = document.getElementById('geminiApiKeyInput').value.trim();
+            if (!input) {
+                showToast(currentLang === 'fr' ? 'Veuillez saisir une clé API' : 'يرجى إدخال مفتاح API');
+                return;
+            }
+            // Explicitly support and accept AQ. keys as requested by the user
+            if (input.startsWith('AQ') || input.startsWith('AIzaSy') || input.length >= 20) {
+                localStorage.setItem('tubedz_gemini_key', input);
+                updateGeminiKeyStatus();
+                showToast(currentLang === 'fr' ? 'Clé Gemini (AQ / AIzaSy) enregistrée !' : 'تم تفعيل مفتاح Gemini بنجاح!');
+            } else {
+                showToast(currentLang === 'fr' ? 'Format de clé invalide' : 'صيغة المفتاح غير مقبولة');
+            }
+        }
+
+        function askGeminiAction(type) {
+            let prompt = '';
+            if (type === 'summary') {
+                prompt = currentLang === 'fr' 
+                    ? 'Fais un résumé clair et captivant de cette vidéo en 3 paragraphes principaux.' 
+                    : 'قم بتقديم تلخيص شامل وشيق لهذا الفيديو في 3 فقرات رئيسية واضحة.';
+            } else if (type === 'keypoints') {
+                prompt = currentLang === 'fr' 
+                    ? 'Extrais les 5 points clés les plus importants de cette vidéo sous forme de liste à puces.' 
+                    : 'استخرج أهم 5 نقاط رئيسية من هذا الفيديو في شكل قائمة نقطية مركزة.';
+            } else if (type === 'topics') {
+                prompt = currentLang === 'fr' 
+                    ? 'Quels sont les thèmes et sujets abordés dans cette vidéo ?' 
+                    : 'ما هي أهم المواضيع والمحاور التي يتناولها هذا الفيديو؟';
+            }
+            callGeminiApi(prompt);
+        }
+
+        function askGeminiCustom() {
+            const input = document.getElementById('geminiCustomPrompt');
+            const prompt = input.value.trim();
+            if (!prompt) return;
+            callGeminiApi(prompt);
+        }
+
+        async function callGeminiApi(userPrompt) {
+            const apiKey = localStorage.getItem('tubedz_gemini_key');
+            if (!apiKey) {
+                showToast(currentLang === 'fr' ? 'Veuillez d\'abord entrer votre clé Gemini (AQ. ou AIzaSy)' : 'يرجى إدخال مفتاح Gemini أولاً (AQ. أو AIzaSy)');
+                document.getElementById('geminiApiKeyInput').focus();
+                return;
+            }
+
+            const box = document.getElementById('geminiResponseBox');
+            box.innerHTML = `<span style="color: #60a5fa;">⏳ ${currentLang === 'fr' ? 'Gemini analyse la vidéo...' : 'Gemini يقوم بتحليل المحتوى...'}</span>`;
+
+            const videoTitle = currentVideo 
+                ? (currentLang === 'fr' ? (currentVideo.title_fr || currentVideo.title) : (currentVideo.title_ar || currentVideo.title))
+                : 'Vidéo TubeDZ';
+            const videoChannel = currentVideo ? (currentVideo.channel || 'TubeDZ') : 'YouTube';
+            const videoUrl = currentVideo ? `https://youtu.be/${currentVideo.id}` : '';
+
+            const promptPayload = `You are TubeDZ Gemini Assistant, an AI expert integrated into TubeDZ (an Algerian ad-free YouTube player).
+Video title: "${videoTitle}"
+Channel: "${videoChannel}"
+Link: ${videoUrl}
+Answer language: ${currentLang === 'fr' ? 'French' : 'Arabic'}.
+User inquiry: ${userPrompt}`;
+
+            try {
+                // Support both models and any valid Gemini key including AQ.
+                const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+                const res = await fetch(endpoint, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        contents: [{
+                            parts: [{ text: promptPayload }]
+                        }]
+                    })
+                });
+
+                if (!res.ok) {
+                    const err = await res.json().catch(() => ({}));
+                    const msg = err.error ? err.error.message : res.statusText;
+                    box.innerHTML = `<span style="color: #ef4444;">❌ ${currentLang === 'fr' ? 'Erreur API :' : 'خطأ في المفتاح أو الخدمة:'} ${msg}</span>`;
+                    return;
+                }
+
+                const data = await res.json();
+                const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
+                if (text) {
+                    box.textContent = text;
+                } else {
+                    box.innerHTML = `<span style="color: #ef4444;">❌ ${currentLang === 'fr' ? 'Aucune réponse reçue' : 'لم يتم توليد إجابة'}</span>`;
+                }
+            } catch (err) {
+                box.innerHTML = `<span style="color: #ef4444;">❌ ${currentLang === 'fr' ? 'Erreur de connexion :' : 'خطأ في الاتصال:'} ${err.message}</span>`;
+            }
+        }
+
         // Language Switcher
         function toggleLanguage() {
             currentLang = currentLang === 'fr' ? 'ar' : 'fr';
@@ -1975,6 +2180,30 @@
             document.getElementById('apkDlStep4').innerHTML = isFr
                 ? "Touchez l'icône <strong>Télécharger</strong> sous n'importe quelle vidéo pour choisir MP4 ou MP3 en 1 clic !"
                 : "اضغط على أيقونة <strong>تنزيل</strong> تحت أي فيديو لاختيار MP4 أو MP3 مباشرة إلى هاتفك!";
+
+            // Gemini AI Translations
+            document.getElementById('geminiBtnText').textContent = isFr ? 'Gemini AI' : 'مساعد Gemini';
+            document.getElementById('geminiHeading').textContent = isFr ? 'Gemini AI Assistant' : 'المساعد الذكي Gemini AI';
+            document.getElementById('geminiSub').textContent = isFr 
+                ? 'Analyse intelligente, résumé et réponses instantanées sur la vidéo avec Google Gemini.' 
+                : 'تحليل ذكي، تلخيص فوري وإجابات دقيقة حول محتوى الفيديو باستخدام ذكاء Google Gemini الاصطناعي.';
+            document.getElementById('geminiKeyLabel').textContent = isFr 
+                ? 'Clé API Google Gemini (Supporte AQ. et AIzaSy) :' 
+                : 'مفتاح Google Gemini API (يدعم مفاتيح AQ. ومفاتيح AIzaSy) :';
+            document.getElementById('geminiSaveKeyBtn').textContent = isFr ? 'Enregistrer' : 'تفعيل وحفظ';
+            document.getElementById('promptBtnSummary').textContent = isFr ? 'Résumer la vidéo' : 'تلخيص الفيديو';
+            document.getElementById('promptBtnPoints').textContent = isFr ? 'Points clés' : 'النقاط الرئيسية';
+            document.getElementById('promptBtnTopics').textContent = isFr ? 'Sujets abordés' : 'المواضيع المطروحة';
+            document.getElementById('geminiCustomPrompt').placeholder = isFr 
+                ? 'Posez une question sur cette vidéo...' 
+                : 'اطرح سؤالاً أو استفساراً حول هذا الفيديو...';
+            document.getElementById('geminiSendBtn').textContent = isFr ? 'Envoyer' : 'إرسال';
+            document.getElementById('geminiPlaceholder').textContent = isFr 
+                ? 'Les réponses et résumés de Gemini apparaîtront ici...' 
+                : 'ستظهر إجابات وملخصات Gemini هنا بشكل مباشر...';
+            document.getElementById('geminiFooterHint').textContent = isFr 
+                ? '✨ Propulsé par Google Gemini 1.5 Flash (Supporte les clés API AQ. et AIzaSy).' 
+                : '✨ مدعوم بواسطة Google Gemini 1.5 Flash (يقبل جميع مفاتيح API بصيغتي AQ. و AIzaSy).';
 
             renderVideos(videoData, isFr ? '📺 Vidéos Populaires' : '📺 فيديوهات رائجة بدون إعلانات');
             if (currentVideo) updateFavoriteButton();
