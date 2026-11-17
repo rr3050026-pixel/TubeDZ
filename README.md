@@ -5,16 +5,24 @@
 </p>
 
 <p align="center">
-  <strong>Application Android YouTube personnalisée, ultra-rapide et sans interruption publicitaire.</strong>
+  <strong>Lecteur Web interactif et Application Android YouTube personnalisée, ultra-rapide et sans interruption publicitaire.</strong>
 </p>
 
 <p align="center">
-  <a href="#-fonctionnalités-principales">Fonctionnalités</a> •
+  <a href="https://tubedz.onrender.com"><strong>🌐 Accéder au Site Web (tubedz.onrender.com)</strong></a> •
   <a href="#-téléchargements-releases-github">Téléchargements</a> •
-  <a href="#-guide-dinstallation">Installation</a> •
-  <a href="#-sécurité--intégrité">Sécurité</a> •
+  <a href="#-fonctionnalités-principales">Fonctionnalités</a> •
   <a href="README_AR.md">🇩🇿 النسخة العربية</a>
 </p>
+
+---
+
+## 🌐 Site Web Officiel en Ligne
+Le lecteur web sans publicité est accessible 24h/24 et 7j/7 sur :  
+👉 **[https://tubedz.onrender.com](https://tubedz.onrender.com)**  
+*(Miroir secondaire : [https://rr3050026-pixel.github.io/TubeDZ/](https://rr3050026-pixel.github.io/TubeDZ/))*
+
+Vous pouvez y rechercher et regarder n'importe quelle vidéo YouTube sans publicité directement depuis votre navigateur, sur mobile ou ordinateur.
 
 ---
 
@@ -30,7 +38,7 @@
 ---
 
 ## 📦 Téléchargements (Releases GitHub)
-Les fichiers officiels sont disponibles directement dans la section **Releases** de ce dépôt privé :
+Les fichiers officiels sont disponibles directement dans la section **Releases** de ce dépôt :
 
 | Fichier | Description | Taille | SHA-256 |
 |---|---|---|---|
@@ -48,7 +56,7 @@ Les fichiers officiels sont disponibles directement dans la section **Releases**
 ---
 
 ## 📁 Structure du Projet
-- [`index.html`](index.html) : Site web officiel bilingue (Français par défaut avec commutateur Arabe dynamique).
+- [`index.html`](index.html) : Lecteur web interactif bilingue (Français par défaut avec commutateur Arabe dynamique).
 - [`logo.png`](logo.png) : Logo officiel haute résolution de TubeDZ.
 - [`server.py`](server.py) : Serveur HTTP local ultra-léger (ports `8080` et `3000`).
 - [`build_tubedz.py`](build_tubedz.py) : Script Python d'automatisation de compilation, patch et signature.

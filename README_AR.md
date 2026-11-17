@@ -1,6 +1,28 @@
 # TubeDZ 🇩🇿 — يوتيوب بدون إعلانات بهوية جزائرية
 
-تطبيق TubeDZ هو بديل مخصص ومطور لتطبيق يوتيوب، صُمم خصيصاً لتوفير تجربة مشاهدة خالية تماماً من الإعلانات مع الاحتفاظ بكافة المميزات المتقدمة وهوية بصرية جزائرية فريدة.
+<p align="center">
+  <img src="logo.png" alt="TubeDZ Logo" width="120" style="border-radius: 20px; box-shadow: 0 8px 24px rgba(0,0,0,0.5);" />
+</p>
+
+<p align="center">
+  <strong>تطبيق ويب تفاعلي وتطبيق أندرويد مخصص لمشاهدة يوتيوب بدون أي إعلانات.</strong>
+</p>
+
+<p align="center">
+  <a href="https://tubedz.onrender.com"><strong>🌐 الدخول إلى الموقع المباشر (tubedz.onrender.com)</strong></a> •
+  <a href="#-التنزيل-والتثبيت">التحميل</a> •
+  <a href="#-المميزات-الرئيسية">المميزات</a> •
+  <a href="README.md">🇫🇷 Version Française</a>
+</p>
+
+---
+
+## 🌐 الموقع الرسمي المباشر على الإنترنت
+الموقع وتطبيق الويب متاحان 24/7 على الرابط المباشر:  
+👉 **[https://tubedz.onrender.com](https://tubedz.onrender.com)**  
+*(رابط بديل: [https://rr3050026-pixel.github.io/TubeDZ/](https://rr3050026-pixel.github.io/TubeDZ/))*
+
+يمكنك البحث ومشاهدة أي فيديو بدون إعلانات مباشرة من المتصفح في هاتفك أو حاسوبك.
 
 ---
 
@@ -15,26 +37,7 @@
 
 ---
 
-## 📁 هيكل المشروع
-- [`index.html`](index.html): الموقع الرسمي التفاعلي وصفحة الهبوط لتحميل التطبيق والتعرف على مميزاته.
-- [`logo.png`](logo.png): الشعار والأيقونة الرسمية عالية الدقة.
-- [`server.py`](server.py): خادم الويب المحلي لعرض الموقع على المنفذين `8080` و `3000`.
-- [`build_tubedz.py`](build_tubedz.py): سكربت أتمتة بناء وتوقيع وتخصيص التطبيق بالكامل.
-- [`tubedz.keystore`](tubedz.keystore): شهادة التوقيع الرقمية الرسمية (RSA-2048, V1/V2/V3 schemes).
-- [`AndroidManifest.xml`](AndroidManifest.xml): ملف البيان المعدل بتسمية التطبيق المستقلة.
-
----
-
-## 🛠️ كيفية تشغيل موقع المعاينة
-```bash
-python3 server.py
-```
-ثم افتح المتصفح على:
-`http://localhost:8080` أو `http://localhost:3000`
-
----
-
 ## 📦 التنزيل والتثبيت
-يمكن تنزيل ملف التطبيق وحزمة تسجيل الدخول من صفحة **Releases** في هذا المستودع:
-- **TubeDZ APK:** حزمة التطبيق الرئيسية الموقعة.
-- **MicroG APK:** حزمة تسجيل الدخول بحساب Google.
+ملفات التطبيق الرسمية متاحة في قسم **Releases**:
+- **[تحميل تطبيق TubeDZ APK](https://github.com/rr3050026-pixel/TubeDZ/releases/download/v1.0.0/TubeDZ.apk)** *(145 MB)*
+- **[تحميل حزمة MicroG APK](https://github.com/rr3050026-pixel/TubeDZ/releases/download/v1.0.0/microg.apk)** *(101 MB)*
