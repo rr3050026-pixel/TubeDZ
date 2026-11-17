@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="fr" dir="ltr" id="htmlRoot">
+<html lang="ar" dir="rtl" id="htmlRoot">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TubeDZ — Lecteur Web YouTube Sans Publicité 🇩🇿</title>
-    <meta name="description" content="Regardez n'importe quelle vidéo YouTube sans publicité directement dans votre navigateur avec TubeDZ. Recherche, favoris, historique et téléchargement de l'application Android.">
+    <title>TubeDZ 🇩🇿 — يوتيوب بدون إعلانات وميزات المستقبل 2030</title>
+    <meta name="description" content="تطبيق TubeDZ الجزائري لمشاهدة يوتيوب بدون أي إعلانات مع ميزات المستقبل 2030: الهولوغرام السيبراني، الصوت المكاني 8D، البحث الصوتي، ومؤقت النوم.">
     <link rel="icon" type="image/png" href="logo.png?v=2">
     <link rel="apple-touch-icon" href="logo.png?v=2">
     <link rel="manifest" href="manifest.json">
@@ -2336,6 +2336,163 @@
             50% { transform: translateY(-50%) scale(1.15); opacity: 1; }
             100% { transform: translateY(-50%) scale(1); opacity: 0; }
         }
+
+        /* ========================================================
+           FUTURE PACK 2030: Homepage Interactive Hub
+           ======================================================== */
+        .future-hub-section {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(20, 15, 38, 0.92));
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            border-radius: 20px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7), 0 0 30px rgba(56, 189, 248, 0.12);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .future-hub-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.25rem;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .future-hub-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.25rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #38bdf8, #c084fc, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .future-hub-badge {
+            font-size: 0.76rem;
+            font-weight: 800;
+            background: rgba(56, 189, 248, 0.15);
+            border: 1px solid rgba(56, 189, 248, 0.35);
+            color: #7dd3fc;
+            padding: 4px 12px;
+            border-radius: 999px;
+            letter-spacing: 0.5px;
+        }
+
+        .future-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 14px;
+        }
+
+        .future-card-btn {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 16px;
+            cursor: pointer;
+            text-align: right;
+            transition: all 0.25s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 10px;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        html[dir="ltr"] .future-card-btn {
+            text-align: left;
+        }
+
+        .future-card-btn:hover {
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.09);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6);
+        }
+
+        .future-card-btn.card-hud {
+            border-color: rgba(56, 189, 248, 0.35);
+        }
+        .future-card-btn.card-hud:hover {
+            box-shadow: 0 10px 25px rgba(56, 189, 248, 0.25);
+            border-color: #38bdf8;
+        }
+
+        .future-card-btn.card-spatial {
+            border-color: rgba(16, 185, 129, 0.35);
+        }
+        .future-card-btn.card-spatial:hover {
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.25);
+            border-color: #10b981;
+        }
+
+        .future-card-btn.card-voice {
+            border-color: rgba(239, 68, 68, 0.35);
+        }
+        .future-card-btn.card-voice:hover {
+            box-shadow: 0 10px 25px rgba(239, 68, 68, 0.25);
+            border-color: #ef4444;
+        }
+
+        .future-card-btn.card-sleep {
+            border-color: rgba(245, 158, 11, 0.35);
+        }
+        .future-card-btn.card-sleep:hover {
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.25);
+            border-color: #f59e0b;
+        }
+
+        .future-card-btn.card-theme {
+            border-color: rgba(168, 85, 247, 0.35);
+        }
+        .future-card-btn.card-theme:hover {
+            box-shadow: 0 10px 25px rgba(168, 85, 247, 0.25);
+            border-color: #a855f7;
+        }
+
+        .future-card-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .future-card-icon {
+            font-size: 1.8rem;
+        }
+
+        .future-card-pill {
+            font-size: 0.7rem;
+            font-weight: 800;
+            padding: 2px 8px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .future-card-title {
+            font-size: 1rem;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .future-card-desc {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.45;
+        }
+
+        .future-card-action {
+            font-size: 0.82rem;
+            font-weight: 800;
+            margin-top: 4px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
     </style>
 </head>
 <body>
@@ -2352,14 +2509,14 @@
                 <!-- Search Input with Futuristic Voice Search -->
                 <div class="search-container">
                     <div class="search-box">
-                        <input type="text" id="searchInput" placeholder="Rechercher ou coller un lien YouTube..." onkeydown="handleSearchKey(event)">
-                        <button class="voice-btn" id="voiceSearchBtn" onclick="toggleVoiceSearch()" title="Recherche Vocale Intelligente / البحث الصوتي العصبي">
+                        <input type="text" id="searchInput" placeholder="ابحث أو الصق رابط يوتيوب هنا..." onkeydown="handleSearchKey(event)">
+                        <button class="voice-btn" id="voiceSearchBtn" onclick="toggleVoiceSearch()" title="البحث الصوتي العصبي الذكي">
                             <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
                                 <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
                                 <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
                             </svg>
                         </button>
-                        <button class="search-btn" onclick="executeSearch()" title="Rechercher">
+                        <button class="search-btn" onclick="executeSearch()" title="بحث">
                             <svg viewBox="0 0 24 24">
                                 <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
                             </svg>
@@ -2371,9 +2528,9 @@
                 <div class="header-actions">
                     <!-- Futuristic Theme Selector -->
                     <div class="theme-selector-wrap">
-                        <button class="nav-btn-icon" onclick="toggleThemeMenu(event)" id="themeBtn" title="Thèmes Cyber 2030 / مصفوفة أطياف النيون">
+                        <button class="nav-btn-icon" onclick="toggleThemeMenu(event)" id="themeBtn" title="مصفوفة أطياف النيون 2030">
                             <span>🔮</span>
-                            <span id="themeBtnText">Thèmes</span>
+                            <span id="themeBtnText">النيون</span>
                         </button>
                         <div class="theme-dropdown" id="themeDropdown">
                             <button class="theme-opt-btn active" data-theme="algeria" onclick="selectTheme('algeria')">
@@ -2395,20 +2552,20 @@
                         </div>
                     </div>
 
-                    <button class="nav-btn-icon btn-nav-ytm" onclick="activateYtMusicTab()" id="navYtMusicBtn" title="Mode YouTube Music">
+                    <button class="nav-btn-icon btn-nav-ytm" onclick="activateYtMusicTab()" id="navYtMusicBtn" title="استوديو YouTube Music">
                         <span style="color: #ef4444;">🎧</span>
-                        <span id="navYtMusicText">YT Music</span>
+                        <span id="navYtMusicText">YT موسيقى</span>
                     </button>
-                    <button class="nav-btn-icon" onclick="showFavorites()" title="Mes Favoris">
+                    <button class="nav-btn-icon" onclick="showFavorites()" title="المفضلة">
                         <span>⭐</span>
-                        <span id="navFavText">Favoris</span>
+                        <span id="navFavText">المفضلة</span>
                     </button>
-                    <button class="nav-btn-icon" onclick="showHistory()" title="Historique">
+                    <button class="nav-btn-icon" onclick="showHistory()" title="السجل">
                         <span>🕒</span>
-                        <span id="navHistText">Historique</span>
+                        <span id="navHistText">السجل</span>
                     </button>
                     <button class="nav-btn-icon" onclick="toggleLanguage()">
-                        <span id="langBtnText">🇩🇿 العربية</span>
+                        <span id="langBtnText">🇫🇷 Français</span>
                     </button>
                     <a href="https://github.com/rr3050026-pixel/TubeDZ/releases/download/v1.1.0/TubeDZ.apk" class="btn-apk-header" download>
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -2691,18 +2848,106 @@
 
             <!-- Category Chips -->
             <div class="categories-nav">
-                <button class="chip-btn active" onclick="filterCategory('all', this)" id="chipAll">🔥 Tous</button>
+                <button class="chip-btn active" onclick="filterCategory('all', this)" id="chipAll">🔥 الكل</button>
                 <button class="chip-btn chip-ytm" onclick="filterCategory('ytmusic', this)" id="chipYtMusic">
                     <span>🎧</span>
-                    <span id="chipYtMusicText">YT Music</span>
+                    <span id="chipYtMusicText">YT موسيقى</span>
                 </button>
-                <button class="chip-btn" onclick="filterCategory('algeria', this)" id="chipDz">🇩🇿 Algérie</button>
-                <button class="chip-btn" onclick="filterCategory('music', this)" id="chipMusic">🎵 Musique</button>
-                <button class="chip-btn" onclick="filterCategory('sport', this)" id="chipSport">⚽ Football & Sport</button>
-                <button class="chip-btn" onclick="filterCategory('podcast', this)" id="chipPodcast">🎙️ Podcasts</button>
-                <button class="chip-btn" onclick="filterCategory('quran', this)" id="chipQuran">📖 Coran</button>
-                <button class="chip-btn" onclick="filterCategory('tech', this)" id="chipTech">💡 Tech & Savoir</button>
+                <button class="chip-btn" onclick="filterCategory('algeria', this)" id="chipDz">🇩🇿 الجزائر</button>
+                <button class="chip-btn" onclick="filterCategory('music', this)" id="chipMusic">🎵 موسيقى</button>
+                <button class="chip-btn" onclick="filterCategory('sport', this)" id="chipSport">⚽ كرة القدم والرياضة</button>
+                <button class="chip-btn" onclick="filterCategory('podcast', this)" id="chipPodcast">🎙️ بودكاست</button>
+                <button class="chip-btn" onclick="filterCategory('quran', this)" id="chipQuran">📖 قرآن كريم</button>
+                <button class="chip-btn" onclick="filterCategory('tech', this)" id="chipTech">💡 تقنية ومعرفة</button>
             </div>
+
+            <!-- Future Pack 2030 Interactive Control Hub -->
+            <section class="future-hub-section" id="futureHubSection">
+                <div class="future-hub-header">
+                    <div class="future-hub-title">
+                        <span>🚀</span>
+                        <h3 id="txtFutureHubTitle">مركز تقنيات المستقبل 2030 • TubeDZ Future Hub</h3>
+                    </div>
+                    <span class="future-hub-badge" id="txtFutureHubBadge">✨ ميزات الجيل القادم مفعلة</span>
+                </div>
+
+                <div class="future-grid">
+                    <!-- 1. Hologram HUD Card -->
+                    <div class="future-card-btn card-hud" onclick="launchCyberHudDemo()">
+                        <div class="future-card-top">
+                            <span class="future-card-icon">🌌</span>
+                            <span class="future-card-pill" style="color: #38bdf8;">HUD 60 FPS</span>
+                        </div>
+                        <div>
+                            <div class="future-card-title" id="hubCardTitle1">الهولوغرام السيبراني</div>
+                            <div class="future-card-desc" id="hubCardDesc1">واجهة هولوغرافية تفاعلية مع رادار صوتي وتيليمترية البث المباشرة.</div>
+                        </div>
+                        <div class="future-card-action" style="color: #38bdf8;" id="hubCardAction1">
+                            <span>▶️ تجربة الهولوغرام الفورية</span>
+                        </div>
+                    </div>
+
+                    <!-- 2. 8D Spatial Audio Card -->
+                    <div class="future-card-btn card-spatial" onclick="launchSpatialStudioDemo()">
+                        <div class="future-card-top">
+                            <span class="future-card-icon">🎧</span>
+                            <span class="future-card-pill" style="color: #34d399;">360° BINAURAL</span>
+                        </div>
+                        <div>
+                            <div class="future-card-title" id="hubCardTitle2">الصوت المكاني 8D</div>
+                            <div class="future-card-desc" id="hubCardDesc2">محاكاة دوران مداري ثلاثي الأبعاد لسماعات الرأس مع مضخم بيز كمومي.</div>
+                        </div>
+                        <div class="future-card-action" style="color: #34d399;" id="hubCardAction2">
+                            <span>🎛️ فتح استوديو الصوت 8D</span>
+                        </div>
+                    </div>
+
+                    <!-- 3. Neural Voice Search Card -->
+                    <div class="future-card-btn card-voice" onclick="toggleVoiceSearch()">
+                        <div class="future-card-top">
+                            <span class="future-card-icon">🎙️</span>
+                            <span class="future-card-pill" style="color: #f87171;">AI SPEECH</span>
+                        </div>
+                        <div>
+                            <div class="future-card-title" id="hubCardTitle3">البحث الصوتي العصبي</div>
+                            <div class="future-card-desc" id="hubCardDesc3">تحدث بصوتك بالدارجة الجزائرية، العربية أو الفرنسية للبحث الفوري بموجات حية.</div>
+                        </div>
+                        <div class="future-card-action" style="color: #f87171;" id="hubCardAction3">
+                            <span>🎙️ تحدث الآن للبحث</span>
+                        </div>
+                    </div>
+
+                    <!-- 4. Smart Sleep Timer Card -->
+                    <div class="future-card-btn card-sleep" onclick="openSleepTimerModal()">
+                        <div class="future-card-top">
+                            <span class="future-card-icon">⏱️</span>
+                            <span class="future-card-pill" style="color: #fbbf24;">SMOOTH FADE</span>
+                        </div>
+                        <div>
+                            <div class="future-card-title" id="hubCardTitle4">مؤقت النوم والتلاشي</div>
+                            <div class="future-card-desc" id="hubCardDesc4">إيقاف تلقائي للمقاطع مع تلاشٍ صوتي تدريجي هادئ لنوم مريح بدون إزعاج.</div>
+                        </div>
+                        <div class="future-card-action" style="color: #fbbf24;" id="hubCardAction4">
+                            <span>⏱️ ضبط مؤقت النوم</span>
+                        </div>
+                    </div>
+
+                    <!-- 5. Cyber Neon Themes Card -->
+                    <div class="future-card-btn card-theme" onclick="toggleThemeMenu(event)">
+                        <div class="future-card-top">
+                            <span class="future-card-icon">🔮</span>
+                            <span class="future-card-pill" style="color: #c084fc;">4 NEON THEMES</span>
+                        </div>
+                        <div>
+                            <div class="future-card-title" id="hubCardTitle5">أطياف النيون المتوهجة</div>
+                            <div class="future-card-desc" id="hubCardDesc5">تخصيص الواجهة: الزمرد الجزائري، سايبربانك 2077، الكوبالت، والمريخ.</div>
+                        </div>
+                        <div class="future-card-action" style="color: #c084fc;" id="hubCardAction5">
+                            <span>🔮 تخصيص لون الواجهة</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             <!-- YouTube Music Deluxe Showcase Banner -->
             <div class="ytm-featured-banner" id="ytmFeaturedBanner" onclick="launchFeaturedYtm()">
@@ -3162,7 +3407,7 @@
             }
         ];
 
-        let currentLang = 'fr';
+        let currentLang = localStorage.getItem('tubedz_lang') || 'ar';
         let currentVideo = null;
 
         // Local Storage Helpers
@@ -4350,9 +4595,34 @@ User inquiry: ${userPrompt}`;
             }
         }
 
+        // Future Hub Quick Launch Actions
+        function launchCyberHudDemo() {
+            if (!currentVideo && videoData.length > 0) {
+                playVideo(videoData[0]);
+            }
+            if (!isCyberHudActive) {
+                toggleCyberHud();
+            }
+            const wrapper = document.getElementById('playerSection');
+            if (wrapper) wrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function launchSpatialStudioDemo() {
+            const musicTrack = videoData.find(v => v.category === 'music') || videoData[0];
+            if (musicTrack) {
+                playVideo(musicTrack);
+            }
+            const panel = document.getElementById('spatialAudioPanel');
+            if (panel && !panel.classList.contains('active')) {
+                toggleSpatialPanel();
+            }
+            if (panel) panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
         // Language Switcher
         function toggleLanguage() {
             currentLang = currentLang === 'fr' ? 'ar' : 'fr';
+            localStorage.setItem('tubedz_lang', currentLang);
             applyLanguage();
         }
 
@@ -4571,6 +4841,62 @@ User inquiry: ${userPrompt}`;
                 generateAiQuickSummary();
             }
 
+            // Future Hub Card Translations
+            const hubTitle = document.getElementById('txtFutureHubTitle');
+            if (hubTitle) hubTitle.textContent = isFr 
+                ? 'Centre de Technologies Futures 2030 • TubeDZ Future Hub' 
+                : 'مركز تقنيات المستقبل 2030 • TubeDZ Future Hub';
+
+            const hubBadge = document.getElementById('txtFutureHubBadge');
+            if (hubBadge) hubBadge.textContent = isFr 
+                ? '✨ Fonctionnalités Nouvelle Génération' 
+                : '✨ ميزات الجيل القادم مفعلة';
+
+            const hT1 = document.getElementById('hubCardTitle1');
+            if (hT1) hT1.textContent = isFr ? 'Hologramme Cyber HUD' : 'الهولوغرام السيبراني';
+            const hD1 = document.getElementById('hubCardDesc1');
+            if (hD1) hD1.textContent = isFr 
+                ? 'Interface tête haute 3D avec radar sonore et télémétrie en direct 60 FPS.' 
+                : 'واجهة هولوغرافية تفاعلية مع رادار صوتي وتيليمترية البث المباشرة.';
+            const hA1 = document.getElementById('hubCardAction1');
+            if (hA1) hA1.innerHTML = isFr ? '<span>▶️ Tester l\'Hologramme</span>' : '<span>▶️ تجربة الهولوغرام الفورية</span>';
+
+            const hT2 = document.getElementById('hubCardTitle2');
+            if (hT2) hT2.textContent = isFr ? 'Audio Spatial 8D' : 'الصوت المكاني 8D';
+            const hD2 = document.getElementById('hubCardDesc2');
+            if (hD2) hD2.textContent = isFr 
+                ? 'Immersion binaurale 360° pour casques avec sub-bass quantique 2030.' 
+                : 'محاكاة دوران مداري ثلاثي الأبعاد لسماعات الرأس مع مضخم بيز كمومي.';
+            const hA2 = document.getElementById('hubCardAction2');
+            if (hA2) hA2.innerHTML = isFr ? '<span>🎛️ Ouvrir le Studio 8D</span>' : '<span>🎛️ فتح استوديو الصوت 8D</span>';
+
+            const hT3 = document.getElementById('hubCardTitle3');
+            if (hT3) hT3.textContent = isFr ? 'Recherche Vocale IA' : 'البحث الصوتي العصبي';
+            const hD3 = document.getElementById('hubCardDesc3');
+            if (hD3) hD3.textContent = isFr 
+                ? 'Parlez en Darja, Arabe ou Français pour chercher instantanément avec ondes vocales.' 
+                : 'تحدث بصوتك بالدارجة الجزائرية، العربية أو الفرنسية للبحث الفوري بموجات حية.';
+            const hA3 = document.getElementById('hubCardAction3');
+            if (hA3) hA3.innerHTML = isFr ? '<span>🎙️ Parler maintenant</span>' : '<span>🎙️ تحدث الآن للبحث</span>';
+
+            const hT4 = document.getElementById('hubCardTitle4');
+            if (hT4) hT4.textContent = isFr ? 'Minuteur & Fondu Doux' : 'مؤقت النوم والتلاشي';
+            const hD4 = document.getElementById('hubCardDesc4');
+            if (hD4) hD4.textContent = isFr 
+                ? 'Arrêt automatique de la lecture avec baisse douce du volume sonore.' 
+                : 'إيقاف تلقائي للمقاطع مع تلاشٍ صوتي تدريجي هادئ لنوم مريح بدون إزعاج.';
+            const hA4 = document.getElementById('hubCardAction4');
+            if (hA4) hA4.innerHTML = isFr ? '<span>⏱️ Régler le minuteur</span>' : '<span>⏱️ ضبط مؤقت النوم</span>';
+
+            const hT5 = document.getElementById('hubCardTitle5');
+            if (hT5) hT5.textContent = isFr ? 'Thèmes Néon Cyber' : 'أطياف النيون المتوهجة';
+            const hD5 = document.getElementById('hubCardDesc5');
+            if (hD5) hD5.textContent = isFr 
+                ? 'Personnalisation : Cyber Algérie, Cyberpunk 2077, Cobalt et Mars.' 
+                : 'تخصيص الواجهة: الزمرد الجزائري، سايبربانك 2077، الكوبالت، والمريخ.';
+            const hA5 = document.getElementById('hubCardAction5');
+            if (hA5) hA5.innerHTML = isFr ? '<span>🔮 Changer de thème</span>' : '<span>🔮 تخصيص لون الواجهة</span>';
+
             renderVideos(videoData, isFr ? '📺 Vidéos Populaires' : '📺 فيديوهات رائجة بدون إعلانات');
             if (currentVideo) updateFavoriteButton();
         }
@@ -4600,7 +4926,7 @@ User inquiry: ${userPrompt}`;
 
         // Initialize on page load
         initCyberThemes();
-        renderVideos(videoData, '📺 Vidéos Populaires');
+        applyLanguage();
     </script>
 </body>
 </html>
