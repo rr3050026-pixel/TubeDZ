@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="fr" dir="ltr" id="htmlRoot">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TubeDZ — يوتيوب بدون إعلانات وبمميزات احترافية 🇩🇿</title>
-    <meta name="description" content="حمّل تطبيق TubeDZ الجزائري البديل ليوتيوب مجاناً. استمتع بمشاهدة بدون إعلانات، تشغيل في الخلفية، وتثبيت مستقل بجانب التطبيق الأصلي.">
+    <title>TubeDZ — YouTube Sans Publicité avec Identité Algérienne 🇩🇿</title>
+    <meta name="description" content="Téléchargez TubeDZ, l'alternative algérienne à YouTube sans aucune publicité. Lecture en arrière-plan, thème sombre AMOLED et installation indépendante.">
     <link rel="icon" type="image/png" href="logo.png">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -32,8 +32,12 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Cairo', system-ui, -apple-system, sans-serif;
+            font-family: 'Plus Jakarta Sans', 'Cairo', system-ui, -apple-system, sans-serif;
             scroll-behavior: smooth;
+        }
+
+        html[dir="rtl"] * {
+            font-family: 'Cairo', system-ui, sans-serif;
         }
 
         body {
@@ -48,14 +52,13 @@
             min-height: 100vh;
         }
 
-        /* Container */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 1.5rem;
         }
 
-        /* Header / Navbar */
+        /* Header */
         header {
             position: sticky;
             top: 0;
@@ -91,7 +94,7 @@
 
         .logo-text {
             font-size: 1.45rem;
-            font-weight: 900;
+            font-weight: 800;
             letter-spacing: -0.5px;
         }
 
@@ -102,7 +105,7 @@
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 24px;
+            gap: 22px;
             list-style: none;
         }
 
@@ -116,6 +119,26 @@
 
         .nav-links a:hover {
             color: #fff;
+        }
+
+        .lang-switch-btn {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--border-glass);
+            color: var(--text-main);
+            padding: 7px 14px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .lang-switch-btn:hover {
+            background: rgba(255, 255, 255, 0.18);
+            border-color: rgba(255, 255, 255, 0.3);
         }
 
         .nav-btn {
@@ -133,7 +156,7 @@
             box-shadow: 0 6px 20px rgba(230, 33, 41, 0.6) !important;
         }
 
-        /* Hero Section */
+        /* Hero */
         .hero {
             padding: 5rem 0 4rem;
             position: relative;
@@ -369,12 +392,38 @@
             color: var(--text-muted);
         }
 
-        /* Feature Tabs Section */
+        /* Feature Tabs */
         .showcase-section {
             padding: 5rem 0;
             background: rgba(255, 255, 255, 0.015);
             border-top: 1px solid var(--border-glass);
             border-bottom: 1px solid var(--border-glass);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 680px;
+            margin: 0 auto 3.5rem;
+        }
+
+        .section-tag {
+            color: var(--primary);
+            font-weight: 800;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .section-header h2 {
+            font-size: 2.4rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
         }
 
         .tabs-nav {
@@ -495,36 +544,10 @@
             font-weight: 700;
         }
 
-        /* Features Section */
+        /* Features */
         .features {
             padding: 6rem 0;
             position: relative;
-        }
-
-        .section-header {
-            text-align: center;
-            max-width: 650px;
-            margin: 0 auto 4rem;
-        }
-
-        .section-tag {
-            color: var(--primary);
-            font-weight: 800;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
-        }
-
-        .section-header h2 {
-            font-size: 2.4rem;
-            font-weight: 900;
-            margin-bottom: 1rem;
-        }
-
-        .section-header p {
-            color: var(--text-muted);
-            font-size: 1.05rem;
         }
 
         .features-grid {
@@ -583,7 +606,7 @@
             line-height: 1.6;
         }
 
-        /* How to Install Section */
+        /* Installation */
         .install-section {
             padding: 5rem 0;
             background: rgba(255, 255, 255, 0.015);
@@ -653,7 +676,7 @@
             color: #fff;
         }
 
-        /* Security Checksum Section */
+        /* Security */
         .security-section {
             padding: 5rem 0;
         }
@@ -735,7 +758,7 @@
             border-color: rgba(255, 255, 255, 0.3);
         }
 
-        /* FAQ Accordion */
+        /* FAQ */
         .faq-section {
             padding: 5rem 0 6rem;
         }
@@ -884,7 +907,6 @@
             opacity: 1;
         }
 
-        /* Responsive */
         @media (max-width: 900px) {
             .hero-grid {
                 grid-template-columns: 1fr;
@@ -893,7 +915,7 @@
             }
 
             .hero h1 {
-                font-size: 2.4rem;
+                font-size: 2.3rem;
             }
 
             .hero-desc {
@@ -934,12 +956,17 @@
                     <div class="logo-text">Tube<span>DZ</span> 🇩🇿</div>
                 </a>
                 <ul class="nav-links">
-                    <li><a href="#features">المميزات</a></li>
-                    <li><a href="#showcase">استعراض النظام</a></li>
-                    <li><a href="#install">طريقة التثبيت</a></li>
-                    <li><a href="#security">فحص الأمان</a></li>
-                    <li><a href="#faq">الأسئلة الشائعة</a></li>
-                    <li><a href="TubeDZ.apk" class="nav-btn" download>تحميل APK</a></li>
+                    <li><a href="#features" data-i18n="nav_features">Fonctionnalités</a></li>
+                    <li><a href="#showcase" data-i18n="nav_showcase">Démo Système</a></li>
+                    <li><a href="#install" data-i18n="nav_install">Installation</a></li>
+                    <li><a href="#security" data-i18n="nav_security">Sécurité</a></li>
+                    <li><a href="#faq" data-i18n="nav_faq">FAQ</a></li>
+                    <li>
+                        <button class="lang-switch-btn" onclick="toggleLanguage()">
+                            <span id="langBtnText">🇩🇿 العربية</span>
+                        </button>
+                    </li>
+                    <li><a href="TubeDZ.apk" class="nav-btn" download data-i18n="nav_btn_download">Télécharger APK</a></li>
                 </ul>
             </nav>
         </div>
@@ -952,34 +979,34 @@
                 <div class="hero-content">
                     <div class="badge-pill">
                         <span class="badge-dot"></span>
-                        الإصدار الأحدث v21.13 مستقر ومفحوص
+                        <span data-i18n="hero_badge">Dernière version v21.13 stable & vérifiée</span>
                     </div>
                     <h1>
-                        يوتيوب بدون إعلانات <br>
-                        <span class="gradient-text">بهوية جزائرية فريدة</span>
+                        <span data-i18n="hero_title_1">YouTube Sans Publicité</span> <br>
+                        <span class="gradient-text" data-i18n="hero_title_2">À l'Identité Algérienne</span>
                     </h1>
-                    <p class="hero-desc">
-                        استمتع بتجربة مشاهدة نقية خالية تماماً من الفواصل الإعلانية المزعجة، مع ميزة التشغيل في الخلفية والشاشة مغلقة، وإمكانية تسجيل الدخول لحسابك بكل سهولة وأمان.
+                    <p class="hero-desc" data-i18n="hero_desc">
+                        Profitez d'un visionnage pur, fluide et sans aucune interruption publicitaire. Écoutez vos vidéos en arrière-plan avec écran verrouillé et connectez votre compte Google en toute sécurité.
                     </p>
                     <div class="hero-actions">
                         <a href="TubeDZ.apk" class="btn-download-main" download>
                             <svg viewBox="0 0 24 24">
                                 <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/>
                             </svg>
-                            <span>تحميل TubeDZ (APK)</span>
+                            <span data-i18n="hero_btn_apk">Télécharger TubeDZ (APK)</span>
                         </a>
                         <a href="microg.apk" class="btn-download-sub" download>
-                            <span>تحميل MicroG (مباشر)</span>
+                            <span data-i18n="hero_btn_microg">Télécharger MicroG (Direct)</span>
                         </a>
                         <button class="btn-action-ghost" onclick="copyPageLink()">
-                            <span>🔗 نسخ الرابط</span>
+                            <span data-i18n="hero_btn_copy">🔗 Copier le lien</span>
                         </button>
                     </div>
                     <div class="apk-meta">
-                        <span>📦 الحجم: <strong>145 MB</strong></span>
-                        <span>📱 النظام: <strong>Android 8.0+</strong></span>
-                        <span>🛡️ الحماية: <strong>موقّع بشهادة أمان رسمية</strong></span>
-                        <span>⚡ النوع: <strong>تثبيت مستقل (Clone)</strong></span>
+                        <span>📦 <strong data-i18n="meta_size">Taille : 145 Mo</strong></span>
+                        <span>📱 <strong data-i18n="meta_os">Android 8.0+</strong></span>
+                        <span>🛡️ <strong data-i18n="meta_security">Signature RSA V3</strong></span>
+                        <span>⚡ <strong data-i18n="meta_mode">Clone Indépendant</strong></span>
                     </div>
                 </div>
 
@@ -988,19 +1015,19 @@
                     <div class="mockup-card">
                         <img src="logo.png" alt="TubeDZ Icon" class="mockup-icon">
                         <h3 class="mockup-title">TubeDZ</h3>
-                        <p class="mockup-tag">نسخة مخصصة فائقة السرعة</p>
+                        <p class="mockup-tag" data-i18n="mockup_tag">Édition Haute Performance</p>
                         <div class="mockup-stats">
                             <div class="stat-item">
                                 <h4>0%</h4>
-                                <p>إعلانات</p>
+                                <p data-i18n="stat_ads">Pubs</p>
                             </div>
                             <div class="stat-item">
                                 <h4>4K</h4>
-                                <p>أقصى دقة</p>
+                                <p data-i18n="stat_res">Qualité Max</p>
                             </div>
                             <div class="stat-item">
                                 <h4>100%</h4>
-                                <p>مجاني دائماً</p>
+                                <p data-i18n="stat_free">Gratuit</p>
                             </div>
                         </div>
                     </div>
@@ -1013,101 +1040,101 @@
     <section class="showcase-section" id="showcase">
         <div class="container">
             <div class="section-header">
-                <div class="section-tag">تجربة المستخدم</div>
-                <h2>استعراض المميزات التفاعلية</h2>
-                <p>تعرف على الأدوات الذكية التي تجعل تجربة المشاهدة مختلفة كلياً.</p>
+                <div class="section-tag" data-i18n="showcase_tag">Expérience Utilisateur</div>
+                <h2 data-i18n="showcase_title">Aperçu des Fonctionnalités</h2>
+                <p data-i18n="showcase_subtitle">Découvrez les outils intelligents qui transforment votre expérience de visionnage.</p>
             </div>
 
             <div class="tabs-nav">
-                <button class="tab-btn active" onclick="openTab(event, 'tab-ads')">🚫 حظر الإعلانات</button>
-                <button class="tab-btn" onclick="openTab(event, 'tab-bg')">🎧 التشغيل بالخلفية</button>
-                <button class="tab-btn" onclick="openTab(event, 'tab-sponsor')">⏩ تخطي الرعاة</button>
-                <button class="tab-btn" onclick="openTab(event, 'tab-amoled')">🌙 الثيم الداكن</button>
-                <button class="tab-btn" onclick="openTab(event, 'tab-clone')">📱 تثبيت مستقل</button>
+                <button class="tab-btn active" onclick="openTab(event, 'tab-ads')" data-i18n="tab_btn_ads">🚫 Bloqueur de Pubs</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab-bg')" data-i18n="tab_btn_bg">🎧 Arrière-Plan & PiP</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab-sponsor')" data-i18n="tab_btn_sponsor">⏩ Passer Sponsors</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab-amoled')" data-i18n="tab_btn_amoled">🌙 Thème AMOLED</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab-clone')" data-i18n="tab_btn_clone">📱 Installation Parallèle</button>
             </div>
 
             <!-- Tab 1 -->
             <div class="tab-content active" id="tab-ads">
                 <div class="tab-text">
-                    <h3>حظر شامل للإعلانات دون أي استثناء</h3>
-                    <p>يقوم TubeDZ بالتخلص من إعلانات البداية، الإعلانات المنبثقة، مقاطع الترويج في المنتصف، وبانرات الإعلانات في واجهة البحث وفيديوهات Shorts.</p>
+                    <h3 data-i18n="t1_title">Blocage Intégral sans aucune exception</h3>
+                    <p data-i18n="t1_desc">TubeDZ élimine les annonces pré-roll, mid-roll, pop-ups, bannières dans les résultats de recherche et pubs dans les Shorts.</p>
                     <ul class="tab-feature-list">
-                        <li>حظر تام لجميع أنواع إعلانات الفيديو</li>
-                        <li>إزالة اللافتات الإعلانية الثابتة والمتحركة</li>
-                        <li>توفير كبير في استهلاك باقة الإنترنت</li>
+                        <li data-i18n="t1_f1">Zéro coupure publicitaire sur toutes les vidéos</li>
+                        <li data-i18n="t1_f2">Suppression des bannières promotionnelles</li>
+                        <li data-i18n="t1_f3">Économie significative sur vos données mobiles</li>
                     </ul>
                 </div>
                 <div class="tab-graphic">
                     <span class="icon-big">🚫</span>
-                    <span class="tag-live">مفعل تلقائياً بنسبة 100%</span>
+                    <span class="tag-live" data-i18n="tag_active">Actif à 100% par défaut</span>
                 </div>
             </div>
 
             <!-- Tab 2 -->
             <div class="tab-content" id="tab-bg">
                 <div class="tab-text">
-                    <h3>تشغيل الفيديوهات في الخلفية و PiP</h3>
-                    <p>تابع الاستماع للبودكاست والمحاضرات والموسيقى أثناء إغلاق شاشة الهاتف لتوفير شحن البطارية، أو استخدم نافذة الصورة داخل صورة أثناء تصفحك لتطبيقات التواصل.</p>
+                    <h3 data-i18n="t2_title">Lecture Audio en Arrière-Plan & Mode PiP</h3>
+                    <p data-i18n="t2_desc">Écoutez vos podcasts, conférences ou musiques favorites avec l'écran verrouillé pour économiser votre batterie, ou continuez de regarder dans une fenêtre flottante.</p>
                     <ul class="tab-feature-list">
-                        <li>استمرار تشغيل الصوت عند قفل الشاشة</li>
-                        <li>نافذة عائمة قابلة للتكبير والتحريك (PiP)</li>
-                        <li>أزرار تحكم كاملة في شريط الإشعارات</li>
+                        <li data-i18n="t2_f1">Lecture audio continue écran éteint</li>
+                        <li data-i18n="t2_f2">Fenêtre flottante redimensionnable (PiP)</li>
+                        <li data-i18n="t2_f3">Contrôles intégrés dans la barre de notifications</li>
                     </ul>
                 </div>
                 <div class="tab-graphic">
                     <span class="icon-big">🎧</span>
-                    <span class="tag-live">توفير فائق لطاقة البطارية</span>
+                    <span class="tag-live" data-i18n="tag_battery">Économie d'énergie maximale</span>
                 </div>
             </div>
 
             <!-- Tab 3 -->
             <div class="tab-content" id="tab-sponsor">
                 <div class="tab-text">
-                    <h3>تخطي فواصل الرعاة تلقائياً (SponsorBlock)</h3>
-                    <p>تجاوز المقاطع الترويجية المدمجة داخل الفيديو نفسه (كإعلانات الشركات ومقدمات القنوات وطلبات الاشتراك) بفضل التكامل مع نظام SponsorBlock العالمي.</p>
+                    <h3 data-i18n="t3_title">Passer les segments sponsorisés (SponsorBlock)</h3>
+                    <p data-i18n="t3_desc">Passez automatiquement les segments publicitaires intégrés par les créateurs dans la vidéo elle-même (intros, partenariats commerciaux, appels à s'abonner).</p>
                     <ul class="tab-feature-list">
-                        <li>تخطي تلقائي لفواصل الترويج المزعجة</li>
-                        <li>إمكانية تخطي شارات البداية والنهاية</li>
-                        <li>توفير دقائق ثمينة من وقت المشاهدة</li>
+                        <li data-i18n="t3_f1">Saut automatique des segments promotionnels</li>
+                        <li data-i18n="t3_f2">Possibilité de passer les intros et génériques</li>
+                        <li data-i18n="t3_f3">Gagnez de précieuses minutes à chaque vidéo</li>
                     </ul>
                 </div>
                 <div class="tab-graphic">
                     <span class="icon-big">⏩</span>
-                    <span class="tag-live">ذكاء اصطناعي وتكامل مجتمعي</span>
+                    <span class="tag-live" data-i18n="tag_community">Base communautaire intelligente</span>
                 </div>
             </div>
 
             <!-- Tab 4 -->
             <div class="tab-content" id="tab-amoled">
                 <div class="tab-text">
-                    <h3>الوضع الداكن الخالص AMOLED Black</h3>
-                    <p>واجهة سوداء نقية مصممة خصيصاً لشاشات OLED و AMOLED لإراحة العينين ليلاً وتوفير طاقة الشاشة بفضل إيقاف البيكسلات السوداء بالكامل.</p>
+                    <h3 data-i18n="t4_title">Thème Sombre Pur AMOLED Black</h3>
+                    <p data-i18n="t4_desc">Interface noire profonde conçue spécifiquement pour les écrans OLED et AMOLED, réduisant la fatigue visuelle la nuit et économisant l'énergie.</p>
                     <ul class="tab-feature-list">
-                        <li>أسود داكن عميق (#000000)</li>
-                        <li>تقليل إجهاد العين أثناء المشاهدة الليلية</li>
-                        <li>لمسات خضراء وحمراء وطنية أنيقة</li>
+                        <li data-i18n="t4_f1">Noir absolu (#000000) sans reflet grisâtre</li>
+                        <li data-i18n="t4_f2">Confort visuel nocturne optimal</li>
+                        <li data-i18n="t4_f3">Accents algériens vert et rouge élégants</li>
                     </ul>
                 </div>
                 <div class="tab-graphic">
                     <span class="icon-big">🌙</span>
-                    <span class="tag-live">مريح للعين وموفر للشحن</span>
+                    <span class="tag-live" data-i18n="tag_oled">Optimisé pour écrans AMOLED</span>
                 </div>
             </div>
 
             <!-- Tab 5 -->
             <div class="tab-content" id="tab-clone">
                 <div class="tab-text">
-                    <h3>تثبيت مستقل بجانب يوتيوب الأصلي</h3>
-                    <p>تم بناء التطبيق بحزمة مستقلة تماماً تسمح لك بتثبيته بجانب يوتيوب الرسمي دون الحاجة لحذفه أو التعديل على ملفات النظام.</p>
+                    <h3 data-i18n="t5_title">Installation Indépendante (Side-by-Side)</h3>
+                    <p data-i18n="t5_desc">L'application possède un nom de package dédié lui permettant de fonctionner en parallèle avec l'application YouTube originale sans avoir à la désinstaller.</p>
                     <ul class="tab-feature-list">
-                        <li>لا يتطلب صلاحيات الروت (No Root)</li>
-                        <li>يعمل بجانب التطبيق الرسمي دون تعارض</li>
-                        <li>حجم خفيف وتحديثات مستقلة</li>
+                        <li data-i18n="t5_f1">Aucun accès Root requis</li>
+                        <li data-i18n="t5_f2">Coexiste parfaitement avec YouTube officiel</li>
+                        <li data-i18n="t5_f3">Mises à jour autonomes et sécurisées</li>
                     </ul>
                 </div>
                 <div class="tab-graphic">
                     <span class="icon-big">📱</span>
-                    <span class="tag-live">تثبيت آمن بنسبة 100%</span>
+                    <span class="tag-live" data-i18n="tag_safe">100% Sûr et Non-Intrusif</span>
                 </div>
             </div>
         </div>
@@ -1117,46 +1144,46 @@
     <section class="features" id="features">
         <div class="container">
             <div class="section-header">
-                <div class="section-tag">لماذا تختار TubeDZ؟</div>
-                <h2>مميزات لا تجدها في التطبيق العادي</h2>
-                <p>صُمم TubeDZ ليوفر لك أقصى درجات الراحة والتحكم الكامل أثناء مشاهدة فيديوهاتك المفضلة.</p>
+                <div class="section-tag" data-i18n="features_tag">Pourquoi choisir TubeDZ ?</div>
+                <h2 data-i18n="features_title">Des atouts uniques et incomparables</h2>
+                <p data-i18n="features_subtitle">Conçu sur mesure pour vous offrir une expérience de divertissement ultime.</p>
             </div>
 
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon-wrapper">🚫</div>
-                    <h3>حظر شامل للإعلانات</h3>
-                    <p>قل وداعاً لإعلانات الفيديو في البداية والمنتصف، واللافتات الترويجية المزعجة في الواجهة وقسم Shorts.</p>
+                    <h3 data-i18n="card1_title">Blocage Absolu des Pubs</h3>
+                    <p data-i18n="card1_desc">Dites adieu aux annonces intrusives et profitez de vos contenus sans la moindre interruption.</p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon-wrapper green">🎵</div>
-                    <h3>تشغيل في الخلفية ونافذة PiP</h3>
-                    <p>استمع للموسيقى والبودكاست وشاشة هاتفك مغلقة لتوفير البطارية، أو شاهد أثناء استخدام تطبيقاتك الأخرى.</p>
+                    <h3 data-i18n="card2_title">Lecture Écran Éteint & PiP</h3>
+                    <p data-i18n="card2_desc">Écoutez vos playlists et podcasts tout en préservant l'autonomie de votre téléphone.</p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon-wrapper">⚡</div>
-                    <h3>تثبيت مستقل (Side-by-Side)</h3>
-                    <p>تم تخصيص الحزمة لتثبيت TubeDZ كتطبيق مستقل تماماً دون الحاجة لإلغاء تثبيت تطبيق يوتيوب الأصلي.</p>
+                    <h3 data-i18n="card3_title">Installation Clone Séparée</h3>
+                    <p data-i18n="card3_desc">Gardez votre YouTube officiel et profitez de TubeDZ en parallèle en toute liberté.</p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon-wrapper green">🔐</div>
-                    <h3>تسجيل دخول آمن لحسابك</h3>
-                    <p>دعم كامل لمزامنة قنواتك واشتراكاتك وسجل مشاهدتك وقوائم التشغيل بأمان تام عبر حزمة MicroG المباشرة.</p>
+                    <h3 data-i18n="card4_title">Connexion Compte Sécurisée</h3>
+                    <p data-i18n="card4_desc">Synchronisation fluide de vos abonnements et favoris grâce au module officiel MicroG.</p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon-wrapper">🎨</div>
-                    <h3>هوية جزائرية وأيقونة أنيقة</h3>
-                    <p>أيقونة وطنية مصممة بعناية تجمع بين العلم الجزائري ومقام الشهيد وثيم داكن راقٍ مريح للعينين.</p>
+                    <h3 data-i18n="card5_title">Design & Identité Algérienne</h3>
+                    <p data-i18n="card5_desc">Identité visuelle patriotique soignée inspirée du drapeau algérien et de Maqam Echahid.</p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon-wrapper green">🚀</div>
-                    <h3>أداء فائق وتوفير البيانات</h3>
-                    <p>بفضل التخلص من السكربتات الإعلانية الثقيلة، ستحصل على سرعة استجابة فائقة واستهلاك أقل للبيانات والبطارية.</p>
+                    <h3 data-i18n="card6_title">Rapidité & Économie de Données</h3>
+                    <p data-i18n="card6_desc">Moins de scripts lourds = temps de chargement ultra-rapides et consommation réduite.</p>
                 </div>
             </div>
         </div>
@@ -1166,72 +1193,72 @@
     <section class="install-section" id="install">
         <div class="container">
             <div class="section-header">
-                <div class="section-tag">دليل الاستخدام</div>
-                <h2>كيفية تثبيت وتشغيل TubeDZ</h2>
-                <p>خطوات سهلة وسريعة لبدء الاستمتاع بالتطبيق في أقل من دقيقة.</p>
+                <div class="section-tag" data-i18n="install_tag">Guide d'Installation</div>
+                <h2 data-i18n="install_title">Comment installer TubeDZ ?</h2>
+                <p data-i18n="install_subtitle">Suivez ces étapes simples pour profiter de l'application en moins d'une minute.</p>
             </div>
 
             <div class="steps-grid">
                 <div class="step-card">
                     <div class="step-number">1</div>
-                    <h4>تحميل ملف TubeDZ APK</h4>
-                    <p>انقر على زر "تحميل TubeDZ" في الأعلى لتنزيل أحدث نسخة من ملف التطبيق مباشرة إلى هاتفك.</p>
+                    <h4 data-i18n="step1_title">Télécharger le fichier APK</h4>
+                    <p data-i18n="step1_desc">Cliquez sur « Télécharger TubeDZ » ci-dessus pour obtenir la dernière version signée.</p>
                 </div>
 
                 <div class="step-card">
                     <div class="step-number">2</div>
-                    <h4>السماح بالتثبيت</h4>
-                    <p>افتح الملف، وإذا طُلب منك، فعّل خيار "السماح بالتثبيت من مصادر غير معروفة" في إعدادات أندرويد.</p>
+                    <h4 data-i18n="step2_title">Autoriser l'installation</h4>
+                    <p data-i18n="step2_desc">Ouvrez le fichier et activez « Autoriser cette source » dans les paramètres de sécurité Android si demandé.</p>
                 </div>
 
                 <div class="step-card">
                     <div class="step-number">3</div>
-                    <h4>تثبيت MicroG (اختياري)</h4>
-                    <p>لتسجيل الدخول بحساب Google ومزامنة اشتراكاتك، حمّل وثبّت حزمة MicroG المباشرة بنقرة واحدة.</p>
-                    <a href="microg.apk" class="step-btn-microg" download>📥 تحميل MicroG APK (مباشر)</a>
+                    <h4 data-i18n="step3_title">Installer MicroG (Optionnel)</h4>
+                    <p data-i18n="step3_desc">Pour vous connecter avec votre compte Google et synchroniser vos données, installez MicroG en un clic.</p>
+                    <a href="microg.apk" class="step-btn-microg" download data-i18n="step3_btn">📥 Télécharger MicroG APK</a>
                 </div>
 
                 <div class="step-card">
                     <div class="step-number">4</div>
-                    <h4>استمتع بالمشاهدة!</h4>
-                    <p>افتح تطبيق TubeDZ واستمتع بجميع الفيديوهات بأعلى جودة وبدون أي إعلانات مزعجة.</p>
+                    <h4 data-i18n="step4_title">Profitez du spectacle !</h4>
+                    <p data-i18n="step4_desc">Lancez TubeDZ et savourez vos vidéos en haute définition, sans aucune publicité.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Security Checksum Section -->
+    <!-- Security Section -->
     <section class="security-section" id="security">
         <div class="container">
             <div class="section-header">
-                <div class="section-tag">الشفافية والأمان</div>
-                <h2>فحص النزاهة وبصمة التشفير (SHA-256)</h2>
-                <p>يمكنك التحقق من مطابقة وسلامة ملفات الـ APK للتأكد من عدم التلاعب بها.</p>
+                <div class="section-tag" data-i18n="sec_tag">Transparence & Sécurité</div>
+                <h2 data-i18n="sec_title">Vérification d'Intégrité (SHA-256)</h2>
+                <p data-i18n="sec_subtitle">Contrôlez l'authenticité exacte des fichiers pour vous assurer qu'ils n'ont subi aucune altération.</p>
             </div>
 
             <div class="security-box">
                 <div class="security-header">
                     <div class="security-badge">🛡️</div>
                     <div>
-                        <h4 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 4px;">ملفات رسمية موقّعة ومفحوصة</h4>
-                        <p style="color: var(--text-muted); font-size: 0.95rem;">تم توقيع الحزمة بشهادة RSA-2048 V3 الخاصة بتطبيق TubeDZ.</p>
+                        <h4 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 4px;" data-i18n="sec_box_title">Fichiers Officiels Signés & Certifiés</h4>
+                        <p style="color: var(--text-muted); font-size: 0.95rem;" data-i18n="sec_box_desc">Package signé avec le certificat RSA-2048 officiel de TubeDZ (schéma V3).</p>
                     </div>
                 </div>
 
                 <div class="security-item">
                     <div class="security-info">
-                        <h5>TubeDZ.apk (145 MB)</h5>
-                        <div class="security-hash" id="hash-tubedz">a8fbb24f777527c69d4f42cc9aace7993c6bb2e36ad54a32274b2f23e1eba680</div>
+                        <h5>TubeDZ.apk (145 Mo)</h5>
+                        <div class="security-hash">a8fbb24f777527c69d4f42cc9aace7993c6bb2e36ad54a32274b2f23e1eba680</div>
                     </div>
-                    <button class="copy-btn" onclick="copyText('a8fbb24f777527c69d4f42cc9aace7993c6bb2e36ad54a32274b2f23e1eba680', 'تم نسخ هاش TubeDZ!')">📋 نسخ الهاش</button>
+                    <button class="copy-btn" onclick="copyText('a8fbb24f777527c69d4f42cc9aace7993c6bb2e36ad54a32274b2f23e1eba680', 'Hash TubeDZ copié !')" data-i18n="btn_copy_hash">📋 Copier Hash</button>
                 </div>
 
                 <div class="security-item">
                     <div class="security-info">
-                        <h5>microg.apk (101 MB)</h5>
-                        <div class="security-hash" id="hash-microg">62119f040d629a9cd3225f280649a464936730c6466cafb5b9dd5ded14269a65</div>
+                        <h5>microg.apk (101 Mo)</h5>
+                        <div class="security-hash">62119f040d629a9cd3225f280649a464936730c6466cafb5b9dd5ded14269a65</div>
                     </div>
-                    <button class="copy-btn" onclick="copyText('62119f040d629a9cd3225f280649a464936730c6466cafb5b9dd5ded14269a65', 'تم نسخ هاش MicroG!')">📋 نسخ الهاش</button>
+                    <button class="copy-btn" onclick="copyText('62119f040d629a9cd3225f280649a464936730c6466cafb5b9dd5ded14269a65', 'Hash MicroG copié !')" data-i18n="btn_copy_hash">📋 Copier Hash</button>
                 </div>
             </div>
         </div>
@@ -1241,76 +1268,76 @@
     <section class="faq-section" id="faq">
         <div class="container">
             <div class="section-header">
-                <div class="section-tag">إجابات استفساراتك</div>
-                <h2>الأسئلة الشائعة</h2>
-                <p>كل ما تحتاج لمعرفته حول تطبيق TubeDZ وأمانه وكيفية استخدامه.</p>
+                <div class="section-tag" data-i18n="faq_tag">Questions Fréquentes</div>
+                <h2 data-i18n="faq_title">Foire Aux Questions</h2>
+                <p data-i18n="faq_subtitle">Tout ce que vous devez savoir sur TubeDZ et son fonctionnement.</p>
             </div>
 
             <div class="faq-list">
                 <div class="faq-item active">
                     <div class="faq-question">
-                        <span>هل تطبيق TubeDZ آمن ومجاني؟</span>
+                        <span data-i18n="q1">L'application TubeDZ est-elle sûre et gratuite ?</span>
                         <span class="arrow">▼</span>
                     </div>
-                    <div class="faq-answer">
-                        نعم، التطبيق مجاني بالكامل 100% ولا يحتوي على أي اشتراكات خفية، وهو مبني وموقّع بشهادة أمان رسمية ومستند إلى أحدث باتشات ReVanced مفتوحة المصدر لضمان الأمان والخصوصية.
+                    <div class="faq-answer" data-i18n="a1">
+                        Oui, l'application est 100% gratuite et sans abonnement caché. Elle est construite sur les patchs ReVanced open-source réputés pour leur sécurité et signée numériquement pour protéger votre appareil.
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>هل يتطلب التطبيق صلاحيات الروت (Root)؟</span>
+                        <span data-i18n="q2">Le Root est-il nécessaire pour installer TubeDZ ?</span>
                         <span class="arrow">▼</span>
                     </div>
-                    <div class="faq-answer">
-                        لا، التطبيق يعمل على جميع هواتف أندرويد العادية بدون الحاجة إلى روت إطلاقاً.
+                    <div class="faq-answer" data-i18n="a2">
+                        Absolument pas. TubeDZ fonctionne parfaitement sur n'importe quel smartphone Android classique sans aucune modification système ni droits Root.
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>هل يمكنني استخدامه مع وجود تطبيق يوتيوب الأصلي؟</span>
+                        <span data-i18n="q3">Puis-je l'utiliser aux côtés de l'application YouTube officielle ?</span>
                         <span class="arrow">▼</span>
                     </div>
-                    <div class="faq-answer">
-                        نعم بكل تأكيد، فمعرف الحزمة مخصص ليعمل كنسخة منفصلة ومستقلة تماماً (Clone) دون أي تداخل مع التطبيق الرسمي.
+                    <div class="faq-answer" data-i18n="a3">
+                        Oui, tout à fait. Grâce à son nom de package personnalisé (Clone), TubeDZ s'installe comme une application à part entière sans écraser votre application existante.
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>كيف يمكنني تسجيل الدخول إلى حسابي؟</span>
+                        <span data-i18n="q4">Comment me connecter à mon compte Google ?</span>
                         <span class="arrow">▼</span>
                     </div>
-                    <div class="faq-answer">
-                        لتسجيل الدخول بأمان إلى حساب جوجل الخاص بك، قم بتحميل حزمة MicroG المباشرة من الموقع وتثبيتها، ثم افتح TubeDZ وسجل دخولك بكل سلاسة.
+                    <div class="faq-answer" data-i18n="a4">
+                        Il vous suffit d'installer le module MicroG (disponible en téléchargement direct sur notre site), puis de vous connecter normalement depuis TubeDZ.
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>هل يؤثر التطبيق على سرعة الهاتف أو استهلاك البطارية؟</span>
+                        <span data-i18n="q5">TubeDZ consomme-t-il plus de batterie ou de données ?</span>
                         <span class="arrow">▼</span>
                     </div>
-                    <div class="faq-answer">
-                        على العكس تماماً، فحظر الإعلانات والسكربتات التتبعية يخفف الحمل عن المعالج ويوفر ما يقارب 30% من استهلاك البطارية وبيانات الهاتف.
+                    <div class="faq-answer" data-i18n="a5">
+                        Au contraire ! En bloquant les publicités et les scripts de traçage, TubeDZ réduit la charge du processeur et permet d'économiser jusqu'à 30% de batterie et de data.
                     </div>
                 </div>
             </div>
 
             <!-- CTA Banner -->
             <div class="cta-banner">
-                <h2>جاهز لتجربة مشاهدة لا مثيل لها؟</h2>
-                <p>حمّل TubeDZ الآن وانضم لآلاف المستخدمين الذين يستمتعون بمشاهدة نقية وسلسة.</p>
+                <h2 data-i18n="cta_title">Prêt à vivre une expérience inégalée ?</h2>
+                <p data-i18n="cta_desc">Téléchargez TubeDZ dès maintenant et rejoignez des milliers d'utilisateurs qui profitent d'un visionnage fluide et propre.</p>
                 <div class="cta-actions">
                     <a href="TubeDZ.apk" class="btn-download-main" download>
                         <svg viewBox="0 0 24 24">
                             <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/>
                         </svg>
-                        <span>تحميل TubeDZ مجاناً (APK)</span>
+                        <span data-i18n="cta_btn_tubedz">Télécharger TubeDZ Gratuitement</span>
                     </a>
                     <a href="microg.apk" class="btn-download-sub" download>
-                        <span>تحميل MicroG (APK)</span>
+                        <span data-i18n="cta_btn_microg">Télécharger MicroG (APK)</span>
                     </a>
                 </div>
             </div>
@@ -1320,18 +1347,276 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>جميع الحقوق محفوظة &copy; 2026 <strong>TubeDZ</strong> — صُنع بشغف للمستخدمين الجزائريين 🇩🇿</p>
-            <div class="footer-sub">مشروع مستقل مبني على أحدث تقنيات المصدر المفتوح | غير تابع لشركة Google Inc</div>
+            <p><span data-i18n="footer_copy">Tous droits réservés &copy; 2026</span> <strong>TubeDZ</strong> — <span data-i18n="footer_credit">Créé avec passion pour les utilisateurs algériens 🇩🇿</span></p>
+            <div class="footer-sub" data-i18n="footer_sub">Projet indépendant basé sur des technologies open-source | Non affilié à Google LLC</div>
         </div>
     </footer>
 
     <!-- Toast Element -->
     <div class="toast" id="toastBox">
-        <span id="toastText">تم النسخ بنجاح!</span>
+        <span id="toastText">Copié avec succès !</span>
     </div>
 
     <!-- Scripts -->
     <script>
+        // Language Dictionary
+        const translations = {
+            fr: {
+                html_dir: "ltr",
+                lang_btn: "🇩🇿 العربية",
+                nav_features: "Fonctionnalités",
+                nav_showcase: "Démo Système",
+                nav_install: "Installation",
+                nav_security: "Sécurité",
+                nav_faq: "FAQ",
+                nav_btn_download: "Télécharger APK",
+                hero_badge: "Dernière version v21.13 stable & vérifiée",
+                hero_title_1: "YouTube Sans Publicité",
+                hero_title_2: "À l'Identité Algérienne",
+                hero_desc: "Profitez d'un visionnage pur, fluide et sans aucune interruption publicitaire. Écoutez vos vidéos en arrière-plan avec écran verrouillé et connectez votre compte Google en toute sécurité.",
+                hero_btn_apk: "Télécharger TubeDZ (APK)",
+                hero_btn_microg: "Télécharger MicroG (Direct)",
+                hero_btn_copy: "🔗 Copier le lien",
+                meta_size: "Taille : 145 Mo",
+                meta_os: "Android 8.0+",
+                meta_security: "Signature RSA V3",
+                meta_mode: "Clone Indépendant",
+                mockup_tag: "Édition Haute Performance",
+                stat_ads: "Pubs",
+                stat_res: "Qualité Max",
+                stat_free: "Gratuit",
+                showcase_tag: "Expérience Utilisateur",
+                showcase_title: "Aperçu des Fonctionnalités",
+                showcase_subtitle: "Découvrez les outils intelligents qui transforment votre expérience de visionnage.",
+                tab_btn_ads: "🚫 Bloqueur de Pubs",
+                tab_btn_bg: "🎧 Arrière-Plan & PiP",
+                tab_btn_sponsor: "⏩ Passer Sponsors",
+                tab_btn_amoled: "🌙 Thème AMOLED",
+                tab_btn_clone: "📱 Installation Parallèle",
+                t1_title: "Blocage Intégral sans aucune exception",
+                t1_desc: "TubeDZ élimine les annonces pré-roll, mid-roll, pop-ups, bannières dans les résultats de recherche et pubs dans les Shorts.",
+                t1_f1: "Zéro coupure publicitaire sur toutes les vidéos",
+                t1_f2: "Suppression des bannières promotionnelles",
+                t1_f3: "Économie significative sur vos données mobiles",
+                tag_active: "Actif à 100% par défaut",
+                t2_title: "Lecture Audio en Arrière-Plan & Mode PiP",
+                t2_desc: "Écoutez vos podcasts, conférences ou musiques favorites avec l'écran verrouillé pour économiser votre batterie, ou continuez de regarder dans une fenêtre flottante.",
+                t2_f1: "Lecture audio continue écran éteint",
+                t2_f2: "Fenêtre flottante redimensionnable (PiP)",
+                t2_f3: "Contrôles intégrés dans la barre de notifications",
+                tag_battery: "Économie d'énergie maximale",
+                t3_title: "Passer les segments sponsorisés (SponsorBlock)",
+                t3_desc: "Passez automatiquement les segments publicitaires intégrés par les créateurs dans la vidéo elle-même (intros, partenariats commerciaux, appels à s'abonner).",
+                t3_f1: "Saut automatique des segments promotionnels",
+                t3_f2: "Possibilité de passer les intros et génériques",
+                t3_f3: "Gagnez de précieuses minutes à chaque vidéo",
+                tag_community: "Base communautaire intelligente",
+                t4_title: "Thème Sombre Pur AMOLED Black",
+                t4_desc: "Interface noire profonde conçue spécifiquement pour les écrans OLED et AMOLED, réduisant la fatigue visuelle la nuit et économisant l'énergie.",
+                t4_f1: "Noir absolu (#000000) sans reflet grisâtre",
+                t4_f2: "Confort visuel nocturne optimal",
+                t4_f3: "Accents algériens vert et rouge élégants",
+                tag_oled: "Optimisé pour écrans AMOLED",
+                t5_title: "Installation Indépendante (Side-by-Side)",
+                t5_desc: "L'application possède un nom de package dédié lui permettant de fonctionner en parallèle avec l'application YouTube originale sans avoir à la désinstaller.",
+                t5_f1: "Aucun accès Root requis",
+                t5_f2: "Coexiste parfaitement avec YouTube officiel",
+                t5_f3: "Mises à jour autonomes et sécurisées",
+                tag_safe: "100% Sûr et Non-Intrusif",
+                features_tag: "Pourquoi choisir TubeDZ ?",
+                features_title: "Des atouts uniques et incomparables",
+                features_subtitle: "Conçu sur mesure pour vous offrir une expérience de divertissement ultime.",
+                card1_title: "Blocage Absolu des Pubs",
+                card1_desc: "Dites adieu aux annonces intrusives et profitez de vos contenus sans la moindre interruption.",
+                card2_title: "Lecture Écran Éteint & PiP",
+                card2_desc: "Écoutez vos playlists et podcasts tout en préservant l'autonomie de votre téléphone.",
+                card3_title: "Installation Clone Séparée",
+                card3_desc: "Gardez votre YouTube officiel et profitez de TubeDZ en parallèle en toute liberté.",
+                card4_title: "Connexion Compte Sécurisée",
+                card4_desc: "Synchronisation fluide de vos abonnements et favoris grâce au module officiel MicroG.",
+                card5_title: "Design & Identité Algérienne",
+                card5_desc: "Identité visuelle patriotique soignée inspirée du drapeau algérien et de Maqam Echahid.",
+                card6_title: "Rapidité & Économie de Données",
+                card6_desc: "Moins de scripts lourds = temps de chargement ultra-rapides et consommation réduite.",
+                install_tag: "Guide d'Installation",
+                install_title: "Comment installer TubeDZ ?",
+                install_subtitle: "Suivez ces étapes simples pour profiter de l'application en moins d'une minute.",
+                step1_title: "Télécharger le fichier APK",
+                step1_desc: "Cliquez sur « Télécharger TubeDZ » ci-dessus pour obtenir la dernière version signée.",
+                step2_title: "Autoriser l'installation",
+                step2_desc: "Ouvrez le fichier et activez « Autoriser cette source » dans les paramètres de sécurité Android si demandé.",
+                step3_title: "Installer MicroG (Optionnel)",
+                step3_desc: "Pour vous connecter avec votre compte Google et synchroniser vos données, installez MicroG en un clic.",
+                step3_btn: "📥 Télécharger MicroG APK",
+                step4_title: "Profitez du spectacle !",
+                step4_desc: "Lancez TubeDZ et savourez vos vidéos en haute définition, sans aucune publicité.",
+                sec_tag: "Transparence & Sécurité",
+                sec_title: "Vérification d'Intégrité (SHA-256)",
+                sec_subtitle: "Contrôlez l'authenticité exacte des fichiers pour vous assurer qu'ils n'ont subi aucune altération.",
+                sec_box_title: "Fichiers Officiels Signés & Certifiés",
+                sec_box_desc: "Package signé avec le certificat RSA-2048 officiel de TubeDZ (schéma V3).",
+                btn_copy_hash: "📋 Copier Hash",
+                faq_tag: "Questions Fréquentes",
+                faq_title: "Foire Aux Questions",
+                faq_subtitle: "Tout ce que vous devez savoir sur TubeDZ et son fonctionnement.",
+                q1: "L'application TubeDZ est-elle sûre et gratuite ?",
+                a1: "Oui, l'application est 100% gratuite et sans abonnement caché. Elle est construite sur les patchs ReVanced open-source réputés pour leur sécurité et signée numériquement pour protéger votre appareil.",
+                q2: "Le Root est-il nécessaire pour installer TubeDZ ?",
+                a2: "Absolument pas. TubeDZ fonctionne parfaitement sur n'importe quel smartphone Android classique sans aucune modification système ni droits Root.",
+                q3: "Puis-je l'utiliser aux côtés de l'application YouTube officielle ?",
+                a3: "Oui, tout à fait. Grâce à son nom de package personnalisé (Clone), TubeDZ s'installe comme une application à part entière sans écraser votre application existante.",
+                q4: "Comment me connecter à mon compte Google ?",
+                a4: "Il vous suffit d'installer le module MicroG (disponible en téléchargement direct sur notre site), puis de vous connecter normalement depuis TubeDZ.",
+                q5: "TubeDZ consomme-t-il plus de batterie ou de données ?",
+                a5: "Au contraire ! En bloquant les publicités et les scripts de traçage, TubeDZ réduit la charge du processeur et permet d'économiser jusqu'à 30% de batterie et de data.",
+                cta_title: "Prêt à vivre une expérience inégalée ?",
+                cta_desc: "Téléchargez TubeDZ dès maintenant et rejoignez des milliers d'utilisateurs qui profitent d'un visionnage fluide et propre.",
+                cta_btn_tubedz: "Télécharger TubeDZ Gratuitement",
+                cta_btn_microg: "Télécharger MicroG (APK)",
+                footer_copy: "Tous droits réservés &copy; 2026",
+                footer_credit: "Créé avec passion pour les utilisateurs algériens 🇩🇿",
+                footer_sub: "Projet indépendant basé sur des technologies open-source | Non affilié à Google LLC"
+            },
+            ar: {
+                html_dir: "rtl",
+                lang_btn: "🇫🇷 Français",
+                nav_features: "المميزات",
+                nav_showcase: "استعراض النظام",
+                nav_install: "طريقة التثبيت",
+                nav_security: "فحص الأمان",
+                nav_faq: "الأسئلة الشائعة",
+                nav_btn_download: "تحميل APK",
+                hero_badge: "الإصدار الأحدث v21.13 مستقر ومفحوص",
+                hero_title_1: "يوتيوب بدون إعلانات",
+                hero_title_2: "بهوية جزائرية فريدة",
+                hero_desc: "استمتع بتجربة مشاهدة نقية خالية تماماً من الفواصل الإعلانية المزعجة، مع ميزة التشغيل في الخلفية والشاشة مغلقة، وإمكانية تسجيل الدخول لحسابك بكل سهولة وأمان.",
+                hero_btn_apk: "تحميل TubeDZ (APK)",
+                hero_btn_microg: "تحميل MicroG (مباشر)",
+                hero_btn_copy: "🔗 نسخ الرابط",
+                meta_size: "الحجم: 145 MB",
+                meta_os: "Android 8.0+",
+                meta_security: "شهادة أمان RSA V3",
+                meta_mode: "تثبيت مستقل (Clone)",
+                mockup_tag: "نسخة مخصصة فائقة السرعة",
+                stat_ads: "إعلانات",
+                stat_res: "أقصى دقة",
+                stat_free: "مجاني",
+                showcase_tag: "تجربة المستخدم",
+                showcase_title: "استعراض المميزات التفاعلية",
+                showcase_subtitle: "تعرف على الأدوات الذكية التي تجعل تجربة المشاهدة مختلفة كلياً.",
+                tab_btn_ads: "🚫 حظر الإعلانات",
+                tab_btn_bg: "🎧 التشغيل بالخلفية",
+                tab_btn_sponsor: "⏩ تخطي الرعاة",
+                tab_btn_amoled: "🌙 الثيم الداكن",
+                tab_btn_clone: "📱 تثبيت مستقل",
+                t1_title: "حظر شامل للإعلانات دون أي استثناء",
+                t1_desc: "يقوم TubeDZ بالتخلص من إعلانات البداية، الإعلانات المنبثقة، مقاطع الترويج في المنتصف، وبانرات الإعلانات في واجهة البحث وفيديوهات Shorts.",
+                t1_f1: "حظر تام لجميع أنواع إعلانات الفيديو",
+                t1_f2: "إزالة اللافتات الإعلانية الثابتة والمتحركة",
+                t1_f3: "توفير كبير في استهلاك باقة الإنترنت",
+                tag_active: "مفعل تلقائياً بنسبة 100%",
+                t2_title: "تشغيل الفيديوهات في الخلفية و PiP",
+                t2_desc: "تابع الاستماع للبودكاست والمحاضرات والموسيقى أثناء إغلاق شاشة الهاتف لتوفير شحن البطارية، أو استخدم نافذة الصورة داخل صورة أثناء تصفحك لتطبيقات التواصل.",
+                t2_f1: "استمرار تشغيل الصوت عند قفل الشاشة",
+                t2_f2: "نافذة عائمة قابلة للتكبير والتحريك (PiP)",
+                t2_f3: "أزرار تحكم كاملة في شريط الإشعارات",
+                tag_battery: "توفير فائق لطاقة البطارية",
+                t3_title: "تخطي فواصل الرعاة تلقائياً (SponsorBlock)",
+                t3_desc: "تجاوز المقاطع الترويجية المدمجة داخل الفيديو نفسه (كإعلانات الشركات ومقدمات القنوات وطلبات الاشتراك) بفضل التكامل مع نظام SponsorBlock العالمي.",
+                t3_f1: "تخطي تلقائي لفواصل الترويج المزعجة",
+                t3_f2: "إمكانية تخطي شارات البداية والنهاية",
+                t3_f3: "توفير دقائق ثمينة من وقت المشاهدة",
+                tag_community: "ذكاء اصطناعي وتكامل مجتمعي",
+                t4_title: "الوضع الداكن الخالص AMOLED Black",
+                t4_desc: "واجهة سوداء نقية مصممة خصيصاً لشاشات OLED و AMOLED لإراحة العينين ليلاً وتوفير طاقة الشاشة بفضل إيقاف البيكسلات السوداء بالكامل.",
+                t4_f1: "أسود داكن عميق (#000000)",
+                t4_f2: "تقليل إجهاد العين أثناء المشاهدة الليلية",
+                t4_f3: "لمسات خضراء وحمراء وطنية أنيقة",
+                tag_oled: "مريح للعين وموفر للشحن",
+                t5_title: "تثبيت مستقل بجانب يوتيوب الأصلي",
+                t5_desc: "تم بناء التطبيق بحزمة مستقلة تماماً تسمح لك بتثبيته بجانب يوتيوب الرسمي دون الحاجة لحذفه أو التعديل على ملفات النظام.",
+                t5_f1: "لا يتطلب صلاحيات الروت (No Root)",
+                t5_f2: "يعمل بجانب التطبيق الرسمي دون تعارض",
+                t5_f3: "حجم خفيف وتحديثات مستقلة",
+                tag_safe: "تثبيت آمن بنسبة 100%",
+                features_tag: "لماذا تختار TubeDZ؟",
+                features_title: "مميزات لا تجدها في التطبيق العادي",
+                features_subtitle: "صُمم TubeDZ ليوفر لك أقصى درجات الراحة والتحكم الكامل أثناء مشاهدة فيديوهاتك المفضلة.",
+                card1_title: "حظر شامل للإعلانات",
+                card1_desc: "قل وداعاً لإعلانات الفيديو في البداية والمنتصف، واللافتات الترويجية المزعجة في الواجهة وقسم Shorts.",
+                card2_title: "تشغيل في الخلفية ونافذة PiP",
+                card2_desc: "استمع للموسيقى والبودكاست وشاشة هاتفك مغلقة لتوفير البطارية، أو شاهد أثناء استخدام تطبيقاتك الأخرى.",
+                card3_title: "تثبيت مستقل (Side-by-Side)",
+                card3_desc: "تم تخصيص الحزمة لتثبيت TubeDZ كتطبيق مستقل تماماً دون الحاجة لإلغاء تثبيت تطبيق يوتيوب الأصلي.",
+                card4_title: "تسجيل دخول آمن لحسابك",
+                card4_desc: "دعم كامل لمزامنة قنواتك واشتراكاتك وسجل مشاهدتك وقوائم التشغيل بأمان تام عبر حزمة MicroG المباشرة.",
+                card5_title: "هوية جزائرية وأيقونة أنيقة",
+                card5_desc: "أيقونة وطنية مصممة بعناية تجمع بين العلم الجزائري ومقام الشهيد وثيم داكن راقٍ مريح للعينين.",
+                card6_title: "أداء فائق وتوفير البيانات",
+                card6_desc: "بفضل التخلص من السكربتات الإعلانية الثقيلة، ستحصل على سرعة استجابة فائقة واستهلاك أقل للبيانات والبطارية.",
+                install_tag: "دليل الاستخدام",
+                install_title: "كيفية تثبيت وتشغيل TubeDZ",
+                install_subtitle: "خطوات سهلة وسريعة لبدء الاستمتاع بالتطبيق في أقل من دقيقة.",
+                step1_title: "تحميل ملف TubeDZ APK",
+                step1_desc: "انقر على زر «تحميل TubeDZ» في الأعلى لتنزيل أحدث نسخة من ملف التطبيق مباشرة إلى هاتفك.",
+                step2_title: "السماح بالتثبيت",
+                step2_desc: "افتح الملف، وإذا طُلب منك، فعّل خيار «السماح بالتثبيت من مصادر غير معروفة» في إعدادات أندرويد.",
+                step3_title: "تثبيت MicroG (اختياري)",
+                step3_desc: "لتسجيل الدخول بحساب Google ومزامنة اشتراكاتك، حمّل وثبّت حزمة MicroG المباشرة بنقرة واحدة.",
+                step3_btn: "📥 تحميل MicroG APK (مباشر)",
+                step4_title: "استمتع بالمشاهدة!",
+                step4_desc: "افتح تطبيق TubeDZ واستمتع بجميع الفيديوهات بأعلى جودة وبدون أي إعلانات مزعجة.",
+                sec_tag: "الشفافية والأمان",
+                sec_title: "فحص النزاهة وبصمة التشفير (SHA-256)",
+                sec_subtitle: "يمكنك التحقق من مطابقة وسلامة ملفات الـ APK للتأكد من عدم التلاعب بها.",
+                sec_box_title: "ملفات رسمية موقّعة ومفحوصة",
+                sec_box_desc: "تم توقيع الحزمة بشهادة RSA-2048 V3 الخاصة بتطبيق TubeDZ.",
+                btn_copy_hash: "📋 نسخ الهاش",
+                faq_tag: "إجابات استفساراتك",
+                faq_title: "الأسئلة الشائعة",
+                faq_subtitle: "كل ما تحتاج لمعرفته حول تطبيق TubeDZ وأمانه وكيفية استخدامه.",
+                q1: "هل تطبيق TubeDZ آمن ومجاني؟",
+                a1: "نعم، التطبيق مجاني بالكامل 100% ولا يحتوي على أي اشتراكات خفية، وهو مبني وموقّع بشهادة أمان رسمية ومستند إلى أحدث باتشات ReVanced مفتوحة المصدر لضمان الأمان والخصوصية.",
+                q2: "هل يتطلب التطبيق صلاحيات الروت (Root)؟",
+                a2: "لا، التطبيق يعمل على جميع هواتف أندرويد العادية بدون الحاجة إلى روت إطلاقاً.",
+                q3: "هل يمكنني استخدامه مع وجود تطبيق يوتيوب الأصلي؟",
+                a3: "نعم بكل تأكيد، فمعرف الحزمة مخصص ليعمل كنسخة منفصلة ومستقلة تماماً (Clone) دون أي تداخل مع التطبيق الرسمي.",
+                q4: "كيف يمكنني تسجيل الدخول إلى حسابي؟",
+                a4: "لتسجيل الدخول بأمان إلى حساب جوجل الخاص بك، قم بتحميل حزمة MicroG المباشرة من الموقع وتثبيتها، ثم افتح TubeDZ وسجل دخولك بكل سلاسة.",
+                q5: "هل يؤثر التطبيق على سرعة الهاتف أو استهلاك البطارية؟",
+                a5: "على العكس تماماً، فحظر الإعلانات والسكربتات التتبعية يخفف الحمل عن المعالج ويوفر ما يقارب 30% من استهلاك البطارية وبيانات الهاتف.",
+                cta_title: "جاهز لتجربة مشاهدة لا مثيل لها؟",
+                cta_desc: "حمّل TubeDZ الآن وانضم لآلاف المستخدمين الذين يستمتعون بمشاهدة نقية وسلسة.",
+                cta_btn_tubedz: "تحميل TubeDZ مجاناً (APK)",
+                cta_btn_microg: "تحميل MicroG (APK)",
+                footer_copy: "جميع الحقوق محفوظة &copy; 2026",
+                footer_credit: "صُنع بشغف للمستخدمين الجزائريين 🇩🇿",
+                footer_sub: "مشروع مستقل مبني على أحدث تقنيات المصدر المفتوح | غير تابع لشركة Google Inc"
+            }
+        };
+
+        let currentLang = 'fr';
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'fr' ? 'ar' : 'fr';
+            applyLanguage(currentLang);
+        }
+
+        function applyLanguage(lang) {
+            const data = translations[lang];
+            const html = document.getElementById('htmlRoot');
+            html.setAttribute('lang', lang);
+            html.setAttribute('dir', data.html_dir);
+            document.getElementById('langBtnText').textContent = data.lang_btn;
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (data[key]) {
+                    el.innerHTML = data[key];
+                }
+            });
+        }
+
         // Interactive FAQ
         document.querySelectorAll('.faq-question').forEach(header => {
             header.addEventListener('click', () => {
@@ -1382,7 +1667,8 @@
 
         // Copy page link
         function copyPageLink() {
-            copyText(window.location.href, 'تم نسخ رابط الموقع بنجاح!');
+            const msg = currentLang === 'fr' ? 'Lien copié dans le presse-papiers !' : 'تم نسخ رابط الموقع بنجاح!';
+            copyText(window.location.href, msg);
         }
     </script>
 </body>
