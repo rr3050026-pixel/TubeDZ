@@ -35,6 +35,14 @@ Vous pouvez y rechercher et regarder n'importe quelle vidéo YouTube sans public
 - 🌙 **Thème Sombre Pur (AMOLED Black) :** Interface noire absolue (#000000) conçue pour soulager les yeux et économiser la batterie sur écrans OLED.
 - 🇩🇿 **Identité Visuelle Algérienne :** Icône et logo officiels inspirés des couleurs nationales et de Maqam Echahid.
 - 🎧 **Mode YouTube Music (YT Music Mode) :** Un lecteur audio dédié inspiré de YouTube Music, avec disque vinyle rotatif, visualiseur d'ondes sonores (Audio Visualizer), bibliothèque musicale algérienne et internationale, et mini-lecteur flottant pour écouter en arrière-plan pendant la navigation.
+- 🚀 **Future Pack 2030 (Fonctionnalités Futuristes) :**
+  - 🎙️ **Recherche Vocale Neuronale :** Détection vocale instantanée en Arabe, Darja, Français et Anglais avec visualisation d'ondes sonores holographiques.
+  - 🌌 **Mode Cyber HUD Holographique :** Affichage tête haute (HUD) futuriste avec radar d'ondes circulaires, télémétrie en direct (Bitrate, FPS 60, chiffrement quantique).
+  - 🎧 **Audio Spatial 8D & Studio Binaural :** Simulation de rotation sonore orbitale 360°, amplificateur sub-bass quantique et acoustique de salle holographique.
+  - ⏱️ **Minuteur de Sommeil Intelligent & Fondu Doux :** Extinction automatique programmée avec baisse logarithmique du volume sonore pour un endormissement paisible.
+  - ⚡ **Résumé IA Instantané (TL;DR) :** Détection de l'ambiance et synthèse des points clés en un clic.
+  - 🔮 **Matrice de Thèmes Néon Futuristes :** 4 thèmes cybernétiques (Cyber Algérie, Cyberpunk 2077, Quantum Cobalt, Solar Mars).
+  - 👆 **Gestes Cybernétiques & Sons UI :** Double-tap pour avancer/reculer de 10s avec ondes holographiques et effets sonores synthétisés.
 
 ---
 

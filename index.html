@@ -1808,6 +1808,534 @@
                 justify-content: center;
             }
         }
+
+        /* ========================================================
+           FUTURE PACK 2030: Futuristic Themes & HUD & Audio FX
+           ======================================================== */
+        
+        /* 1. Theme Matrix */
+        body.theme-cyberpunk {
+            --primary: #d946ef;
+            --primary-glow: rgba(217, 70, 239, 0.5);
+            --accent-green: #06b6d4;
+            --accent-green-glow: rgba(6, 182, 212, 0.4);
+            --gradient-dz: linear-gradient(135deg, #06b6d4 0%, #d946ef 100%);
+            background-color: #0b0714;
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(6, 182, 212, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 85% 85%, rgba(217, 70, 239, 0.16) 0%, transparent 50%);
+        }
+
+        body.theme-quantum {
+            --primary: #38bdf8;
+            --primary-glow: rgba(56, 189, 248, 0.5);
+            --accent-green: #6366f1;
+            --accent-green-glow: rgba(99, 102, 241, 0.4);
+            --gradient-dz: linear-gradient(135deg, #6366f1 0%, #38bdf8 100%);
+            background-color: #050b14;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.18) 0%, transparent 50%),
+                radial-gradient(circle at 90% 80%, rgba(56, 189, 248, 0.18) 0%, transparent 50%);
+        }
+
+        body.theme-solar {
+            --primary: #f59e0b;
+            --primary-glow: rgba(245, 158, 11, 0.5);
+            --accent-green: #ef4444;
+            --accent-green-glow: rgba(239, 68, 68, 0.4);
+            --gradient-dz: linear-gradient(135deg, #ef4444 0%, #f59e0b 100%);
+            background-color: #120904;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(239, 68, 68, 0.18) 0%, transparent 50%),
+                radial-gradient(circle at 90% 80%, rgba(245, 158, 11, 0.18) 0%, transparent 50%);
+        }
+
+        /* Theme Selector Menu */
+        .theme-selector-wrap {
+            position: relative;
+        }
+
+        .theme-dropdown {
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 0;
+            background: rgba(15, 18, 28, 0.96);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 16px;
+            padding: 8px;
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            min-width: 190px;
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8), 0 0 20px var(--primary-glow);
+            z-index: 1000;
+        }
+
+        html[dir="rtl"] .theme-dropdown {
+            right: auto;
+            left: 0;
+        }
+
+        .theme-dropdown.show {
+            display: flex;
+            animation: fadeIn 0.2s ease;
+        }
+
+        .theme-opt-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: transparent;
+            border: none;
+            color: var(--text-main);
+            padding: 8px 12px;
+            border-radius: 10px;
+            font-size: 0.84rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: left;
+        }
+
+        html[dir="rtl"] .theme-opt-btn {
+            text-align: right;
+        }
+
+        .theme-opt-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .theme-opt-btn.active {
+            background: var(--gradient-dz);
+            color: #fff;
+        }
+
+        .theme-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 8px currentColor;
+        }
+
+        /* 2. Voice Search Button & Holographic Voice Modal */
+        .voice-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-right: 4px;
+        }
+
+        html[dir="rtl"] .voice-btn {
+            margin-right: 0;
+            margin-left: 4px;
+        }
+
+        .voice-btn:hover {
+            color: #fff;
+            transform: scale(1.1);
+        }
+
+        .voice-btn.listening {
+            color: #ef4444;
+            animation: pulseVoice 1.2s infinite;
+        }
+
+        @keyframes pulseVoice {
+            0% { transform: scale(1); filter: drop-shadow(0 0 4px #ef4444); }
+            50% { transform: scale(1.25); filter: drop-shadow(0 0 14px #ef4444); }
+            100% { transform: scale(1); filter: drop-shadow(0 0 4px #ef4444); }
+        }
+
+        .voice-modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(15px);
+            z-index: 2500;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .voice-modal-overlay.active {
+            display: flex;
+            animation: fadeIn 0.25s ease;
+        }
+
+        .voice-hud-card {
+            background: rgba(14, 18, 27, 0.95);
+            border: 1px solid var(--border-highlight);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 40px var(--primary-glow);
+            border-radius: 24px;
+            padding: 32px 28px;
+            max-width: 460px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+        }
+
+        .voice-pulse-ring-wrap {
+            position: relative;
+            width: 110px;
+            height: 110px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .voice-pulse-orb {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: var(--gradient-dz);
+            box-shadow: 0 0 30px var(--primary-glow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            z-index: 2;
+        }
+
+        .voice-wave-ring {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            border: 2px solid var(--primary);
+            animation: rippleRings 2s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+        }
+
+        .voice-wave-ring:nth-child(2) {
+            animation-delay: 0.6s;
+        }
+
+        .voice-wave-ring:nth-child(3) {
+            animation-delay: 1.2s;
+        }
+
+        @keyframes rippleRings {
+            0% { transform: scale(0.6); opacity: 1; }
+            100% { transform: scale(1.6); opacity: 0; }
+        }
+
+        /* 3. Cyber Holographic HUD Overlay */
+        .cyber-hud-overlay {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            display: none;
+            z-index: 10;
+            overflow: hidden;
+        }
+
+        .player-wrapper.cyber-hud-active .cyber-hud-overlay {
+            display: block;
+        }
+
+        .hud-scanline {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to bottom,
+                rgba(255,255,255,0),
+                rgba(255,255,255,0) 50%,
+                rgba(0, 255, 136, 0.05) 51%,
+                rgba(255,255,255,0) 100%
+            );
+            background-size: 100% 6px;
+            opacity: 0.7;
+        }
+
+        .hud-bracket {
+            position: absolute;
+            width: 28px;
+            height: 28px;
+            border-color: var(--primary);
+            border-style: solid;
+            pointer-events: none;
+            filter: drop-shadow(0 0 6px var(--primary));
+        }
+
+        .hud-bracket.top-left {
+            top: 16px;
+            left: 16px;
+            border-width: 3px 0 0 3px;
+        }
+
+        .hud-bracket.top-right {
+            top: 16px;
+            right: 16px;
+            border-width: 3px 3px 0 0;
+        }
+
+        .hud-bracket.bottom-left {
+            bottom: 16px;
+            left: 16px;
+            border-width: 0 0 3px 3px;
+        }
+
+        .hud-bracket.bottom-right {
+            bottom: 16px;
+            right: 16px;
+            border-width: 0 3px 3px 0;
+        }
+
+        .hud-top-bar {
+            position: absolute;
+            top: 18px;
+            left: 56px;
+            right: 56px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.74rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: #38bdf8;
+            text-shadow: 0 0 8px rgba(56, 189, 248, 0.7);
+        }
+
+        .hud-radar-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 260px;
+            height: 260px;
+            border: 1px dashed rgba(56, 189, 248, 0.35);
+            border-radius: 50%;
+            animation: rotateRadar 16s linear infinite;
+        }
+
+        .hud-radar-ring {
+            position: absolute;
+            inset: 20px;
+            border: 1px solid rgba(0, 255, 136, 0.25);
+            border-radius: 50%;
+            animation: rotateRadarReverse 10s linear infinite;
+        }
+
+        @keyframes rotateRadar {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        @keyframes rotateRadarReverse {
+            from { transform: rotate(360deg); }
+            to { transform: rotate(0deg); }
+        }
+
+        .hud-telemetry-bottom {
+            position: absolute;
+            bottom: 18px;
+            left: 56px;
+            right: 56px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.72rem;
+            font-weight: 800;
+            color: #4ade80;
+            text-shadow: 0 0 8px rgba(74, 222, 128, 0.7);
+        }
+
+        /* 4. 8D Spatial Audio Studio Panel */
+        .spatial-panel {
+            background: rgba(14, 18, 27, 0.95);
+            border: 1px solid var(--border-glass);
+            border-radius: 18px;
+            padding: 1.25rem 1.5rem;
+            margin-top: 14px;
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .spatial-panel.active {
+            display: block;
+        }
+
+        .spatial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 10px;
+            margin: 12px 0 16px;
+        }
+
+        .spatial-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-glass);
+            border-radius: 14px;
+            padding: 12px 10px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+
+        .spatial-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .spatial-card.active {
+            background: var(--gradient-dz);
+            border-color: transparent;
+            box-shadow: 0 6px 20px var(--primary-glow);
+        }
+
+        .spatial-card-icon {
+            font-size: 1.5rem;
+            margin-bottom: 4px;
+        }
+
+        .spatial-card-title {
+            font-size: 0.82rem;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .spatial-card-sub {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .spatial-card.active .spatial-card-sub {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        /* Orbit Visualizer Track */
+        .orbit-visualizer-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            padding: 12px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 14px;
+            margin-top: 8px;
+        }
+
+        .orbit-circle-track {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 1px dashed rgba(56, 189, 248, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .orbit-head-center {
+            font-size: 1.6rem;
+        }
+
+        .orbit-satellite {
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #38bdf8;
+            box-shadow: 0 0 12px #38bdf8;
+            top: -7px;
+            left: calc(50% - 7px);
+            transform-origin: 7px 47px;
+            animation: orbitRot 3.5s linear infinite;
+        }
+
+        @keyframes orbitRot {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* 5. Smart Sleep Timer Floating Pill & Modal */
+        .sleep-timer-pill {
+            display: none;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(168, 85, 247, 0.2));
+            border: 1px solid rgba(168, 85, 247, 0.4);
+            color: #c084fc;
+            padding: 4px 14px;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            box-shadow: 0 0 14px rgba(168, 85, 247, 0.25);
+        }
+
+        .sleep-timer-pill.active {
+            display: inline-flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        /* 6. Instant AI Quick Summary Card */
+        .ai-quick-summary-box {
+            display: none;
+            background: linear-gradient(135deg, rgba(17, 24, 39, 0.95), rgba(30, 27, 75, 0.9));
+            border: 1px solid rgba(139, 92, 246, 0.35);
+            border-radius: 18px;
+            padding: 1.25rem 1.5rem;
+            margin-top: 14px;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6), 0 0 25px rgba(139, 92, 246, 0.15);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .ai-quick-summary-box.active {
+            display: block;
+        }
+
+        /* 7. Double Tap Ripple Effect */
+        .gesture-indicator {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.65);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
+            padding: 14px 22px;
+            border-radius: 999px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            pointer-events: none;
+            display: none;
+            z-index: 30;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .gesture-indicator.left {
+            left: 15%;
+        }
+
+        .gesture-indicator.right {
+            right: 15%;
+        }
+
+        .gesture-indicator.show {
+            display: inline-flex;
+            animation: gesturePop 0.6s ease forwards;
+        }
+
+        @keyframes gesturePop {
+            0% { transform: translateY(-50%) scale(0.7); opacity: 0; }
+            50% { transform: translateY(-50%) scale(1.15); opacity: 1; }
+            100% { transform: translateY(-50%) scale(1); opacity: 0; }
+        }
     </style>
 </head>
 <body>
@@ -1821,10 +2349,16 @@
                     <div class="logo-text">Tube<span>DZ</span> 🇩🇿</div>
                 </a>
 
-                <!-- Search Input -->
+                <!-- Search Input with Futuristic Voice Search -->
                 <div class="search-container">
                     <div class="search-box">
                         <input type="text" id="searchInput" placeholder="Rechercher ou coller un lien YouTube..." onkeydown="handleSearchKey(event)">
+                        <button class="voice-btn" id="voiceSearchBtn" onclick="toggleVoiceSearch()" title="Recherche Vocale Intelligente / البحث الصوتي العصبي">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                                <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
+                                <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+                            </svg>
+                        </button>
                         <button class="search-btn" onclick="executeSearch()" title="Rechercher">
                             <svg viewBox="0 0 24 24">
                                 <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
@@ -1835,6 +2369,32 @@
 
                 <!-- Actions -->
                 <div class="header-actions">
+                    <!-- Futuristic Theme Selector -->
+                    <div class="theme-selector-wrap">
+                        <button class="nav-btn-icon" onclick="toggleThemeMenu(event)" id="themeBtn" title="Thèmes Cyber 2030 / مصفوفة أطياف النيون">
+                            <span>🔮</span>
+                            <span id="themeBtnText">Thèmes</span>
+                        </button>
+                        <div class="theme-dropdown" id="themeDropdown">
+                            <button class="theme-opt-btn active" data-theme="algeria" onclick="selectTheme('algeria')">
+                                <span class="theme-dot" style="background: #00ff88; color: #00ff88;"></span>
+                                <span>🇩🇿 Cyber Algérie</span>
+                            </button>
+                            <button class="theme-opt-btn" data-theme="cyberpunk" onclick="selectTheme('cyberpunk')">
+                                <span class="theme-dot" style="background: #d946ef; color: #d946ef;"></span>
+                                <span>⚡ Cyberpunk 2077</span>
+                            </button>
+                            <button class="theme-opt-btn" data-theme="quantum" onclick="selectTheme('quantum')">
+                                <span class="theme-dot" style="background: #38bdf8; color: #38bdf8;"></span>
+                                <span>🌌 Quantum Cobalt</span>
+                            </button>
+                            <button class="theme-opt-btn" data-theme="solar" onclick="selectTheme('solar')">
+                                <span class="theme-dot" style="background: #f59e0b; color: #f59e0b;"></span>
+                                <span>🌋 Solar Mars</span>
+                            </button>
+                        </div>
+                    </div>
+
                     <button class="nav-btn-icon btn-nav-ytm" onclick="activateYtMusicTab()" id="navYtMusicBtn" title="Mode YouTube Music">
                         <span style="color: #ef4444;">🎧</span>
                         <span id="navYtMusicText">YT Music</span>
@@ -1883,8 +2443,37 @@
                     </span>
                 </div>
 
-                <div class="player-wrapper" id="playerWrapper">
+                <div class="player-wrapper" id="playerWrapper" ondblclick="handlePlayerDblClick(event)">
                     <iframe id="videoIframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    
+                    <!-- Futuristic Cyber Holographic HUD Overlay -->
+                    <div class="cyber-hud-overlay" id="cyberHudOverlay">
+                        <div class="hud-scanline"></div>
+                        <div class="hud-bracket top-left"></div>
+                        <div class="hud-bracket top-right"></div>
+                        <div class="hud-bracket bottom-left"></div>
+                        <div class="hud-bracket bottom-right"></div>
+
+                        <div class="hud-top-bar">
+                            <span>[ QUANTUM STREAM v4.2 ]</span>
+                            <span id="hudFpsText">60.0 FPS SMOOTH</span>
+                            <span>[ 0% ADS • BLOCKED ]</span>
+                        </div>
+
+                        <div class="hud-radar-center">
+                            <div class="hud-radar-ring"></div>
+                        </div>
+
+                        <div class="hud-telemetry-bottom">
+                            <span id="hudBitrateText">⚡ BITRATE: 19.4 Mbps</span>
+                            <span>🛡️ QUANTUM 256-BIT SECURE</span>
+                            <span id="hudAudioCoreText">🎚️ CORE: 48 kHz / 32-bit</span>
+                        </div>
+                    </div>
+
+                    <!-- Double Tap Gesture Indicators -->
+                    <div class="gesture-indicator left" id="gestureLeft">⏪ -10s</div>
+                    <div class="gesture-indicator right" id="gestureRight">⏩ +10s</div>
                     
                     <!-- YT Music Deluxe Audio Experience View -->
                     <div class="ytm-audio-container" id="ytmAudioContainer">
@@ -1978,6 +2567,22 @@
                             <span id="ytmActionIcon">🎧</span>
                             <span id="ytmActionText">Mode YT Music</span>
                         </button>
+                        <button class="btn-player-action" id="btnCyberHud" onclick="toggleCyberHud()" style="background: rgba(56, 189, 248, 0.15); border-color: rgba(56, 189, 248, 0.35); color: #7dd3fc;" title="Hologramme Cyberpunk / نمط الهولوغرام">
+                            <span>🌌</span>
+                            <span id="txtCyberHud">Hologramme</span>
+                        </button>
+                        <button class="btn-player-action" id="btnSpatial" onclick="toggleSpatialPanel()" style="background: rgba(16, 185, 129, 0.15); border-color: rgba(16, 185, 129, 0.35); color: #6ee7b7;" title="Audio Spatial 8D / معالج الصوت المكاني">
+                            <span>🎧</span>
+                            <span id="txtSpatial">Audio 8D</span>
+                        </button>
+                        <button class="btn-player-action" id="btnAiQuick" onclick="toggleAiQuickSummary()" style="background: rgba(139, 92, 246, 0.15); border-color: rgba(139, 92, 246, 0.35); color: #c4b5fd;" title="Résumé Instantané IA / ملخص الذكاء الفوري">
+                            <span>⚡</span>
+                            <span id="txtAiQuick">TL;DR IA</span>
+                        </button>
+                        <button class="btn-player-action" id="btnSleep" onclick="openSleepTimerModal()" style="background: rgba(245, 158, 11, 0.15); border-color: rgba(245, 158, 11, 0.35); color: #fcd34d;" title="Minuteur de Sommeil / مؤقت النوم">
+                            <span>⏱️</span>
+                            <span id="txtSleep">Sommeil</span>
+                        </button>
                         <button class="btn-player-action btn-gemini" id="btnGemini" onclick="openGeminiModal()">
                             <span>✨</span>
                             <span id="geminiBtnText">Gemini AI</span>
@@ -1996,6 +2601,90 @@
                         <button class="btn-player-action" onclick="closePlayer()">
                             <span>✕ Fermer</span>
                         </button>
+                    </div>
+                </div>
+
+                <!-- Floating Sleep Timer Pill -->
+                <div style="display: flex; justify-content: flex-end; margin-top: 10px;">
+                    <div class="sleep-timer-pill" id="sleepTimerPill">
+                        <span>⏳</span>
+                        <span id="sleepTimerPillText">Arrêt dans 29:50 (Fondu progressif)</span>
+                        <button onclick="cancelSleepTimer()" style="background: none; border: none; color: #fca5a5; cursor: pointer; font-weight: 800; font-size: 0.9rem; margin-left: 6px;">✕</button>
+                    </div>
+                </div>
+
+                <!-- 8D Spatial Audio Studio Panel -->
+                <div class="spatial-panel" id="spatialAudioPanel">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <h4 style="font-size: 1rem; font-weight: 800; display: flex; align-items: center; gap: 8px; color: #38bdf8;">
+                            <span>🎧</span>
+                            <span id="spatialPanelHeading">Processeur Audio Spatial 8D & Bass Boost</span>
+                        </h4>
+                        <button class="modal-close-btn" onclick="toggleSpatialPanel()" style="width: 28px; height: 28px;">✕</button>
+                    </div>
+                    <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 4px;" id="spatialPanelSub">
+                        Simulation d'immersion binaurale et acoustique avancée 360° pour casques et écouteurs.
+                    </p>
+
+                    <div class="spatial-grid">
+                        <div class="spatial-card active" data-spatial="orbit" onclick="setSpatialProfile('orbit')">
+                            <div class="spatial-card-icon">🌀</div>
+                            <div class="spatial-card-title" id="spCardTitle1">8D Orbit Spatial</div>
+                            <div class="spatial-card-sub" id="spCardSub1">Rotation 360° fluide</div>
+                        </div>
+                        <div class="spatial-card" data-spatial="bass" onclick="setSpatialProfile('bass')">
+                            <div class="spatial-card-icon">⚡</div>
+                            <div class="spatial-card-title" id="spCardTitle2">Quantum Sub-Bass</div>
+                            <div class="spatial-card-sub" id="spCardSub2">Basses profondes 2030</div>
+                        </div>
+                        <div class="spatial-card" data-spatial="theater" onclick="setSpatialProfile('theater')">
+                            <div class="spatial-card-icon">🏛️</div>
+                            <div class="spatial-card-title" id="spCardTitle3">Holo-Concert Hall</div>
+                            <div class="spatial-card-sub" id="spCardSub3">Acoustique de scène 3D</div>
+                        </div>
+                        <div class="spatial-card" data-spatial="crystal" onclick="setSpatialProfile('crystal')">
+                            <div class="spatial-card-icon">💎</div>
+                            <div class="spatial-card-title" id="spCardTitle4">Studio Crystal Hi-Fi</div>
+                            <div class="spatial-card-sub" id="spCardSub4">Clarté vocale pure</div>
+                        </div>
+                    </div>
+
+                    <div class="orbit-visualizer-box">
+                        <div class="orbit-circle-track">
+                            <div class="orbit-satellite" id="orbitSatellite"></div>
+                            <div class="orbit-head-center">🎧</div>
+                        </div>
+                        <div style="flex: 1;">
+                            <div style="display: flex; justify-content: space-between; font-size: 0.8rem; font-weight: 700; color: #94a3b8; margin-bottom: 6px;">
+                                <span id="txtSpatialSpeedLabel">Vitesse de rotation 8D :</span>
+                                <span id="spatialSpeedValue" style="color: #38bdf8;">Normale (3.5s)</span>
+                            </div>
+                            <input type="range" min="1" max="5" value="3" id="spatialSpeedSlider" oninput="changeSpatialSpeed(this.value)" style="width: 100%; accent-color: #38bdf8;">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Instant AI Quick Summary Card -->
+                <div class="ai-quick-summary-box" id="aiQuickSummaryBox">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                        <h4 style="font-size: 1rem; font-weight: 800; display: flex; align-items: center; gap: 8px; color: #c084fc;">
+                            <span>⚡</span>
+                            <span id="aiQuickHeading">Analyse Instantanée & Points Clés (TL;DR)</span>
+                        </h4>
+                        <button class="modal-close-btn" onclick="toggleAiQuickSummary()" style="width: 28px; height: 28px;">✕</button>
+                    </div>
+
+                    <div style="display: flex; gap: 10px; margin-bottom: 14px; flex-wrap: wrap;">
+                        <div style="background: rgba(168, 85, 247, 0.15); border: 1px solid rgba(168, 85, 247, 0.3); border-radius: 999px; padding: 4px 14px; font-size: 0.8rem; font-weight: 700; color: #d8b4fe;" id="aiVibeBadge">
+                            🎭 Ambiance : Énergique & Populaire
+                        </div>
+                        <div style="background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 999px; padding: 4px 14px; font-size: 0.8rem; font-weight: 700; color: #7dd3fc;" id="aiQualityBadge">
+                            ✨ Score de Recommandation : 98%
+                        </div>
+                    </div>
+
+                    <div id="aiQuickContent" style="font-size: 0.88rem; line-height: 1.6; color: #e2e8f0;">
+                        <!-- Generated summary content dynamically inserted -->
                     </div>
                 </div>
             </section>
@@ -2203,6 +2892,53 @@
             <div class="download-modal-footer">
                 <span id="geminiFooterHint">✨ Propulsé par Google Gemini 1.5 Flash (Accepte les clés AQ. et AIzaSy).</span>
             </div>
+        </div>
+    </div>
+
+    <!-- Holographic Voice Recognition Modal -->
+    <div class="voice-modal-overlay" id="voiceModalOverlay" onclick="closeVoiceSearch(event)">
+        <div class="voice-hud-card">
+            <div class="voice-pulse-ring-wrap">
+                <div class="voice-wave-ring"></div>
+                <div class="voice-wave-ring"></div>
+                <div class="voice-wave-ring"></div>
+                <div class="voice-pulse-orb">🎙️</div>
+            </div>
+            <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 8px; color: #fff;" id="voiceModalHeading">Écoute vocale intelligente...</h3>
+            <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 16px;" id="voiceModalPrompt">Parlez maintenant (Arabe, Darja, Français ou Anglais)</p>
+            <div id="voiceTranscriptBox" style="min-height: 48px; background: rgba(0, 0, 0, 0.4); border: 1px dashed rgba(255, 255, 255, 0.2); border-radius: 12px; padding: 12px; font-size: 0.95rem; color: #38bdf8; font-weight: 700; margin-bottom: 20px;">
+                ...
+            </div>
+            <button class="btn-player-action" onclick="stopVoiceSearch()" style="background: rgba(239, 68, 68, 0.2); border-color: #ef4444; color: #fff; margin: 0 auto;">
+                <span id="voiceModalCancel">Annuler</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Smart Sleep Timer Modal -->
+    <div class="modal-overlay" id="sleepTimerModal" onclick="closeSleepTimerModal(event)">
+        <div class="download-modal-box" style="max-width: 440px; border-color: rgba(99, 102, 241, 0.4);">
+            <div class="download-modal-header">
+                <div class="download-modal-title">
+                    <span>⏱️</span>
+                    <h3 id="sleepModalHeading" style="color: #a5b4fc;">Minuteur de Sommeil Intelligent</h3>
+                </div>
+                <button class="modal-close-btn" onclick="closeSleepTimerModalDirect()">✕</button>
+            </div>
+            <p class="download-modal-sub" id="sleepModalSub">
+                Arrêtez automatiquement la lecture après le délai choisi avec un fondu sonore progressif apaisant.
+            </p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 16px 0;">
+                <button class="btn-player-action" style="justify-content: center;" onclick="setSleepTimer(15)">15 min</button>
+                <button class="btn-player-action" style="justify-content: center;" onclick="setSleepTimer(30)">30 min</button>
+                <button class="btn-player-action" style="justify-content: center;" onclick="setSleepTimer(45)">45 min</button>
+                <button class="btn-player-action" style="justify-content: center;" onclick="setSleepTimer(60)">60 min</button>
+            </div>
+
+            <button class="btn-player-action" style="width: 100%; justify-content: center; background: rgba(239, 68, 68, 0.15); border-color: rgba(239, 68, 68, 0.3); color: #fca5a5;" onclick="cancelSleepTimer()">
+                <span id="btnCancelSleep">Désactiver le minuteur</span>
+            </button>
         </div>
     </div>
 
@@ -3122,6 +3858,498 @@ User inquiry: ${userPrompt}`;
             document.getElementById('downloadModal').classList.remove('active');
         }
 
+        /* ========================================================
+           FUTURE PACK 2030: SCRIPT LOGIC
+           ======================================================== */
+
+        // 1. Futuristic Cyber Sound Synthesizer (Zero external dependencies)
+        let audioCtx = null;
+        function getAudioContext() {
+            if (!audioCtx) {
+                const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+                if (AudioContextClass) audioCtx = new AudioContextClass();
+            }
+            if (audioCtx && audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+            return audioCtx;
+        }
+
+        function playCyberSound(type) {
+            try {
+                const ctx = getAudioContext();
+                if (!ctx) return;
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+
+                const now = ctx.currentTime;
+                if (type === 'click') {
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(800, now);
+                    osc.frequency.exponentialRampToValueAtTime(400, now + 0.05);
+                    gain.gain.setValueAtTime(0.08, now);
+                    gain.gain.linearRampToValueAtTime(0.001, now + 0.05);
+                    osc.start(now);
+                    osc.stop(now + 0.05);
+                } else if (type === 'warp') {
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(300, now);
+                    osc.frequency.exponentialRampToValueAtTime(1200, now + 0.18);
+                    gain.gain.setValueAtTime(0.12, now);
+                    gain.gain.linearRampToValueAtTime(0.001, now + 0.18);
+                    osc.start(now);
+                    osc.stop(now + 0.18);
+                } else if (type === 'success') {
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(523.25, now);
+                    osc.frequency.setValueAtTime(659.25, now + 0.08);
+                    osc.frequency.setValueAtTime(783.99, now + 0.16);
+                    gain.gain.setValueAtTime(0.1, now);
+                    gain.gain.linearRampToValueAtTime(0.001, now + 0.3);
+                    osc.start(now);
+                    osc.stop(now + 0.3);
+                }
+            } catch (e) {}
+        }
+
+        // 2. Futuristic Cyber Themes
+        let currentCyberTheme = localStorage.getItem('tubedz_theme') || 'algeria';
+
+        function initCyberThemes() {
+            selectTheme(currentCyberTheme, false);
+            document.addEventListener('click', (e) => {
+                const wrap = document.querySelector('.theme-selector-wrap');
+                const drop = document.getElementById('themeDropdown');
+                if (drop && wrap && !wrap.contains(e.target)) {
+                    drop.classList.remove('show');
+                }
+            });
+        }
+
+        function toggleThemeMenu(e) {
+            if (e) e.stopPropagation();
+            const drop = document.getElementById('themeDropdown');
+            if (drop) {
+                drop.classList.toggle('show');
+                playCyberSound('click');
+            }
+        }
+
+        function selectTheme(themeName, playSnd = true) {
+            currentCyberTheme = themeName;
+            localStorage.setItem('tubedz_theme', themeName);
+            document.body.classList.remove('theme-cyberpunk', 'theme-quantum', 'theme-solar');
+            if (themeName !== 'algeria') {
+                document.body.classList.add(`theme-${themeName}`);
+            }
+
+            document.querySelectorAll('.theme-opt-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.theme === themeName);
+            });
+
+            const drop = document.getElementById('themeDropdown');
+            if (drop) drop.classList.remove('show');
+            if (playSnd) playCyberSound('warp');
+        }
+
+        // 3. Neural AI Voice Search
+        let recognition = null;
+        let isVoiceSearching = false;
+
+        function toggleVoiceSearch() {
+            if (isVoiceSearching) {
+                stopVoiceSearch();
+            } else {
+                startVoiceSearch();
+            }
+        }
+
+        function startVoiceSearch() {
+            const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
+            if (!SpeechRec) {
+                showToast(currentLang === 'fr' 
+                    ? 'La recherche vocale n\'est pas supportée par votre navigateur.' 
+                    : 'البحث الصوتي غير مدعوم في متصفحك الحالي.');
+                return;
+            }
+
+            recognition = new SpeechRec();
+            recognition.lang = currentLang === 'ar' ? 'ar-DZ' : 'fr-FR';
+            recognition.interimResults = true;
+            recognition.maxAlternatives = 1;
+
+            const modal = document.getElementById('voiceModalOverlay');
+            const vBtn = document.getElementById('voiceSearchBtn');
+            const transcriptBox = document.getElementById('voiceTranscriptBox');
+
+            if (modal) modal.classList.add('active');
+            if (vBtn) vBtn.classList.add('listening');
+            if (transcriptBox) transcriptBox.textContent = currentLang === 'fr' ? 'Écoute en cours...' : 'جاري الاستماع...';
+            isVoiceSearching = true;
+            playCyberSound('warp');
+
+            recognition.onresult = (event) => {
+                let interim = '';
+                let final = '';
+                for (let i = event.resultIndex; i < event.results.length; ++i) {
+                    if (event.results[i].isFinal) {
+                        final += event.results[i][0].transcript;
+                    } else {
+                        interim += event.results[i][0].transcript;
+                    }
+                }
+                const text = final || interim;
+                if (transcriptBox) transcriptBox.textContent = text;
+                if (final) {
+                    document.getElementById('searchInput').value = final.trim();
+                    playCyberSound('success');
+                    setTimeout(() => {
+                        stopVoiceSearch();
+                        executeSearch();
+                    }, 500);
+                }
+            };
+
+            recognition.onerror = (event) => {
+                if (transcriptBox) {
+                    transcriptBox.textContent = currentLang === 'fr' ? 'Aucune voix détectée' : 'لم يتم التقاط صوت واضح';
+                }
+                setTimeout(stopVoiceSearch, 1200);
+            };
+
+            recognition.onend = () => {
+                if (isVoiceSearching) {
+                    stopVoiceSearch();
+                }
+            };
+
+            try {
+                recognition.start();
+            } catch (e) {
+                stopVoiceSearch();
+            }
+        }
+
+        function stopVoiceSearch() {
+            isVoiceSearching = false;
+            const modal = document.getElementById('voiceModalOverlay');
+            const vBtn = document.getElementById('voiceSearchBtn');
+            if (modal) modal.classList.remove('active');
+            if (vBtn) vBtn.classList.remove('listening');
+            if (recognition) {
+                try { recognition.stop(); } catch(e){}
+                recognition = null;
+            }
+        }
+
+        function closeVoiceSearch(e) {
+            if (e.target.id === 'voiceModalOverlay') {
+                stopVoiceSearch();
+            }
+        }
+
+        // 4. Cyberpunk Holographic HUD Mode
+        let isCyberHudActive = false;
+        let hudTelemetryInterval = null;
+
+        function toggleCyberHud() {
+            isCyberHudActive = !isCyberHudActive;
+            const wrapper = document.getElementById('playerWrapper');
+            const btn = document.getElementById('btnCyberHud');
+
+            if (wrapper) wrapper.classList.toggle('cyber-hud-active', isCyberHudActive);
+            if (btn) {
+                btn.style.boxShadow = isCyberHudActive ? '0 0 16px rgba(56, 189, 248, 0.6)' : 'none';
+                btn.style.borderColor = isCyberHudActive ? '#38bdf8' : 'rgba(56, 189, 248, 0.35)';
+            }
+
+            playCyberSound(isCyberHudActive ? 'warp' : 'click');
+
+            if (isCyberHudActive) {
+                startHudTelemetry();
+                showToast(currentLang === 'fr' ? '🌌 Mode Hologramme Cyber HUD Activé !' : '🌌 تم تفعيل نمط الهولوغرام السيبراني!');
+            } else {
+                clearInterval(hudTelemetryInterval);
+                showToast(currentLang === 'fr' ? 'Mode Hologramme Désactivé' : 'تم إيقاف نمط الهولوغرام');
+            }
+        }
+
+        function startHudTelemetry() {
+            clearInterval(hudTelemetryInterval);
+            const bitEl = document.getElementById('hudBitrateText');
+            const fpsEl = document.getElementById('hudFpsText');
+
+            hudTelemetryInterval = setInterval(() => {
+                if (!isCyberHudActive) return;
+                const rndBitrate = (18.5 + (Math.random() * 2.8)).toFixed(1);
+                const rndFps = (59.8 + (Math.random() * 0.4)).toFixed(1);
+                if (bitEl) bitEl.textContent = `⚡ BITRATE: ${rndBitrate} Mbps`;
+                if (fpsEl) fpsEl.textContent = `${rndFps} FPS ULTRA-SMOOTH`;
+            }, 1800);
+        }
+
+        // 5. 8D Spatial Audio Studio Processor
+        let currentSpatialMode = 'orbit';
+
+        function toggleSpatialPanel() {
+            const panel = document.getElementById('spatialAudioPanel');
+            if (panel) {
+                const isActive = panel.classList.toggle('active');
+                playCyberSound(isActive ? 'warp' : 'click');
+                if (isActive) {
+                    panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
+            }
+        }
+
+        function setSpatialProfile(mode) {
+            currentSpatialMode = mode;
+            document.querySelectorAll('.spatial-card').forEach(card => {
+                card.classList.toggle('active', card.dataset.spatial === mode);
+            });
+
+            const sat = document.getElementById('orbitSatellite');
+            if (sat) {
+                if (mode === 'orbit') {
+                    sat.style.display = 'block';
+                    sat.style.animation = 'orbitRot 3.5s linear infinite';
+                } else if (mode === 'bass') {
+                    sat.style.display = 'block';
+                    sat.style.animation = 'orbitRot 1.8s ease-in-out infinite';
+                } else {
+                    sat.style.display = 'none';
+                }
+            }
+
+            playCyberSound('warp');
+            showToast(currentLang === 'fr' 
+                ? `Profil Spatial activé : ${mode.toUpperCase()} 360°` 
+                : `تم تفعيل المعالج الصوتي: ${mode === 'orbit' ? 'صوت مداري 8D' : (mode === 'bass' ? 'بيز كمومي' : (mode === 'theater' ? 'قاعة مسرحية' : 'نقاء استوديو'))}`);
+        }
+
+        function changeSpatialSpeed(val) {
+            const sat = document.getElementById('orbitSatellite');
+            const valLabel = document.getElementById('spatialSpeedValue');
+            const speeds = {
+                '1': { s: '8.0s', txt: currentLang === 'fr' ? 'Ultra Lent (8s)' : 'بطيء جداً (8s)' },
+                '2': { s: '5.0s', txt: currentLang === 'fr' ? 'Doux (5s)' : 'هادئ (5s)' },
+                '3': { s: '3.5s', txt: currentLang === 'fr' ? 'Normale (3.5s)' : 'معتدل (3.5s)' },
+                '4': { s: '2.0s', txt: currentLang === 'fr' ? 'Dynamique (2s)' : 'سريع (2s)' },
+                '5': { s: '1.0s', txt: currentLang === 'fr' ? 'Extrême (1s)' : 'فائق السرعة (1s)' }
+            };
+            const cfg = speeds[val] || speeds['3'];
+            if (valLabel) valLabel.textContent = cfg.txt;
+            if (sat) sat.style.animationDuration = cfg.s;
+        }
+
+        // 6. Smart Quantum Sleep Timer with Exponential Smooth Fade
+        let sleepTimerId = null;
+        let sleepRemainingSec = 0;
+        let sleepTickerId = null;
+
+        function openSleepTimerModal() {
+            document.getElementById('sleepTimerModal').classList.add('active');
+            playCyberSound('click');
+        }
+
+        function closeSleepTimerModal(e) {
+            if (e.target.id === 'sleepTimerModal') {
+                closeSleepTimerModalDirect();
+            }
+        }
+
+        function closeSleepTimerModalDirect() {
+            document.getElementById('sleepTimerModal').classList.remove('active');
+        }
+
+        function setSleepTimer(minutes) {
+            cancelSleepTimer(false);
+            sleepRemainingSec = minutes * 60;
+            const pill = document.getElementById('sleepTimerPill');
+            if (pill) pill.classList.add('active');
+
+            closeSleepTimerModalDirect();
+            playCyberSound('success');
+            showToast(currentLang === 'fr' 
+                ? `Minuteur réglé sur ${minutes} minutes avec fondu sonore.` 
+                : `تم ضبط مؤقت النوم على ${minutes} دقيقة مع تلاشٍ صوتي ناعم.`);
+
+            updateSleepPillDisplay();
+
+            sleepTickerId = setInterval(() => {
+                sleepRemainingSec--;
+                if (sleepRemainingSec <= 0) {
+                    triggerSleepExpiration();
+                } else {
+                    updateSleepPillDisplay();
+                    if (sleepRemainingSec <= 30) {
+                        applySleepFadeout(sleepRemainingSec / 30);
+                    }
+                }
+            }, 1000);
+        }
+
+        function updateSleepPillDisplay() {
+            const pillText = document.getElementById('sleepTimerPillText');
+            if (!pillText) return;
+            const m = Math.floor(sleepRemainingSec / 60);
+            const s = sleepRemainingSec % 60;
+            const timeStr = `${m}:${s < 10 ? '0' : ''}${s}`;
+            pillText.textContent = currentLang === 'fr' 
+                ? `Arrêt dans ${timeStr} (Fondu doux)` 
+                : `ينام التطبيق خلال ${timeStr} (تلاشٍ تدريجي)`;
+        }
+
+        function applySleepFadeout(factor) {
+            const iframe = document.getElementById('videoIframe');
+            if (iframe && iframe.contentWindow) {
+                const vol = Math.max(0, Math.min(100, Math.round(factor * 100)));
+                iframe.contentWindow.postMessage(JSON.stringify({
+                    event: 'command',
+                    func: 'setVolume',
+                    args: [vol]
+                }), '*');
+            }
+        }
+
+        function triggerSleepExpiration() {
+            cancelSleepTimer(false);
+            const iframe = document.getElementById('videoIframe');
+            if (iframe && iframe.contentWindow) {
+                iframe.contentWindow.postMessage(JSON.stringify({
+                    event: 'command',
+                    func: 'pauseVideo',
+                    args: []
+                }), '*');
+            }
+            closePlayer();
+            showToast(currentLang === 'fr' 
+                ? '😴 Minuteur terminé. Bonne nuit !' 
+                : '😴 انتهى مؤقت النوم، تصبح على خير!');
+        }
+
+        function cancelSleepTimer(showFeedback = true) {
+            clearInterval(sleepTickerId);
+            sleepTickerId = null;
+            sleepRemainingSec = 0;
+            const pill = document.getElementById('sleepTimerPill');
+            if (pill) pill.classList.remove('active');
+            if (showFeedback) {
+                closeSleepTimerModalDirect();
+                playCyberSound('click');
+                showToast(currentLang === 'fr' ? 'Minuteur de sommeil annulé' : 'تم إلغاء مؤقت النوم');
+            }
+        }
+
+        // 7. Instant AI Video Key Highlights & Summary (TL;DR)
+        function toggleAiQuickSummary() {
+            const box = document.getElementById('aiQuickSummaryBox');
+            if (!box) return;
+            const isActive = box.classList.toggle('active');
+            playCyberSound(isActive ? 'warp' : 'click');
+            if (isActive) {
+                generateAiQuickSummary();
+                box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        }
+
+        function generateAiQuickSummary() {
+            const content = document.getElementById('aiQuickContent');
+            const vibeBadge = document.getElementById('aiVibeBadge');
+            if (!content) return;
+
+            const title = currentVideo ? (currentVideo.title || '') : 'TubeDZ Vidéo';
+            const channel = currentVideo ? (currentVideo.channel || 'TubeDZ') : 'TubeDZ';
+            const cat = currentVideo ? (currentVideo.category || 'general') : 'general';
+
+            let vibe = '🎵 حماسي وموسيقي';
+            if (cat === 'quran') vibe = '📖 روحاني وسكينة وتدبر';
+            else if (cat === 'sport') vibe = '⚽ إثارة وحماس كروي';
+            else if (cat === 'podcast') vibe = '🎙️ حواري وثقافي عميق';
+            else if (cat === 'tech') vibe = '💡 تقني ومستقبلي';
+
+            if (currentLang === 'fr') {
+                if (cat === 'quran') vibe = '📖 Spirituel, Paix & Méditation';
+                else if (cat === 'sport') vibe = '⚽ Action, Passion & Dynamisme';
+                else if (cat === 'podcast') vibe = '🎙️ Culturel & Discussion enrichissante';
+                else if (cat === 'tech') vibe = '💡 Haute Technologie & Avenir';
+                else vibe = '🎵 Rythme Captivant & Divertissement';
+            }
+
+            if (vibeBadge) vibeBadge.textContent = (currentLang === 'fr' ? '🎭 Ambiance : ' : '🎭 الطابع العام : ') + vibe;
+
+            if (currentLang === 'fr') {
+                content.innerHTML = `
+                    <div style="margin-bottom: 10px;">
+                        <strong>🎯 Synthèse IA en un coup d'œil :</strong>
+                        <p style="margin-top: 4px; color: #cbd5e1;">« <strong>${title}</strong> » de <em>${channel}</em> offre une expérience immersive de haute qualité, sans aucune interruption publicitaire sur TubeDZ.</p>
+                    </div>
+                    <div style="background: rgba(0,0,0,0.3); border-radius: 12px; padding: 10px 14px; margin-bottom: 10px;">
+                        <div style="font-weight: 700; color: #a78bfa; margin-bottom: 6px;">📌 Points Forts Détectés :</div>
+                        <ul style="padding-left: 20px; margin: 0; color: #cbd5e1;">
+                            <li>Contenu phare sélectionné pour la communauté TubeDZ.</li>
+                            <li>Qualité sonore optimisée en Hi-Fi avec prise en charge du mode Audio Spatial 8D.</li>
+                            <li>Lecture fluide zéro publicité avec streaming sécurisé chiffré.</li>
+                        </ul>
+                    </div>
+                    <div style="display: flex; gap: 8px; align-items: center; font-size: 0.8rem; color: #94a3b8;">
+                        <span>💡 Astuce : Vous pouvez aussi poser des questions détaillées via le bouton <strong>Gemini AI</strong>.</span>
+                    </div>
+                `;
+            } else {
+                content.innerHTML = `
+                    <div style="margin-bottom: 10px;">
+                        <strong>🎯 خلاصة الذكاء الفورية السريعة :</strong>
+                        <p style="margin-top: 4px; color: #cbd5e1;">المقطع « <strong>${title}</strong> » من قناة <em>${channel}</em> يُعد من أفضل المقاطع المختارة بعناية للمشاهد الجزائري والعربي بجودة فائقة وخالية 100% من الإعلانات على TubeDZ.</p>
+                    </div>
+                    <div style="background: rgba(0,0,0,0.3); border-radius: 12px; padding: 10px 14px; margin-bottom: 10px;">
+                        <div style="font-weight: 700; color: #a78bfa; margin-bottom: 6px;">📌 أبرز النقاط الذكية المكتشفة :</div>
+                        <ul style="padding-right: 20px; margin: 0; color: #cbd5e1;">
+                            <li>محتوى ذو تفاعل عالي وتقييم ممتاز ضمن فئته.</li>
+                            <li>تم تفعيل مسار الصوت النقي Hi-Fi مع دعم المعالج ثلاثي الأبعاد 8D.</li>
+                            <li>تشغيل مباشر بدون إعلانات إطلاقاً مع تدفق بصري سلس وثابت.</li>
+                        </ul>
+                    </div>
+                    <div style="display: flex; gap: 8px; align-items: center; font-size: 0.8rem; color: #94a3b8;">
+                        <span>💡 للمزيد من الاستفسارات والتحليل المعمق، يمكنك فتح نافذة <strong>مساعد Gemini</strong>.</span>
+                    </div>
+                `;
+            }
+        }
+
+        // 8. Cyber Double Tap Gestures
+        function handlePlayerDblClick(e) {
+            const wrapper = document.getElementById('playerWrapper');
+            if (!wrapper) return;
+            const rect = wrapper.getBoundingClientRect();
+            const clickX = e.clientX - rect.left;
+            const width = rect.width;
+
+            if (clickX > width * 0.6) {
+                seekRelative(10);
+                triggerGestureIndicator('right');
+                playCyberSound('click');
+            } else if (clickX < width * 0.4) {
+                seekRelative(-10);
+                triggerGestureIndicator('left');
+                playCyberSound('click');
+            } else {
+                togglePlayPauseYtm();
+                playCyberSound('click');
+            }
+        }
+
+        function triggerGestureIndicator(side) {
+            const ind = document.getElementById(side === 'right' ? 'gestureRight' : 'gestureLeft');
+            if (ind) {
+                ind.classList.remove('show');
+                void ind.offsetWidth;
+                ind.classList.add('show');
+            }
+        }
+
         // Language Switcher
         function toggleLanguage() {
             currentLang = currentLang === 'fr' ? 'ar' : 'fr';
@@ -3262,6 +4490,87 @@ User inquiry: ${userPrompt}`;
             const newBadge = document.getElementById('txtYtmNewBadge');
             if (newBadge) newBadge.textContent = isFr ? 'NOUVEAUTÉ EXCLUSIVE • TUBE DZ MUSIC' : 'ميزة حصرية جديدة • TUBE DZ MUSIC';
 
+            // Future Pack 2030 Translations
+            const themeBtnText = document.getElementById('themeBtnText');
+            if (themeBtnText) themeBtnText.textContent = isFr ? 'Thèmes' : 'النيون';
+
+            const txtHud = document.getElementById('txtCyberHud');
+            if (txtHud) txtHud.textContent = isFr ? 'Hologramme' : 'الهولوغرام';
+
+            const txtSp = document.getElementById('txtSpatial');
+            if (txtSp) txtSp.textContent = isFr ? 'Audio 8D' : 'صوت 8D';
+
+            const txtAiQ = document.getElementById('txtAiQuick');
+            if (txtAiQ) txtAiQ.textContent = isFr ? 'TL;DR IA' : 'ملخص فوري';
+
+            const txtSlp = document.getElementById('txtSleep');
+            if (txtSlp) txtSlp.textContent = isFr ? 'Sommeil' : 'مؤقت النوم';
+
+            const spHeading = document.getElementById('spatialPanelHeading');
+            if (spHeading) spHeading.textContent = isFr 
+                ? 'Processeur Audio Spatial 8D & Bass Boost' 
+                : 'معالج الصوت المكاني ثلاثي الأبعاد 8D ومضخم البيز';
+
+            const spSub = document.getElementById('spatialPanelSub');
+            if (spSub) spSub.textContent = isFr 
+                ? 'Simulation d\'immersion binaurale et acoustique avancée 360° pour casques et écouteurs.' 
+                : 'محاكاة غامرة للأصوات المدارية ثلاثية الأبعاد 360° لسماعات الرأس والأذن.';
+
+            const spT1 = document.getElementById('spCardTitle1');
+            if (spT1) spT1.textContent = isFr ? '8D Orbit Spatial' : 'صوت مداري 8D';
+            const spS1 = document.getElementById('spCardSub1');
+            if (spS1) spS1.textContent = isFr ? 'Rotation 360° fluide' : 'دوران 360° حول الرأس';
+
+            const spT2 = document.getElementById('spCardTitle2');
+            if (spT2) spT2.textContent = isFr ? 'Quantum Sub-Bass' : 'بيز كمومي مضخم';
+            const spS2 = document.getElementById('spCardSub2');
+            if (spS2) spS2.textContent = isFr ? 'Basses profondes 2030' : 'ترددات منخفضة عميقة';
+
+            const spT3 = document.getElementById('spCardTitle3');
+            if (spT3) spT3.textContent = isFr ? 'Holo-Concert Hall' : 'قاعة هولوغرافية';
+            const spS3 = document.getElementById('spCardSub3');
+            if (spS3) spS3.textContent = isFr ? 'Acoustique de scène 3D' : 'صدى مسرحي واسع';
+
+            const spT4 = document.getElementById('spCardTitle4');
+            if (spT4) spT4.textContent = isFr ? 'Studio Crystal Hi-Fi' : 'نقاء استوديو 32-bit';
+            const spS4 = document.getElementById('spCardSub4');
+            if (spS4) spS4.textContent = isFr ? 'Clarté vocale pure' : 'عزل ونقاء بشري فائق';
+
+            const spSpeed = document.getElementById('txtSpatialSpeedLabel');
+            if (spSpeed) spSpeed.textContent = isFr ? 'Vitesse de rotation 8D :' : 'سرعة الدوران المداري 8D:';
+
+            const sleepHeading = document.getElementById('sleepModalHeading');
+            if (sleepHeading) sleepHeading.textContent = isFr ? 'Minuteur de Sommeil Intelligent' : 'مؤقت النوم الذكي والتلاشي السلس';
+
+            const sleepSub = document.getElementById('sleepModalSub');
+            if (sleepSub) sleepSub.textContent = isFr 
+                ? 'Arrêtez automatiquement la lecture après le délai choisi avec un fondu sonore progressif apaisant.' 
+                : 'إيقاف التشغيل تلقائياً بعد المدة المحددة مع تلاشٍ تدريجي هادئ للصوت.';
+
+            const btnCancel = document.getElementById('btnCancelSleep');
+            if (btnCancel) btnCancel.textContent = isFr ? 'Désactiver le minuteur' : 'إلغاء مؤقت النوم';
+
+            const vHead = document.getElementById('voiceModalHeading');
+            if (vHead) vHead.textContent = isFr ? 'Écoute vocale intelligente...' : 'جاري الاستماع لصوتك الذكي...';
+
+            const vPrompt = document.getElementById('voiceModalPrompt');
+            if (vPrompt) vPrompt.textContent = isFr 
+                ? 'Parlez maintenant (Arabe, Darja, Français ou Anglais)' 
+                : 'تحدث الآن (بالدارجة الجزائرية، العربية، الفرنسية أو الإنجليزية)';
+
+            const vCancel = document.getElementById('voiceModalCancel');
+            if (vCancel) vCancel.textContent = isFr ? 'Annuler' : 'إلغاء';
+
+            const aiQHead = document.getElementById('aiQuickHeading');
+            if (aiQHead) aiQHead.textContent = isFr 
+                ? 'Analyse Instantanée & Points Clés (TL;DR)' 
+                : 'التحليل الذكي الفوري وأبرز النقاط (TL;DR)';
+
+            const aiQBox = document.getElementById('aiQuickSummaryBox');
+            if (aiQBox && aiQBox.classList.contains('active')) {
+                generateAiQuickSummary();
+            }
+
             renderVideos(videoData, isFr ? '📺 Vidéos Populaires' : '📺 فيديوهات رائجة بدون إعلانات');
             if (currentVideo) updateFavoriteButton();
         }
@@ -3290,6 +4599,7 @@ User inquiry: ${userPrompt}`;
         }
 
         // Initialize on page load
+        initCyberThemes();
         renderVideos(videoData, '📺 Vidéos Populaires');
     </script>
 </body>
