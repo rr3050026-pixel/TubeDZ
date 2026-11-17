@@ -865,6 +865,120 @@
             color: #94a3b8;
         }
 
+        /* Quick Download Strip in Player */
+        .quick-download-strip {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 14px;
+            padding-top: 14px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            flex-wrap: wrap;
+        }
+
+        .quick-dl-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-quick-dl {
+            padding: 8px 16px;
+            border-radius: 12px;
+            font-size: 0.86rem;
+            font-weight: 750;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .btn-quick-mp4 {
+            background: linear-gradient(135deg, rgba(230, 33, 41, 0.18), rgba(230, 33, 41, 0.08));
+            border: 1px solid rgba(230, 33, 41, 0.4);
+            color: #fca5a5;
+        }
+
+        .btn-quick-mp4:hover {
+            background: linear-gradient(135deg, rgba(230, 33, 41, 0.3), rgba(230, 33, 41, 0.15));
+            border-color: #ef4444;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 14px rgba(230, 33, 41, 0.3);
+        }
+
+        .btn-quick-mp3 {
+            background: linear-gradient(135deg, rgba(0, 133, 63, 0.18), rgba(0, 133, 63, 0.08));
+            border: 1px solid rgba(0, 133, 63, 0.4);
+            color: #86efac;
+        }
+
+        .btn-quick-mp3:hover {
+            background: linear-gradient(135deg, rgba(0, 133, 63, 0.3), rgba(0, 133, 63, 0.15));
+            border-color: #22c55e;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 14px rgba(0, 133, 63, 0.3);
+        }
+
+        .btn-quick-more {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #e2e8f0;
+        }
+
+        .btn-quick-more:hover {
+            background: rgba(255, 255, 255, 0.16);
+            border-color: rgba(255, 255, 255, 0.25);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        /* Modal Tabs */
+        .modal-tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 14px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 4px;
+            border-radius: 14px;
+        }
+
+        .modal-tab-btn {
+            flex: 1;
+            padding: 9px;
+            text-align: center;
+            border-radius: 10px;
+            font-size: 0.88rem;
+            font-weight: 750;
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .modal-tab-btn.active {
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .dl-tab-content {
+            display: none;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .dl-tab-content.active {
+            display: flex;
+        }
+
         /* Footer */
         footer {
             border-top: 1px solid var(--border-glass);
@@ -1016,6 +1130,23 @@
                             <span>✕ Fermer</span>
                         </button>
                     </div>
+
+                    <!-- Quick Download Strip -->
+                    <div class="quick-download-strip" id="quickDlStrip">
+                        <span class="quick-dl-label" id="quickDlLabel">⚡ Téléchargement Direct :</span>
+                        <a href="#" id="quickDlMp4Btn" target="_blank" rel="noopener noreferrer" class="btn-quick-dl btn-quick-mp4">
+                            <span>🎬</span>
+                            <span id="quickDlMp4Text">Vidéo MP4 (HD)</span>
+                        </a>
+                        <a href="#" id="quickDlMp3Btn" target="_blank" rel="noopener noreferrer" class="btn-quick-dl btn-quick-mp3">
+                            <span>🎵</span>
+                            <span id="quickDlMp3Text">Audio MP3</span>
+                        </a>
+                        <button class="btn-quick-dl btn-quick-more" onclick="openDownloadModal()">
+                            <span>⚙️</span>
+                            <span id="quickDlMoreText">Tous les formats</span>
+                        </button>
+                    </div>
                 </div>
             </section>
 
@@ -1083,6 +1214,32 @@
                 </div>
             </div>
 
+            <!-- APK In-App Download Feature Guide -->
+            <div class="help-banner" style="border-color: rgba(59, 130, 246, 0.3); background: rgba(15, 23, 42, 0.65);">
+                <div class="help-title-box">
+                    <span style="font-size: 1.5rem;">📥</span>
+                    <h4 id="apkDlTitle">Comment télécharger des vidéos & MP3 directement dans l'application TubeDZ APK :</h4>
+                </div>
+                <div class="help-steps">
+                    <div class="help-step-item">
+                        <div class="step-num" style="background: linear-gradient(135deg, #3b82f6, #1d4ed8);">1</div>
+                        <div class="step-text" id="apkDlStep1">Installez l'application compagnon <strong><a href="https://github.com/JunkFood02/Seal/releases" target="_blank" style="color: #60a5fa; text-decoration: underline;">Seal APK</a></strong> ou <strong>NewPipe</strong> sur votre téléphone.</div>
+                    </div>
+                    <div class="help-step-item">
+                        <div class="step-num" style="background: linear-gradient(135deg, #3b82f6, #1d4ed8);">2</div>
+                        <div class="step-text" id="apkDlStep2">Dans TubeDZ, allez dans <strong>Paramètres</strong> &gt; <strong>ReVanced Extended</strong> &gt; <strong>Boutons du lecteur (Overlay)</strong>.</div>
+                    </div>
+                    <div class="help-step-item">
+                        <div class="step-num" style="background: linear-gradient(135deg, #3b82f6, #1d4ed8);">3</div>
+                        <div class="step-text" id="apkDlStep3">Activez <strong>Bouton de téléchargement externe (Hook download)</strong> et sélectionnez <strong>Seal</strong>.</div>
+                    </div>
+                    <div class="help-step-item">
+                        <div class="step-num" style="background: linear-gradient(135deg, #3b82f6, #1d4ed8);">4</div>
+                        <div class="step-text" id="apkDlStep4">Touchez l'icône <strong>Télécharger</strong> sous n'importe quelle vidéo pour choisir MP4 ou MP3 en 1 clic !</div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </main>
 
@@ -1092,7 +1249,7 @@
             <div class="download-modal-header">
                 <div class="download-modal-title">
                     <span>📥</span>
-                    <h3 id="dlModalHeading">Options de téléchargement</h3>
+                    <h3 id="dlModalHeading">Studio de Téléchargement TubeDZ</h3>
                 </div>
                 <button class="modal-close-btn" onclick="closeDownloadModalDirect()">✕</button>
             </div>
@@ -1102,32 +1259,91 @@
                 <div class="video-preview-title" id="dlPreviewTitle">Titre de la vidéo</div>
             </div>
 
-            <p class="download-modal-sub" id="dlModalSub">Choisissez le format souhaité pour cette vidéo :</p>
-            
-            <div class="download-options-grid">
-                <!-- Video MP4 Option -->
-                <a href="#" id="dlOptionVideo" target="_blank" rel="noopener noreferrer" class="dl-card dl-video">
-                    <div class="dl-card-icon">🎬</div>
-                    <div class="dl-card-content">
-                        <div class="dl-card-title" id="dlVideoTitle">Vidéo MP4 (HD)</div>
-                        <div class="dl-card-desc" id="dlVideoDesc">Format vidéo complet haute définition</div>
-                    </div>
-                    <div class="dl-card-badge">MP4</div>
-                </a>
+            <!-- Modal Tabs -->
+            <div class="modal-tabs">
+                <button class="modal-tab-btn active" id="tabBtnVideo" onclick="switchDlTab('video')">🎬 Vidéo (MP4)</button>
+                <button class="modal-tab-btn" id="tabBtnAudio" onclick="switchDlTab('audio')">🎵 Audio (MP3)</button>
+                <button class="modal-tab-btn" id="tabBtnApp" onclick="switchDlTab('app')">📱 Application</button>
+            </div>
 
-                <!-- Audio MP3 Option -->
-                <a href="#" id="dlOptionAudio" target="_blank" rel="noopener noreferrer" class="dl-card dl-audio">
+            <!-- Tab Content: Video -->
+            <div class="dl-tab-content active" id="tabContentVideo">
+                <a href="#" id="dlOptionVideoHD" target="_blank" rel="noopener noreferrer" class="dl-card dl-video">
+                    <div class="dl-card-icon">🌟</div>
+                    <div class="dl-card-content">
+                        <div class="dl-card-title" id="dlVideoTitleHD">Vidéo MP4 (1080p / 720p HD)</div>
+                        <div class="dl-card-desc" id="dlVideoDescHD">Meilleure qualité vidéo avec audio stéréo</div>
+                    </div>
+                    <div class="dl-card-badge">Full HD</div>
+                </a>
+                <a href="#" id="dlOptionVideoSD" target="_blank" rel="noopener noreferrer" class="dl-card dl-video">
+                    <div class="dl-card-icon">📱</div>
+                    <div class="dl-card-content">
+                        <div class="dl-card-title" id="dlVideoTitleSD">Vidéo MP4 Économique (360p / 480p)</div>
+                        <div class="dl-card-desc" id="dlVideoDescSD">Téléchargement ultra rapide pour économiser les données</div>
+                    </div>
+                    <div class="dl-card-badge">Éco</div>
+                </a>
+                <a href="#" id="dlOptionCobaltVideo" target="_blank" rel="noopener noreferrer" class="dl-card dl-video">
+                    <div class="dl-card-icon">⚡</div>
+                    <div class="dl-card-content">
+                        <div class="dl-card-title" id="dlCobaltTitleV">Moteur Cobalt (Ad-Free)</div>
+                        <div class="dl-card-desc" id="dlCobaltDescV">Téléchargement direct et open-source sans pub</div>
+                    </div>
+                    <div class="dl-card-badge">Rapide</div>
+                </a>
+            </div>
+
+            <!-- Tab Content: Audio -->
+            <div class="dl-tab-content" id="tabContentAudio">
+                <a href="#" id="dlOptionAudioHQ" target="_blank" rel="noopener noreferrer" class="dl-card dl-audio">
+                    <div class="dl-card-icon">🎧</div>
+                    <div class="dl-card-content">
+                        <div class="dl-card-title" id="dlAudioTitleHQ">Audio MP3 Haute Qualité (320 kbps)</div>
+                        <div class="dl-card-desc" id="dlAudioDescHQ">Fidélité studio pour musique, Coran et podcasts</div>
+                    </div>
+                    <div class="dl-card-badge">320 kbps</div>
+                </a>
+                <a href="#" id="dlOptionAudioFast" target="_blank" rel="noopener noreferrer" class="dl-card dl-audio">
                     <div class="dl-card-icon">🎵</div>
                     <div class="dl-card-content">
-                        <div class="dl-card-title" id="dlAudioTitle">Audio MP3</div>
-                        <div class="dl-card-desc" id="dlAudioDesc">Fichier son seul (Musique, Coran, Podcast)</div>
+                        <div class="dl-card-title" id="dlAudioTitleFast">Audio MP3 Standard (128 kbps)</div>
+                        <div class="dl-card-desc" id="dlAudioDescFast">Conversion rapide et fichier très léger</div>
                     </div>
                     <div class="dl-card-badge">MP3</div>
+                </a>
+                <a href="#" id="dlOptionCobaltAudio" target="_blank" rel="noopener noreferrer" class="dl-card dl-audio">
+                    <div class="dl-card-icon">⚡</div>
+                    <div class="dl-card-content">
+                        <div class="dl-card-title" id="dlCobaltTitleA">Moteur Cobalt Audio (Sans Pub)</div>
+                        <div class="dl-card-desc" id="dlCobaltDescA">Extraction directe instantanée sans redirection</div>
+                    </div>
+                    <div class="dl-card-badge">Audio</div>
+                </a>
+            </div>
+
+            <!-- Tab Content: App & External -->
+            <div class="dl-tab-content" id="tabContentApp">
+                <div class="dl-card" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);" onclick="copyDirectMediaLink()">
+                    <div class="dl-card-icon">📋</div>
+                    <div class="dl-card-content">
+                        <div class="dl-card-title" id="dlCopyTitle">Copier le lien direct du média</div>
+                        <div class="dl-card-desc" id="dlCopyDesc">À coller dans Seal, NewPipe, 1DM ou IDM</div>
+                    </div>
+                    <div class="dl-card-badge">Copier</div>
+                </div>
+                <a href="https://github.com/JunkFood02/Seal/releases" target="_blank" rel="noopener noreferrer" class="dl-card" style="background: rgba(59, 130, 246, 0.12); border: 1px solid rgba(59, 130, 246, 0.35);">
+                    <div class="dl-card-icon">🦭</div>
+                    <div class="dl-card-content">
+                        <div class="dl-card-title" style="color: #93c5fd;" id="dlSealTitle">Télécharger l'application Seal (Android)</div>
+                        <div class="dl-card-desc" id="dlSealDesc">Application compagnon pour télécharger en 1 clic</div>
+                    </div>
+                    <div class="dl-card-badge" style="background: rgba(59, 130, 246, 0.25); color: #bfdbfe;">APK</div>
                 </a>
             </div>
 
             <div class="download-modal-footer">
-                <span id="dlModalHint">💡 Astuce : Le téléchargement s'ouvre dans un nouvel onglet sécurisé.</span>
+                <span id="dlModalHint">💡 Astuce : Les téléchargements s'ouvrent dans un nouvel onglet sécurisé.</span>
             </div>
         </div>
     </div>
@@ -1386,6 +1602,10 @@
             titleEl.textContent = title || "Vidéo TubeDZ";
             channelEl.textContent = video.channel || "YouTube Ad-Free";
 
+            // Update quick download links
+            document.getElementById('quickDlMp4Btn').href = `https://ssyoutube.com/watch?v=${video.id}`;
+            document.getElementById('quickDlMp3Btn').href = `https://en.onlymp3.to/?url=https://www.youtube.com/watch?v=${video.id}`;
+
             updateFavoriteButton();
 
             section.classList.add('active');
@@ -1537,8 +1757,32 @@
             setTimeout(() => t.classList.remove('show'), 2500);
         }
 
-        // Download Modal Functions (Video MP4 & Audio MP3)
+        // Download Modal Functions (Video MP4 & Audio MP3 Studio)
         let currentModalVideo = null;
+
+        function switchDlTab(tabName) {
+            document.querySelectorAll('.modal-tab-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.dl-tab-content').forEach(c => c.classList.remove('active'));
+
+            if (tabName === 'video') {
+                document.getElementById('tabBtnVideo').classList.add('active');
+                document.getElementById('tabContentVideo').classList.add('active');
+            } else if (tabName === 'audio') {
+                document.getElementById('tabBtnAudio').classList.add('active');
+                document.getElementById('tabContentAudio').classList.add('active');
+            } else if (tabName === 'app') {
+                document.getElementById('tabBtnApp').classList.add('active');
+                document.getElementById('tabContentApp').classList.add('active');
+            }
+        }
+
+        function copyDirectMediaLink() {
+            if (!currentModalVideo) return;
+            const url = `https://youtu.be/${currentModalVideo.id}`;
+            navigator.clipboard.writeText(url).then(() => {
+                showToast(currentLang === 'fr' ? 'Lien copié pour l\'application externe !' : 'تم نسخ الرابط المباشر للمقطع!');
+            });
+        }
 
         function openDownloadModal(video) {
             const target = video || currentVideo;
@@ -1552,11 +1796,18 @@
             document.getElementById('dlPreviewImg').src = `https://i.ytimg.com/vi/${target.id}/hqdefault.jpg`;
             document.getElementById('dlPreviewTitle').textContent = title || 'TubeDZ Video';
 
-            // High quality Video download (MP4)
-            document.getElementById('dlOptionVideo').href = `https://ssyoutube.com/watch?v=${target.id}`;
+            // High quality Video downloads (MP4 HD / SD / Cobalt)
+            document.getElementById('dlOptionVideoHD').href = `https://ssyoutube.com/watch?v=${target.id}`;
+            document.getElementById('dlOptionVideoSD').href = `https://en.savefrom.net/1-youtube-video-downloader-735/?url=https://www.youtube.com/watch?v=${target.id}`;
+            document.getElementById('dlOptionCobaltVideo').href = `https://cobalt.tools/`;
 
-            // High quality Audio download (MP3)
-            document.getElementById('dlOptionAudio').href = `https://en.onlymp3.to/?url=https://www.youtube.com/watch?v=${target.id}`;
+            // Audio downloads (MP3 HQ / Fast / Cobalt)
+            document.getElementById('dlOptionAudioHQ').href = `https://en.onlymp3.to/?url=https://www.youtube.com/watch?v=${target.id}`;
+            document.getElementById('dlOptionAudioFast').href = `https://www.y2mate.com/youtube-mp3/${target.id}`;
+            document.getElementById('dlOptionCobaltAudio').href = `https://cobalt.tools/`;
+
+            // Reset tab to video
+            switchDlTab('video');
 
             document.getElementById('downloadModal').classList.add('active');
         }
@@ -1631,31 +1882,99 @@
                 ? "Activez <strong>Simuler la version (Spoof App Version)</strong> puis relancez l'app."
                 : "فعّل خيار <strong>محاكاة إصدار التطبيق (Spoof App Version)</strong> ثم أعد تشغيل التطبيق.";
 
+            // Quick Download Strip
+            document.getElementById('quickDlLabel').textContent = isFr ? '⚡ Téléchargement Direct :' : '⚡ تحميل سريع مباشر:';
+            document.getElementById('quickDlMp4Text').textContent = isFr ? 'Vidéo MP4 (HD)' : 'فيديو MP4 (HD)';
+            document.getElementById('quickDlMp3Text').textContent = isFr ? 'Audio MP3' : 'صوت MP3';
+            document.getElementById('quickDlMoreText').textContent = isFr ? 'Tous les formats' : 'كل الصيغ والجودات';
+
             // Player Download Button & Modal Translations
             document.getElementById('playerDlText').textContent = isFr 
                 ? 'Télécharger (Vidéo / MP3)' 
                 : 'تحميل (فيديو / MP3)';
             document.getElementById('dlModalHeading').textContent = isFr 
-                ? 'Options de téléchargement' 
-                : 'خيارات التحميل';
-            document.getElementById('dlModalSub').textContent = isFr 
-                ? 'Choisissez le format souhaité pour cette vidéo :' 
-                : 'اختر الصيغة المطلوبة لهذا المقطع:';
-            document.getElementById('dlVideoTitle').textContent = isFr 
-                ? 'Vidéo MP4 (HD)' 
-                : 'فيديو MP4 (عالي الدقة)';
-            document.getElementById('dlVideoDesc').textContent = isFr 
-                ? 'Format vidéo complet haute définition (Image + Son)' 
-                : 'صيغة فيديو كاملة بالصوت والصورة بدقة عالية';
-            document.getElementById('dlAudioTitle').textContent = isFr 
-                ? 'Audio MP3' 
-                : 'ملف صوتي MP3';
-            document.getElementById('dlAudioDesc').textContent = isFr 
-                ? 'Fichier son seul (Musique, Coran, Podcast)' 
-                : 'استخراج الصوت فقط بدون صورة (أناشيد، قرآن، بودكاست)';
+                ? 'Studio de Téléchargement TubeDZ' 
+                : 'استوديو التحميل TubeDZ';
+            document.getElementById('tabBtnVideo').textContent = isFr ? '🎬 Vidéo (MP4)' : '🎬 فيديو (MP4)';
+            document.getElementById('tabBtnAudio').textContent = isFr ? '🎵 Audio (MP3)' : '🎵 صوت (MP3)';
+            document.getElementById('tabBtnApp').textContent = isFr ? '📱 Application' : '📱 تطبيق الهاتف';
+
+            document.getElementById('dlVideoTitleHD').textContent = isFr 
+                ? 'Vidéo MP4 (1080p / 720p HD)' 
+                : 'فيديو MP4 عالي الدقة (1080p / 720p)';
+            document.getElementById('dlVideoDescHD').textContent = isFr 
+                ? 'Meilleure qualité vidéo avec audio stéréo' 
+                : 'أعلى دقة وضوح ونقاء للصورة والصوت';
+
+            document.getElementById('dlVideoTitleSD').textContent = isFr 
+                ? 'Vidéo MP4 Économique (360p / 480p)' 
+                : 'فيديو MP4 اقتصادي سريع (360p / 480p)';
+            document.getElementById('dlVideoDescSD').textContent = isFr 
+                ? 'Téléchargement ultra rapide pour économiser les données' 
+                : 'حجم خفيف جداً وتوفير باقة الإنترنت 4G';
+
+            document.getElementById('dlCobaltTitleV').textContent = isFr 
+                ? 'Moteur Cobalt (Ad-Free)' 
+                : 'محرك Cobalt السريع (بدون إعلانات)';
+            document.getElementById('dlCobaltDescV').textContent = isFr 
+                ? 'Téléchargement direct et open-source sans pub' 
+                : 'تنزيل فوري ومباشر ومفتوح المصدر';
+
+            document.getElementById('dlAudioTitleHQ').textContent = isFr 
+                ? 'Audio MP3 Haute Qualité (320 kbps)' 
+                : 'صوت MP3 فائق النقاء (320 kbps)';
+            document.getElementById('dlAudioDescHQ').textContent = isFr 
+                ? 'Fidélité studio pour musique, Coran et podcasts' 
+                : 'أفضل جودة ونقاء استوديو للقرآن والأناشيد والبودكاست';
+
+            document.getElementById('dlAudioTitleFast').textContent = isFr 
+                ? 'Audio MP3 Standard (128 kbps)' 
+                : 'صوت MP3 قياسي (128 kbps)';
+            document.getElementById('dlAudioDescFast').textContent = isFr 
+                ? 'Conversion rapide et fichier très léger' 
+                : 'تحويل وتنزيل فوري بحجم صغير';
+
+            document.getElementById('dlCobaltTitleA').textContent = isFr 
+                ? 'Moteur Cobalt Audio (Sans Pub)' 
+                : 'استخراج الصوت عبر Cobalt (بدون إعلانات)';
+            document.getElementById('dlCobaltDescA').textContent = isFr 
+                ? 'Extraction directe instantanée sans redirection' 
+                : 'تحميل مباشر للملف الصوتي بدون أي روابط معقدة';
+
+            document.getElementById('dlCopyTitle').textContent = isFr 
+                ? 'Copier le lien direct du média' 
+                : 'نسخ الرابط المباشر للمقطع';
+            document.getElementById('dlCopyDesc').textContent = isFr 
+                ? 'À coller dans Seal, NewPipe, 1DM ou IDM' 
+                : 'للصق في برامج التنزيل مثل Seal و NewPipe و IDM';
+
+            document.getElementById('dlSealTitle').textContent = isFr 
+                ? 'Télécharger l\'application Seal (Android)' 
+                : 'تحميل تطبيق Seal المساعد (للأندرويد)';
+            document.getElementById('dlSealDesc').textContent = isFr 
+                ? 'Application compagnon pour télécharger en 1 clic' 
+                : 'تطبيق مجاني مفتوح المصدر للتنزيل بضغطة واحدة';
+
             document.getElementById('dlModalHint').textContent = isFr 
-                ? '💡 Astuce : Le téléchargement s\'ouvre dans un nouvel onglet sécurisé.' 
-                : '💡 تنبيه: سيتم فتح خدمة التحميل المباشر في نافذة خارجية آمنة.';
+                ? '💡 Astuce : Les téléchargements s\'ouvrent dans un nouvel onglet sécurisé.' 
+                : '💡 تنبيه: تفتح روابط التحميل في نافذة آمنة مباشرة وسريعة.';
+
+            // APK In-App Download Feature Guide
+            document.getElementById('apkDlTitle').textContent = isFr
+                ? "Comment télécharger des vidéos & MP3 directement dans l'application TubeDZ APK :"
+                : "📥 كيفية تفعيل ميزة تنزيل الفيديو و MP3 داخل تطبيق TubeDZ للأندرويد:";
+            document.getElementById('apkDlStep1').innerHTML = isFr
+                ? "Installez l'application compagnon <strong><a href=\"https://github.com/JunkFood02/Seal/releases\" target=\"_blank\" style=\"color: #60a5fa; text-decoration: underline;\">Seal APK</a></strong> ou <strong>NewPipe</strong> sur votre téléphone."
+                : "ثبّت تطبيق التنزيل المساعد <strong><a href=\"https://github.com/JunkFood02/Seal/releases\" target=\"_blank\" style=\"color: #60a5fa; text-decoration: underline;\">Seal APK</a></strong> أو <strong>NewPipe</strong> على هاتفك.";
+            document.getElementById('apkDlStep2').innerHTML = isFr
+                ? "Dans TubeDZ, allez dans <strong>Paramètres</strong> &gt; <strong>ReVanced Extended</strong> &gt; <strong>Boutons du lecteur (Overlay)</strong>."
+                : "في TubeDZ، افتح <strong>الإعدادات</strong> &gt; <strong>ReVanced Extended</strong> &gt; <strong>أزرار المشغل (Overlay)</strong>.";
+            document.getElementById('apkDlStep3').innerHTML = isFr
+                ? "Activez <strong>Bouton de téléchargement externe (Hook download)</strong> et sélectionnez <strong>Seal</strong>."
+                : "فعّل خيار <strong>زر التنزيل الخارجي (Hook download button)</strong> واختر <strong>Seal</strong>.";
+            document.getElementById('apkDlStep4').innerHTML = isFr
+                ? "Touchez l'icône <strong>Télécharger</strong> sous n'importe quelle vidéo pour choisir MP4 ou MP3 en 1 clic !"
+                : "اضغط على أيقونة <strong>تنزيل</strong> تحت أي فيديو لاختيار MP4 أو MP3 مباشرة إلى هاتفك!";
 
             renderVideos(videoData, isFr ? '📺 Vidéos Populaires' : '📺 فيديوهات رائجة بدون إعلانات');
             if (currentVideo) updateFavoriteButton();
