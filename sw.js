@@ -1,8 +1,9 @@
-const CACHE_NAME = 'tubedz-cache-v2.3';
+const CACHE_NAME = 'tubedz-cache-v2.4';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
   './logo.png',
+  './TubeDZ.ico',
   './manifest.json'
 ];
 

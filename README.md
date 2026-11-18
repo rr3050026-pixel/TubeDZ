@@ -46,13 +46,24 @@ Vous pouvez y rechercher et regarder n'importe quelle vidéo YouTube sans public
 
 ---
 
-## 📦 Téléchargements (Releases GitHub)
-Les fichiers officiels sont disponibles directement dans la section **Releases** de ce dépôt :
+- 💻 **Version PC Portable & Laptop (Desktop App) :** Application de bureau dédiée pour PC avec raccourcis clavier, mode fenêtre sans navigateur et pack portable.
 
-| Fichier | Description | Taille | SHA-256 |
+---
+
+## 📦 Téléchargements (Releases GitHub & Desktop)
+Les fichiers officiels sont disponibles directement dans ce dépôt :
+
+| Fichier | Description | Taille | Compatibilité |
 |---|---|---|---|
-| **[TubeDZ.apk](https://github.com/rr3050026-pixel/TubeDZ/releases/download/v1.1.0/TubeDZ.apk)** | Application officielle signée | `145 Mo` | `a8fbb24f777527c69d4f42cc9aace7993c6bb2e36ad54a32274b2f23e1eba680` |
-| **[microg.apk](https://github.com/rr3050026-pixel/TubeDZ/releases/download/v1.1.0/microg.apk)** | Module de connexion Google | `101 Mo` | `62119f040d629a9cd3225f280649a464936730c6466cafb5b9dd5ded14269a65` |
+| **[TubeDZ-PC-Portable.zip](TubeDZ-PC-Portable.zip)** | Application PC Portable autonome | `527 Ko` | Windows 10/11, Linux, macOS |
+| **[TubeDZ.apk](https://github.com/rr3050026-pixel/TubeDZ/releases/download/v1.1.0/TubeDZ.apk)** | Application Android signée | `145 Mo` | Android 8.0+ |
+| **[microg.apk](https://github.com/rr3050026-pixel/TubeDZ/releases/download/v1.1.0/microg.apk)** | Module de connexion Google | `101 Mo` | Android (Optionnel) |
+
+---
+
+## 💻 Guide d'utilisation sur PC & Laptop
+1. **Option 1 (PWA 1-Clic - Recommandée) :** Ouvrez https://tubedz.onrender.com dans Edge ou Chrome, puis cliquez sur **« Installer l'application »** (icône ⊕ dans la barre d'adresse) pour l'épingler à votre barre des tâches Windows.
+2. **Option 2 (Pack Portable autonome) :** Téléchargez **[TubeDZ-PC-Portable.zip](TubeDZ-PC-Portable.zip)**, décompressez-le et double-cliquez sur `TubeDZ_Windows_Silent.vbs`. L'application s'ouvre instantanément comme un logiciel de bureau !
 
 ---
 

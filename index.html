@@ -2455,6 +2455,56 @@
             border-color: #a855f7;
         }
 
+        .future-card-btn.card-pc {
+            border-color: rgba(59, 130, 246, 0.35);
+        }
+        .future-card-btn.card-pc:hover {
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.25);
+            border-color: #3b82f6;
+        }
+
+        .btn-pc-app {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(99, 102, 241, 0.15));
+            border-color: rgba(99, 102, 241, 0.4);
+            color: #93c5fd;
+        }
+
+        .btn-pc-app:hover {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.35), rgba(99, 102, 241, 0.35));
+            border-color: #60a5fa;
+            color: #fff;
+            box-shadow: 0 0 14px rgba(99, 102, 241, 0.4);
+        }
+
+        .shortcut-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .shortcut-item {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            padding: 8px 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.8rem;
+        }
+
+        .shortcut-key {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 6px;
+            padding: 2px 7px;
+            font-family: monospace;
+            font-weight: 800;
+            color: #60a5fa;
+            font-size: 0.78rem;
+        }
+
         .future-card-top {
             display: flex;
             align-items: center;
@@ -2551,6 +2601,12 @@
                             </button>
                         </div>
                     </div>
+
+                    <!-- PC Desktop App Button -->
+                    <button class="nav-btn-icon btn-pc-app" onclick="openPcAppModal()" id="navPcAppBtn" title="نسخة الحاسوب المحمول PC / Laptop">
+                        <span>💻</span>
+                        <span id="navPcAppText">نسخة الحاسوب</span>
+                    </button>
 
                     <button class="nav-btn-icon btn-nav-ytm" onclick="activateYtMusicTab()" id="navYtMusicBtn" title="استوديو YouTube Music">
                         <span style="color: #ef4444;">🎧</span>
@@ -2946,6 +3002,21 @@
                             <span>🔮 تخصيص لون الواجهة</span>
                         </div>
                     </div>
+
+                    <!-- 6. PC / Laptop Desktop App Card -->
+                    <div class="future-card-btn card-pc" onclick="openPcAppModal()">
+                        <div class="future-card-top">
+                            <span class="future-card-icon">💻</span>
+                            <span class="future-card-pill" style="color: #60a5fa;">PC & LAPTOP</span>
+                        </div>
+                        <div>
+                            <div class="future-card-title" id="hubCardTitle6">تطبيق الحاسوب المحمول PC</div>
+                            <div class="future-card-desc" id="hubCardDesc6">تثبيت فوري بدون متصفح مع تشغيل خفيف واختصارات لوحة المفاتيح.</div>
+                        </div>
+                        <div class="future-card-action" style="color: #60a5fa;" id="hubCardAction6">
+                            <span>💻 تثبيت أو تحميل نسخة PC</span>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -3184,6 +3255,91 @@
             <button class="btn-player-action" style="width: 100%; justify-content: center; background: rgba(239, 68, 68, 0.15); border-color: rgba(239, 68, 68, 0.3); color: #fca5a5;" onclick="cancelSleepTimer()">
                 <span id="btnCancelSleep">Désactiver le minuteur</span>
             </button>
+        </div>
+    </div>
+
+    <!-- PC & Laptop Desktop App Modal -->
+    <div class="modal-overlay" id="pcAppModal" onclick="closePcAppModal(event)">
+        <div class="download-modal-box" style="max-width: 560px; border-color: rgba(59, 130, 246, 0.4); box-shadow: 0 25px 60px rgba(0,0,0,0.85), 0 0 35px rgba(59, 130, 246, 0.2);">
+            <div class="download-modal-header">
+                <div class="download-modal-title">
+                    <span>💻</span>
+                    <h3 id="pcModalHeading" style="background: linear-gradient(135deg, #60a5fa, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">نسخة الحاسوب واللابتوب • TubeDZ Desktop</h3>
+                </div>
+                <button class="modal-close-btn" onclick="closePcAppModalDirect()">✕</button>
+            </div>
+
+            <p class="download-modal-sub" id="pcModalSub">
+                استمتع بـ TubeDZ على جهاز الكمبيوتر أو اللابتوب كبرنامج مستقل وسريع بدون إعلانات مع اختصارات لوحة المفاتيح.
+            </p>
+
+            <div class="download-options-grid" style="grid-template-columns: 1fr; margin-bottom: 16px;">
+                <!-- Option 1: PWA 1-Click Desktop Install -->
+                <div class="dl-card" style="border-color: rgba(59, 130, 246, 0.4); background: linear-gradient(135deg, rgba(59, 130, 246, 0.12), rgba(99, 102, 241, 0.08)); cursor: pointer;" onclick="triggerPwaInstall()">
+                    <div class="dl-card-icon">⚡</div>
+                    <div class="dl-card-content">
+                        <div class="dl-card-title" id="pwaInstallTitle" style="color: #93c5fd;">تثبيت فوري على سطح المكتب (PWA)</div>
+                        <div class="dl-card-desc" id="pwaInstallDesc">تثبيت فوري بنقرة واحدة كبرنامج مستقل مع أيقونة على سطح المكتب وقائمة ابدأ وبدون أشرطة المتصفح.</div>
+                    </div>
+                    <div class="dl-card-badge" style="background: #3b82f6; color: #fff;">1-CLICK</div>
+                </div>
+
+                <!-- Option 2: Download Portable ZIP Package -->
+                <a href="TubeDZ-PC-Portable.zip" download class="dl-card" style="border-color: rgba(16, 185, 129, 0.4); background: linear-gradient(135deg, rgba(16, 185, 129, 0.12), rgba(5, 150, 105, 0.08)); text-decoration: none;">
+                    <div class="dl-card-icon">📦</div>
+                    <div class="dl-card-content">
+                        <div class="dl-card-title" id="zipDownloadTitle" style="color: #6ee7b7;">تحميل النسخة المحمولة (Windows / Linux)</div>
+                        <div class="dl-card-desc" id="zipDownloadDesc">حزمة مضغوطة جاهزة للتشغيل الفوري (527 KB). اضغط مرتين على TubeDZ_Windows_Silent.vbs ويعمل فوراً بدون تثبيت!</div>
+                    </div>
+                    <div class="dl-card-badge" style="background: #10b981; color: #fff;">ZIP .EXE</div>
+                </a>
+            </div>
+
+            <!-- Laptop Keyboard Shortcuts -->
+            <div style="background: rgba(0, 0, 0, 0.35); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px; padding: 14px; margin-bottom: 12px;">
+                <div style="font-size: 0.84rem; font-weight: 800; color: #cbd5e1; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
+                    <span>⌨️</span>
+                    <span id="txtShortcutsTitle">اختصارات لوحة المفاتيح في الحاسوب المحمول :</span>
+                </div>
+                <div class="shortcut-grid">
+                    <div class="shortcut-item">
+                        <span>تشغيل / إيقاف مؤقت</span>
+                        <span class="shortcut-key">Space / K</span>
+                    </div>
+                    <div class="shortcut-item">
+                        <span>تقديم 10 ثوانٍ</span>
+                        <span class="shortcut-key">→ / L</span>
+                    </div>
+                    <div class="shortcut-item">
+                        <span>تأخير 10 ثوانٍ</span>
+                        <span class="shortcut-key">← / J</span>
+                    </div>
+                    <div class="shortcut-item">
+                        <span>رفع / خفض الصوت</span>
+                        <span class="shortcut-key">↑ / ↓</span>
+                    </div>
+                    <div class="shortcut-item">
+                        <span>ملء الشاشة</span>
+                        <span class="shortcut-key">F</span>
+                    </div>
+                    <div class="shortcut-item">
+                        <span>كتم الصوت</span>
+                        <span class="shortcut-key">M</span>
+                    </div>
+                    <div class="shortcut-item">
+                        <span>الهولوغرام السيبراني</span>
+                        <span class="shortcut-key">H</span>
+                    </div>
+                    <div class="shortcut-item">
+                        <span>استوديو الصوت 8D</span>
+                        <span class="shortcut-key">S</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="download-modal-footer">
+                <span id="pcModalHint">💡 متوافق مع Windows 10/11، Linux، وmacOS، ويدعم التشغيل في الخلفية أثناء العمل.</span>
+            </div>
         </div>
     </div>
 
@@ -4619,6 +4775,144 @@ User inquiry: ${userPrompt}`;
             if (panel) panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
 
+        // PC & Laptop Desktop App Handlers
+        let deferredPwaPrompt = null;
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPwaPrompt = e;
+            const btn = document.getElementById('navPcAppBtn');
+            if (btn) {
+                btn.style.boxShadow = '0 0 14px rgba(59, 130, 246, 0.6)';
+                btn.style.borderColor = '#60a5fa';
+            }
+        });
+
+        function openPcAppModal() {
+            document.getElementById('pcAppModal').classList.add('active');
+            playCyberSound('warp');
+        }
+
+        function closePcAppModal(e) {
+            if (e.target.id === 'pcAppModal') {
+                closePcAppModalDirect();
+            }
+        }
+
+        function closePcAppModalDirect() {
+            document.getElementById('pcAppModal').classList.remove('active');
+        }
+
+        function triggerPwaInstall() {
+            if (deferredPwaPrompt) {
+                deferredPwaPrompt.prompt();
+                deferredPwaPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        showToast(currentLang === 'fr' 
+                            ? 'Installation de TubeDZ sur votre PC réussie !' 
+                            : 'تم تثبيت تطبيق TubeDZ على حاسوبك بنجاح! 🎉');
+                        closePcAppModalDirect();
+                    }
+                    deferredPwaPrompt = null;
+                });
+            } else {
+                showToast(currentLang === 'fr' 
+                    ? '💡 Pour installer : Cliquez sur l\'icône ⊕ dans la barre d\'adresse ou téléchargez le ZIP !' 
+                    : '💡 للتثبيت: اضغط على أيقونة التثبيت (⊕) في شريط العنوان أو حمّل حزمة ZIP المحمولة!');
+            }
+        }
+
+        // Global Laptop & PC Keyboard Shortcuts Listener
+        window.addEventListener('keydown', (e) => {
+            const tag = (e.target.tagName || '').toLowerCase();
+            if (tag === 'input' || tag === 'textarea' || e.target.isContentEditable) {
+                if (e.key === 'Escape') e.target.blur();
+                return;
+            }
+
+            const key = e.key;
+
+            if (key === ' ' || key === 'k' || key === 'K') {
+                e.preventDefault();
+                togglePlayPauseYtm();
+                playCyberSound('click');
+            } else if (key === 'ArrowRight' || key === 'l' || key === 'L') {
+                e.preventDefault();
+                seekRelative(10);
+                triggerGestureIndicator('right');
+                playCyberSound('click');
+            } else if (key === 'ArrowLeft' || key === 'j' || key === 'J') {
+                e.preventDefault();
+                seekRelative(-10);
+                triggerGestureIndicator('left');
+                playCyberSound('click');
+            } else if (key === 'ArrowUp') {
+                e.preventDefault();
+                adjustVolumeDelta(10);
+            } else if (key === 'ArrowDown') {
+                e.preventDefault();
+                adjustVolumeDelta(-10);
+            } else if (key === 'm' || key === 'M') {
+                e.preventDefault();
+                toggleMuteVideo();
+            } else if (key === 'f' || key === 'F') {
+                e.preventDefault();
+                toggleFullscreenWrapper();
+            } else if (key === 'h' || key === 'H') {
+                e.preventDefault();
+                toggleCyberHud();
+            } else if (key === 's' || key === 'S') {
+                e.preventDefault();
+                toggleSpatialPanel();
+            } else if (key === 'z' || key === 'Z') {
+                e.preventDefault();
+                openSleepTimerModal();
+            } else if (key === '/') {
+                e.preventDefault();
+                const sInput = document.getElementById('searchInput');
+                if (sInput) sInput.focus();
+            }
+        });
+
+        let currentDesktopVol = 100;
+        let isDesktopMuted = false;
+
+        function adjustVolumeDelta(delta) {
+            currentDesktopVol = Math.max(0, Math.min(100, currentDesktopVol + delta));
+            const iframe = document.getElementById('videoIframe');
+            if (iframe && iframe.contentWindow) {
+                iframe.contentWindow.postMessage(JSON.stringify({
+                    event: 'command',
+                    func: 'setVolume',
+                    args: [currentDesktopVol]
+                }), '*');
+                showToast(`🔊 ${currentDesktopVol}%`);
+            }
+        }
+
+        function toggleMuteVideo() {
+            isDesktopMuted = !isDesktopMuted;
+            const iframe = document.getElementById('videoIframe');
+            if (iframe && iframe.contentWindow) {
+                iframe.contentWindow.postMessage(JSON.stringify({
+                    event: 'command',
+                    func: isDesktopMuted ? 'mute' : 'unMute',
+                    args: []
+                }), '*');
+                showToast(isDesktopMuted ? '🔇 Muet' : '🔊 Son activé');
+            }
+        }
+
+        function toggleFullscreenWrapper() {
+            const wrapper = document.getElementById('playerWrapper');
+            if (!wrapper) return;
+            if (!document.fullscreenElement) {
+                if (wrapper.requestFullscreen) wrapper.requestFullscreen().catch(()=>{});
+            } else {
+                if (document.exitFullscreen) document.exitFullscreen().catch(()=>{});
+            }
+        }
+
         // Language Switcher
         function toggleLanguage() {
             currentLang = currentLang === 'fr' ? 'ar' : 'fr';
@@ -4896,6 +5190,47 @@ User inquiry: ${userPrompt}`;
                 : 'تخصيص الواجهة: الزمرد الجزائري، سايبربانك 2077، الكوبالت، والمريخ.';
             const hA5 = document.getElementById('hubCardAction5');
             if (hA5) hA5.innerHTML = isFr ? '<span>🔮 Changer de thème</span>' : '<span>🔮 تخصيص لون الواجهة</span>';
+
+            // PC & Laptop Translations
+            const navPcText = document.getElementById('navPcAppText');
+            if (navPcText) navPcText.textContent = isFr ? 'Version PC' : 'نسخة الحاسوب';
+
+            const hT6 = document.getElementById('hubCardTitle6');
+            if (hT6) hT6.textContent = isFr ? 'Application PC & Laptop' : 'تطبيق الحاسوب المحمول PC';
+            const hD6 = document.getElementById('hubCardDesc6');
+            if (hD6) hD6.textContent = isFr 
+                ? 'Installation instantanée sans navigateur, ultra légère avec raccourcis clavier.' 
+                : 'تثبيت فوري بدون متصفح مع تشغيل خفيف واختصارات لوحة المفاتيح.';
+            const hA6 = document.getElementById('hubCardAction6');
+            if (hA6) hA6.innerHTML = isFr ? '<span>💻 Installer ou Télécharger</span>' : '<span>💻 تثبيت أو تحميل نسخة PC</span>';
+
+            const pcHead = document.getElementById('pcModalHeading');
+            if (pcHead) pcHead.textContent = isFr ? 'Version PC Portable & Laptop • TubeDZ Desktop' : 'نسخة الحاسوب واللابتوب • TubeDZ Desktop';
+            const pcSub = document.getElementById('pcModalSub');
+            if (pcSub) pcSub.textContent = isFr 
+                ? 'Profitez de TubeDZ sur votre PC ou Laptop comme une application dédiée sans pub avec raccourcis clavier.' 
+                : 'استمتع بـ TubeDZ على جهاز الكمبيوتر أو اللابتوب كبرنامج مستقل وسريع بدون إعلانات مع اختصارات لوحة المفاتيح.';
+
+            const pwaTitle = document.getElementById('pwaInstallTitle');
+            if (pwaTitle) pwaTitle.textContent = isFr ? 'Installation directe sur le Bureau (PWA)' : 'تثبيت فوري على سطح المكتب (PWA)';
+            const pwaDesc = document.getElementById('pwaInstallDesc');
+            if (pwaDesc) pwaDesc.textContent = isFr 
+                ? 'Installation en 1 clic comme logiciel autonome avec icône bureau et menu Démarrer, sans barre de navigation.' 
+                : 'تثبيت فوري بنقرة واحدة كبرنامج مستقل مع أيقونة على سطح المكتب وقائمة ابدأ وبدون أشرطة المتصفح.';
+
+            const zipTitle = document.getElementById('zipDownloadTitle');
+            if (zipTitle) zipTitle.textContent = isFr ? 'Télécharger la Version Portable (Windows / Linux)' : 'تحميل النسخة المحمولة (Windows / Linux)';
+            const zipDesc = document.getElementById('zipDownloadDesc');
+            if (zipDesc) zipDesc.textContent = isFr 
+                ? 'Pack ZIP autonome prêt à l\'emploi (527 Ko). Double-cliquez sur TubeDZ_Windows_Silent.vbs pour lancer !' 
+                : 'حزمة مضغوطة جاهزة للتشغيل الفوري (527 KB). اضغط مرتين على TubeDZ_Windows_Silent.vbs ويعمل فوراً بدون تثبيت!';
+
+            const scTitle = document.getElementById('txtShortcutsTitle');
+            if (scTitle) scTitle.textContent = isFr ? 'Raccourcis Clavier sur PC & Laptop :' : 'اختصارات لوحة المفاتيح في الحاسوب المحمول :';
+            const pcHint = document.getElementById('pcModalHint');
+            if (pcHint) pcHint.textContent = isFr 
+                ? '💡 Compatible Windows 10/11, Linux et macOS. Supporte la lecture en arrière-plan pendant votre travail.' 
+                : '💡 متوافق مع Windows 10/11، Linux، وmacOS، ويدعم التشغيل في الخلفية أثناء العمل.';
 
             renderVideos(videoData, isFr ? '📺 Vidéos Populaires' : '📺 فيديوهات رائجة بدون إعلانات');
             if (currentVideo) updateFavoriteButton();

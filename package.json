@@ -1,0 +1,43 @@
+{
+  "name": "tubedz-desktop",
+  "version": "2.0.0",
+  "description": "TubeDZ Desktop — Application PC & Laptop pour regarder YouTube sans publicité avec identité algérienne",
+  "main": "electron-main.js",
+  "scripts": {
+    "start": "electron .",
+    "build:win": "electron-builder --win portable",
+    "build:linux": "electron-builder --linux AppImage",
+    "build:mac": "electron-builder --mac"
+  },
+  "keywords": [
+    "youtube",
+    "tubedz",
+    "adblock",
+    "music",
+    "algeria",
+    "desktop",
+    "electron"
+  ],
+  "author": "TubeDZ Team",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^34.0.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.tubedz.desktop",
+    "productName": "TubeDZ",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "icon": "TubeDZ.ico",
+      "target": "portable"
+    },
+    "linux": {
+      "icon": "logo.png",
+      "target": "AppImage",
+      "category": "AudioVideo"
+    }
+  }
+}
