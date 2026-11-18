@@ -1,10 +1,23 @@
 ' ========================================================
 ' TubeDZ 🇩🇿 — Windows Silent Desktop Launcher
-' Lance TubeDZ comme une véritable application native sans console noire
+' Lance TubeDZ directement sans fenêtre de commande noire
 ' ========================================================
 
-Set WshShell = CreateObject("WScript.Shell")
-strPath = WshShell.CurrentDirectory
-batPath = Chr(34) & strPath & "\TubeDZ_Windows_Portable.bat" & Chr(34)
-WshShell.Run batPath, 0, False
-Set WshShell = Nothing
+On Error Resume Next
+Set fso = CreateObject("Scripting.FileSystemObject")
+scriptDir = fso.GetParentFolderName(WScript.ScriptFullName)
+batFile = fso.BuildPath(scriptDir, "TubeDZ_Windows_Portable.bat")
+
+If fso.FileExists(batFile) Then
+    Set WshShell = CreateObject("WScript.Shell")
+    ' Mode 0 = fenêtre totalement invisible, False = ne bloque pas le script
+    WshShell.Run Chr(34) & batFile & Chr(34), 0, False
+    Set WshShell = Nothing
+Else
+    ' Fallback direct si le .bat est introuvable
+    Set WshShell = CreateObject("WScript.Shell")
+    WshShell.Run "https://rr3050026-pixel.github.io/TubeDZ/", 1, False
+    Set WshShell = Nothing
+End If
+
+Set fso = Nothing

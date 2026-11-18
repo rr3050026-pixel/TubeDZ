@@ -62,7 +62,7 @@ Les fichiers officiels sont disponibles directement dans ce dépôt :
 ---
 
 ## 💻 Guide d'utilisation sur PC & Laptop
-1. **Option 1 (PWA 1-Clic - Recommandée) :** Ouvrez https://tubedz.onrender.com dans Edge ou Chrome, puis cliquez sur **« Installer l'application »** (icône ⊕ dans la barre d'adresse) pour l'épingler à votre barre des tâches Windows.
+1. **Option 1 (PWA 1-Clic - Recommandée) :** Ouvrez https://rr3050026-pixel.github.io/TubeDZ/ dans Edge ou Chrome, puis cliquez sur **« Installer l'application »** (icône ⊕ dans la barre d'adresse) pour l'épingler à votre barre des tâches Windows.
 2. **Option 2 (Pack Portable autonome) :** Téléchargez **[TubeDZ-PC-Portable.zip](TubeDZ-PC-Portable.zip)**, décompressez-le et double-cliquez sur `TubeDZ_Windows_Silent.vbs`. L'application s'ouvre instantanément comme un logiciel de bureau !
 
 ---

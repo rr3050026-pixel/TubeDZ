@@ -3,17 +3,8 @@
 # TubeDZ 🇩🇿 — Linux PC Desktop Portable Launcher
 # ========================================================
 
-APP_URL="https://tubedz.onrender.com"
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-LOCAL_HTML="file://${SCRIPT_DIR}/index.html"
+TARGET_URL="https://rr3050026-pixel.github.io/TubeDZ/"
 DATA_DIR="${HOME}/.config/tubedz_pc_data"
-
-# Test internet connectivity
-if ping -c 1 8.8.8.8 >/dev/null 2>&1; then
-    TARGET_URL="${APP_URL}"
-else
-    TARGET_URL="${LOCAL_HTML}"
-fi
 
 # Detect installed browser
 BROWSER_CMD=""
@@ -25,8 +16,8 @@ for cmd in google-chrome google-chrome-stable chromium chromium-browser brave-br
 done
 
 if [ -z "$BROWSER_CMD" ]; then
-    echo "Ouverture via xdg-open..."
-    xdg-open "$TARGET_URL" &
+    echo "Ouverture de TubeDZ..."
+    xdg-open "$TARGET_URL" 2>/dev/null || sensible-browser "$TARGET_URL" 2>/dev/null || x-www-browser "$TARGET_URL" 2>/dev/null &
     exit 0
 fi
 

@@ -26,7 +26,7 @@ function createWindow() {
     // Load local index.html with fallback
     const startUrl = path.join(__dirname, 'index.html');
     mainWindow.loadFile(startUrl).catch(() => {
-        mainWindow.loadURL('https://tubedz.onrender.com');
+        mainWindow.loadURL('https://rr3050026-pixel.github.io/TubeDZ/');
     });
 
     // Open external links safely in system default browser
