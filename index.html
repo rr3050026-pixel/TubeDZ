@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تحيا الجزائر 🇩🇿 | الجمهورية الجزائرية الديمقراطية الشعبية</title>
-    <meta name="description" content="صفحة الهوية الوطنية الجزائرية — بالشعب وللشعب">
+    <title>تحيا الجزائر 🇩🇿 | تحميل Tube DZ و DZ Music Pro</title>
+    <meta name="description" content="البوابة الرسمية لتحميل تطبيقات Tube DZ و DZ Music Pro بهوية وطنية جزائرية وبدون أي إعلانات">
     <link rel="icon" type="image/svg+xml" href="flag_algeria.svg">
     
     <!-- Google Fonts: Cairo & Amiri -->
@@ -21,7 +21,7 @@
             --dz-white: #ffffff;
             --dz-gold: #e5a93c;
             --bg-dark: #070e0a;
-            --bg-card: rgba(13, 27, 19, 0.75);
+            --bg-card: rgba(13, 27, 19, 0.82);
             --border-card: rgba(255, 255, 255, 0.08);
             --text-main: #f1f5f9;
             --text-muted: #94a3b8;
@@ -45,9 +45,9 @@
             overflow-x: hidden;
             position: relative;
             background-image: 
-                radial-gradient(circle at 50% 20%, rgba(0, 98, 51, 0.4) 0%, transparent 60%),
-                radial-gradient(circle at 85% 85%, rgba(210, 16, 52, 0.22) 0%, transparent 45%),
-                radial-gradient(circle at 15% 85%, rgba(0, 135, 68, 0.25) 0%, transparent 45%);
+                radial-gradient(circle at 50% 15%, rgba(0, 98, 51, 0.38) 0%, transparent 60%),
+                radial-gradient(circle at 85% 75%, rgba(210, 16, 52, 0.22) 0%, transparent 45%),
+                radial-gradient(circle at 15% 75%, rgba(0, 135, 68, 0.25) 0%, transparent 45%);
         }
 
         /* Subtle Geometric Grid Background */
@@ -78,9 +78,9 @@
 
         .container {
             width: 100%;
-            max-width: 900px;
-            margin: auto;
-            padding: 50px 20px 40px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px 40px 20px;
             position: relative;
             z-index: 1;
             display: flex;
@@ -92,7 +92,7 @@
         /* Flag Badge & Emblem */
         .flag-wrapper {
             position: relative;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             transition: transform 0.4s ease;
         }
 
@@ -101,23 +101,19 @@
         }
 
         .flag-container {
-            width: 210px;
-            height: 140px;
-            border-radius: 20px;
+            width: 180px;
+            height: 120px;
+            border-radius: 18px;
             overflow: hidden;
-            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.75), 0 0 40px rgba(0, 98, 51, 0.4), 0 0 30px var(--dz-red-glow);
-            border: 2px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 16px 45px rgba(0, 0, 0, 0.75), 0 0 35px rgba(0, 98, 51, 0.35), 0 0 25px var(--dz-red-glow);
+            border: 2px solid rgba(255, 255, 255, 0.22);
             position: relative;
             animation: floatFlag 4s ease-in-out infinite alternate;
         }
 
         @keyframes floatFlag {
-            0% {
-                transform: translateY(0px) rotate(0deg);
-            }
-            100% {
-                transform: translateY(-8px) rotate(0.8deg);
-            }
+            0% { transform: translateY(0px) rotate(0deg); }
+            100% { transform: translateY(-8px) rotate(0.8deg); }
         }
 
         .flag-container svg {
@@ -133,63 +129,55 @@
             gap: 8px;
             background: rgba(0, 98, 51, 0.28);
             border: 1px solid rgba(0, 135, 68, 0.45);
-            padding: 8px 22px;
+            padding: 6px 20px;
             border-radius: 50px;
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: #4ade80;
             font-weight: 700;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             backdrop-filter: blur(10px);
         }
 
         .country-pill .star-icon {
             color: var(--dz-red);
-            font-size: 1.15rem;
+            font-size: 1.1rem;
         }
 
         /* Typography */
         h1.official-title {
             font-family: 'Amiri', serif;
-            font-size: 1.8rem;
+            font-size: 1.7rem;
             font-weight: 700;
             color: #e2e8f0;
             letter-spacing: 0.5px;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             text-shadow: 0 2px 10px rgba(0,0,0,0.8);
         }
 
         h2.main-hero-text {
-            font-size: 3.6rem;
+            font-size: 3.2rem;
             font-weight: 900;
             background: linear-gradient(135deg, #ffffff 30%, #4ade80 70%, #ff4d6d 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 14px;
+            margin-bottom: 12px;
             line-height: 1.25;
             filter: drop-shadow(0 4px 20px rgba(0, 98, 51, 0.4));
         }
 
         .motto-banner {
             font-family: 'Amiri', serif;
-            font-size: 1.7rem;
+            font-size: 1.6rem;
             font-weight: 700;
             color: var(--dz-gold);
-            margin-bottom: 22px;
+            margin-bottom: 20px;
             display: inline-block;
             background: rgba(229, 169, 60, 0.08);
             border: 1px solid rgba(229, 169, 60, 0.28);
-            padding: 6px 32px;
+            padding: 5px 30px;
             border-radius: 30px;
             text-shadow: 0 0 12px rgba(229, 169, 60, 0.3);
-        }
-
-        p.hero-desc {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            max-width: 680px;
-            line-height: 1.85;
-            margin-bottom: 35px;
         }
 
         /* Live Time Widget */
@@ -200,9 +188,10 @@
             background: rgba(255, 255, 255, 0.04);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 40px;
-            padding: 10px 28px;
-            font-size: 0.95rem;
+            padding: 8px 22px;
+            font-size: 0.9rem;
             color: #cbd5e1;
+            margin-bottom: 35px;
         }
 
         .time-widget .pulse-dot {
@@ -218,6 +207,262 @@
             0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
             70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+        }
+
+        /* Apps Download Section */
+        .download-section {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .section-header {
+            margin-bottom: 28px;
+        }
+
+        .section-title {
+            font-size: 1.85rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 8px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+        }
+
+        .section-subtitle {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+        }
+
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            width: 100%;
+        }
+
+        /* App Card */
+        .app-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border-card);
+            border-radius: 24px;
+            padding: 28px 24px;
+            display: flex;
+            flex-direction: column;
+            text-align: right;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .app-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            transition: opacity 0.3s;
+        }
+
+        .card-tubedz::before {
+            background: linear-gradient(90deg, #d21034, #ff4d6d, #d21034);
+        }
+
+        .card-dzmusic::before {
+            background: linear-gradient(90deg, #008744, #4ade80, #008744);
+        }
+
+        .app-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .card-tubedz:hover {
+            border-color: rgba(210, 16, 52, 0.45);
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.6), 0 0 30px var(--dz-red-glow);
+        }
+
+        .card-dzmusic:hover {
+            border-color: rgba(0, 135, 68, 0.45);
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 98, 51, 0.35);
+        }
+
+        .app-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .app-icon-box {
+            width: 66px;
+            height: 66px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            flex-shrink: 0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            border: 2px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .icon-tubedz {
+            background: linear-gradient(135deg, #d21034, #991018);
+            color: #ffffff;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+        }
+
+        .icon-dzmusic {
+            background: linear-gradient(135deg, #008744, #004d25);
+            color: #ffffff;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+        }
+
+        .app-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .app-badge {
+            display: inline-block;
+            align-self: flex-start;
+            padding: 3px 10px;
+            border-radius: 8px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+        }
+
+        .badge-red {
+            background: rgba(210, 16, 52, 0.18);
+            color: #ff6b81;
+            border: 1px solid rgba(210, 16, 52, 0.35);
+        }
+
+        .badge-green {
+            background: rgba(0, 135, 68, 0.18);
+            color: #4ade80;
+            border: 1px solid rgba(0, 135, 68, 0.35);
+        }
+
+        .app-name {
+            font-size: 1.45rem;
+            font-weight: 800;
+            color: #ffffff;
+        }
+
+        .app-version {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .app-desc {
+            font-size: 0.95rem;
+            color: #cbd5e1;
+            line-height: 1.65;
+            margin-bottom: 16px;
+            flex-grow: 1;
+        }
+
+        /* Features tags */
+        .app-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 22px;
+        }
+
+        .app-features span {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 5px 12px;
+            border-radius: 10px;
+            font-size: 0.82rem;
+            color: #e2e8f0;
+            font-weight: 600;
+        }
+
+        /* Buttons */
+        .app-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .btn-download {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 13px 20px;
+            border-radius: 14px;
+            font-weight: 800;
+            font-size: 1.05rem;
+            text-decoration: none;
+            color: #ffffff;
+            transition: all 0.25s ease;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .btn-download small {
+            font-size: 0.85rem;
+            opacity: 0.85;
+            font-weight: 500;
+        }
+
+        .btn-red {
+            background: linear-gradient(135deg, #d21034, #b00d28);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-red:hover {
+            background: linear-gradient(135deg, #e6193f, #c71030);
+            box-shadow: 0 8px 25px rgba(210, 16, 52, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .btn-green {
+            background: linear-gradient(135deg, #008744, #006233);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-green:hover {
+            background: linear-gradient(135deg, #009e50, #00753d);
+            box-shadow: 0 8px 25px rgba(0, 135, 68, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .sub-buttons {
+            display: flex;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .btn-sub {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 9px 12px;
+            border-radius: 12px;
+            font-size: 0.86rem;
+            font-weight: 700;
+            text-decoration: none;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #cbd5e1;
+            transition: all 0.2s ease;
+        }
+
+        .btn-sub:hover {
+            background: rgba(255, 255, 255, 0.12);
+            color: #ffffff;
+            border-color: rgba(255, 255, 255, 0.22);
+            transform: translateY(-1px);
         }
 
         /* Footer */
@@ -245,19 +490,12 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            h1.official-title {
-                font-size: 1.25rem;
-            }
-            h2.main-hero-text {
-                font-size: 2.5rem;
-            }
-            .motto-banner {
-                font-size: 1.35rem;
-            }
-            .flag-container {
-                width: 170px;
-                height: 114px;
-            }
+            h1.official-title { font-size: 1.25rem; }
+            h2.main-hero-text { font-size: 2.4rem; }
+            .motto-banner { font-size: 1.35rem; }
+            .apps-grid { grid-template-columns: 1fr; gap: 20px; }
+            .flag-container { width: 160px; height: 106px; }
+            .sub-buttons { flex-direction: column; }
         }
     </style>
 </head>
@@ -289,16 +527,94 @@
 
         <div class="motto-banner">« بالشّعب وللشّعب »</div>
 
-        <p class="hero-desc">
-            وطنٌ واحد موحّد، يمتد من قمم الأوراس وجرجرة الشامخة إلى سحر رمال الصحراء الكبرى، ومن شواطئ المتوسط إلى ربوع الوطن العزيز.
-        </p>
-
         <!-- Live Time Widget -->
         <div class="time-widget">
             <span class="pulse-dot"></span>
             <span>توقيت الجزائر (GMT+1): </span>
             <strong id="algiersClock">--:--:--</strong>
         </div>
+
+        <!-- Apps Download Section -->
+        <section class="download-section">
+            <div class="section-header">
+                <h3 class="section-title">📥 تحميل تطبيقات الهوية الجزائرية</h3>
+                <p class="section-subtitle">تطبيقات متطورة للأندرويد، بدون إعلانات نهائياً وبأعلى جودة ومميزات بريميوم مجاناً 100%</p>
+            </div>
+
+            <div class="apps-grid">
+                <!-- TubeDZ Card -->
+                <div class="app-card card-tubedz">
+                    <div class="app-header">
+                        <div class="app-icon-box icon-tubedz">
+                            <span>▶</span>
+                        </div>
+                        <div class="app-meta">
+                            <span class="app-badge badge-red">فيديو • يوتيوب</span>
+                            <h4 class="app-name">Tube DZ 🇩🇿</h4>
+                            <span class="app-version">الإصدار v1.1.0 • Android APK</span>
+                        </div>
+                    </div>
+                    <p class="app-desc">
+                        تطبيق يوتيوب الجزائري المطور لمشاهدة كافة الفيديوهات بدون إعلانات مزعجة، مع دعم التشغيل في الخلفية والشاشة مقفلة، والصوت المكاني 8D.
+                    </p>
+                    <div class="app-features">
+                        <span>🚫 بدون أي إعلانات</span>
+                        <span>🎧 تشغيل في الخلفية</span>
+                        <span>⚡ دقة 4K فائقة</span>
+                    </div>
+                    <div class="app-actions">
+                        <a href="https://github.com/rr3050026-pixel/TubeDZ/releases/download/v1.1.0/TubeDZ.apk" class="btn-download btn-red" download>
+                            <span>📥 تحميل Tube DZ APK</span>
+                            <small>(145 MB)</small>
+                        </a>
+                        <div class="sub-buttons">
+                            <a href="https://github.com/rr3050026-pixel/TubeDZ/releases/download/v1.1.0/microg.apk" class="btn-sub" title="ملحق تسجيل الدخول بحساب Google" download>
+                                <span>🔐 ملف MicroG</span>
+                            </a>
+                            <a href="https://github.com/rr3050026-pixel/TubeDZ/raw/main/TubeDZ-PC-Portable.zip" class="btn-sub" title="نسخة الكمبيوتر المحمولة للويندوز ولينكس" download>
+                                <span>💻 نسخة PC المحمولة</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DZ Music Pro Card -->
+                <div class="app-card card-dzmusic">
+                    <div class="app-header">
+                        <div class="app-icon-box icon-dzmusic">
+                            <span>🎵</span>
+                        </div>
+                        <div class="app-meta">
+                            <span class="app-badge badge-green">صوتيات • ميوزك</span>
+                            <h4 class="app-name">DZ Music Pro 🇩🇿</h4>
+                            <span class="app-version">الإصدار v1.0.0 • Android APK</span>
+                        </div>
+                    </div>
+                    <p class="app-desc">
+                        تطبيق يوتيوب ميوزك للأندرويد بهوية وطنية جزائرية 100%، استماع نقي وغير محدود للموسيقى والبودكاست في الخلفية بدون فواصل إعلانية.
+                    </p>
+                    <div class="app-features">
+                        <span>🚫 حجب إعلانات الصوت</span>
+                        <span>📱 تشغيل والشاشة مغلقة</span>
+                        <span>⚡ وضع توفير البيانات</span>
+                    </div>
+                    <div class="app-actions">
+                        <a href="https://github.com/rr3050026-pixel/DZ-Music-Pro/releases/download/v1.0.0/DZ_Music_pro.apk" class="btn-download btn-green" download>
+                            <span>📥 تحميل DZ Music Pro APK</span>
+                            <small>(86 MB)</small>
+                        </a>
+                        <div class="sub-buttons">
+                            <a href="https://rr3050026-pixel.github.io/DZ-Music-Pro/" class="btn-sub" target="_blank" title="موقع DZ Music Pro الرسمي">
+                                <span>🌐 الموقع الرسمي</span>
+                            </a>
+                            <a href="https://github.com/rr3050026-pixel/DZ-Music-Pro" class="btn-sub" target="_blank" title="مستودع المشروع على GitHub">
+                                <span>📂 سورس GitHub</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
