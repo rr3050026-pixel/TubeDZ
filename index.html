@@ -1,27 +1,447 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>تحيا الجزائر 🇩🇿 | الجمهورية الجزائرية الديمقراطية الشعبية</title>
+    <meta name="description" content="صفحة الهوية الوطنية الجزائرية — بالشعب وللشعب">
+    <link rel="icon" type="image/svg+xml" href="flag_algeria.svg">
+    
+    <!-- Google Fonts: Cairo & Amiri -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --dz-green: #006233;
+            --dz-green-light: #008744;
+            --dz-red: #d21034;
+            --dz-red-glow: rgba(210, 16, 52, 0.45);
+            --dz-white: #ffffff;
+            --dz-gold: #e5a93c;
+            --bg-dark: #070e0a;
+            --bg-card: rgba(13, 27, 19, 0.75);
+            --border-card: rgba(255, 255, 255, 0.08);
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            overflow-x: hidden;
+            position: relative;
+            background-image: 
+                radial-gradient(circle at 50% 15%, rgba(0, 98, 51, 0.38) 0%, transparent 55%),
+                radial-gradient(circle at 85% 85%, rgba(210, 16, 52, 0.22) 0%, transparent 45%),
+                radial-gradient(circle at 15% 85%, rgba(0, 135, 68, 0.25) 0%, transparent 45%);
+        }
+
+        /* Subtle Geometric Grid Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+            background-size: 32px 32px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Ambient Glow Bar on Top */
+        .top-glow-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--dz-green), var(--dz-white), var(--dz-red), var(--dz-white), var(--dz-green));
+            box-shadow: 0 0 15px rgba(0, 98, 51, 0.6);
+            z-index: 100;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 40px 20px 30px 20px;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Flag Badge & Emblem */
+        .flag-wrapper {
+            position: relative;
+            margin-bottom: 22px;
+            transition: transform 0.4s ease;
+        }
+
+        .flag-wrapper:hover {
+            transform: scale(1.05);
+        }
+
+        .flag-container {
+            width: 190px;
+            height: 126px;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 16px 45px rgba(0, 0, 0, 0.7), 0 0 35px rgba(0, 98, 51, 0.35), 0 0 25px var(--dz-red-glow);
+            border: 2px solid rgba(255, 255, 255, 0.22);
+            position: relative;
+            animation: floatFlag 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes floatFlag {
+            0% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            100% {
+                transform: translateY(-8px) rotate(0.8deg);
+            }
+        }
+
+        .flag-container svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        /* Country Badge */
+        .country-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0, 98, 51, 0.28);
+            border: 1px solid rgba(0, 135, 68, 0.45);
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            color: #4ade80;
+            font-weight: 700;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .country-pill .star-icon {
+            color: var(--dz-red);
+            font-size: 1.1rem;
+        }
+
+        /* Typography */
+        h1.official-title {
+            font-family: 'Amiri', serif;
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: #e2e8f0;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+        }
+
+        h2.main-hero-text {
+            font-size: 3.2rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #ffffff 30%, #4ade80 70%, #ff4d6d 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 12px;
+            line-height: 1.25;
+            filter: drop-shadow(0 4px 20px rgba(0, 98, 51, 0.4));
+        }
+
+        .motto-banner {
+            font-family: 'Amiri', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--dz-gold);
+            margin-bottom: 20px;
+            display: inline-block;
+            background: rgba(229, 169, 60, 0.08);
+            border: 1px solid rgba(229, 169, 60, 0.28);
+            padding: 4px 28px;
+            border-radius: 30px;
+            text-shadow: 0 0 12px rgba(229, 169, 60, 0.3);
+        }
+
+        p.hero-desc {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 650px;
+            line-height: 1.8;
+            margin-bottom: 35px;
+        }
+
+        /* Live Time Widget */
+        .time-widget {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 40px;
+            padding: 8px 24px;
+            font-size: 0.9rem;
+            color: #cbd5e1;
+            margin-bottom: 35px;
+        }
+
+        .time-widget .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #22c55e;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #22c55e;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+        }
+
+        /* Three Pillars Cards */
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            width: 100%;
+        }
+
+        .pillar-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid var(--border-card);
+            border-radius: 20px;
+            padding: 28px 22px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pillar-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--dz-green-light), transparent);
+            opacity: 0.6;
+            transition: opacity 0.3s;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(0, 135, 68, 0.45);
+            box-shadow: 0 16px 35px rgba(0, 0, 0, 0.5), 0 0 25px rgba(0, 98, 51, 0.25);
+        }
+
+        .pillar-card:hover::before {
+            opacity: 1;
+        }
+
+        .pillar-card.card-red::before {
+            background: linear-gradient(90deg, transparent, var(--dz-red), transparent);
+        }
+        .pillar-card.card-red:hover {
+            border-color: rgba(210, 16, 52, 0.45);
+            box-shadow: 0 16px 35px rgba(0, 0, 0, 0.5), 0 0 25px var(--dz-red-glow);
+        }
+
+        .pillar-card.card-gold::before {
+            background: linear-gradient(90deg, transparent, var(--dz-gold), transparent);
+        }
+        .pillar-card.card-gold:hover {
+            border-color: rgba(229, 169, 60, 0.45);
+            box-shadow: 0 16px 35px rgba(0, 0, 0, 0.5), 0 0 25px rgba(229, 169, 60, 0.2);
+        }
+
+        .pillar-icon {
+            font-size: 2.2rem;
+            margin-bottom: 14px;
+            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5));
+        }
+
+        .pillar-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .pillar-text {
+            font-size: 0.94rem;
+            color: #94a3b8;
+            line-height: 1.65;
+        }
+
+        /* Footer */
+        footer {
+            width: 100%;
+            padding: 25px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            background: rgba(5, 12, 8, 0.9);
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-quote {
+            font-family: 'Amiri', serif;
+            font-size: 1.3rem;
+            color: #e2e8f0;
+            margin-bottom: 6px;
+        }
+
+        .footer-sub {
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1.official-title {
+                font-size: 1.2rem;
+            }
+            h2.main-hero-text {
+                font-size: 2.3rem;
+            }
+            .motto-banner {
+                font-size: 1.3rem;
+            }
+            .pillars-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            .flag-container {
+                width: 160px;
+                height: 106px;
+            }
+        }
+    </style>
 </head>
 <body>
+
+    <div class="top-glow-bar"></div>
+
+    <main class="container">
+        <!-- Floating Algerian Flag -->
+        <div class="flag-wrapper">
+            <div class="flag-container" title="علم الجمهورية الجزائرية">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480">
+                    <path fill="#ffffff" d="M320 0h320v480H320z"/>
+                    <path fill="#006233" d="M0 0h320v480H0z"/>
+                    <path fill="#d21034" d="M424 180a120 120 0 1 0 0 120 96 96 0 1 1 0-120m4 60-108-35.2 67.2 92V183.2l-67.2 92z"/>
+                </svg>
+            </div>
+        </div>
+
+        <div class="country-pill">
+            <span class="star-icon">★</span>
+            <span>الجمهورية الجزائرية الديمقراطية الشعبية</span>
+            <span class="star-icon">★</span>
+        </div>
+
+        <h1 class="official-title">أرض الشهداء • الأصالة • السيادة</h1>
+        
+        <h2 class="main-hero-text">تحيـا الجزائـر 🇩🇿</h2>
+
+        <div class="motto-banner">« بالشّعب وللشّعب »</div>
+
+        <p class="hero-desc">
+            وطنٌ واحد موحّد، يزهو بأمجاده وتاريخه العريق، من قمم الأوراس وجرجرة الشامخة إلى سحر رمال الصحراء الكبرى، ومن شواطئ المتوسط إلى معاقل الثورة الخالدة.
+        </p>
+
+        <!-- Live Time Widget -->
+        <div class="time-widget">
+            <span class="pulse-dot"></span>
+            <span>توقيت الجزائر (GMT+1): </span>
+            <strong id="algiersClock">--:--:--</strong>
+        </div>
+
+        <!-- Pillars Grid -->
+        <div class="pillars-grid">
+            <div class="pillar-card">
+                <div class="pillar-icon">🏔️</div>
+                <h3 class="pillar-title">أصالة وتاريخ</h3>
+                <p class="pillar-text">
+                    عمق حضاري يمتد لآلاف السنين في قلب شمال إفريقيا، تاريخٌ نُقش في كهوف التاسيلي وخلّدته أجيال الأحرار.
+                </p>
+            </div>
+
+            <div class="pillar-card card-red">
+                <div class="pillar-icon">⚔️</div>
+                <h3 class="pillar-title">ثورة التحرير</h3>
+                <p class="pillar-text">
+                    أول نوفمبر 1954؛ أعظم ثورات العصر الحديث، بلد المليون ونصف المليون شهيد، منارة حركات التحرر في العالم.
+                </p>
+            </div>
+
+            <div class="pillar-card card-gold">
+                <div class="pillar-icon">🌟</div>
+                <h3 class="pillar-title">المجد والسيادة</h3>
+                <p class="pillar-text">
+                    عهد الشهداء باقٍ؛ رايةٌ ترفرف عالياً، سيادةٌ لا تمسّ، وشعبٌ موحّد يبني مستقبله بعزة وكرامة.
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-quote">« المجد والخلود لشهدائنا الأبرار » 🇩🇿</div>
+        <div class="footer-sub">عاشت الجزائر حرة أبية مستقلة</div>
+    </footer>
+
     <script>
-        // إلغاء تثبيت Service Worker وحذف أي كاش مخزن
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.getRegistrations().then(function(registrations) {
-                for (let registration of registrations) {
-                    registration.unregister();
-                }
-            });
+        // Realtime Algiers Time (Africa/Algiers - GMT+1)
+        function updateClock() {
+            try {
+                const now = new Date();
+                const options = {
+                    timeZone: 'Africa/Algiers',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit',
+                    hour12: false
+                };
+                const timeString = new Intl.DateTimeFormat('ar-DZ', options).format(now);
+                const el = document.getElementById('algiersClock');
+                if (el) el.textContent = timeString;
+            } catch (e) {
+                const d = new Date();
+                const el = document.getElementById('algiersClock');
+                if (el) el.textContent = d.toLocaleTimeString();
+            }
         }
-        if ('caches' in window) {
-            caches.keys().then(function(names) {
-                for (let name of names) {
-                    caches.delete(name);
-                }
-            });
-        }
+        setInterval(updateClock, 1000);
+        updateClock();
     </script>
 </body>
 </html>
