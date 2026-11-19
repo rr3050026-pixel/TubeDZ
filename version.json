@@ -1,17 +1,36 @@
 {
-  "appName": "TubeDZ",
+  "appName": "TubeDZ & DZ Music Pro",
   "organization": "وزارة المساكين 🇩🇿",
   "latestVersion": "1.0.0",
-  "versionCode": 100,
   "releaseDate": "2026-11-19",
-  "releaseNotes": {
-    "ar": "الإصدار الرسمي الأول لتطبيق Tube DZ بدون إعلانات مع دعم التشغيل في الخلفية وجودة 4K وتوفير باقة الإنترنت.",
-    "en": "Official release of Tube DZ: 100% ad-free, background playback, 4K HDR support, and AMOLED theme."
-  },
-  "downloads": {
-    "tubeDzApk": "https://github.com/rr3050026-pixel/TubeDZ/releases/download/v1.0.0/TubeDZ.apk",
-    "microgApk": "https://github.com/rr3050026-pixel/TubeDZ/releases/download/v1.0.0/microg.apk",
-    "pcZip": "https://github.com/rr3050026-pixel/TubeDZ/raw/main/TubeDZ-PC-Portable.zip"
+  "apps": {
+    "tubeDz": {
+      "name": "Tube DZ",
+      "version": "1.0.0",
+      "size": "145 MB",
+      "category": "فيديو وبث 4K بدون إعلانات",
+      "downloadUrl": "https://github.com/rr3050026-pixel/TubeDZ/releases/download/v1.0.0/TubeDZ.apk"
+    },
+    "dzMusicPro": {
+      "name": "DZ Music Pro",
+      "version": "1.0.0",
+      "size": "86 MB",
+      "category": "صوتيات وموسيقى Hi-Fi بدون إعلانات",
+      "websiteUrl": "https://rr3050026-pixel.github.io/DZ-Music-Pro/",
+      "telegramUrl": "https://t.me/+gsz8OJK-yh85ZWU0"
+    },
+    "microG": {
+      "name": "MicroG GmsCore",
+      "version": "0.3.1",
+      "size": "100 MB",
+      "downloadUrl": "https://github.com/rr3050026-pixel/TubeDZ/releases/download/v1.0.0/microg.apk"
+    },
+    "tubeDzPc": {
+      "name": "TubeDZ Desktop PC",
+      "version": "2.0.0",
+      "size": "530 KB",
+      "downloadUrl": "https://github.com/rr3050026-pixel/TubeDZ/raw/main/TubeDZ-PC-Portable.zip"
+    }
   },
   "community": {
     "telegram": "https://t.me/+gsz8OJK-yh85ZWU0",
