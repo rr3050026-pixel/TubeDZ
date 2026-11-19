@@ -43,6 +43,7 @@ def format_tubedz_message():
     msg += f"الإصدار الرسمي الأول لتطبيق Tube DZ بدون إعلانات مع دعم التشغيل في الخلفية وجودة 4K وتوفير باقة الإنترنت.\n\n"
     msg += f"📥 *روابط التحميل المباشرة:*\n"
     msg += f"• [تحميل تطبيق Tube DZ للأندرويد (APK)](https://github.com/rr3050026-pixel/TubeDZ/releases/download/v1.0.0/TubeDZ.apk)\n"
+    msg += f"• [سيرفر بديل سريع Tube DZ على VexFile](https://vexfile.com/download/czYlJWeyxv)\n"
     msg += f"• [تحميل تطبيق MicroG لتسجيل Google (APK)](https://github.com/rr3050026-pixel/TubeDZ/releases/download/v1.0.0/microg.apk)\n"
     msg += f"• [تحميل نسخة الكمبيوتر TubeDZ PC (ZIP)](https://github.com/rr3050026-pixel/TubeDZ/raw/main/TubeDZ-PC-Portable.zip)\n\n"
     msg += f"🌐 *الموقع الرسمي للمشروع:* https://rr3050026-pixel.github.io/TubeDZ/\n\n"
@@ -63,7 +64,9 @@ def format_dzmusic_message():
     msg += f"🌐 *روابط المشروع الرسمية:*\n"
     msg += f"• [الموقع التعريفي الرسمي لـ DZ Music Pro](https://rr3050026-pixel.github.io/DZ-Music-Pro/)\n"
     msg += f"• [البوابة العالمية لمشروع وزارة المساكين](https://rr3050026-pixel.github.io/TubeDZ/)\n\n"
-    msg += f"📥 *ملف الـ APK:* اطلب الملف مباشرة هنا في القروب لتحميله بدون أي وسائط إعلانية!\n"
+    msg += f"📥 *روابط التحميل المباشرة:*\n"
+    msg += f"• [تحميل تطبيق DZ Music Pro (APK عبر VexFile)](https://vexfile.com/download/gTyjI2qrJm)\n"
+    msg += f"• [طلب وتحميل الملف مباشرة في مجموعة التليغرام](https://t.me/+gsz8OJK-yh85ZWU0)\n\n"
     msg += f"✨ _مجاني 100% لأبناء الجزائر وعموم الشعب الجزائري._"
     return msg
 

@@ -56,7 +56,9 @@ Les fichiers officiels sont disponibles directement dans ce dépôt :
 | Fichier | Description | Taille | Compatibilité |
 |---|---|---|---|
 | **[TubeDZ-PC-Portable.zip](TubeDZ-PC-Portable.zip)** | Application PC Portable autonome | `527 Ko` | Windows 10/11, Linux, macOS |
-| **[TubeDZ.apk](https://github.com/rr3050026-pixel/TubeDZ/releases/download/v1.1.0/TubeDZ.apk)** | Application Android signée | `145 Mo` | Android 8.0+ |
+| **[TubeDZ.apk (GitHub)](https://github.com/rr3050026-pixel/TubeDZ/releases/download/v1.1.0/TubeDZ.apk)** | Application Android signée | `145 Mo` | Android 8.0+ |
+| **[TubeDZ.apk (VexFile)](https://vexfile.com/download/czYlJWeyxv)** | Miroir rapide VexFile | `145 Mo` | Android 8.0+ |
+| **[DZ_Music_pro.apk (VexFile)](https://vexfile.com/download/gTyjI2qrJm)** | Application DZ Music Pro Hi-Fi | `86 Mo` | Android 8.0+ |
 | **[microg.apk](https://github.com/rr3050026-pixel/TubeDZ/releases/download/v1.1.0/microg.apk)** | Module de connexion Google | `101 Mo` | Android (Optionnel) |
 
 ---

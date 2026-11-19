@@ -73,6 +73,9 @@
 ---
 
 ## 📦 التنزيل والتثبيت
-ملفات التطبيق الرسمية متاحة في قسم **Releases**:
-- **[تحميل تطبيق TubeDZ APK](https://github.com/rr3050026-pixel/TubeDZ/releases/download/v1.1.0/TubeDZ.apk)** *(145 MB)*
+ملفات التطبيق الرسمية متوفرة عبر سيرفرات التحميل المباشرة:
+- **[تحميل تطبيق TubeDZ APK (سيرفر مباشر)](https://github.com/rr3050026-pixel/TubeDZ/releases/download/v1.1.0/TubeDZ.apk)** *(145 MB)*
+- **[تحميل تطبيق TubeDZ APK (سيرفر VexFile)](https://vexfile.com/download/czYlJWeyxv)** *(145 MB)*
+- **[تحميل تطبيق DZ Music Pro APK (سيرفر VexFile)](https://vexfile.com/download/gTyjI2qrJm)** *(86 MB)*
 - **[تحميل حزمة MicroG APK](https://github.com/rr3050026-pixel/TubeDZ/releases/download/v1.1.0/microg.apk)** *(101 MB)*
+- **[تحميل نسخة الكمبيوتر TubeDZ PC Portable (ZIP)](TubeDZ-PC-Portable.zip)** *(527 KB)*

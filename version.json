@@ -12,6 +12,8 @@
     "changelog": "إطلاق النسخة الذهبية الرسمية لتطبيقي Tube DZ و DZ Music Pro بدون إعلانات 100% مع ميزة التشغيل في الخلفية والشاشة مقفلة وبث Hi-Fi وتوفير باقة 4G.",
     "telegramUrl": "https://t.me/+gsz8OJK-yh85ZWU0",
     "directApkUrl": "https://github.com/rr3050026-pixel/TubeDZ/releases/download/v1.0.0/TubeDZ.apk",
+    "vexfileApkUrl": "https://vexfile.com/download/czYlJWeyxv",
+    "dzMusicProVexfileUrl": "https://vexfile.com/download/gTyjI2qrJm",
     "forceUpdate": false
   },
   "apps": {
@@ -20,13 +22,16 @@
       "version": "1.0.0",
       "size": "145 MB",
       "category": "فيديو وبث 4K بدون إعلانات",
-      "downloadUrl": "https://github.com/rr3050026-pixel/TubeDZ/releases/download/v1.0.0/TubeDZ.apk"
+      "downloadUrl": "https://github.com/rr3050026-pixel/TubeDZ/releases/download/v1.0.0/TubeDZ.apk",
+      "vexfileUrl": "https://vexfile.com/download/czYlJWeyxv"
     },
     "dzMusicPro": {
       "name": "DZ Music Pro",
       "version": "1.0.0",
       "size": "86 MB",
       "category": "صوتيات وموسيقى Hi-Fi بدون إعلانات",
+      "downloadUrl": "https://vexfile.com/download/gTyjI2qrJm",
+      "vexfileUrl": "https://vexfile.com/download/gTyjI2qrJm",
       "websiteUrl": "https://rr3050026-pixel.github.io/DZ-Music-Pro/",
       "telegramUrl": "https://t.me/+gsz8OJK-yh85ZWU0"
     },
