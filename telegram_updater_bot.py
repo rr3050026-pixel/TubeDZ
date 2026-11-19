@@ -13,6 +13,7 @@ import urllib.error
 import ssl
 
 DEFAULT_BOT_TOKEN = "9059578603:AAGknoPvyCjVojv9Lc-dc7tGR4k-G6T_OeI"
+DEFAULT_CHAT_ID = -1003732255699
 VERSION_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'version.json')
 
 ctx = ssl._create_unverified_context()
@@ -69,59 +70,28 @@ def api_call(token, method, data=None):
         print(f"API Error ({method}):", e)
         return {"ok": False, "error": str(e)}
 
-def get_discovered_chats(token):
-    res = api_call(token, "getUpdates")
-    chats = {}
-    if res.get("ok"):
-        for update in res.get("result", []):
-            msg = update.get("message") or update.get("channel_post") or update.get("my_chat_member", {}).get("chat")
-            if isinstance(msg, dict):
-                chat = msg.get("chat") if "chat" in msg else msg
-                if chat and "id" in chat:
-                    cid = chat["id"]
-                    title = chat.get("title") or chat.get("username") or chat.get("first_name") or str(cid)
-                    ctype = chat.get("type", "unknown")
-                    chats[cid] = {"title": title, "type": ctype}
-    return chats
-
-def send_message(token, chat_id, text):
+def send_update(token=DEFAULT_BOT_TOKEN, chat_id=DEFAULT_CHAT_ID, pin=True):
+    v = load_version()
+    msg = format_update_message(v)
     data = {
         "chat_id": chat_id,
-        "text": text,
+        "text": msg,
         "parse_mode": "Markdown",
         "disable_web_page_preview": False
     }
-    return api_call(token, "sendMessage", data)
-
-def broadcast(token):
-    chats = get_discovered_chats(token)
-    if not chats:
-        print("No chats found yet. Make sure the bot is added to the group and a message was sent.")
-        return False
-    v = load_version()
-    msg = format_update_message(v)
-    for cid, cinfo in chats.items():
-        print(f"Sending update to {cinfo['title']} ({cid})...")
-        res = send_message(token, cid, msg)
-        print("Result:", res)
-    return True
+    res = api_call(token, "sendMessage", data)
+    if res.get("ok") and pin:
+        mid = res["result"]["message_id"]
+        api_call(token, "pinChatMessage", {"chat_id": chat_id, "message_id": mid})
+    return res
 
 if __name__ == "__main__":
     token = os.environ.get("TELEGRAM_BOT_TOKEN", DEFAULT_BOT_TOKEN)
-    cmd = sys.argv[1] if len(sys.argv) > 1 else "check"
+    chat_id = int(os.environ.get("TELEGRAM_CHAT_ID", DEFAULT_CHAT_ID))
+    cmd = sys.argv[1] if len(sys.argv) > 1 else "send"
 
-    if cmd == "check":
-        info = api_call(token, "getMe")
-        print("Bot Info:", json.dumps(info, indent=2, ensure_ascii=False))
-        chats = get_discovered_chats(token)
-        print("Discovered Chats:", json.dumps(chats, indent=2, ensure_ascii=False))
-    elif cmd == "broadcast":
-        broadcast(token)
-    elif cmd == "send":
-        cid = sys.argv[2] if len(sys.argv) > 2 else os.environ.get("TELEGRAM_CHAT_ID")
-        if not cid:
-            print("Usage: python3 telegram_updater_bot.py send <CHAT_ID>")
-            sys.exit(1)
-        v = load_version()
-        res = send_message(token, cid, format_update_message(v))
-        print("Sent:", res)
+    if cmd == "send":
+        res = send_update(token, chat_id, pin=True)
+        print("Update broadcast result:", res)
+    elif cmd == "check":
+        print("Bot info:", api_call(token, "getMe"))
