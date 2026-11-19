@@ -1,0 +1,55 @@
+/**
+ * TubeDZ Desktop AMOLED Dark Theme & Ad Hider CSS
+ * Project: « وزارة المساكين » 🇩🇿
+ */
+
+/* Hide All Ad Slots and Promoted Videos */
+ytd-ad-slot-renderer,
+ytd-rich-item-renderer:has(ytd-ad-slot-renderer),
+ytd-banner-promo-renderer,
+ytd-promoted-sparkles-web-renderer,
+ytd-promoted-video-renderer,
+#masthead-ad,
+.ytd-in-feed-ad-layout-renderer,
+#player-ads,
+.video-ads,
+.ytp-ad-module,
+.ytp-ad-overlay-container,
+tp-yt-paper-dialog:has(ytd-enforcement-message-view-model),
+ytd-popup-container:has(ytd-enforcement-message-view-model) {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    width: 0 !important;
+    pointer-events: none !important;
+}
+
+/* Pure AMOLED Black Theme Enhancements */
+html[dark], [dark] {
+    --yt-spec-base-background: #000000 !important;
+    --yt-spec-raised-background: #0a0a0a !important;
+    --yt-spec-menu-background: #111111 !important;
+    --iron-icon-fill-color: #4ade80 !important;
+}
+
+ytd-app,
+#content,
+#page-manager,
+ytd-watch-flexy,
+#columns,
+#primary,
+#secondary,
+ytd-masthead {
+    background-color: #000000 !important;
+}
+
+/* Custom Emerald Glow for TubeDZ Progress Bar */
+.ytp-play-progress,
+.ytp-swatch-background-color {
+    background: #00c853 !important;
+}
+
+.ytp-scrubber-button {
+    background: #4ade80 !important;
+    box-shadow: 0 0 10px #00c853 !important;
+}

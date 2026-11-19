@@ -1,23 +1,17 @@
 ' ========================================================
-' TubeDZ 🇩🇿 — Windows Silent Desktop Launcher
-' Lance TubeDZ directement sans fenêtre de commande noire
+' TubeDZ Desktop Silent Launcher (بدون نافذة أوامر سوداء)
+' مشروع « وزارة المساكين » 🇩🇿
 ' ========================================================
 
-On Error Resume Next
+Set WshShell = CreateObject("WScript.Shell")
 Set fso = CreateObject("Scripting.FileSystemObject")
-scriptDir = fso.GetParentFolderName(WScript.ScriptFullName)
-batFile = fso.BuildPath(scriptDir, "TubeDZ_Windows_Portable.bat")
 
-If fso.FileExists(batFile) Then
-    Set WshShell = CreateObject("WScript.Shell")
-    ' Mode 0 = fenêtre totalement invisible, False = ne bloque pas le script
-    WshShell.Run Chr(34) & batFile & Chr(34), 0, False
-    Set WshShell = Nothing
+strScriptDir = fso.GetParentFolderName(WScript.ScriptFullName)
+strBatPath = strScriptDir & "\TubeDZ_Windows_Portable.bat"
+
+If fso.FileExists(strBatPath) Then
+    ' Run hidden (0) without waiting (False)
+    WshShell.Run """" & strBatPath & """", 0, False
 Else
-    ' Fallback direct si le .bat est introuvable
-    Set WshShell = CreateObject("WScript.Shell")
-    WshShell.Run "https://rr3050026-pixel.github.io/TubeDZ/", 1, False
-    Set WshShell = Nothing
+    WshShell.Run "https://www.youtube.com"
 End If
-
-Set fso = Nothing

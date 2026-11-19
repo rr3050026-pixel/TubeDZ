@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "TubeDZ Desktop Core Engine",
+  "version": "2.0.0",
+  "description": "محرك حظر الإعلانات وتخطي الفواصل وثيم AMOLED لبرنامج TubeDZ للكمبيوتر 🇩🇿",
+  "permissions": [
+    "declarativeNetRequest"
+  ],
+  "host_permissions": [
+    "*://*.youtube.com/*",
+    "*://*.googlesyndication.com/*",
+    "*://*.doubleclick.net/*"
+  ],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "ruleset_1",
+        "enabled": true,
+        "path": "rules.json"
+      }
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.youtube.com/*"],
+      "js": ["content.js"],
+      "css": ["amoled.css"],
+      "run_at": "document_start"
+    }
+  ]
+}

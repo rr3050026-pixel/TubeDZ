@@ -1,32 +1,26 @@
 #!/usr/bin/env bash
 # ========================================================
-# TubeDZ 🇩🇿 — Linux PC Desktop Portable Launcher
+# TubeDZ Desktop Launcher for Linux
+# مشروع « وزارة المساكين » 🇩🇿
 # ========================================================
 
-TARGET_URL="https://rr3050026-pixel.github.io/TubeDZ/"
-DATA_DIR="${HOME}/.config/tubedz_pc_data"
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+EXT_DIR="$DIR/TubeDZ_Core"
+USER_DATA="$HOME/.config/TubeDZ_Profile"
+TARGET_URL="https://www.youtube.com"
 
-# Detect installed browser
-BROWSER_CMD=""
-for cmd in google-chrome google-chrome-stable chromium chromium-browser brave-browser microsoft-edge; do
-    if command -v "$cmd" >/dev/null 2>&1; then
-        BROWSER_CMD="$cmd"
-        break
+# Check available browser
+for BROWSER in google-chrome google-chrome-stable chromium chromium-browser brave-browser microsoft-edge; do
+    if command -v "$BROWSER" >/dev/null 2>&1; then
+        exec "$BROWSER" \
+            --app="$TARGET_URL" \
+            --user-data-dir="$USER_DATA" \
+            --load-extension="$EXT_DIR" \
+            --window-size=1280,820 \
+            --no-first-run &
+        exit 0
     fi
 done
 
-if [ -z "$BROWSER_CMD" ]; then
-    echo "Ouverture de TubeDZ..."
-    xdg-open "$TARGET_URL" 2>/dev/null || sensible-browser "$TARGET_URL" 2>/dev/null || x-www-browser "$TARGET_URL" 2>/dev/null &
-    exit 0
-fi
-
-# Launch in Native Desktop Window
-"$BROWSER_CMD" \
-    --app="$TARGET_URL" \
-    --window-size=1280,820 \
-    --user-data-dir="$DATA_DIR" \
-    --no-first-run \
-    --disable-plugins \
-    >/dev/null 2>&1 &
-exit 0
+# Fallback
+xdg-open "$TARGET_URL"
