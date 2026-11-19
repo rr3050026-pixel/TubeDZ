@@ -1863,6 +1863,210 @@
             opacity: 1;
         }
 
+        /* Nav Update Button */
+        .nav-update-btn {
+            background: rgba(74, 222, 128, 0.12);
+            border: 1px solid rgba(74, 222, 128, 0.35);
+            color: #4ade80;
+            padding: 7px 14px;
+            border-radius: 20px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-update-btn:hover {
+            background: rgba(74, 222, 128, 0.22);
+            border-color: #4ade80;
+            transform: translateY(-1px);
+            box-shadow: 0 0 15px rgba(74, 222, 128, 0.3);
+        }
+
+        .update-pulse-icon {
+            display: inline-block;
+            animation: pulseRing 2s infinite;
+        }
+
+        /* In-App Update Modal */
+        .update-modal-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.82);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.35s ease;
+        }
+
+        .update-modal-backdrop.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .update-modal-card {
+            background: linear-gradient(145deg, rgba(16, 28, 20, 0.98), rgba(9, 14, 11, 0.98));
+            border: 1px solid rgba(74, 222, 128, 0.4);
+            border-radius: 26px;
+            max-width: 480px;
+            width: 100%;
+            padding: 34px 28px 26px;
+            text-align: center;
+            box-shadow: 0 25px 65px rgba(0, 0, 0, 0.95), 0 0 45px rgba(0, 200, 83, 0.28);
+            transform: scale(0.9) translateY(25px);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .update-modal-backdrop.active .update-modal-card {
+            transform: scale(1) translateY(0);
+        }
+
+        .update-modal-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #00c853, #ef4444, #00c853);
+            background-size: 200% 100%;
+            animation: gradientShift 3s linear infinite;
+        }
+
+        .update-icon-wrapper {
+            width: 72px;
+            height: 72px;
+            margin: 0 auto 16px;
+            border-radius: 50%;
+            background: rgba(0, 200, 83, 0.16);
+            border: 2px solid #4ade80;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 34px;
+            box-shadow: 0 0 25px rgba(74, 222, 128, 0.45);
+        }
+
+        .update-badge-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(74, 222, 128, 0.14);
+            border: 1px solid rgba(74, 222, 128, 0.35);
+            color: #4ade80;
+            padding: 5px 16px;
+            border-radius: 20px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .update-title {
+            font-size: 1.35rem;
+            font-weight: 900;
+            color: #ffffff;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .update-version-tag {
+            color: #fbbf24;
+            font-weight: 800;
+            font-size: 1rem;
+            margin-bottom: 14px;
+        }
+
+        .update-desc {
+            color: #cbd5e1;
+            font-size: 0.92rem;
+            line-height: 1.6;
+            margin-bottom: 22px;
+            background: rgba(255, 255, 255, 0.04);
+            padding: 14px 16px;
+            border-radius: 14px;
+            text-align: right;
+            border-right: 3px solid #4ade80;
+        }
+
+        .update-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .btn-update-telegram {
+            background: linear-gradient(135deg, #0088cc, #00a2ed);
+            color: #ffffff;
+            border: none;
+            padding: 14px 20px;
+            border-radius: 14px;
+            font-weight: 800;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 6px 22px rgba(0, 136, 204, 0.45);
+            transition: all 0.25s ease;
+            text-decoration: none;
+        }
+
+        .btn-update-telegram:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 28px rgba(0, 136, 204, 0.65);
+            color: #ffffff;
+        }
+
+        .btn-update-direct {
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            color: #e2e8f0;
+            padding: 11px 16px;
+            border-radius: 12px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-update-direct:hover {
+            background: rgba(255, 255, 255, 0.14);
+            color: #ffffff;
+        }
+
+        .btn-update-dismiss {
+            background: transparent;
+            border: none;
+            color: #94a3b8;
+            font-size: 0.86rem;
+            padding: 9px;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .btn-update-dismiss:hover {
+            color: #ffffff;
+        }
+
         /* Mobile Floating Sticky Action Bar */
         .mobile-sticky-bar {
             display: none;
@@ -2015,6 +2219,11 @@
             </nav>
 
             <div class="nav-actions">
+                <button class="nav-update-btn" onclick="checkForAppUpdates(true)" title="فحص وجود تحديثات جديدة">
+                    <span class="update-pulse-icon">🔔</span>
+                    <span class="update-btn-text">فحص التحديثات</span>
+                </button>
+
                 <div class="nav-badge-status">
                     <span class="status-dot"></span>
                     <span>التحميل المباشر نشط</span>
@@ -2028,6 +2237,9 @@
 
         <!-- Mobile Drawer -->
         <div class="mobile-drawer" id="mobileDrawer">
+            <a href="javascript:void(0)" onclick="closeMobileMenu(); checkForAppUpdates(true);" style="background: rgba(74, 222, 128, 0.15); border-color: rgba(74, 222, 128, 0.4); color: #4ade80;">
+                <span>🔔 فحص وجود تحديث جديد للتطبيقات</span> <span>↻</span>
+            </a>
             <a href="#apps" onclick="closeMobileMenu()"><span>📱 التطبيقات المتاحة للتحميل</span> <span>←</span></a>
             <a href="#features" onclick="closeMobileMenu()"><span>✨ مميزات المنظومة المتكاملة</span> <span>←</span></a>
             <a href="#compare" onclick="closeMobileMenu()"><span>⚖️ جدول المقارنة مع يوتيوب العادي</span> <span>←</span></a>
@@ -2787,6 +2999,31 @@
         <span id="toastMessage">تم نسخ الرابط بنجاح!</span>
     </div>
 
+    <!-- In-App Auto-Update Modal Dialog -->
+    <div id="updateModalBackdrop" class="update-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="updateModalTitle">
+        <div class="update-modal-card">
+            <div class="update-icon-wrapper">🚀</div>
+            <div class="update-badge-pill" id="updateModalBadge">🔔 تحديث رسمي متوفر الآن</div>
+            <h3 class="update-title" id="updateModalTitle">يتوفر إصدار جديد للتطبيقات! 🇩🇿</h3>
+            <div class="update-version-tag" id="updateModalVersion">الإصدار: v1.0.0</div>
+            <div class="update-desc" id="updateModalDesc">
+                تم إطلاق التحديث الرسمي لتطبيقات « وزارة المساكين ». يرجى التحديث عبر قروب التلغرام لضمان استمرار المشاهدة والاستماع بدون إعلانات وبأعلى جودة.
+            </div>
+            <div class="update-actions">
+                <a href="https://t.me/+gsz8OJK-yh85ZWU0" target="_blank" rel="noopener noreferrer" id="updateTelegramLink" class="btn-update-telegram">
+                    <span>✈️ الانتقال إلى تيليجرام وتحميل التحديث</span>
+                    <span>↗</span>
+                </a>
+                <a href="https://github.com/rr3050026-pixel/TubeDZ/releases/download/v1.0.0/TubeDZ.apk" target="_blank" rel="noopener noreferrer" id="updateDirectLink" class="btn-update-direct">
+                    <span>📥 تحميل APK مباشرة (سيرفر GitHub)</span>
+                </a>
+                <button type="button" class="btn-update-dismiss" onclick="dismissUpdateModal()">
+                    تذكيري لاحقاً ✕
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer>
         <div class="footer-quote">« المجد والخلود لشهدائنا الأبرار » 🇩🇿</div>
@@ -2944,6 +3181,70 @@
             document.getElementById('contactForm').style.display = 'block';
             document.getElementById('contactSuccessMsg').style.display = 'none';
         }
+
+        /* In-App Auto-Update Checker System */
+        const APP_LOCAL_VERSION = "1.0.0";
+        const UPDATE_API_ENDPOINT = "version.json";
+
+        async function checkForAppUpdates(isManual = false) {
+            try {
+                if (isManual) {
+                    showToast("جاري فحص خادم التحديثات... 🔄");
+                }
+
+                const response = await fetch(UPDATE_API_ENDPOINT + '?t=' + Date.now(), { cache: 'no-store' });
+                if (!response.ok) throw new Error("Network response was not ok");
+                const data = await response.json();
+                
+                const alertConfig = data.inAppAlert || {};
+                const latestVer = alertConfig.latestVersion || data.latestVersion || "1.0.0";
+                const isDismissed = sessionStorage.getItem('tubedz_dismissed_update') === latestVer;
+                
+                // Show modal if alert is enabled and (not dismissed or forced or manual click)
+                if (alertConfig.enabled && (!isDismissed || isManual || alertConfig.forceUpdate)) {
+                    const modal = document.getElementById('updateModalBackdrop');
+                    const badgeEl = document.getElementById('updateModalBadge');
+                    const titleEl = document.getElementById('updateModalTitle');
+                    const verEl = document.getElementById('updateModalVersion');
+                    const descEl = document.getElementById('updateModalDesc');
+                    const tgLink = document.getElementById('updateTelegramLink');
+                    const directLink = document.getElementById('updateDirectLink');
+                    
+                    if (badgeEl && alertConfig.badge) badgeEl.textContent = alertConfig.badge;
+                    if (titleEl && alertConfig.title) titleEl.textContent = alertConfig.title;
+                    if (verEl) verEl.textContent = `الإصدار الرسمي الجديد: v${latestVer}`;
+                    if (descEl && alertConfig.changelog) descEl.textContent = alertConfig.changelog;
+                    if (tgLink && alertConfig.telegramUrl) tgLink.href = alertConfig.telegramUrl;
+                    if (directLink && alertConfig.directApkUrl) directLink.href = alertConfig.directApkUrl;
+                    
+                    if (modal) {
+                        modal.classList.add('active');
+                    }
+                } else if (isManual) {
+                    showToast("أنت على أحدث إصدار رسمي متوفر حالياً! ✅");
+                }
+            } catch (err) {
+                console.error("Update check error:", err);
+                if (isManual) {
+                    showToast("تعذر فحص التحديثات، تأكد من الاتصال بالإنترنت ⚠️");
+                }
+            }
+        }
+
+        function dismissUpdateModal() {
+            const modal = document.getElementById('updateModalBackdrop');
+            if (modal) {
+                modal.classList.remove('active');
+                sessionStorage.setItem('tubedz_dismissed_update', '1.0.0');
+            }
+        }
+
+        // Auto-check on application load
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                checkForAppUpdates(false);
+            }, 1200);
+        });
     </script>
 </body>
 </html>
