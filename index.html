@@ -297,6 +297,48 @@
             text-shadow: 0 0 14px rgba(245, 158, 11, 0.4);
         }
 
+        /* Telegram Group Banner in Hero */
+        .tg-hero-wrapper {
+            margin-bottom: 24px;
+        }
+
+        .tg-group-banner {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(135deg, rgba(0, 136, 204, 0.22) 0%, rgba(34, 158, 217, 0.15) 100%);
+            border: 1px solid rgba(56, 189, 248, 0.45);
+            padding: 10px 24px;
+            border-radius: 50px;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.02rem;
+            font-weight: 700;
+            box-shadow: 0 4px 20px rgba(0, 136, 204, 0.25), 0 0 15px rgba(0, 136, 204, 0.2);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .tg-group-banner:hover {
+            transform: translateY(-3px) scale(1.02);
+            background: linear-gradient(135deg, rgba(0, 136, 204, 0.38) 0%, rgba(34, 158, 217, 0.28) 100%);
+            border-color: #38bdf8;
+            box-shadow: 0 8px 30px rgba(0, 136, 204, 0.45), 0 0 25px rgba(56, 189, 248, 0.4);
+            color: #ffffff;
+        }
+
+        .tg-badge-chip {
+            font-size: 0.78rem;
+            background: #0088cc;
+            color: #ffffff;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-weight: 800;
+            letter-spacing: 0.3px;
+            box-shadow: 0 2px 8px rgba(0, 136, 204, 0.5);
+        }
+
         p.hero-desc {
             font-size: 1.18rem;
             color: var(--text-muted);
@@ -1086,6 +1128,10 @@
             <a href="#guide" class="nav-link">دليل التثبيت</a>
             <a href="#security" class="nav-link">الأمان والموثوقية</a>
             <a href="#contact" class="nav-link">تواصل معنا</a>
+            <a href="https://t.me/TubeDZ" target="_blank" class="nav-link" style="color: #38bdf8; font-weight: 800; display: inline-flex; align-items: center; gap: 6px;">
+                <span>✈️</span>
+                <span>مجموعة TubeDZ</span>
+            </a>
         </nav>
 
         <div class="nav-badge-status">
@@ -1114,6 +1160,14 @@
             <h2 class="main-hero-text">تحيـا الجزائـر 🇩🇿</h2>
 
             <div class="motto-banner">« بالشّعب وللشّعب »</div>
+
+            <div class="tg-hero-wrapper">
+                <a href="https://t.me/TubeDZ" target="_blank" class="tg-group-banner" title="انضم إلى مجموعة TubeDZ الرسمية على تليغرام">
+                    <span style="font-size: 1.25rem;">✈️</span>
+                    <span>انضم إلى مجموعة التليغرام الرسمية: <strong>TubeDZ 🇩🇿</strong></span>
+                    <span class="tg-badge-chip">انضم الآن ↗</span>
+                </a>
+            </div>
 
             <p class="hero-desc">
                 البوابة الوطنية الرسمية لتحميل تطبيقات الهاتف والكمبيوتر المطورة بأيدي وهوية جزائرية خالصة، لتقديم أفضل تجربة مشاهدة واستماع بدون أي إعلانات وبأعلى دقة مجاناً.
@@ -1327,17 +1381,34 @@
             <div class="contact-grid">
                 <!-- Direct Methods -->
                 <div class="contact-methods">
-                    <a href="https://t.me/rr3050026" target="_blank" class="contact-card card-tg">
-                        <div class="contact-icon-box tg-bg">
+                    <!-- TubeDZ Telegram Group Card -->
+                    <a href="https://t.me/TubeDZ" target="_blank" class="contact-card card-tg" style="border-color: rgba(56, 189, 248, 0.45); background: rgba(0, 136, 204, 0.12);">
+                        <div class="contact-icon-box tg-bg" style="background: linear-gradient(135deg, #229ED9, #0088cc);">
                             <span>✈️</span>
                         </div>
                         <div class="contact-info">
-                            <h4>قناة وتواصل التليغرام</h4>
-                            <p>تواصل فوري للحصول على التحديثات والمساعدة</p>
-                            <span class="contact-action">مراسلة عبر Telegram ↗</span>
+                            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+                                <h4 style="margin-bottom: 0;">مجموعة تليغرام: TubeDZ 🇩🇿</h4>
+                                <span class="app-badge badge-green" style="font-size: 0.72rem; padding: 2px 8px;">المجموعة الرسمية</span>
+                            </div>
+                            <p>المجتمع الرسمي لمستخدمي ومطوري TubeDZ لمتابعة التحديثات والنقاشات</p>
+                            <span class="contact-action" style="color: #38bdf8; font-weight: 800;">الانضمام إلى المجموعة (t.me/TubeDZ) ↗</span>
                         </div>
                     </a>
 
+                    <!-- Direct Developer Contact -->
+                    <a href="https://t.me/rr3050026" target="_blank" class="contact-card card-tg">
+                        <div class="contact-icon-box tg-bg">
+                            <span>💬</span>
+                        </div>
+                        <div class="contact-info">
+                            <h4>المطور المباشر على تليغرام</h4>
+                            <p>مراسلة خاصة مع مطور التطبيقات للدعم الفني والاستفسارات</p>
+                            <span class="contact-action">مراسلة المطور (@rr3050026) ↗</span>
+                        </div>
+                    </a>
+
+                    <!-- Email Contact -->
                     <a href="mailto:support@tubedz.algeria?subject=استفسار حول تطبيقات TubeDZ" class="contact-card card-mail">
                         <div class="contact-icon-box mail-bg">
                             <span>✉️</span>
@@ -1414,6 +1485,8 @@
             <a href="#guide">دليل التثبيت</a>
             <span>•</span>
             <a href="#security">الأمان والموثوقية</a>
+            <span>•</span>
+            <a href="https://t.me/TubeDZ" target="_blank" style="color: #38bdf8; font-weight: 700;">✈️ مجموعة تليغرام TubeDZ</a>
             <span>•</span>
             <a href="#contact">تواصل معنا</a>
             <span>•</span>
