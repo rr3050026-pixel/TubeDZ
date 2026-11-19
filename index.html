@@ -622,6 +622,29 @@
             line-height: 1.6;
         }
 
+        /* Download Help / Tip Box */
+        .download-tip-box {
+            width: 100%;
+            background: linear-gradient(135deg, rgba(0, 136, 204, 0.14) 0%, rgba(0, 122, 61, 0.12) 100%);
+            border: 1px solid rgba(56, 189, 248, 0.35);
+            border-radius: 18px;
+            padding: 16px 22px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 28px;
+            text-align: right;
+            backdrop-filter: blur(12px);
+            font-size: 0.95rem;
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+
+        .download-tip-icon {
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+
         /* Apps Grid */
         .apps-grid {
             display: grid;
@@ -1603,13 +1626,13 @@
 
             <!-- Quick Action Buttons -->
             <div class="hero-action-buttons">
-                <a href="https://github.com/rr3050026-pixel/TubeDZ/releases/download/v1.1.0/TubeDZ.apk" class="btn-hero-dl btn-hero-red" download>
+                <a href="https://github.com/rr3050026-pixel/TubeDZ/releases/download/v1.1.0/TubeDZ.apk" target="_blank" rel="noopener noreferrer" class="btn-hero-dl btn-hero-red" title="تحميل مباشر Tube DZ APK">
                     <span>📥 تحميل Tube DZ (APK)</span>
                     <small style="opacity: 0.9; font-size: 0.8rem; background: rgba(0,0,0,0.25); padding: 2px 8px; border-radius: 6px;">145 MB</small>
                 </a>
-                <a href="https://github.com/rr3050026-pixel/DZ-Music-Pro/releases/download/v1.0.0/DZ_Music_pro.apk" class="btn-hero-dl btn-hero-green" download>
-                    <span>🎵 تحميل DZ Music Pro</span>
-                    <small style="opacity: 0.9; font-size: 0.8rem; background: rgba(0,0,0,0.25); padding: 2px 8px; border-radius: 6px;">86 MB</small>
+                <a href="https://t.me/+gsz8OJK-yh85ZWU0" target="_blank" rel="noopener noreferrer" class="btn-hero-dl btn-hero-green" title="تحميل سريع ومضمون عبر تليغرام بدون انقطاع">
+                    <span>⚡ تحميل سريع عبر تليغرام</span>
+                    <small style="opacity: 0.9; font-size: 0.8rem; background: rgba(0,0,0,0.25); padding: 2px 8px; border-radius: 6px;">بدون انقطاع</small>
                 </a>
             </div>
 
@@ -1664,6 +1687,16 @@
                 <p class="section-subtitle">روابط تحميل سريعة ومباشرة ومفحوصة ضد أي برمجيات ضارة، مع التحديثات المستمرة لتفادي أي انقطاع.</p>
             </div>
 
+            <!-- Download Tip Banner -->
+            <div class="download-tip-box">
+                <span class="download-tip-icon">💡</span>
+                <div>
+                    <strong style="color: #38bdf8; display: block; margin-bottom: 4px;">هل يتوقف التحميل أو تواجه بطئاً بسبب ضعف شبكة الإنترنت؟</strong>
+                    <span>نظراً لضعف شبكات 4G أو حظر المتصفحات للملفات الخارجية، وفرنا لك <strong>رابط تليغرام المباشر</strong> لتحميل ملف الـ APK بسرعة خيالية ودون أي انقطاع مع إمكانية استئناف التحميل في أي وقت عبر 
+                    <a href="https://t.me/+gsz8OJK-yh85ZWU0" target="_blank" style="color: #38bdf8; font-weight: 800; text-decoration: underline;">مجموعة التليغرام الرسمية (t.me/+gsz8OJK-yh85ZWU0) ✈️</a></span>
+                </div>
+            </div>
+
             <div class="apps-grid">
                 <!-- App 1: Tube DZ -->
                 <div class="app-card card-tubedz">
@@ -1708,15 +1741,18 @@
                     </div>
 
                     <div class="app-actions">
-                        <a href="https://github.com/rr3050026-pixel/TubeDZ/releases/download/v1.1.0/TubeDZ.apk" class="btn-download-primary btn-red" download>
-                            <span>📥 تحميل Tube DZ APK</span>
+                        <a href="https://github.com/rr3050026-pixel/TubeDZ/releases/download/v1.1.0/TubeDZ.apk" target="_blank" rel="noopener noreferrer" class="btn-download-primary btn-red">
+                            <span>📥 تحميل مباشر Tube DZ APK</span>
                             <small>145 MB • أندرويد</small>
                         </a>
+                        <a href="https://t.me/+gsz8OJK-yh85ZWU0" target="_blank" rel="noopener noreferrer" class="btn-download-primary" style="background: linear-gradient(135deg, #0088cc 0%, #005580 100%); border: 1px solid rgba(56, 189, 248, 0.4); font-size: 0.98rem; padding: 12px 18px;">
+                            <span>✈️ تحميل APK عبر تليغرام (سريع وبدون انقطاع)</span>
+                        </a>
                         <div class="sub-actions-row">
-                            <a href="https://github.com/rr3050026-pixel/TubeDZ/releases/download/v1.1.0/microg.apk" class="btn-sub-action" title="ملحق تسجيل الدخول لحساب Google" download>
+                            <a href="https://github.com/rr3050026-pixel/TubeDZ/releases/download/v1.1.0/microg.apk" target="_blank" rel="noopener noreferrer" class="btn-sub-action" title="ملحق تسجيل الدخول لحساب Google">
                                 <span>🔐 ملف MicroG</span>
                             </a>
-                            <a href="https://github.com/rr3050026-pixel/TubeDZ/raw/main/TubeDZ-PC-Portable.zip" class="btn-sub-action" title="نسخة الكمبيوتر المحمولة PC Portable" download>
+                            <a href="https://github.com/rr3050026-pixel/TubeDZ/raw/main/TubeDZ-PC-Portable.zip" target="_blank" rel="noopener noreferrer" class="btn-sub-action" title="نسخة الكمبيوتر المحمولة PC Portable">
                                 <span>💻 نسخة الحاسوب PC</span>
                             </a>
                             <button type="button" class="btn-sub-action" onclick="copyDownloadLink('https://github.com/rr3050026-pixel/TubeDZ/releases/download/v1.1.0/TubeDZ.apk', 'رابط Tube DZ APK')" title="نسخ رابط التحميل المباشر">
@@ -1769,20 +1805,20 @@
                     </div>
 
                     <div class="app-actions">
-                        <a href="https://github.com/rr3050026-pixel/DZ-Music-Pro/releases/download/v1.0.0/DZ_Music_pro.apk" class="btn-download-primary btn-green" download>
-                            <span>📥 تحميل DZ Music Pro APK</span>
-                            <small>86 MB • أندرويد</small>
+                        <a href="https://t.me/+gsz8OJK-yh85ZWU0" target="_blank" rel="noopener noreferrer" class="btn-download-primary btn-green">
+                            <span>📥 طلب وتحميل APK عبر مجموعة تليغرام</span>
+                            <small>نسخة حصرية • 86 MB</small>
                         </a>
                         <div class="sub-actions-row">
-                            <a href="https://rr3050026-pixel.github.io/DZ-Music-Pro/" class="btn-sub-action" target="_blank" title="الموقع التعريفي لتطبيق DZ Music Pro">
+                            <a href="https://rr3050026-pixel.github.io/DZ-Music-Pro/" target="_blank" rel="noopener noreferrer" class="btn-sub-action" title="الموقع التعريفي لتطبيق DZ Music Pro">
                                 <span>🌐 الموقع الرسمي</span>
                             </a>
                             <a href="#contact" class="btn-sub-action" title="طلب ميزة أو دعم فني">
                                 <span>💬 طلب ميزة ودعم</span>
                             </a>
-                            <button type="button" class="btn-sub-action" onclick="copyDownloadLink('https://github.com/rr3050026-pixel/DZ-Music-Pro/releases/download/v1.0.0/DZ_Music_pro.apk', 'رابط DZ Music Pro APK')" title="نسخ رابط التحميل المباشر">
-                                <span>📋 نسخ الرابط</span>
-                            </button>
+                            <a href="https://t.me/rr3050026" target="_blank" rel="noopener noreferrer" class="btn-sub-action" title="مراسلة المطور">
+                                <span>✈️ مراسلة المطور</span>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -1955,6 +1991,19 @@
                         أفضل وأسرع طريقة لمتابعة التحديثات والإصدارات الجديدة فور صدورها هي الانضمام إلى <strong>مجموعة التليغرام الرسمية</strong> (<a href="https://t.me/+gsz8OJK-yh85ZWU0" target="_blank" style="color: #38bdf8; text-decoration: underline;">t.me/+gsz8OJK-yh85ZWU0</a>)، حيث ننشر كافة الروابط والتحسينات فوراً.
                     </div>
                 </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>⚠️ 6. التحميل يتوقف أو لا يكتمل في هاتفي، ما هو السبب والحل؟</span>
+                        <span class="faq-arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <strong>السبب:</strong> حجم التطبيق 145 ميغابايت، وعند حدوث أدنى تذبذب أو انقطاع لحظي في شبكة الهاتف 4G/3G أو بسبب حماية المتصفح (مثل Brave Shields)، يتوقف خادم التحميل عن الإرسال.<br><br>
+                        <strong>الحلول السهلة والمضمونة:</strong><br>
+                        1. <strong>الحل الأسرع (موصى به 100%):</strong> حمّل ملف الـ APK مباشرة من <a href="https://t.me/+gsz8OJK-yh85ZWU0" target="_blank" style="color: #38bdf8; font-weight: 800; text-decoration: underline;">مجموعة التليغرام الرسمية</a>؛ سيرفرات تليغرام في الجزائر سريعة جداً وتدعم استئناف التحميل تلقائياً بدون أن ينقطع نهائياً.<br>
+                        2. <strong>إذا أردت التحميل من المتصفح:</strong> استخدم متصفح <strong>Google Chrome</strong>، أو اضغط مطولاً بإصبعك على زر التحميل واختر <em>"تنزيل الرابط / Download link"</em>، أو استخدم تطبيق تحميل مثل 1DM أو ADM.
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -2065,13 +2114,13 @@
 
     <!-- Mobile Sticky Floating Action Bar -->
     <div class="mobile-sticky-bar">
-        <a href="https://github.com/rr3050026-pixel/TubeDZ/releases/download/v1.1.0/TubeDZ.apk" class="mobile-sticky-btn sticky-dl" download>
+        <a href="https://github.com/rr3050026-pixel/TubeDZ/releases/download/v1.1.0/TubeDZ.apk" target="_blank" rel="noopener noreferrer" class="mobile-sticky-btn sticky-dl">
             <span>📥</span>
             <span>تحميل Tube DZ</span>
         </a>
-        <a href="https://t.me/+gsz8OJK-yh85ZWU0" target="_blank" class="mobile-sticky-btn sticky-tg">
+        <a href="https://t.me/+gsz8OJK-yh85ZWU0" target="_blank" rel="noopener noreferrer" class="mobile-sticky-btn sticky-tg">
             <span>✈️</span>
-            <span>مجموعة التليغرام</span>
+            <span>تحميل عبر تليغرام</span>
         </a>
     </div>
 
