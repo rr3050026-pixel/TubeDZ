@@ -45,7 +45,7 @@
             overflow-x: hidden;
             position: relative;
             background-image: 
-                radial-gradient(circle at 50% 15%, rgba(0, 98, 51, 0.38) 0%, transparent 55%),
+                radial-gradient(circle at 50% 20%, rgba(0, 98, 51, 0.4) 0%, transparent 60%),
                 radial-gradient(circle at 85% 85%, rgba(210, 16, 52, 0.22) 0%, transparent 45%),
                 radial-gradient(circle at 15% 85%, rgba(0, 135, 68, 0.25) 0%, transparent 45%);
         }
@@ -78,9 +78,9 @@
 
         .container {
             width: 100%;
-            max-width: 950px;
-            margin: 0 auto;
-            padding: 40px 20px 30px 20px;
+            max-width: 900px;
+            margin: auto;
+            padding: 50px 20px 40px 20px;
             position: relative;
             z-index: 1;
             display: flex;
@@ -92,7 +92,7 @@
         /* Flag Badge & Emblem */
         .flag-wrapper {
             position: relative;
-            margin-bottom: 22px;
+            margin-bottom: 25px;
             transition: transform 0.4s ease;
         }
 
@@ -101,12 +101,12 @@
         }
 
         .flag-container {
-            width: 190px;
-            height: 126px;
-            border-radius: 18px;
+            width: 210px;
+            height: 140px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 16px 45px rgba(0, 0, 0, 0.7), 0 0 35px rgba(0, 98, 51, 0.35), 0 0 25px var(--dz-red-glow);
-            border: 2px solid rgba(255, 255, 255, 0.22);
+            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.75), 0 0 40px rgba(0, 98, 51, 0.4), 0 0 30px var(--dz-red-glow);
+            border: 2px solid rgba(255, 255, 255, 0.25);
             position: relative;
             animation: floatFlag 4s ease-in-out infinite alternate;
         }
@@ -133,62 +133,62 @@
             gap: 8px;
             background: rgba(0, 98, 51, 0.28);
             border: 1px solid rgba(0, 135, 68, 0.45);
-            padding: 6px 18px;
+            padding: 8px 22px;
             border-radius: 50px;
-            font-size: 0.95rem;
+            font-size: 1rem;
             color: #4ade80;
             font-weight: 700;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             backdrop-filter: blur(10px);
         }
 
         .country-pill .star-icon {
             color: var(--dz-red);
-            font-size: 1.1rem;
+            font-size: 1.15rem;
         }
 
         /* Typography */
         h1.official-title {
             font-family: 'Amiri', serif;
-            font-size: 1.7rem;
+            font-size: 1.8rem;
             font-weight: 700;
             color: #e2e8f0;
             letter-spacing: 0.5px;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
             text-shadow: 0 2px 10px rgba(0,0,0,0.8);
         }
 
         h2.main-hero-text {
-            font-size: 3.2rem;
+            font-size: 3.6rem;
             font-weight: 900;
             background: linear-gradient(135deg, #ffffff 30%, #4ade80 70%, #ff4d6d 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
             line-height: 1.25;
             filter: drop-shadow(0 4px 20px rgba(0, 98, 51, 0.4));
         }
 
         .motto-banner {
             font-family: 'Amiri', serif;
-            font-size: 1.6rem;
+            font-size: 1.7rem;
             font-weight: 700;
             color: var(--dz-gold);
-            margin-bottom: 20px;
+            margin-bottom: 22px;
             display: inline-block;
             background: rgba(229, 169, 60, 0.08);
             border: 1px solid rgba(229, 169, 60, 0.28);
-            padding: 4px 28px;
+            padding: 6px 32px;
             border-radius: 30px;
             text-shadow: 0 0 12px rgba(229, 169, 60, 0.3);
         }
 
         p.hero-desc {
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             color: var(--text-muted);
-            max-width: 650px;
-            line-height: 1.8;
+            max-width: 680px;
+            line-height: 1.85;
             margin-bottom: 35px;
         }
 
@@ -200,10 +200,9 @@
             background: rgba(255, 255, 255, 0.04);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 40px;
-            padding: 8px 24px;
-            font-size: 0.9rem;
+            padding: 10px 28px;
+            font-size: 0.95rem;
             color: #cbd5e1;
-            margin-bottom: 35px;
         }
 
         .time-widget .pulse-dot {
@@ -219,87 +218,6 @@
             0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
             70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
-        }
-
-        /* Three Pillars Cards */
-        .pillars-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            width: 100%;
-        }
-
-        .pillar-card {
-            background: var(--bg-card);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            border: 1px solid var(--border-card);
-            border-radius: 20px;
-            padding: 28px 22px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .pillar-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, var(--dz-green-light), transparent);
-            opacity: 0.6;
-            transition: opacity 0.3s;
-        }
-
-        .pillar-card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(0, 135, 68, 0.45);
-            box-shadow: 0 16px 35px rgba(0, 0, 0, 0.5), 0 0 25px rgba(0, 98, 51, 0.25);
-        }
-
-        .pillar-card:hover::before {
-            opacity: 1;
-        }
-
-        .pillar-card.card-red::before {
-            background: linear-gradient(90deg, transparent, var(--dz-red), transparent);
-        }
-        .pillar-card.card-red:hover {
-            border-color: rgba(210, 16, 52, 0.45);
-            box-shadow: 0 16px 35px rgba(0, 0, 0, 0.5), 0 0 25px var(--dz-red-glow);
-        }
-
-        .pillar-card.card-gold::before {
-            background: linear-gradient(90deg, transparent, var(--dz-gold), transparent);
-        }
-        .pillar-card.card-gold:hover {
-            border-color: rgba(229, 169, 60, 0.45);
-            box-shadow: 0 16px 35px rgba(0, 0, 0, 0.5), 0 0 25px rgba(229, 169, 60, 0.2);
-        }
-
-        .pillar-icon {
-            font-size: 2.2rem;
-            margin-bottom: 14px;
-            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5));
-        }
-
-        .pillar-title {
-            font-size: 1.25rem;
-            font-weight: 800;
-            color: #ffffff;
-            margin-bottom: 10px;
-        }
-
-        .pillar-text {
-            font-size: 0.94rem;
-            color: #94a3b8;
-            line-height: 1.65;
         }
 
         /* Footer */
@@ -328,21 +246,17 @@
         /* Responsive */
         @media (max-width: 768px) {
             h1.official-title {
-                font-size: 1.2rem;
+                font-size: 1.25rem;
             }
             h2.main-hero-text {
-                font-size: 2.3rem;
+                font-size: 2.5rem;
             }
             .motto-banner {
-                font-size: 1.3rem;
-            }
-            .pillars-grid {
-                grid-template-columns: 1fr;
-                gap: 16px;
+                font-size: 1.35rem;
             }
             .flag-container {
-                width: 160px;
-                height: 106px;
+                width: 170px;
+                height: 114px;
             }
         }
     </style>
@@ -369,14 +283,14 @@
             <span class="star-icon">★</span>
         </div>
 
-        <h1 class="official-title">أرض الشهداء • الأصالة • السيادة</h1>
+        <h1 class="official-title">أرض الشهداء والعزة والكرامة</h1>
         
         <h2 class="main-hero-text">تحيـا الجزائـر 🇩🇿</h2>
 
         <div class="motto-banner">« بالشّعب وللشّعب »</div>
 
         <p class="hero-desc">
-            وطنٌ واحد موحّد، يزهو بأمجاده وتاريخه العريق، من قمم الأوراس وجرجرة الشامخة إلى سحر رمال الصحراء الكبرى، ومن شواطئ المتوسط إلى معاقل الثورة الخالدة.
+            وطنٌ واحد موحّد، يمتد من قمم الأوراس وجرجرة الشامخة إلى سحر رمال الصحراء الكبرى، ومن شواطئ المتوسط إلى ربوع الوطن العزيز.
         </p>
 
         <!-- Live Time Widget -->
@@ -384,33 +298,6 @@
             <span class="pulse-dot"></span>
             <span>توقيت الجزائر (GMT+1): </span>
             <strong id="algiersClock">--:--:--</strong>
-        </div>
-
-        <!-- Pillars Grid -->
-        <div class="pillars-grid">
-            <div class="pillar-card">
-                <div class="pillar-icon">🏔️</div>
-                <h3 class="pillar-title">أصالة وتاريخ</h3>
-                <p class="pillar-text">
-                    عمق حضاري يمتد لآلاف السنين في قلب شمال إفريقيا، تاريخٌ نُقش في كهوف التاسيلي وخلّدته أجيال الأحرار.
-                </p>
-            </div>
-
-            <div class="pillar-card card-red">
-                <div class="pillar-icon">⚔️</div>
-                <h3 class="pillar-title">ثورة التحرير</h3>
-                <p class="pillar-text">
-                    أول نوفمبر 1954؛ أعظم ثورات العصر الحديث، بلد المليون ونصف المليون شهيد، منارة حركات التحرر في العالم.
-                </p>
-            </div>
-
-            <div class="pillar-card card-gold">
-                <div class="pillar-icon">🌟</div>
-                <h3 class="pillar-title">المجد والسيادة</h3>
-                <p class="pillar-text">
-                    عهد الشهداء باقٍ؛ رايةٌ ترفرف عالياً، سيادةٌ لا تمسّ، وشعبٌ موحّد يبني مستقبله بعزة وكرامة.
-                </p>
-            </div>
         </div>
     </main>
 
