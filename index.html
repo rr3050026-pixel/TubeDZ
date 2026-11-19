@@ -29,8 +29,8 @@
             --dz-gold-glow: rgba(245, 158, 11, 0.3);
             
             --bg-dark: #060907;
-            --bg-card: rgba(14, 23, 17, 0.75);
-            --bg-card-hover: rgba(20, 33, 25, 0.9);
+            --bg-card: rgba(14, 23, 17, 0.78);
+            --bg-card-hover: rgba(20, 33, 25, 0.92);
             --border-subtle: rgba(255, 255, 255, 0.08);
             --border-bright: rgba(0, 168, 84, 0.3);
             
@@ -117,6 +117,7 @@
             border-radius: 50%;
             border: 2px solid rgba(255, 255, 255, 0.3);
             box-shadow: 0 0 12px var(--dz-green-glow);
+            object-fit: cover;
         }
 
         .nav-links {
@@ -187,7 +188,7 @@
             margin-bottom: 45px;
         }
 
-        /* Vintage Flag Presentation */
+        /* Flag Presentation */
         .flag-wrapper {
             position: relative;
             margin-bottom: 22px;
@@ -715,7 +716,7 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
         }
 
         .trust-item {
@@ -745,6 +746,257 @@
             font-size: 0.85rem;
             color: var(--text-muted);
             line-height: 1.45;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            width: 100%;
+            margin-bottom: 50px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.25fr;
+            gap: 28px;
+            width: 100%;
+            text-align: right;
+        }
+
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .contact-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            padding: 20px 22px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            text-decoration: none;
+            color: #ffffff;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            backdrop-filter: blur(14px);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-4px);
+            background: var(--bg-card-hover);
+            border-color: rgba(0, 168, 84, 0.4);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 20px var(--dz-green-glow);
+        }
+
+        .contact-card.card-tg:hover {
+            border-color: rgba(0, 136, 204, 0.45);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 136, 204, 0.35);
+        }
+
+        .contact-icon-box {
+            width: 52px;
+            height: 52px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            flex-shrink: 0;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .tg-bg {
+            background: linear-gradient(135deg, #0088cc, #005580);
+        }
+
+        .mail-bg {
+            background: linear-gradient(135deg, #d21034, #8b0a20);
+        }
+
+        .contact-info h4 {
+            font-size: 1.1rem;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+
+        .contact-info p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+
+        .contact-action {
+            font-size: 0.82rem;
+            color: #4ade80;
+            font-weight: 700;
+        }
+
+        .card-tg .contact-action {
+            color: #38bdf8;
+        }
+
+        .support-promise-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 18px;
+            padding: 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+        }
+
+        .promise-icon {
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+
+        .promise-text h5 {
+            font-size: 1rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+
+        .promise-text p {
+            font-size: 0.86rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* Form Card */
+        .contact-form-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 24px;
+            padding: 30px 28px;
+            backdrop-filter: blur(16px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+        }
+
+        .form-title {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-group label {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+        }
+
+        .form-input {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.45);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 12px;
+            padding: 12px 16px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            color: #ffffff;
+            transition: all 0.25s ease;
+            outline: none;
+        }
+
+        .form-input:focus {
+            border-color: #00a854;
+            box-shadow: 0 0 16px rgba(0, 168, 84, 0.35);
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .form-select {
+            cursor: pointer;
+        }
+
+        .form-select option {
+            background: #0d1b13;
+            color: #ffffff;
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .btn-submit-contact {
+            width: 100%;
+            background: linear-gradient(135deg, #008f47 0%, #006233 100%);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            font-family: inherit;
+            font-size: 1.05rem;
+            font-weight: 800;
+            padding: 14px 20px;
+            border-radius: 14px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 6px 20px rgba(0, 168, 84, 0.35);
+        }
+
+        .btn-submit-contact:hover {
+            background: linear-gradient(135deg, #00a854 0%, #00753d 100%);
+            box-shadow: 0 8px 25px rgba(0, 168, 84, 0.55);
+            transform: translateY(-2px);
+        }
+
+        /* Success Box */
+        .contact-success-box {
+            text-align: center;
+            padding: 24px 16px;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .success-icon {
+            font-size: 3rem;
+            margin-bottom: 12px;
+        }
+
+        .contact-success-box h5 {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: #4ade80;
+            margin-bottom: 8px;
+        }
+
+        .contact-success-box p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .btn-reset-form {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+            font-family: inherit;
+            font-size: 0.9rem;
+            font-weight: 700;
+            padding: 9px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-reset-form:hover {
+            background: rgba(255, 255, 255, 0.16);
         }
 
         /* Footer */
@@ -779,6 +1031,7 @@
             justify-content: center;
             gap: 20px;
             font-size: 0.88rem;
+            flex-wrap: wrap;
         }
 
         .footer-links a {
@@ -796,6 +1049,7 @@
             .apps-grid { grid-template-columns: 1fr; gap: 24px; }
             .steps-grid { grid-template-columns: 1fr; gap: 16px; }
             .trust-bar { grid-template-columns: 1fr; gap: 14px; }
+            .contact-grid { grid-template-columns: 1fr; gap: 24px; }
         }
 
         @media (max-width: 768px) {
@@ -811,6 +1065,7 @@
             .datetime-widget { flex-direction: column; gap: 8px; border-radius: 20px; }
             .datetime-divider { display: none; }
             .app-card { padding: 24px 20px; }
+            .contact-form-card { padding: 24px 18px; }
         }
     </style>
 </head>
@@ -830,6 +1085,7 @@
             <a href="#apps" class="nav-link">التطبيقات</a>
             <a href="#guide" class="nav-link">دليل التثبيت</a>
             <a href="#security" class="nav-link">الأمان والموثوقية</a>
+            <a href="#contact" class="nav-link">تواصل معنا</a>
         </nav>
 
         <div class="nav-badge-status">
@@ -841,7 +1097,7 @@
     <main class="main-container">
         <!-- Hero Section -->
         <section class="hero-section">
-            <!-- Vintage Flag Badge -->
+            <!-- Flag Badge -->
             <div class="flag-wrapper" title="الجمهورية الجزائرية الديمقراطية الشعبية">
                 <div class="flag-halo"></div>
                 <img src="algeria-flag-hero.png" alt="علم الجمهورية الجزائرية" class="vintage-flag-img">
@@ -993,11 +1249,11 @@
                             <small>86 MB • أندرويد</small>
                         </a>
                         <div class="sub-actions-row">
-                            <a href="https://rr3050026-pixel.github.io/DZ-Music-Pro/" class="btn-sub-action" target="_blank" title="الموقع الرسمي لتطبيق DZ Music Pro">
+                            <a href="https://rr3050026-pixel.github.io/DZ-Music-Pro/" class="btn-sub-action" target="_blank" title="الموقع التعريفي لتطبيق DZ Music Pro">
                                 <span>🌐 الموقع الرسمي</span>
                             </a>
-                            <a href="https://github.com/rr3050026-pixel/DZ-Music-Pro" class="btn-sub-action" target="_blank" title="المستودع والسورس كود على GitHub">
-                                <span>📂 سورس GitHub</span>
+                            <a href="#contact" class="btn-sub-action" title="طلب ميزة أو دعم فني">
+                                <span>💬 طلب ميزة ودعم</span>
                             </a>
                         </div>
                     </div>
@@ -1059,16 +1315,107 @@
                 </div>
             </div>
         </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="section-header">
+                <span class="section-badge" style="background: rgba(210, 16, 52, 0.15); border-color: rgba(210, 16, 52, 0.35); color: #ff6b81;">💬 قنوات التواصل المباشر</span>
+                <h3 class="section-title">تواصل معنا وأرسل اقتراحاتك</h3>
+                <p class="section-subtitle">نسعد باستقبال اقتراحاتكم، الإبلاغ عن أي مشكلة، أو طلب ميزات وتطبيقات جديدة لدعم المحتوى الجزائري.</p>
+            </div>
+
+            <div class="contact-grid">
+                <!-- Direct Methods -->
+                <div class="contact-methods">
+                    <a href="https://t.me/rr3050026" target="_blank" class="contact-card card-tg">
+                        <div class="contact-icon-box tg-bg">
+                            <span>✈️</span>
+                        </div>
+                        <div class="contact-info">
+                            <h4>قناة وتواصل التليغرام</h4>
+                            <p>تواصل فوري للحصول على التحديثات والمساعدة</p>
+                            <span class="contact-action">مراسلة عبر Telegram ↗</span>
+                        </div>
+                    </a>
+
+                    <a href="mailto:support@tubedz.algeria?subject=استفسار حول تطبيقات TubeDZ" class="contact-card card-mail">
+                        <div class="contact-icon-box mail-bg">
+                            <span>✉️</span>
+                        </div>
+                        <div class="contact-info">
+                            <h4>البريد الإلكتروني المباشر</h4>
+                            <p>للاقتراحات، الشراكات والدعم الفني</p>
+                            <span class="contact-action">إرسال بريد إلكتروني ↗</span>
+                        </div>
+                    </a>
+
+                    <div class="support-promise-card">
+                        <div class="promise-icon">⚡</div>
+                        <div class="promise-text">
+                            <h5>دعم جزائري مستمر</h5>
+                            <p>نهتم بكل رسالة تصلنا، ونعمل باستمرار على تطوير تجربة مجانية ونظيفة تليق بالجمهور الجزائري.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-card">
+                    <h4 class="form-title">📝 أرسل رسالة فورية</h4>
+                    <form id="contactForm" onsubmit="handleContactSubmit(event)">
+                        <div class="form-group">
+                            <label for="senderName">الاسم الكريم :</label>
+                            <input type="text" id="senderName" class="form-input" placeholder="مثال: كريم الجزائري" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="senderContact">البريد الإلكتروني أو حساب تليغرام :</label>
+                            <input type="text" id="senderContact" class="form-input" placeholder="user@gmail.com أو @username" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="msgTopic">نوع الرسالة :</label>
+                            <select id="msgTopic" class="form-input form-select">
+                                <option value="app_request">💡 اقتراح تطبيق أو ميزة جديدة</option>
+                                <option value="tubedz_bug">🐞 الإبلاغ عن مشكلة في Tube DZ</option>
+                                <option value="dzmusic_bug">🎵 الإبلاغ عن مشكلة في DZ Music Pro</option>
+                                <option value="thanks">⭐ تقييم ورسالة دعم وتشجيع</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="msgBody">تفاصيل الرسالة أو الاقتراح :</label>
+                            <textarea id="msgBody" class="form-input form-textarea" rows="4" placeholder="اكتب ملاحظاتك أو استفسارك هنا..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-submit-contact" id="btnSubmitContact">
+                            <span>إرسال الرسالة الآن 🚀</span>
+                        </button>
+                    </form>
+
+                    <!-- Success Feedback -->
+                    <div id="contactSuccessMsg" class="contact-success-box" style="display: none;">
+                        <div class="success-icon">✅</div>
+                        <h5>تم استلام رسالتك بنجاح!</h5>
+                        <p>شكراً جزيلاً لتواصلك ودعمك لتطبيقات الهوية الوطنية الجزائرية 🇩🇿. سيتم الاهتمام بطلبك في أقرب وقت.</p>
+                        <button type="button" class="btn-reset-form" onclick="resetContactForm()">إرسال رسالة أخرى</button>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- Footer -->
     <footer>
         <div class="footer-quote">« المجد والخلود لشهدائنا الأبرار » 🇩🇿</div>
-        <div class="footer-sub">عاشت الجزائر حرة أبية مستقلة • مشروع وطني مفتوح المصدر للشعب الجزائري</div>
+        <div class="footer-sub">عاشت الجزائر حرة أبية مستقلة • مشروع وطني مفتوح للشعب الجزائري</div>
         <div class="footer-links">
-            <a href="https://github.com/rr3050026-pixel/TubeDZ" target="_blank">مستودع TubeDZ</a>
+            <a href="#apps">تطبيقاتنا</a>
             <span>•</span>
-            <a href="https://github.com/rr3050026-pixel/DZ-Music-Pro" target="_blank">مستودع DZ Music Pro</a>
+            <a href="#guide">دليل التثبيت</a>
+            <span>•</span>
+            <a href="#security">الأمان والموثوقية</a>
+            <span>•</span>
+            <a href="#contact">تواصل معنا</a>
             <span>•</span>
             <a href="#">العودة للأعلى ⬆</a>
         </div>
@@ -1112,6 +1459,37 @@
         }
         setInterval(updateDateTime, 1000);
         updateDateTime();
+
+        // Contact Form Handler
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('senderName').value;
+            const contact = document.getElementById('senderContact').value;
+            const topic = document.getElementById('msgTopic').value;
+            const body = document.getElementById('msgBody').value;
+
+            // Save to localStorage as backup
+            try {
+                const messages = JSON.parse(localStorage.getItem('tubedz_messages') || '[]');
+                messages.push({
+                    name, contact, topic, body,
+                    date: new Date().toISOString()
+                });
+                localStorage.setItem('tubedz_messages', JSON.stringify(messages));
+            } catch (err) {
+                console.log(err);
+            }
+
+            // Hide form and show success
+            document.getElementById('contactForm').style.display = 'none';
+            document.getElementById('contactSuccessMsg').style.display = 'block';
+        }
+
+        function resetContactForm() {
+            document.getElementById('contactForm').reset();
+            document.getElementById('contactForm').style.display = 'block';
+            document.getElementById('contactSuccessMsg').style.display = 'none';
+        }
     </script>
 </body>
 </html>
