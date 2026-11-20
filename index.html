@@ -2240,6 +2240,7 @@
             <nav class="nav-links">
                 <a href="#apps" class="nav-link">📱 التطبيقات</a>
                 <a href="#features" class="nav-link">✨ المميزات</a>
+                <a href="javascript:void(0)" onclick="openCastModal()" class="nav-link" style="color: #4ade80; display: inline-flex; align-items: center; gap: 4px;">📺 خاصية Cast</a>
                 <a href="#compare" class="nav-link">⚖️ المقارنة</a>
                 <a href="#guide" class="nav-link">📋 دليل التثبيت</a>
                 <a href="#testimonials" class="nav-link">💬 آراء المستخدمين</a>
@@ -2275,6 +2276,7 @@
             </a>
             <a href="#apps" onclick="closeMobileMenu()"><span>📱 التطبيقات المتاحة للتحميل</span> <span>←</span></a>
             <a href="#features" onclick="closeMobileMenu()"><span>✨ مميزات المنظومة المتكاملة</span> <span>←</span></a>
+            <a href="javascript:void(0)" onclick="closeMobileMenu(); openCastModal();" style="color: #4ade80;"><span>📺 خاصية البث على التلفزيون الذكي (Cast)</span> <span>↗</span></a>
             <a href="#compare" onclick="closeMobileMenu()"><span>⚖️ جدول المقارنة مع يوتيوب العادي</span> <span>←</span></a>
             <a href="#guide" onclick="closeMobileMenu()"><span>📋 دليل التثبيت السريع</span> <span>←</span></a>
             <a href="#testimonials" onclick="closeMobileMenu()"><span>💬 تجارب وآراء الإخوة الجزائريين</span> <span>←</span></a>
@@ -2349,6 +2351,11 @@
                 <div class="hero-trust-item">
                     <span>✓</span>
                     <span>توفير 80% من باقة النت</span>
+                </div>
+                <span>•</span>
+                <div class="hero-trust-item" style="cursor: pointer;" onclick="openCastModal()" title="انقر لعرض دليل البث">
+                    <span style="color: #4ade80;">📺</span>
+                    <span style="text-decoration: underline dotted; color: #4ade80;">بث على التلفاز (Cast)</span>
                 </div>
                 <span>•</span>
                 <div class="hero-trust-item">
@@ -2528,6 +2535,22 @@
                     <div class="bento-icon-box" style="background: rgba(168, 85, 247, 0.16); color: #c084fc;">🌙</div>
                     <h4 class="bento-card-title">سواد AMOLED النقي وتوفير النت</h4>
                     <p class="bento-card-desc">ثيم أسود حقيقي مريح للعينين يقلل استهلاك باقة 4G ويوفر حتى 40% من استهلاك طاقة شاشات الهواتف.</p>
+                </div>
+
+                <!-- Bento 6: Cast to Smart TV -->
+                <div class="bento-card span-2" style="background: linear-gradient(135deg, rgba(74, 222, 128, 0.06) 0%, rgba(14, 28, 20, 0.6) 100%); border-color: rgba(74, 222, 128, 0.35);">
+                    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
+                        <div style="display: flex; align-items: center; gap: 16px; flex: 1; min-width: 260px;">
+                            <div class="bento-icon-box" style="background: rgba(74, 222, 128, 0.18); color: #4ade80;">📺</div>
+                            <div>
+                                <h4 class="bento-card-title">خاصية البث على التلفزيون الذكي (Cast to Smart TV)</h4>
+                                <p class="bento-card-desc">شاهد فيديوهاتك المفضلة والموسيقى على الشاشة الكبيرة (Samsung, LG, Android TV, Chromecast) بدون إعلانات إطلاقاً وبأعلى جودة 4K عبر البث اللاسلكي أو كود الربط السريع.</p>
+                            </div>
+                        </div>
+                        <button type="button" class="btn-sub-action" onclick="openCastModal()" style="background: rgba(74, 222, 128, 0.15); border: 1px solid rgba(74, 222, 128, 0.45); color: #4ade80; padding: 10px 18px; border-radius: 12px; font-weight: 800; cursor: pointer; white-space: nowrap;">
+                            <span>📺 كيفية البث على التلفاز</span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -2739,6 +2762,11 @@
                             <td class="col-highlight">✅ مدعوم بحرية كاملة عبر ملحق MicroG</td>
                             <td>✅ مدعوم رسمياً</td>
                         </tr>
+                        <tr>
+                            <td><strong>بث الفيديوهات على التلفاز (Cast to Smart TV)</strong></td>
+                            <td class="col-highlight">✅ مدعوم بالكامل بدون إعلانات عبر البث أو كود TV</td>
+                            <td class="col-negative">❌ إعلانات إجبارية طويلة لا يمكن تخطيها على الشاشة</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -2920,6 +2948,24 @@
                         2. <strong>إذا أردت التحميل من المتصفح:</strong> استخدم متصفح <strong>Google Chrome</strong>، أو اضغط مطولاً بإصبعك على زر التحميل واختر <em>"تنزيل الرابط / Download link"</em>، أو استخدم تطبيق تحميل مثل 1DM أو ADM.
                     </div>
                 </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>📺 7. كيف أستخدم خاصية البث على التلفزيون الذكي (Cast to Smart TV)؟</span>
+                        <span class="faq-arrow">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        خاصية البث على الشاشة الكبيرة مدعومة 100% وبدون أي إعلانات عبر طريقتين بسيطتين:<br><br>
+                        <strong>1. الطريقة الرسمية المضمونة (الربط برمز التلفزيون Link with TV code):</strong><br>
+                        • افتح تطبيق YouTube على تلفازك الذكي (Samsung, LG, Android TV, Apple TV, Fire TV).<br>
+                        • ادخل إلى <strong>الإعدادات (Settings ⚙️) ➔ المشاهدة على التلفزيون ➔ الربط برمز التلفزيون</strong>، واحصل على الرمز المكون من 12 رقماً.<br>
+                        • في تطبيق <strong>Tube DZ</strong> على هاتفك: اذهب إلى <strong>الإعدادات ➔ المشاهدة على التلفزيون ➔ إدخال رمز التلفزيون</strong> واكتب الرمز.<br>
+                        • سيتم الاقتران فوراً وتظهر أيقونة البث (Cast 📺) في أعلى مشغل الفيديو لبث أي مقطع بضغطة زر واحدة وبدون إعلانات نهائياً!<br><br>
+                        <strong>2. طريقة البث اللاسلكي المباشر (Chromecast / Wi-Fi Cast):</strong><br>
+                        • تأكد من اتصال هاتفك وجهاز التلفاز بنفس شبكة الواي فاي (Wi-Fi).<br>
+                        • اضغط على أيقونة البث (Cast) الظاهرة في مشغل الفيديو واختر اسم شاشة التلفاز للبدء.
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -3072,13 +3118,58 @@
                 <a href="https://vexfile.com/download/gTyjI2qrJm" target="_blank" rel="noopener noreferrer" id="updateMusicVexfileLink" class="btn-update-direct" style="background: rgba(0, 168, 84, 0.18); border-color: rgba(0, 168, 84, 0.5); color: #86efac;">
                     <span>🎵 سيرفر بديل DZ Music Pro على VexFile</span>
                 </a>
-                <a href="https://vexfile.com/download/czYlJWeyxv" target="_blank" rel="noopener noreferrer" id="updateVexfileLink" class="btn-update-direct" style="background: rgba(99, 102, 241, 0.15); border-color: rgba(99, 102, 241, 0.45); color: #c7d2fe;">
-                    <span>⚡ تحميل Tube DZ عبر سيرفر VexFile</span>
-                </a>
                 <button type="button" class="btn-update-dismiss" onclick="dismissUpdateModal()">
                     تذكيري لاحقاً ✕
                 </button>
             </div>
+        </div>
+    </div>
+
+    <!-- Smart TV Cast Modal Dialog -->
+    <div id="castModalBackdrop" class="cast-modal-backdrop update-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="castModalTitle">
+        <div class="update-modal-card" style="max-width: 580px; text-align: right; border-color: rgba(74, 222, 128, 0.45); padding: 28px 24px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                <div class="update-badge-pill" style="margin-bottom: 0;">📺 خاصية البث على التلفزيون الذكي</div>
+                <button type="button" onclick="closeCastModal()" style="background: none; border: none; color: #fff; font-size: 22px; cursor: pointer; opacity: 0.8;" title="إغلاق">✕</button>
+            </div>
+            
+            <h3 id="castModalTitle" style="font-size: 1.35rem; font-weight: 800; color: #ffffff; margin-bottom: 8px;">
+                دليل تشغيل البث على شاشات التلفزيون (Cast to Smart TV) 🇩🇿
+            </h3>
+            <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6; margin-bottom: 20px;">
+                استمتع بمشاهدة مقاطعك المفضلة والموسيقى على الشاشة الكبيرة بجودة 4K وبدون أي فواصل إعلانية نهائياً:
+            </p>
+
+            <div style="background: rgba(74, 222, 128, 0.05); border: 1px solid rgba(74, 222, 128, 0.3); border-radius: 16px; padding: 18px; margin-bottom: 16px; text-align: right;">
+                <h4 style="color: #4ade80; font-size: 1.02rem; font-weight: 800; margin-bottom: 10px; display: flex; align-items: center; gap: 8px;">
+                    <span>🌟 الطريقة الأولى (الموصى بها 100%): الربط برمز التلفزيون</span>
+                </h4>
+                <ol style="margin: 0; padding-right: 20px; color: #e2e8f0; font-size: 0.88rem; line-height: 1.7;">
+                    <li>افتح تطبيق <strong>YouTube</strong> على شاشتك الذكية (Samsung, LG, Android TV, Fire TV, إلخ).</li>
+                    <li>ادخل إلى <strong>الإعدادات ⚙️ ➔ المشاهدة على التلفزيون ➔ الربط برمز التلفزيون</strong>، وانسخ الرمز (12 رقماً).</li>
+                    <li>في تطبيق <strong>Tube DZ</strong> على هاتفك: افتح <strong>الإعدادات ➔ المشاهدة على التلفزيون ➔ إدخال رمز التلفزيون</strong> واكتب الرمز.</li>
+                    <li>اضغط <strong>ربط</strong>؛ ستظهر أيقونة البث 📺 فوراً وسيعمل البث بدون إعلانات وبأعلى دقة!</li>
+                </ol>
+                <div style="margin-top: 12px; text-align: left;">
+                    <a href="https://www.youtube.com/pair" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 6px; font-size: 0.82rem; color: #38bdf8; text-decoration: underline; font-weight: 700;">
+                        <span>🔗 فتح صفحة إقران يوتيوب الرسمية (youtube.com/pair)</span>
+                        <span>↗</span>
+                    </a>
+                </div>
+            </div>
+
+            <div style="background: rgba(56, 189, 248, 0.05); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 16px; padding: 18px; margin-bottom: 22px; text-align: right;">
+                <h4 style="color: #38bdf8; font-size: 1.02rem; font-weight: 800; margin-bottom: 10px; display: flex; align-items: center; gap: 8px;">
+                    <span>📡 الطريقة الثانية: البث المباشر (Chromecast / Wi-Fi)</span>
+                </h4>
+                <p style="margin: 0; color: #e2e8f0; font-size: 0.88rem; line-height: 1.6;">
+                    تأكد من اتصال هاتفك وجهاز التلفاز بنفس شبكة الواي فاي (Wi-Fi). عند تشغيل الفيديو في Tube DZ، اضغط على أيقونة البث (Cast 📺) في المشغل، واختر شاشتك للبدء المباشر.
+                </p>
+            </div>
+
+            <button type="button" onclick="closeCastModal()" class="btn-download-primary btn-green" style="width: 100%; border-radius: 14px; padding: 13px;">
+                <span>✓ تم، فهمت كيفية البث</span>
+            </button>
         </div>
     </div>
 
@@ -3295,6 +3386,17 @@
                 modal.classList.remove('active');
                 sessionStorage.setItem('tubedz_dismissed_update', '1.0.0');
             }
+        }
+
+        /* Smart TV Cast Modal Handlers */
+        function openCastModal() {
+            const modal = document.getElementById('castModalBackdrop');
+            if (modal) modal.classList.add('active');
+        }
+
+        function closeCastModal() {
+            const modal = document.getElementById('castModalBackdrop');
+            if (modal) modal.classList.remove('active');
         }
 
         // Auto-check on application load

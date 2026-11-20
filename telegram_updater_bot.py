@@ -40,7 +40,7 @@ def format_tubedz_message():
     msg += f"🚀 *الإصدار الرسمي:* Tube DZ v1.0.0\n"
     msg += f"📅 *تاريخ الإطلاق:* 2026-11-19\n\n"
     msg += f"📝 *أبرز ميزات هذا الإصدار:*\n"
-    msg += f"الإصدار الرسمي الأول لتطبيق Tube DZ بدون إعلانات مع دعم التشغيل في الخلفية وجودة 4K وتوفير باقة الإنترنت.\n\n"
+    msg += f"الإصدار الرسمي لتطبيق Tube DZ بدون إعلانات مع دعم البث على التلفزيون الذكي (Cast to Smart TV)، والتشغيل في الخلفية والشاشة مقفلة وبث 4K وتوفير باقة الإنترنت.\n\n"
     msg += f"📥 *روابط التحميل المباشرة:*\n"
     msg += f"• [تحميل تطبيق Tube DZ للأندرويد (APK)](https://github.com/rr3050026-pixel/TubeDZ/releases/download/v1.0.0/TubeDZ.apk)\n"
     msg += f"• [سيرفر بديل سريع Tube DZ على VexFile](https://vexfile.com/download/czYlJWeyxv)\n"

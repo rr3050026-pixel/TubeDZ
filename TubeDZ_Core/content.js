@@ -88,10 +88,40 @@
         document.dispatchEvent(new Event('visibilitychange'));
     }
 
+    // 4. SMART TV CAST ENABLER
+    function injectCastButton() {
+        const rightControls = document.querySelector('.ytp-right-controls');
+        if (rightControls && !document.querySelector('#tubedz-cast-btn')) {
+            const castBtn = document.createElement('button');
+            castBtn.id = 'tubedz-cast-btn';
+            castBtn.className = 'ytp-button';
+            castBtn.title = 'TubeDZ Cast: البث إلى التلفزيون الذكي (Smart TV)';
+            castBtn.setAttribute('aria-label', 'البث على التلفزيون الذكي');
+            castBtn.innerHTML = `
+                <svg height="100%" version="1.1" viewBox="0 0 36 36" width="100%" style="vertical-align: middle;">
+                    <path d="M4,24 L4,26 C6.76,26 9,28.24 9,31 L11,31 C11,27.13 7.87,24 4,24 Z M4,20 L4,22 C8.97,22 13,26.03 13,31 L15,31 C15,24.92 10.08,20 4,20 Z M4,16 L4,18 C11.18,18 17,23.82 17,31 L19,31 C19,22.72 12.28,16 4,16 Z M28,8 L8,8 C6.9,8 6,8.9 6,10 L6,14 L8,14 L8,10 L28,10 L28,26 L20,26 L20,28 L28,28 C29.1,28 30,27.1 30,26 L30,10 C30,8.9 29.1,8 28,8 Z" fill="#4ade80"></path>
+                </svg>
+            `;
+            castBtn.onclick = () => {
+                const video = document.querySelector('video');
+                if (video && video.remote && typeof video.remote.prompt === 'function') {
+                    video.remote.prompt().catch(() => {
+                        window.open('https://www.youtube.com/pair', '_blank');
+                    });
+                } else {
+                    window.open('https://www.youtube.com/pair', '_blank');
+                }
+            };
+            rightControls.insertBefore(castBtn, rightControls.firstChild);
+        }
+    }
+
     window.addEventListener('DOMContentLoaded', () => {
         enableBackgroundPlay();
         injectTubeDZBadge();
+        injectCastButton();
         setInterval(injectTubeDZBadge, 2000);
+        setInterval(injectCastButton, 1500);
     });
 
 })();
