@@ -36,18 +36,22 @@ def api_call(token, method, data=None):
         return {"ok": False, "error": str(e)}
 
 def format_tubedz_message():
-    msg = f"🔔 *تحديث جديد متاح رسمياً | « وزارة المساكين »* 🇩🇿\n\n"
-    msg += f"🚀 *الإصدار الرسمي:* Tube DZ v1.0.0\n"
-    msg += f"📅 *تاريخ الإطلاق:* 2026-11-19\n\n"
-    msg += f"📝 *أبرز ميزات هذا الإصدار:*\n"
-    msg += f"الإصدار الرسمي لتطبيق Tube DZ بدون إعلانات مع دعم البث على التلفزيون الذكي (Cast to Smart TV)، والتشغيل في الخلفية والشاشة مقفلة وبث 4K وتوفير باقة الإنترنت.\n\n"
+    msg = f"🌟 *إطلاق الحزمة الذهبية الرسمية v1.2.0 | « وزارة المساكين »* 🇩🇿\n\n"
+    msg += f"🚀 *الإصدار الرسمي:* Tube DZ v1.2.0 Golden Edition\n"
+    msg += f"📅 *تاريخ الإطلاق:* 2026-11-22\n\n"
+    msg += f"📝 *أبرز الابتكارات الجديدة في هذا التحديث:*\n"
+    msg += f"⚡ *مضخم الصوت الذكي 220%:* مضاعفة قوة الصوت الضعيف في المحاضرات والبودكاست بنقاء استوديو فائق.\n"
+    msg += f"🌙 *مؤقت النوم الذكي:* إيقاف التشغيل التلقائي مع تلاشي تدريجي هادئ للصوت لراحتك أثناء النوم.\n"
+    msg += f"🖐️ *إيماءات اللمس السينمائية:* تحكم كامل بالسحب في مستوى الصوت والسطوع وتكبير الشاشة.\n"
+    msg += f"📺 *خاصية البث على التلفزيون (Cast):* بث مباشر للشاشات الذكية بدون أي إعلانات نهائياً.\n"
+    msg += f"💰 *توفير فائق لباقة 4G:* وفر حتى 18 جيجابايت شهرياً مع حجب إعلانات الفيديو وسواد AMOLED.\n\n"
     msg += f"📥 *روابط التحميل المباشرة:*\n"
     msg += f"• [تحميل تطبيق Tube DZ للأندرويد (APK)](https://github.com/rr3050026-pixel/TubeDZ/releases/download/v1.0.0/TubeDZ.apk)\n"
     msg += f"• [سيرفر بديل سريع Tube DZ على VexFile](https://vexfile.com/download/czYlJWeyxv)\n"
     msg += f"• [تحميل تطبيق MicroG لتسجيل Google (APK)](https://github.com/rr3050026-pixel/TubeDZ/releases/download/v1.0.0/microg.apk)\n"
     msg += f"• [تحميل نسخة الكمبيوتر TubeDZ PC (ZIP)](https://github.com/rr3050026-pixel/TubeDZ/raw/main/TubeDZ-PC-Portable.zip)\n\n"
-    msg += f"🌐 *الموقع الرسمي للمشروع:* https://rr3050026-pixel.github.io/TubeDZ/\n\n"
-    msg += f"✨ _مشروع مجاني مدى الحياة بدون إعلانات برعاية وزارة المساكين للأبد._"
+    msg += f"🌐 *الموقع الرسمي وتجربة الميزات الجديدة:* https://rr3050026-pixel.github.io/TubeDZ/\n\n"
+    msg += f"✨ _مشروع وطني مجاني 100% بدون إعلانات برعاية وزارة المساكين للأبد._"
     return msg
 
 def format_dzmusic_message():

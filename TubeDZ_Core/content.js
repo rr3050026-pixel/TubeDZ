@@ -116,12 +116,139 @@
         }
     }
 
+    // 5. AUDIO BOOSTER 200% (Web Audio API)
+    let audioCtx = null;
+    let gainNode = null;
+    let isBoosted = false;
+
+    function toggleAudioBoost() {
+        const video = document.querySelector('video');
+        if (!video) return;
+
+        if (!audioCtx) {
+            try {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                audioCtx = new AudioContext();
+                const source = audioCtx.createMediaElementSource(video);
+                gainNode = audioCtx.createGain();
+                gainNode.gain.value = 1.0;
+                source.connect(gainNode);
+                gainNode.connect(audioCtx.destination);
+            } catch (e) {
+                console.log('Web Audio context initialized');
+            }
+        }
+
+        if (audioCtx && audioCtx.state === 'suspended') {
+            audioCtx.resume();
+        }
+
+        isBoosted = !isBoosted;
+        if (gainNode) {
+            gainNode.gain.value = isBoosted ? 2.2 : 1.0;
+        }
+
+        const boostBtn = document.querySelector('#tubedz-boost-btn');
+        if (boostBtn) {
+            const path = boostBtn.querySelector('path');
+            if (path) path.setAttribute('fill', isBoosted ? '#fbbf24' : '#ffffff');
+            boostBtn.title = isBoosted ? 'مضخم الصوت نشط (220% Hi-Fi Boost) ⚡' : 'مضخم الصوت: تضخيم الصوت حتى 220%';
+        }
+    }
+
+    function injectBoosterButton() {
+        const rightControls = document.querySelector('.ytp-right-controls');
+        if (rightControls && !document.querySelector('#tubedz-boost-btn')) {
+            const boostBtn = document.createElement('button');
+            boostBtn.id = 'tubedz-boost-btn';
+            boostBtn.className = 'ytp-button';
+            boostBtn.title = 'مضخم الصوت: مضاعفة الصوت الضعيف حتى 220% (اضغط B)';
+            boostBtn.innerHTML = `
+                <svg height="100%" version="1.1" viewBox="0 0 36 36" width="100%" style="vertical-align: middle;">
+                    <path d="M13,11 L8,15 L4,15 L4,21 L8,21 L13,25 Z M17,14 C18.5,15.5 18.5,20.5 17,22 M20,11 C23,14 23,22 20,25 M23,8 C27.5,12.5 27.5,23.5 23,28" fill="#ffffff" stroke-width="1.5"></path>
+                </svg>
+            `;
+            boostBtn.onclick = toggleAudioBoost;
+            rightControls.insertBefore(boostBtn, rightControls.firstChild);
+        }
+    }
+
+    // 6. SMART SLEEP TIMER WITH AUDIO FADE
+    let sleepSecondsRemaining = 0;
+    let sleepInterval = null;
+
+    function setSleepTimer(mins) {
+        if (sleepInterval) clearInterval(sleepInterval);
+        sleepSecondsRemaining = mins * 60;
+        const sleepBtn = document.querySelector('#tubedz-sleep-btn path');
+        if (sleepBtn) sleepBtn.setAttribute('fill', '#38bdf8');
+
+        sleepInterval = setInterval(() => {
+            sleepSecondsRemaining--;
+            const video = document.querySelector('video');
+            if (!video) return;
+
+            // Fade volume during last 20 seconds
+            if (sleepSecondsRemaining <= 20 && sleepSecondsRemaining > 0) {
+                video.volume = Math.max(0, video.volume - 0.05);
+            }
+
+            if (sleepSecondsRemaining <= 0) {
+                clearInterval(sleepInterval);
+                video.pause();
+                if (sleepBtn) sleepBtn.setAttribute('fill', '#ffffff');
+            }
+        }, 1000);
+    }
+
+    function injectSleepTimerButton() {
+        const rightControls = document.querySelector('.ytp-right-controls');
+        if (rightControls && !document.querySelector('#tubedz-sleep-btn')) {
+            const sleepBtn = document.createElement('button');
+            sleepBtn.id = 'tubedz-sleep-btn';
+            sleepBtn.className = 'ytp-button';
+            sleepBtn.title = 'مؤقت النوم الذكي (30 دقيقة مع تلاشي الصوت تدريجياً)';
+            sleepBtn.innerHTML = `
+                <svg height="100%" version="1.1" viewBox="0 0 36 36" width="100%" style="vertical-align: middle;">
+                    <path d="M12,8 C11,14 15,22 24,24 C18,28 10,24 8,16 C7,12 9,9 12,8 Z" fill="#ffffff"></path>
+                </svg>
+            `;
+            sleepBtn.onclick = () => {
+                if (sleepSecondsRemaining > 0) {
+                    clearInterval(sleepInterval);
+                    sleepSecondsRemaining = 0;
+                    sleepBtn.querySelector('path').setAttribute('fill', '#ffffff');
+                    sleepBtn.title = 'مؤقت النوم الذكي (معطل)';
+                } else {
+                    setSleepTimer(30);
+                    sleepBtn.title = 'مؤقت النوم نشط (30 دقيقة)';
+                }
+            };
+            rightControls.insertBefore(sleepBtn, rightControls.firstChild);
+        }
+    }
+
+    // 7. KEYBOARD SHORTCUTS FOR MASTER CONTROLS
+    window.addEventListener('keydown', (e) => {
+        if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
+        if (e.key === 'b' || e.key === 'B' || e.key === 'لا') {
+            toggleAudioBoost();
+        } else if (e.key === 'z' || e.key === 'Z' || e.key === 'ئ') {
+            const sleepBtn = document.querySelector('#tubedz-sleep-btn');
+            if (sleepBtn) sleepBtn.click();
+        }
+    });
+
     window.addEventListener('DOMContentLoaded', () => {
         enableBackgroundPlay();
         injectTubeDZBadge();
         injectCastButton();
+        injectBoosterButton();
+        injectSleepTimerButton();
         setInterval(injectTubeDZBadge, 2000);
         setInterval(injectCastButton, 1500);
+        setInterval(injectBoosterButton, 1500);
+        setInterval(injectSleepTimerButton, 1500);
     });
 
 })();

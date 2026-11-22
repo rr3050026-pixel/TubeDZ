@@ -993,6 +993,143 @@
             line-height: 1.7;
         }
 
+        /* ========================================================
+           TUBE DZ GOLDEN LAB & INNOVATIONS
+           ======================================================== */
+        .innovations-section {
+            width: 100%;
+            margin-bottom: 75px;
+        }
+
+        .lab-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            width: 100%;
+            text-align: right;
+        }
+
+        .lab-card {
+            background: linear-gradient(145deg, rgba(16, 25, 20, 0.85), rgba(8, 14, 11, 0.95));
+            border: 1px solid rgba(74, 222, 128, 0.22);
+            border-radius: 24px;
+            padding: 28px 24px;
+            backdrop-filter: blur(16px);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .lab-card:hover {
+            border-color: rgba(74, 222, 128, 0.5);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(0, 200, 83, 0.2);
+            transform: translateY(-4px);
+        }
+
+        .lab-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .lab-tag {
+            font-size: 0.78rem;
+            font-weight: 800;
+            padding: 4px 12px;
+            border-radius: 20px;
+            background: rgba(245, 158, 11, 0.15);
+            border: 1px solid rgba(245, 158, 11, 0.35);
+            color: #fbbf24;
+        }
+
+        .lab-tag.green {
+            background: rgba(74, 222, 128, 0.15);
+            border-color: rgba(74, 222, 128, 0.35);
+            color: #4ade80;
+        }
+
+        .lab-tag.blue {
+            background: rgba(56, 189, 248, 0.15);
+            border-color: rgba(56, 189, 248, 0.35);
+            color: #38bdf8;
+        }
+
+        .lab-tag.purple {
+            background: rgba(168, 85, 247, 0.15);
+            border-color: rgba(168, 85, 247, 0.35);
+            color: #c084fc;
+        }
+
+        .calc-box {
+            background: rgba(0, 0, 0, 0.45);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 18px;
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .calc-slider-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .calc-slider {
+            width: 100%;
+            accent-color: #00c853;
+            cursor: pointer;
+            height: 6px;
+            border-radius: 4px;
+        }
+
+        .calc-results-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            text-align: center;
+        }
+
+        .calc-res-item {
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 12px;
+            padding: 10px 6px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .calc-res-num {
+            font-size: 1.25rem;
+            font-weight: 900;
+            color: #4ade80;
+        }
+
+        .calc-res-label {
+            font-size: 0.74rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        /* Equalizer visualizer */
+        .eq-bars {
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 6px;
+            height: 48px;
+            padding: 6px;
+        }
+
+        .eq-bar {
+            width: 8px;
+            background: #4ade80;
+            border-radius: 4px;
+            transition: all 0.25s ease;
+        }
+
         /* Download Tip Box */
         .download-tip-box {
             width: 100%;
@@ -2191,6 +2328,7 @@
         @media (max-width: 990px) {
             .stats-bar { grid-template-columns: repeat(2, 1fr); gap: 14px; }
             .bento-grid { grid-template-columns: 1fr; gap: 16px; }
+            .lab-grid { grid-template-columns: 1fr; gap: 18px; }
             .bento-card.span-2 { grid-column: span 1; }
             .testimonials-grid { grid-template-columns: 1fr; gap: 16px; }
             .apps-grid { grid-template-columns: 1fr; gap: 24px; }
@@ -2240,6 +2378,7 @@
             <nav class="nav-links">
                 <a href="#apps" class="nav-link">📱 التطبيقات</a>
                 <a href="#features" class="nav-link">✨ المميزات</a>
+                <a href="#innovations" class="nav-link" style="color: #fbbf24; font-weight: 800;">⚡ الابتكارات</a>
                 <a href="javascript:void(0)" onclick="openCastModal()" class="nav-link" style="color: #4ade80; display: inline-flex; align-items: center; gap: 4px;">📺 خاصية Cast</a>
                 <a href="#compare" class="nav-link">⚖️ المقارنة</a>
                 <a href="#guide" class="nav-link">📋 دليل التثبيت</a>
@@ -2276,6 +2415,7 @@
             </a>
             <a href="#apps" onclick="closeMobileMenu()"><span>📱 التطبيقات المتاحة للتحميل</span> <span>←</span></a>
             <a href="#features" onclick="closeMobileMenu()"><span>✨ مميزات المنظومة المتكاملة</span> <span>←</span></a>
+            <a href="#innovations" onclick="closeMobileMenu()" style="color: #fbbf24;"><span>⚡ مختبر الابتكارات الحصرية</span> <span>←</span></a>
             <a href="javascript:void(0)" onclick="closeMobileMenu(); openCastModal();" style="color: #4ade80;"><span>📺 خاصية البث على التلفزيون الذكي (Cast)</span> <span>↗</span></a>
             <a href="#compare" onclick="closeMobileMenu()"><span>⚖️ جدول المقارنة مع يوتيوب العادي</span> <span>←</span></a>
             <a href="#guide" onclick="closeMobileMenu()"><span>📋 دليل التثبيت السريع</span> <span>←</span></a>
@@ -2538,18 +2678,199 @@
                 </div>
 
                 <!-- Bento 6: Cast to Smart TV -->
-                <div class="bento-card span-2" style="background: linear-gradient(135deg, rgba(74, 222, 128, 0.06) 0%, rgba(14, 28, 20, 0.6) 100%); border-color: rgba(74, 222, 128, 0.35);">
+                <div class="bento-card" style="background: linear-gradient(135deg, rgba(74, 222, 128, 0.06) 0%, rgba(14, 28, 20, 0.6) 100%); border-color: rgba(74, 222, 128, 0.35);">
+                    <div class="bento-icon-box" style="background: rgba(74, 222, 128, 0.18); color: #4ade80;">📺</div>
+                    <h4 class="bento-card-title">البث على التلفزيون (Cast)</h4>
+                    <p class="bento-card-desc">بث فوري لأي فيديو أو موسيقى على الشاشة الكبيرة (Samsung, LG, Android TV) بدون إعلانات نهائياً عبر كود التلفاز أو Chromecast.</p>
+                    <button type="button" class="btn-sub-action" onclick="openCastModal()" style="margin-top: auto; background: rgba(74, 222, 128, 0.15); border-color: rgba(74, 222, 128, 0.4); color: #4ade80; padding: 8px 12px; font-size: 0.82rem; font-weight: 800;">
+                        <span>📺 دليل البث السريع</span>
+                    </button>
+                </div>
+
+                <!-- Bento 7: Audio Booster 220% -->
+                <div class="bento-card">
+                    <div class="bento-icon-box" style="background: rgba(245, 158, 11, 0.16); color: #fbbf24;">⚡</div>
+                    <h4 class="bento-card-title">مضخم الصوت الذكي 220%</h4>
+                    <p class="bento-card-desc">مضاعفة الصوت الضعيف في المحاضرات، البودكاست والمقاطع القديمة بنقاء Hi-Fi استثنائي حتى في وسائل النقل والأماكن المزدحمة.</p>
+                </div>
+
+                <!-- Bento 8: Smart Sleep Timer -->
+                <div class="bento-card">
+                    <div class="bento-icon-box" style="background: rgba(56, 189, 248, 0.16); color: #38bdf8;">🌙</div>
+                    <h4 class="bento-card-title">مؤقت النوم مع التلاشي الناعم</h4>
+                    <p class="bento-card-desc">استمع للقرآن أو القصص قبل النوم، مع ميزة التلاشي الهادئ حيث ينخفض الصوت تدريجياً لآخر 30 ثانية لتنام بسلام ودون إيقاظك.</p>
+                </div>
+
+                <!-- Bento 9: Gesture Controls -->
+                <div class="bento-card span-2" style="background: linear-gradient(135deg, rgba(168, 85, 247, 0.06) 0%, rgba(20, 14, 28, 0.6) 100%); border-color: rgba(168, 85, 247, 0.35);">
                     <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
                         <div style="display: flex; align-items: center; gap: 16px; flex: 1; min-width: 260px;">
-                            <div class="bento-icon-box" style="background: rgba(74, 222, 128, 0.18); color: #4ade80;">📺</div>
+                            <div class="bento-icon-box" style="background: rgba(168, 85, 247, 0.18); color: #c084fc;">🖐️</div>
                             <div>
-                                <h4 class="bento-card-title">خاصية البث على التلفزيون الذكي (Cast to Smart TV)</h4>
-                                <p class="bento-card-desc">شاهد فيديوهاتك المفضلة والموسيقى على الشاشة الكبيرة (Samsung, LG, Android TV, Chromecast) بدون إعلانات إطلاقاً وبأعلى جودة 4K عبر البث اللاسلكي أو كود الربط السريع.</p>
+                                <h4 class="bento-card-title">إيماءات اللمس السريعة (Cinema Gestures)</h4>
+                                <p class="bento-card-desc">تحكم كامل بالسحب بالأصبع: السطوع على اليسار، الصوت على اليمين، والقرص (Pinch to Zoom) لملء شاشة الهاتف بالكامل دون أي حواف سوداء.</p>
                             </div>
                         </div>
-                        <button type="button" class="btn-sub-action" onclick="openCastModal()" style="background: rgba(74, 222, 128, 0.15); border: 1px solid rgba(74, 222, 128, 0.45); color: #4ade80; padding: 10px 18px; border-radius: 12px; font-weight: 800; cursor: pointer; white-space: nowrap;">
-                            <span>📺 كيفية البث على التلفاز</span>
-                        </button>
+                        <a href="#innovations" class="btn-sub-action" style="background: rgba(168, 85, 247, 0.15); border-color: rgba(168, 85, 247, 0.45); color: #c084fc; padding: 10px 18px; border-radius: 12px; font-weight: 800; text-decoration: none; white-space: nowrap;">
+                            <span>⚡ استكشف المختبر</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================
+             EXCLUSIVE INNOVATIONS LAB
+             ======================================================== -->
+        <section id="innovations" class="innovations-section">
+            <div class="section-header">
+                <span class="section-badge" style="background: rgba(245, 158, 11, 0.15); border-color: rgba(245, 158, 11, 0.35); color: #fbbf24;">⚡ ابتكارات حصرية 2026</span>
+                <h3 class="section-title">مختبر مزايا TubeDZ الذهبية 🇩🇿</h3>
+                <p class="section-subtitle">إضافات عملية واستثنائية تم تطويرها خصيصاً لتوفير أموالك وتمنحك تجربة مشاهدة واسترخاء خيالية:</p>
+            </div>
+
+            <div class="lab-grid">
+                <!-- Lab Card 1: 4G Data & Money Saver Calculator -->
+                <div class="lab-card">
+                    <div class="lab-card-header">
+                        <span class="lab-tag green">💰 حاسبة توفير باقة 4G</span>
+                        <span style="font-size: 1.4rem;">📊</span>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 1.2rem; font-weight: 800; color: #fff; margin-bottom: 6px;">كم توفر لك TubeDZ شهرياً في الجزائر؟</h4>
+                        <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">بفضل حجب الإعلانات الإجبارية 4K وضغط تدفق البيانات الصوتي، احسب حجم باقتك وأموالك المحفوظة:</p>
+                    </div>
+
+                    <div class="calc-box">
+                        <div class="calc-slider-wrapper">
+                            <div style="display: flex; justify-content: space-between; font-size: 0.86rem; font-weight: 700;">
+                                <span style="color: var(--text-secondary);">ساعات المشاهدة يومياً:</span>
+                                <span id="calcHoursLabel" style="color: #4ade80; font-weight: 800;">3 ساعات / يوم</span>
+                            </div>
+                            <input type="range" id="calcHoursSlider" class="calc-slider" min="1" max="10" value="3" oninput="updateDataCalculator(this.value)">
+                        </div>
+
+                        <div class="calc-results-grid">
+                            <div class="calc-res-item">
+                                <div id="calcDataSaved" class="calc-res-num">16.2 GB</div>
+                                <div class="calc-res-label">بيانات 4G موفرة شهرياً</div>
+                            </div>
+                            <div class="calc-res-item">
+                                <div id="calcMoneySaved" class="calc-res-num">1,800 د.ج</div>
+                                <div class="calc-res-label">توفير مالي تقديري</div>
+                            </div>
+                            <div class="calc-res-item">
+                                <div id="calcAdsBlocked" class="calc-res-num">360 إعلان</div>
+                                <div class="calc-res-label">إعلان محجوب شهرياً</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="font-size: 0.78rem; color: #94a3b8; text-align: center;">
+                        ⚡ محسوبة وفق متوسط استهلاك باقات 4G في شبكات الجزائر (Mobilis / Djezzy / Ooredoo)
+                    </div>
+                </div>
+
+                <!-- Lab Card 2: Interactive Audio Booster 220% -->
+                <div class="lab-card">
+                    <div class="lab-card-header">
+                        <span class="lab-tag" style="background: rgba(245, 158, 11, 0.15); border-color: rgba(245, 158, 11, 0.35); color: #fbbf24;">⚡ مضخم الصوت 220%</span>
+                        <span style="font-size: 1.4rem;">🔊</span>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 1.2rem; font-weight: 800; color: #fff; margin-bottom: 6px;">مضاعفة الصوت الضعيف بنقاء Hi-Fi</h4>
+                        <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">هل الصوت منخفض في المحاضرة أو البودكاست؟ تقنية TubeDZ تضاعف قوة السماعات بأمان بنسبة 220%:</p>
+                    </div>
+
+                    <div class="calc-box" style="text-align: center;">
+                        <div class="eq-bars" id="eqVisualizer">
+                            <div class="eq-bar" style="height: 18px;"></div>
+                            <div class="eq-bar" style="height: 28px;"></div>
+                            <div class="eq-bar" style="height: 14px;"></div>
+                            <div class="eq-bar" style="height: 38px;"></div>
+                            <div class="eq-bar" style="height: 24px;"></div>
+                            <div class="eq-bar" style="height: 44px;"></div>
+                            <div class="eq-bar" style="height: 32px;"></div>
+                            <div class="eq-bar" style="height: 20px;"></div>
+                            <div class="eq-bar" style="height: 40px;"></div>
+                            <div class="eq-bar" style="height: 26px;"></div>
+                        </div>
+
+                        <div style="display: flex; gap: 10px; justify-content: center; margin-top: 10px;">
+                            <button type="button" id="btnNormalAudio" onclick="setDemoBooster(1)" class="btn-sub-action" style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); color: #fff;">
+                                🔈 صوت عادي 100%
+                            </button>
+                            <button type="button" id="btnBoostAudio" onclick="setDemoBooster(2.2)" class="btn-sub-action" style="background: rgba(245, 158, 11, 0.2); border-color: rgba(245, 158, 11, 0.5); color: #fbbf24; font-weight: 800;">
+                                ⚡ تضخيم فائق 220%
+                            </button>
+                        </div>
+                    </div>
+                    <div style="font-size: 0.78rem; color: #94a3b8; text-align: center;">
+                        🎧 مفعل تلقائياً في نسخة الكمبيوتر بالضغط على الزر (B) أو المشغل في الأندرويد.
+                    </div>
+                </div>
+
+                <!-- Lab Card 3: Smart Sleep Timer with Gradual Audio Fade -->
+                <div class="lab-card">
+                    <div class="lab-card-header">
+                        <span class="lab-tag blue">🌙 مؤقت النوم الذكي</span>
+                        <span style="font-size: 1.4rem;">⏱️</span>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 1.2rem; font-weight: 800; color: #fff; margin-bottom: 6px;">مؤقت النوم الهادئ (Sleep & Relax)</h4>
+                        <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">استمع لتلاوة القرآن، القصص أو المحاضرات قبل النوم مع ميزة التلاشي الصوتي التلقائي:</p>
+                    </div>
+
+                    <div class="calc-box">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-size: 0.88rem; font-weight: 700; color: var(--text-secondary);">اختر مدة الاستماع:</span>
+                            <span id="sleepTimerDisplay" style="font-family: monospace; font-size: 1.15rem; font-weight: 800; color: #38bdf8;">30:00 دقيقة</span>
+                        </div>
+                        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                            <button type="button" onclick="setDemoTimer(15)" class="btn-sub-action" style="padding: 8px 12px; font-size: 0.82rem;">15 دقيقة</button>
+                            <button type="button" onclick="setDemoTimer(30)" class="btn-sub-action" style="padding: 8px 12px; font-size: 0.82rem; background: rgba(56, 189, 248, 0.18); border-color: rgba(56, 189, 248, 0.4); color: #38bdf8;">30 دقيقة</button>
+                            <button type="button" onclick="setDemoTimer(45)" class="btn-sub-action" style="padding: 8px 12px; font-size: 0.82rem;">45 دقيقة</button>
+                            <button type="button" onclick="setDemoTimer(60)" class="btn-sub-action" style="padding: 8px 12px; font-size: 0.82rem;">ساعة كاملة</button>
+                        </div>
+                        <div id="sleepFadeNotice" style="font-size: 0.8rem; color: #38bdf8; background: rgba(56, 189, 248, 0.08); padding: 8px 12px; border-radius: 8px; border: 1px dashed rgba(56, 189, 248, 0.3);">
+                            ✨ التلاشي الناعم مفعل: سينخفض الصوت تدريجياً لآخر 30 ثانية لتنام بسلام دون أن تصحو فجأة.
+                        </div>
+                    </div>
+                    <div style="font-size: 0.78rem; color: #94a3b8; text-align: center;">
+                        🌙 ميزة تحافظ على بطارية هاتفك وتمنع عمل الشاشة طوال الليل دون فائدة.
+                    </div>
+                </div>
+
+                <!-- Lab Card 4: Gesture Controls Matrix -->
+                <div class="lab-card">
+                    <div class="lab-card-header">
+                        <span class="lab-tag purple">🖐️ إيماءات اللمس السريعة</span>
+                        <span style="font-size: 1.4rem;">📱</span>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 1.2rem; font-weight: 800; color: #fff; margin-bottom: 6px;">التحكم باللمس والسحب الفوري</h4>
+                        <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">دون الحاجة للبحث عن الأزرار؛ تحكم بكل شيء عبر إيماءات شاشة هاتفك مثل مشغلات السينما العالمية:</p>
+                    </div>
+
+                    <div class="calc-box" style="gap: 12px;">
+                        <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: rgba(255,255,255,0.03); border-radius: 10px;">
+                            <span style="font-size: 0.86rem; color: #e2e8f0;">☀️ سحب عمودي على يسار الشاشة:</span>
+                            <span style="font-weight: 800; color: #fbbf24; font-size: 0.82rem;">تعديل سطوع الشاشة فوراً</span>
+                        </div>
+                        <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: rgba(255,255,255,0.03); border-radius: 10px;">
+                            <span style="font-size: 0.86rem; color: #e2e8f0;">🔊 سحب عمودي على يمين الشاشة:</span>
+                            <span style="font-weight: 800; color: #4ade80; font-size: 0.82rem;">رفع وخفض مستوى الصوت</span>
+                        </div>
+                        <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: rgba(255,255,255,0.03); border-radius: 10px;">
+                            <span style="font-size: 0.86rem; color: #e2e8f0;">🔍 قرص الشاشة (Pinch to Zoom):</span>
+                            <span style="font-weight: 800; color: #38bdf8; font-size: 0.82rem;">ملء الشاشة وإزالة الحواف السوداء</span>
+                        </div>
+                        <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: rgba(255,255,255,0.03); border-radius: 10px;">
+                            <span style="font-size: 0.86rem; color: #e2e8f0;">⚡ الضغط المطول بالإصبع:</span>
+                            <span style="font-weight: 800; color: #c084fc; font-size: 0.82rem;">تسريع الفيديو الفوري 2.0x</span>
+                        </div>
+                    </div>
+                    <div style="font-size: 0.78rem; color: #94a3b8; text-align: center;">
+                        ✓ مفعلة افتراضياً في تطبيق Tube DZ للأندرويد وتعمل بسلاسة فائقة.
                     </div>
                 </div>
             </div>
@@ -3423,6 +3744,88 @@
         function closeCastModal() {
             const modal = document.getElementById('castModalBackdrop');
             if (modal) modal.classList.remove('active');
+        }
+
+        /* TubeDZ Innovations Lab Widget Handlers */
+        function updateDataCalculator(hours) {
+            const h = parseFloat(hours);
+            document.getElementById('calcHoursLabel').textContent = `${h} ${h === 1 ? 'ساعة' : (h === 2 ? 'ساعتان' : 'ساعات')} / يوم`;
+            
+            // Average video ad data: ~180MB per hour saved + audio background stream compression
+            const dataSavedGB = (h * 0.18 * 30).toFixed(1);
+            // Average cost per GB in Algeria: ~110 DZD
+            const moneySavedDZD = Math.round(dataSavedGB * 110);
+            // Average ads blocked: 4 ads per hour * 30 days
+            const adsBlocked = Math.round(h * 4 * 30);
+
+            document.getElementById('calcDataSaved').textContent = `${dataSavedGB} GB`;
+            document.getElementById('calcMoneySaved').textContent = `${moneySavedDZD.toLocaleString()} د.ج`;
+            document.getElementById('calcAdsBlocked').textContent = `${adsBlocked} إعلان`;
+        }
+
+        let demoEqInterval = null;
+        function setDemoBooster(multiplier) {
+            const btnNormal = document.getElementById('btnNormalAudio');
+            const btnBoost = document.getElementById('btnBoostAudio');
+            const bars = document.querySelectorAll('#eqVisualizer .eq-bar');
+
+            if (multiplier > 1.5) {
+                btnBoost.style.background = 'rgba(245, 158, 11, 0.35)';
+                btnBoost.style.borderColor = '#fbbf24';
+                btnNormal.style.background = 'rgba(255,255,255,0.06)';
+                showToast("تم تفعيل مضخم الصوت 220% Hi-Fi ⚡");
+                
+                bars.forEach(bar => {
+                    bar.style.background = '#fbbf24';
+                    bar.style.boxShadow = '0 0 12px rgba(245, 158, 11, 0.6)';
+                });
+
+                if (demoEqInterval) clearInterval(demoEqInterval);
+                demoEqInterval = setInterval(() => {
+                    bars.forEach(bar => {
+                        const h = Math.floor(Math.random() * 32) + 16;
+                        bar.style.height = `${h}px`;
+                    });
+                }, 120);
+            } else {
+                btnNormal.style.background = 'rgba(255,255,255,0.18)';
+                btnBoost.style.background = 'rgba(245, 158, 11, 0.15)';
+                btnBoost.style.borderColor = 'rgba(245, 158, 11, 0.4)';
+                showToast("العودة للصوت العادي 100% 🔈");
+
+                bars.forEach(bar => {
+                    bar.style.background = '#4ade80';
+                    bar.style.boxShadow = 'none';
+                });
+
+                if (demoEqInterval) clearInterval(demoEqInterval);
+                demoEqInterval = setInterval(() => {
+                    bars.forEach(bar => {
+                        const h = Math.floor(Math.random() * 18) + 8;
+                        bar.style.height = `${h}px`;
+                    });
+                }, 200);
+            }
+        }
+
+        // Sleep Timer Simulator
+        let demoTimerInterval = null;
+        function setDemoTimer(minutes) {
+            if (demoTimerInterval) clearInterval(demoTimerInterval);
+            let seconds = minutes * 60;
+            const display = document.getElementById('sleepTimerDisplay');
+            showToast(`تم ضبط مؤقت النوم: ${minutes} دقيقة 🌙`);
+
+            demoTimerInterval = setInterval(() => {
+                seconds--;
+                const m = Math.floor(seconds / 60);
+                const s = seconds % 60;
+                display.textContent = `${m}:${s < 10 ? '0' : ''}${s} دقيقة`;
+                if (seconds <= 0) {
+                    clearInterval(demoTimerInterval);
+                    display.textContent = 'تم الإيقاف الهادئ 🌙';
+                }
+            }, 1000);
         }
 
         // Auto-check on application load
