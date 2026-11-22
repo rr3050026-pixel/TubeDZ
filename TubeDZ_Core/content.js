@@ -73,6 +73,12 @@
             `;
             logoContainer.parentNode.insertBefore(badge, logoContainer.nextSibling);
         }
+
+        // Country code / Premium badge branding in desktop header
+        const countryCode = document.querySelector('ytd-topbar-logo-renderer #country-code');
+        if (countryCode && countryCode.textContent.trim() !== 'DZ') {
+            countryCode.textContent = 'DZ';
+        }
     }
 
     // 3. BACKGROUND PLAY ENABLER (Prevent pause on blur)
